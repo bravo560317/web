@@ -1,0 +1,1683 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>戰天堂★官方網站(仿正版)</title>
+  <style>
+    body {
+      background-image: url('http://q1414.ddns.net:8080/aaa/006.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: "微軟正黑體", sans-serif;
+      padding: 40px;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 30px;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .tab-btn {
+      background-color: #ccc;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background-color: #666;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: left;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+.section-title {
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* 動畫定義 */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    .bullet {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+<!-- 左邊漂浮廣告 1 -->
+<a href="http://q1414.ddns.net:8080/server.html" target="_blank" style="
+  position: fixed;
+  left: 10px;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/557.png" alt="左邊客服" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+<!-- 左邊漂浮廣告 2 -->
+<a href="http://q1414.ddns.net:8080/all_servers.html" target="_blank" style="
+  position: fixed;
+  left: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/2.jpg" alt="伺服器排行" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+
+<!-- 左邊漂浮廣告 3 -->
+<a href="http://q1414.ddns.net:8080/server.html" target="_blank" style="
+  position: fixed;
+  left: 10px;
+  top: 90%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/6.jpg" alt="戰天堂官網(仿正)" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+<!-- 右邊漂浮廣告 -->
+<a href="http://q1414.ddns.net:8080/money4.html" target="_blank" style="
+  position: fixed;
+  right: 10px;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/555.png" alt="右邊贊助" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+
+<!-- 右邊漂浮廣告 2 -->
+<a href="http://q1414.ddns.net:8080/server01.html" target="_blank" style="
+  position: fixed;
+  right: 10px;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/4.jpg" alt="新戰天堂官網" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+<!-- 右邊漂浮廣告 3 -->
+<a href="http://tn1109.sellers.com.tw/index.php" target="_blank" style="
+  position: fixed;
+  right: 10px;
+  top: 90%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/7.jpg" alt="舊戰天堂官網" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+</a>
+
+  <div class="tabs">
+    <div class="tab-btn active" onclick="showTab('tab6', this)">首頁</div>
+    <div class="tab-btn" onclick="showTab('tab0', this)">開服活動</div>
+    <div class="tab-btn" onclick="showTab('tab1', this)">遊戲介紹</div>
+    <div class="tab-btn" onclick="showTab('tab2', this)">特殊功能</div>
+    <div class="tab-btn" onclick="showTab('tab3', this)">地圖介紹</div>
+    <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
+    <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
+  </div>
+
+<div id="tab0" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+<div class="section-title">★ 活動一、衝等活動 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>達到指定等級並達成名額條件的玩家，即可獲得獎勵。</p>
+  <p><strong>各職業職業</strong></p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>Lv.40</td><td>金元寶x500（限前20名）</td></tr>
+    <tr><td>Lv.50</td><td>金元寶x1000（限前10名）</td></tr>
+    <tr><td>Lv.55</td><td>金元寶x3000（限前5名）</td></tr>
+  </table>
+  <p><strong>全職業共通</strong></p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>Lv.60</td><td>金元寶x5000（限前3名）</td></tr>
+  </table>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 獎勵為系統即時發送，達成當下會顯示系統公告。<br>
+  ▲ 活動持續 7 天（168 小時），逾期未達條件視為放棄資格。</p>
+<hr>
+</div>
+
+<div class="section-title">★ 活動二、武器強化 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>依武器加成進行排名。</p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>第1名 (至少+9)</td><td>金元寶x3000</td></tr>
+    <tr><td>第2~3名 (至少+8)</td><td>金元寶x1000</td></tr>
+    <tr><td>第4~5名 (至少+7)</td><td>金元寶x800</td></tr>
+    <tr><td>第5~10名 (至少+7)</td><td>金元寶x500</td></tr>
+  </table>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 活動請等活動結束統一發送。<br>
+  ▲ 僅限活動期間內完成指定條件方可獲得。<br>
+  ▲ 武器加成相同時，同時並列排名（獎勵平分）。<br>
+  ▲ 未達到『至少』要求，將無法獲得獎勵。<br>
+  ▲ 網站與後台可能有些許時差，若排行太接近獎勵由 GM 判定。<br>
+  ▲ 由【即時獎勵專員】發送，逾期未領視同放棄。</p>
+<hr>
+</div>
+
+<div class="section-title">★ 活動三、主線任務 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>完成護符層數目標可獲得對應金元寶獎勵：</p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>50/600</td><td>金元寶x100（限30名）</td></tr>
+    <tr><td>100/600</td><td>金元寶x200（限20名）</td></tr>
+    <tr><td>150/600</td><td>金元寶x500（限10名）</td></tr>
+    <tr><td>200/600</td><td>金元寶x1000（限5名）</td></tr>
+  </table>
+  <p><em>例：若您達到200層，即可獲得 100+200+500+1000 = 金元寶x1800。</em></p>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 活動請等活動結束統一發送。<br>
+  ▲ 活動期間若未完成條件，視同放棄。<br>
+  ▲ 網站與後台可能有些許時差，若排行太接近獎勵由 GM 判定。<br>
+  ▲ 由【即時獎勵專員】發送，逾期未領視同放棄。</p>
+<hr>
+</div>
+<div class="section-title">★ 活動四、活動排行 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>依活動積分量最高進行排名。</p>
+  <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>第1名(至少6000)</td><td>金元寶x3000</td></tr>
+    <tr><td>第2~3名(至少4000)</td><td>金元寶x1000</td></tr>
+    <tr><td>第4~5名(至少3000)</td><td>金元寶x800</td></tr>
+    <tr><td>第5~10名(至少2000)</td><td>金元寶x500</td></tr>
+  </table>
+  <p><em>例：若您達到200層，即可獲得 100+200+500+1000 = 金元寶x1800。</em></p>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 活動請等活動結束統一發送。<br>
+  ▲ 活動期間若未完成條件，視同放棄。<br>
+  ▲ 未達到『至少』要求，將無法獲得獎勵。<br>
+  ▲ 網站與後台可能有時差，若太接近由GM判定。<br>
+  ▲ 由【即時獎勵專員】發送，逾期未領視同放棄。</p>
+<hr>
+</div>
+
+<div class="section-title">★ 活動五、寵物等級 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>依寵物經驗值最高進行排名。</p>
+  <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>第1名(至少lv.50)</td><td>對盔甲施法卷軸(祝福)x5</td></tr>
+    <tr><td>第2~3名(至少lv.48)</td><td>對盔甲施法卷軸(祝福)x3</td></tr>
+    <tr><td>第4~5名(至少lv.45)</td><td>對盔甲施法卷軸(祝福)x1</td></tr>
+    <tr><td>第5~10名(至少lv.40)</td><td>對盔甲施法卷軸x3</td></tr>
+  </table>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 活動請等活動結束統一發送。<br>
+  ▲ 活動期間若未完成條件，視同放棄。<br>
+  ▲ 未達到『至少』要求，將無法獲得獎勵。<br>
+  ▲ 網站與後台可能有時差，若太接近由GM判定。<br>
+  ▲ 由【即時獎勵專員】發送，逾期未領視同放棄。</p>
+<hr>
+</div>
+<div class="section-title">★ 活動六、殺王次數 ★</div>
+<div class="bullet">
+  <p><u><strong>■ 活動時間：</strong></u><br>開服起 ～ 開服後第七天 18:00 截止。</p>
+  <p><u><strong>■ 活動內容：</strong></u><br>依玩家殺王分數進行排名。</p>
+  <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>第1名(至少50隻)</td><td>對武器施法卷軸(祝福)x5</td></tr>
+    <tr><td>第2~3名(至少20隻)</td><td>對武器施法卷軸(祝福)x3</td></tr>
+    <tr><td>第4~5名(至少10隻)</td><td>對武器施法卷軸(祝福)x1</td></tr>
+    <tr><td>第5~10名(至少5隻)</td><td>對武器施法卷軸x3</td></tr>
+  </table>
+  <p><u><strong>■ 注意事項：</strong></u><br>
+  ▲ 活動請等活動結束統一發送。<br>
+  ▲ 活動期間若未完成條件，視同放棄。<br>
+  ▲ 未達到『至少』要求，將無法獲得獎勵。<br>
+  ▲ 網站與後台可能有時差，若太接近由GM判定。<br>
+  ▲ 由【即時獎勵專員】發送，逾期未領視同放棄。</p>
+<hr>
+</div>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+</div>
+
+
+<div id="tab1" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+  <div class="section-title">伺服器設定</div>
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:50%;">倍率相關</th>
+          <th>職業血量 / 魔力上限</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>經驗倍率：50倍</td>
+          <td>王族 - HP:2800 / MP:800</td>
+        </tr>
+        <tr>
+          <td>掉寶倍率：1倍</td>
+          <td>騎士 - HP:3200 / MP:600</td>
+        </tr>
+        <tr>
+          <td>金幣倍率：1倍</td>
+          <td>妖精 - HP:2400 / MP:1200</td>
+        </tr>
+        <tr>
+          <td>武器衝過率：10%</td>
+          <td>法師 - HP:1600 / MP:1800</td>
+        </tr>
+        <tr>
+          <td>防具衝過率：10%</td>
+          <td>黑妖 - HP:2200 / MP:800</td>
+        </tr>
+        <tr>
+          <td>能力值上限：25</td>
+          <td>龍騎 - HP:2500 / MP:400</td>
+        </tr>
+        <tr>
+          <td>萬能藥上限：10(能力35後將無效果)</td>
+          <td>幻術 - HP:1300 / MP:1000</td>
+        </tr>
+        <tr>
+          <td>寵物經驗倍率：1倍</td>
+          <td rowspan="2" align="center">（其他設定）</td>
+        </tr>
+        <tr>
+          <td>寵物等級上限：60級</td>
+        </tr>
+        <tr>
+          <td>同 IP 多開：4個帳號</td>
+          <td>伺服器重開時間：18:00</td>
+        </tr>
+        <tr>
+          <td>當前開放等級：【65級】</td>
+          <td>轉身需求等級：99級(未開放)</td>
+        </tr>
+      </tbody>
+    </table>
+  <hr> 
+
+    <div class="section-title">職業介紹</div>
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:15%;">職業</th>
+          <th style="width:40%;">能力</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>王族</td>
+          <td>
+            傷害係數 x2.0<br>
+            ▲全職業傷害係數最高<br>
+            HP 2800 / MP 800
+          </td>
+          <td>
+            王族是極度燒錢的職業，<br>
+            血盟技能升級多數依賴王族。<br>
+            無雄厚資金請慎選。
+          </td>
+        </tr>
+        <tr>
+          <td>法師</td>
+          <td>
+            傷害係數 x1.0<br>
+            魅力值需求:44<br>
+            黑豹 HP4000 / MP500/傷害：50∼100<br>
+            HP 1600 / MP 1800
+          </td>
+          <td>
+            法術多元但需時間蒐集法書，<br>
+            高寵流首選職業。
+          </td>
+        </tr>
+        <tr>
+          <td>騎士</td>
+          <td>
+            傷害係數 x1.5<br>
+            雙手武器可額外加 HP<br>
+            暈眩約 2∼5 秒<br>
+            HP 3200 / MP 600
+          </td>
+          <td>
+            高血量坦型職業，適合近戰肉盾。
+          </td>
+        </tr>
+        <tr>
+          <td>妖精</td>
+          <td>
+            傷害係數 x1.0<br>
+            遠攻對大型怪減半<br>
+            HP 2400 / MP 1200
+          </td>
+          <td>
+            機動性高，擅長風箏戰術。
+          </td>
+        </tr>
+        <tr>
+          <td>黑暗妖精</td>
+          <td>
+            傷害係數 x1.5<br>
+            爆擊率：雙刀25%、爪子33%<br>
+            破壞盔甲對怪無效<br>
+            HP 2200 / MP 800
+          </td>
+          <td>
+            操作爽快的爆發近戰職業。
+          </td>
+        </tr>
+        <tr>
+          <td>龍騎士</td>
+          <td>
+            傷害係數 x1.5<br>
+            弱點曝光在自動練功下無效<br>
+            HP 2500 / MP 400
+          </td>
+          <td>
+            控場強、適合單挑爆發打法。
+          </td>
+        </tr>
+        <tr>
+          <td>幻術師</td>
+          <td>
+            傷害係數 x1.5<br>
+            疼痛歡愉上限：2000<br>
+            計算：實際傷害 / 3<br>
+            HP 1300 / MP 1000
+          </td>
+          <td>
+            奇古獸不吃物理，本遊戲中較不友善。<br>
+            考驗技巧與時機。
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+    <div class="section-title">武防加成</div>
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:20%;">類別</th>
+          <th>加成內容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>強化上限</td>
+          <td>
+            武器最高：+15<br>
+            防具最高：+15<br>
+            飾品最高：+9<br>
+            <b>耳環無法強化</b>
+          </td>
+        </tr>
+        <tr>
+          <td>武器加成</td>
+          <td>
+            法杖每+1：額攻+2、魔攻+1<br>
+            奇古獸每+1：魔攻+3<br>
+            雙手劍、斧、雙槍矛每+1：額攻+2、HP+300
+            其他武器每+1：額攻+3<br>
+          </td>
+        </tr>
+        <tr>
+          <td>防具加成</td>
+          <td>
+            +1：物減0 / 魔減2 / HP+20 / MP+2<br>
+            +2：物減0 / 魔減4 / HP+40 / MP+4<br>
+            +3：物減1 / 魔減6 / HP+60 / MP+6<br>
+            +4：物減1 / 魔減8 / HP+80 / MP+8<br>
+            +5：物減2 / 魔減10 / HP+100 / MP+10<br>
+            +6：物減2 / 魔減12 / HP+120 / MP+12<br>
+            +7：物減3 / 魔減14 / HP+140 / MP+14<br>
+            +8：物減3 / 魔減16 / HP+160 / MP+16<br>
+            +9：物減4 / 魔減18 / HP+200 / MP+18
+          </td>
+        </tr>
+        <tr>
+          <td>飾品加成</td>
+          <td>
+            +1：HP+5 / 回血+1 / 藥水+1<br>
+            +2：HP+10 / 回血+1 / 藥水+1<br>
+            +3：HP+15 / 回血+1 / 藥水+2<br>
+            +4：HP+20 / 回血+2 / 回魔+1 / 藥水+2<br>
+            +5：HP+25 / 回血+2 / 回魔+1 / 藥水+3<br>
+            +6：HP+30 / 回血+2 / 回魔+1 / 藥水+3<br>
+            +7：HP+35 / 回血+3 / 回魔+2 / 藥水+4<br>
+            +8：HP+40 / 回血+3 / 回魔+2 / 藥水+4<br>
+            +9：HP+45 / 回血+3 / 回魔+2 / 藥水+5
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+
+    <div class="section-title">寵物介紹</div>
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/114.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:25%;">類別</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>基本設定</td>
+          <td>
+            可攜帶寵物上限：依魅力<br>
+            可召喚寵物上限：依魅力<br>
+            寵物經驗倍率：1倍<br>
+            寵物等級上限：60級
+          </td>
+        </tr>
+        <tr>
+          <td>魅力影響</td>
+          <td>
+            魅力 ÷ 6 = 可攜帶數量<br>
+            妖精：隱藏魅力 +12<br>
+            法師/王族：隱藏魅力 +6
+          </td>
+        </tr>
+        <tr>
+          <td>捕捉方式</td>
+          <td>
+            名稱含「寵」之怪物可捕捉<br>
+            使用道具：漂浮之眼肉
+          </td>
+        </tr>
+        <tr>
+          <td>捕捉流程</td>
+          <td>
+            1. 打怪掉落或向 NPC 購買<br>
+            2. 靠近寵物型怪物<br>
+            3. 使用道具觸發捕捉<br>
+            4. 成功後自動成為寵物<br>
+            5. 配戴項圈可召喚與育成
+          </td>
+        </tr>
+        <tr>
+          <td>寵物進化</td>
+          <td>
+            當寵物等級達『50』級，使用進化果實進行進化。<br>
+進化過後造型與能力都會大幅度提升。(待更新)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<!-- 完整寵物能力表 -->
+<div class="section-title">可抓寵物一覽表</div>
+
+<div style="overflow-x:auto; margin-bottom: 40px;">
+  <style>
+    .pet-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+      background-color: #222;
+      font-family: "微軟正黑體", sans-serif;
+      font-size: 14px;
+    }
+    .pet-table thead {
+      background-color: #444;
+    }
+    .pet-table th, .pet-table td {
+      border: 1px solid #555;
+      padding: 6px 10px;
+      text-align: center;
+    }
+    .pet-table th {
+      color: #ffcc00;
+    }
+    /* 防止被主頁樣式覆蓋導致交錯黑白背景 */
+    .pet-table tr:nth-child(even) {
+      background-color: inherit !important;
+    }
+  </style>
+
+  <table class="pet-table">
+    <thead>
+      <tr>
+        <th>寵物名</th>
+        <th>等級</th>
+        <th>初始血量</th>
+        <th>初始魔力</th>
+        <th>出沒地</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>污濁安特(寵)</td><td>15</td><td>250</td><td>12</td><td>眠龍洞穴</td></tr>
+      <tr><td>污濁精靈(寵)</td><td>15</td><td>250</td><td>12</td><td>眠龍洞穴</td></tr>
+      <tr><td>奇岩 蜥蜴人(寵)</td><td>15</td><td>400</td><td>5</td><td>奇岩地下監獄</td></tr>
+      <tr><td>密密(寵)</td><td>15</td><td>150</td><td>5</td><td>象牙之塔</td></tr>
+      <tr><td>蜥蜴人(寵)</td><td>15</td><td>113</td><td>5</td><td>全域</td></tr>
+      <tr><td>歐熊(寵)</td><td>15</td><td>313</td><td>0</td><td>海音村莊外圍</td></tr>
+      <tr><td>食屍鬼(寵)</td><td>16</td><td>276</td><td>30</td><td>全域</td></tr>
+<tr><td>史巴托(寵)</td><td>16</td><td>300</td><td>30</td><td>全域</td></tr>
+<tr><td>黑騎士(寵)</td><td>16</td><td>250</td><td>5</td><td>騎士村莊外圍</td></tr>
+<tr><td>奇岩 安普長老(寵)</td><td>16</td><td>250</td><td>30</td><td>奇岩地下監獄</td></tr>
+<tr><td>史巴托(寵)</td><td>16</td><td>300</td><td>10</td><td>全域</td></tr>
+<tr><td>影魔(寵)</td><td>16</td><td>138</td><td>15</td><td>象牙之塔</td></tr>
+<tr><td>奇岩 蟹人(寵)</td><td>17</td><td>376</td><td>15</td><td>奇岩地下監獄</td></tr>
+<tr><td>奇岩 穴居人(寵)</td><td>17</td><td>400</td><td>30</td><td>奇岩地下監獄</td></tr>
+<tr><td>魔蝙蝠(寵)</td><td>17</td><td>225</td><td>50</td><td>全域</td></tr>
+<tr><td>萊肯(寵)</td><td>17</td><td>150</td><td>40</td><td>全域</td></tr>
+<tr><td>污濁精靈女皇(寵)</td><td>18</td><td>350</td><td>50</td><td>眠龍洞穴</td></tr>
+<tr><td>楊果里恩(寵)</td><td>18</td><td>500</td><td>30</td><td>全域</td></tr>
+<tr><td>蟑螂人(寵)</td><td>12</td><td>125</td><td>30</td><td>海音地下監獄</td></tr>
+<tr><td>妖魔法師(寵)</td><td>12</td><td>100</td><td>10</td><td>全域</td></tr>
+<tr><td>骷髏弓箭手(寵)</td><td>12</td><td>100</td><td>0</td><td>全域</td></tr>
+<tr><td>高侖石頭怪(寵)</td><td>13</td><td>376</td><td>0</td><td>全域</td></tr>
+<tr><td>污濁妖魔鬥士(寵)</td><td>13</td><td>188</td><td>4</td><td>眠龍洞穴</td></tr>
+<tr><td>高侖石頭怪(寵)</td><td>13</td><td>376</td><td>4</td><td>全域</td></tr>
+<tr><td>污濁蘑菇(寵)</td><td>12</td><td>200</td><td>100</td><td>眠龍洞穴</td></tr>
+<tr><td>污濁妖魔(寵)</td><td>12</td><td>176</td><td>200</td><td>眠龍洞穴</td></tr>
+<tr><td>污濁妖魔弓箭手(寵)</td><td>12</td><td>176</td><td>10</td><td>眠龍洞穴</td></tr>
+<tr><td>奇岩 安普(寵)</td><td>12</td><td>176</td><td>50</td><td>奇岩地下監獄<</td></tr>
+<tr><td>骷髏槍兵(寵)</td><td>13</td><td>113</td><td>0</td><td>全域</td></tr>
+<tr><td>奇岩 卡司特(寵)</td><td>14</td><td>276</td><td>5</td><td>全域</td></tr>
+<tr><td>雪人(寵)</td><td>14</td><td>100</td><td>10</td><td>威瑞村莊外圍</td></tr>
+<tr><td>夏洛伯(寵)</td><td>14</td><td>125</td><td>10</td><td>全域</td></tr>
+<tr><td>哈柏哥布林(寵)</td><td>14</td><td>113</td><td>40</td><td>全域</td></tr>
+<tr><td>污濁甘地妖魔(寵)</td><td>15</td><td>226</td><td>10</td><td>汙濁之地</td></tr>
+<tr><td>污濁都達瑪拉妖魔(寵)</td><td>15</td><td>250</td><td>30</td><td>汙濁之地</td></tr>
+<tr><td>鬼魂(寵)</td><td>20</td><td>150</td><td>5</td><td>象牙之塔</td></tr>
+<tr><td>受詛咒的 蟑螂人(寵)</td><td>20</td><td>750</td><td>30</td><td>封閉地下監獄</td></tr>
+<tr><td>狂暴蜥蜴人(寵)</td><td>20</td><td>250</td><td>20</td><td>海賊島</td></tr>
+<tr><td>奇岩 楊果里恩(寵)</td><td>20</td><td>450</td><td>60</td><td>奇岩地下監獄</td></tr>
+<tr><td>歐姆(寵)</td><td>19</td><td>190</td><td>17</td><td>全域</td></tr>
+<tr><td>巨大兵蟻(寵)</td><td>20</td><td>376</td><td>5</td><td>沙漠周圍</td></tr>
+<tr><td>狂野之毒(寵)</td><td>18</td><td>225</td><td>30</td><td>海賊島</td></tr>
+<tr><td>狂野毒牙(寵)</td><td>18</td><td>225</td><td>5</td><td>海賊島</td></tr>
+<tr><td>奇岩 蟑螂人(寵)</td><td>19</td><td>450</td><td>60</td><td>奇岩地下監獄</td></tr>
+<tr><td>奇岩 卡司特王(寵)</td><td>19</td><td>350</td><td>10</td><td>奇岩地下監獄</td></tr>
+<tr><td>變形怪(寵)</td><td>19</td><td>350</td><td>10</td><td>全域</td></tr>
+<tr><td>哥布林(寵)</td><td>2</td><td>19</td><td>10</td><td>全域</td></tr>
+<tr><td>妖魔(寵)</td><td>2</td><td>8</td><td>0</td><td>全域</td></tr>
+<tr><td>地靈(寵)</td><td>3</td><td>9</td><td>0</td><td>全域</td></tr>
+<tr><td>妖魔弓箭手(寵)</td><td>3</td><td>15</td><td>30</td><td>全域</td></tr>
+<tr><td>艾多倫(寵)</td><td>4</td><td>25</td><td>30</td><td>奇岩城鎮外圍</td></tr>
+<tr><td>蘑菇(寵)</td><td>4</td><td>50</td><td>5</td><td>妖精森林外圍</td></tr>
+<tr><td>安普(寵)</td><td>5</td><td>25</td><td>0</td><td>奇岩城鎮外圍</td></tr>
+<tr><td>牧羊犬(寵)</td><td>5</td><td>38</td><td>30</td><td>說話之島外圍</td></tr>
+<tr><td>貓(寵)</td><td>5</td><td>25</td><td>30</td><td>說話之島外圍</td></tr>
+<tr><td>狂野之魔(寵)</td><td>20</td><td>250</td><td>200</td><td>海賊島</td></tr>
+<tr><td>鼴鼠(寵)</td><td>20</td><td>188</td><td>25</td><td>全域</td></tr>
+<tr><td>狼人(寵)</td><td>20</td><td>180</td><td>25</td><td>全域</td></tr>
+<tr><td>蟑螂人(寵)</td><td>20</td><td>180</td><td>20</td><td>海音地下監獄</td></tr>
+<tr><td>紅色狂暴蜥蜴人(寵)</td><td>20</td><td>563</td><td>100</td><td>海賊島</td></tr>
+      <!-- 你可以在這裡貼上更多 <tr> 資料 -->
+    </tbody>
+  </table>
+</div>
+<hr>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+  </div>
+
+
+
+<div id="tab2" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+ <div class="section-title">變身卡系統</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/116.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th><th>內容說明</th></tr></thead>
+      <tbody>
+        <tr><td>功能說明</td> <td>登入變身卡後，可永久獲得變身與能力加成。</td></tr>
+        <tr><td>溶解說明</td><td>重複的卡片溶解可分解出:金元寶(刻印)。</td></tr>
+        <tr><td>關於卡片</td><td>變身卡僅針單一角色，同帳號其他角色不同步。</td></tr>
+        <tr><td>注意事項</td><td>變身卡為無法轉移的道具。</td></tr>
+        <tr><td>取得方式</td><td>BOSS/世界王取得</td></tr>
+      </tbody>
+    </table>
+<br>
+<table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background:#222; border-collapse:collapse; text-align:center;">
+  <thead style="background:#444;">
+    <tr>
+      <th>組合名稱</th>
+      <th>需求變身卡</th>
+      <th>組合效果1</th>
+      <th>組合效果2</th>
+      <th>組合效果3</th>
+      <th>組合效果4</th>
+      <th>組合效果5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>【肥肥家族】</td><td>食人妖精,食人妖精王</td><td>力量+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
+    <tr><td>【野狼兄弟】</td><td>狼人,萊肯</td><td>敏捷+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
+    <tr><td>【妖魔全家福】</td><td>妖魔,妖魔弓箭手,妖魔鬥士</td><td>智力+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
+    <tr><td>【骨質疏鬆】</td><td>骷髏,骷髏弓箭手,骷髏槍兵</td><td>體質+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
+    <tr><td>【曾經的夢想】</td><td>死亡騎士,黑暗精靈</td><td>力量+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
+    <tr><td>【五十五級】</td><td>黑暗騎士,黑暗法師,黑暗刺客,黑暗巡守</td><td>敏捷+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
+    <tr><td>【六十級】</td><td>銀光巡守,銀光騎士,銀光法師,銀光刺客</td><td>體質+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
+    <tr><td>【六十五級】</td><td>黃金騎士,黃金法師,黃金刺客,黃金巡守</td><td>智力+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
+    <tr><td>【七十級】</td><td>白金騎士,白金刺客,白金巡守,白金法師</td><td>力量+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
+    <tr><td>【死騎全系列】</td><td>闇黑死騎,雷霆死騎,黃金死騎,焚焰死騎,白金死騎</td><td>敏捷+1</td><td>HP+80</td><td>額外攻擊力+3</td><td>魔法攻擊力+3</td><td>魔法防禦+5</td></tr>
+    <tr><td>【傳說全系列】</td><td>傳說孫悟空,傳說屠龍者,傳說變形怪首領,傳說吉爾塔斯</td><td>智力+1</td><td>HP+100</td><td>額外攻擊力+4</td><td>魔法攻擊力+4</td><td>魔法防禦+10</td></tr>
+  </tbody>
+</table>
+<hr>
+</div>
+ <div class="section-title">任務系統</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/110.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>任務位置</td>
+          <td>各大村莊皆可接取。</td>
+        </tr>
+        <tr>
+          <td>任務類型</td>
+          <td>怪物型任務、地圖型任務。</td>
+        </tr>
+        <tr>
+          <td>完成方式</td>
+          <td>擊殺指定怪物或地圖內敵人即可。</td>
+        </tr>
+        <tr>
+          <td>循環重置</td>
+          <td>伺服器重啟後，任務自動重置。</td>
+        </tr>
+        <tr>
+          <td>注意事項</td>
+          <td>
+            ・同時僅能存在一項任務<br>
+            ・任務無法手動放棄，僅能等重啟清除
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+</div>
+  <div class="section-title">威望系統</div>
+  <div class="bullet">
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:center;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th>威望等級</th>
+          <th>能力加成</th>
+          <th>升級需求</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lv.1</td>
+          <td>HP+50 / MP+20 / 全能力+1</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>Lv.2</td>
+          <td>HP+100 / MP+30 / 全能力+2</td>
+          <td>30</td>
+        </tr>
+        <tr>
+          <td>Lv.3</td>
+          <td>HP+200 / MP+40 / 全能力+3</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>Lv.4</td>
+          <td>HP+300 / MP+50 / 全能力+4</td>
+          <td>200</td>
+        </tr>
+        <tr>
+          <td>Lv.5</td>
+          <td>HP+400 / MP+60 / 全能力+5</td>
+          <td>400</td>
+        </tr>
+        <tr>
+          <td>Lv.6</td>
+          <td>HP+650 / MP+70 / 全能力+6</td>
+          <td>600</td>
+        </tr>
+        <tr>
+          <td>Lv.7</td>
+          <td>HP+800 / MP+100 / 全能力+7</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <td>Lv.8</td>
+          <td>HP+1000 / MP+120 / 全能力+8</td>
+          <td>2000</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top:15px;">透過擊殺 BOSS 可獲得威望點數，累積後自動升級。</p>
+<hr>
+  </div>
+
+  <div class="section-title">血盟系統</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/109.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:center;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th>項目</th>
+          <th>內容</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>血盟人數上限</td>
+          <td>依王族魅力(魅力值 x 2)</td>
+        </tr>
+        <tr>
+          <td>是否可聯盟</td>
+          <td>不可</td>
+        </tr>
+        <tr>
+          <td>攻城時間</td>
+          <td>60分鐘</td>
+        </tr>
+        <tr>
+          <td>經驗加成</td>
+          <td>每位在線成員 +2%</td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+</div>
+<div class="section-title">高寵系統</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/119.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th><th>內容說明</th></tr></thead>
+      <tbody>
+        <tr><td>功能說明</td> <td>高寵會自動瞬移跟隨主人，直到手動關閉。</td></tr>
+        <tr><td>裝置獲取</td><td>使用金幣支票可購買高寵啟動裝置。</td></tr>
+        <tr><td>攜帶限制</td><td>同時僅能連線一位角色作為高寵。</td></tr>
+        <tr><td>注意事項</td><td>雙方角色皆需擁有裝置才能連線。</td></tr>
+      </tbody>
+    </table>
+
+<hr>
+    </div>
+ <div class="section-title">加總系統</div>
+  <div class="bullet">
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:center;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th>加總強化值</th>
+          <th>額外能力加成</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1～10</td><td>HP+50、減傷+2、抗魔+10</td></tr>
+        <tr><td>11～20</td><td>HP+100、減傷+4、抗魔+20</td></tr>
+        <tr><td>21～30</td><td>HP+150、減傷+6、抗魔+30</td></tr>
+        <tr><td>31～40</td><td>HP+200、減傷+8、抗魔+40</td></tr>
+        <tr><td>41～50</td><td>HP+250、減傷+10、抗魔+50</td></tr>
+        <tr><td>51～60</td><td>HP+300、減傷+12、抗魔+60</td></tr>
+        <tr><td>61～70</td><td>HP+500、減傷+14、抗魔+70</td></tr>
+      </tbody>
+    </table>
+    <p>透過玩家身上「強化過的防具」進行總和計算，額外給予能力加成。</p>
+    <p><b style="color:#ffcc00;">※ 備註：</b>此系統不包含飾品與武器。</p>
+<hr>
+  </div>
+  <div class="section-title">傲塔系統</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/107.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <p>傲慢之塔共有 600 層，透過挑戰層數可獲得「傲塔徽章」，推進主線進度。</p>
+
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:35%;">主線任務流程</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第一樓開始</td>
+          <td>打到傲塔徽章後可前往第二樓</td>
+        </tr>
+        <tr>
+          <td>第二樓以上</td>
+          <td>取得升級石方可繼續推進下一樓</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:center;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th>徽章等級加成</th>
+          <th>能力加成</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>每 1 級</td><td>最大 HP +5</td></tr>
+        <tr><td>每 5 級</td><td>最大 MP +1</td></tr>
+        <tr><td>每 20 級</td><td>額外攻擊力 +1</td></tr>
+        <tr><td>每 40 級</td><td>魔法攻擊力 +1</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+<div class="section-title">假人淘寶</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/111.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>功能說明</td>
+          <td>提供給玩家搜刮寶物。(金幣購買)</td>
+        </tr>
+        <tr>
+          <td>注意事項</td>
+          <td>約4~6小時或重啟時都會更換商品。</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<hr>
+<div class="section-title">遊戲指南</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/113.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>功能說明</td>
+          <td>可直接在遊戲中，看到遊戲介紹內容。</td>
+        </tr>
+        <tr>
+          <td>注意事項</td>
+          <td>若發現介紹與官網無法同步，請手動更新(已官網介紹為主)</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+<hr>
+<div class="section-title">隨身商店</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/112.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>功能說明</td>
+          <td>背包內開啟商店，無須回城補充物資。</td>
+        </tr>
+        <tr>
+          <td>象牙塔商店</td>
+          <td>使用象牙塔貨幣進行購物。</td>
+        </tr>
+        <tr>
+          <td>金元寶商店</td>
+          <td>使用金元寶貨幣進行購物。</td>
+        </tr>
+        <tr>
+          <td>注意事項</td>
+          <td>使用隨身商店金幣部分會收取10%稅金</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+<hr>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+</div>
+  <div id="tab3" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+  <div class="section-title">隱藏之谷(新手出生地)</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/100.jpg" alt="隱藏之谷說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">分類</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>地圖進入方式</td><td>由傳送師前往</td></tr>
+        <tr><td>象牙塔(提醒一)</td><td>建議湊齊武防滿在離開。(新手保護區)</td></tr>
+        <tr><td>象牙塔(提醒二)</td><td>象牙塔武防捲只可用於象牙塔系列。</td></tr>
+        <tr><td>象牙塔(提醒三)</td><td>武器安定值+6、防具安定值+0(此不計算各加成活動)</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+  <div class="section-title">每日地圖</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/101.jpg" alt="每日地圖說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">分類</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>地圖進入方式</td><td>由傳送師前往，每日開啟一次</td></tr>
+        <tr><td>快捷提示</td><td>可使用 CTRL+Q 查看當日剩餘時間</td></tr>
+        <tr><td>每日經驗區</td><td>高經驗地圖，練功必備，機率掉落：經驗藥水、神力藥水</td></tr>
+        <tr><td>每日金幣區</td><td>掉落金幣最高，機率掉落：金元寶、贊助幣（極低機率）</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+
+  <div class="section-title">時段地圖</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/105.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">分類</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>地圖進入方式</td><td>由傳送師傳送，需配合開放時間</td></tr>
+        <tr><td>武器區掉落</td><td>對武器施法卷軸（普通、祝福、詛咒）、祝福武器卷</td></tr>
+        <tr><td>裝備區掉落</td><td>對盔甲施法卷軸（普通、祝福、詛咒）、祝福裝備卷</td></tr>
+        <tr><td>飾品區掉落</td><td>對飾品施法卷軸、祝福飾品卷</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+
+  <div class="section-title">BOSS介紹</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/104.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>出現時間查詢</td><td>可於商店購買 BOSS 時間表查詢</td></tr>
+        <tr><td>擊殺獎勵</td><td>可獲得威望值</td></tr>
+        <tr><td>掉落道具</td><td>
+          對武器施法卷軸（普通、祝福、詛咒）<br>
+          對盔甲施法卷軸（普通、祝福、詛咒）<br>
+          BOSS武器魂
+        </td></tr>
+        <tr><td>BOSS武器魂</td><td>可注入武器、提升傷害，具有時效並可升級</td></tr>
+        <tr><td>開放狀態</td><td>★武器魂功能尚未開放</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+
+  <div class="section-title">世界首領</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/102.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>BOSS狀態</td><td>等級:100級、HP250,000、MP1,000</td></tr>
+        <tr><td>出現提示</td><td>出現前會公告，並可由傳送師傳送</td></tr>
+        <tr><td>參與機制</td><td>設有「共同攻擊獎勵」與「尾刀獎勵」，人人可分紅</td></tr>
+        <tr><td>獎勵條件</td><td>總傷害需超過 5000 才能獲得共同獎勵，若死亡回村則歸零</td></tr>
+        <tr><td>傳送方式</td><td>村莊內會出現 NPC 可直接傳送</td></tr>
+        <tr><td>掉落查詢</td><td>為方便後續更新，請至怪物掉落資料中查詢</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+  <div class="section-title">村莊BOSS(黑悟空)</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/103.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>開放時間</td><td>從早上6點~22點每隔偶數整點出生。</td></tr>
+        <tr><td>活動地點</td><td>出沒時會告知出現在哪一個村莊，飛往即可。</td></tr>
+        <tr><td>掉落物品</td><td>大量金幣與遊戲元寶</td></tr>
+      </tbody>
+    </table>
+<hr>
+  </div>
+  <div class="section-title">無限大戰</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/106.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>參加方式</td><td>前往奇岩村莊找「競技場管理員」</td></tr>
+        <tr><td>活動地點</td><td>所有管理員集中於奇岩村</td></tr>
+        <tr><td>活動內容</td><td>波數的休息時間地上會出現金幣與金元寶</td></tr>
+      </tbody>
+    </table>
+</div>
+<hr>
+  <div class="section-title">高級傳送師</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="http://q1414.ddns.net:8080/aaa/115.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>傳送師介紹</td><td>此傳送師可以傳送到你想去的地方。</td></tr>
+        <tr><td>說明《一》</td><td>便捷玩家尋找想要獲得的物品。</td></tr>
+        <tr><td>說明《二》</td><td>對話欄所標示的機率非實機率，可能會除以2或3。</td></tr>
+      </tbody>
+    </table>
+<hr>
+</div>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+  </div>
+
+  <div id="tab4" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+<!-- 活力值 -->
+<div class="section-title">活力值</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 60px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/7696.jpg" alt="活力值圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:30%;">說明項目</th>
+            <th>內容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>功能關聯</td><td>可抑制內掛時經驗減少的問題</td></tr>
+          <tr><td>消耗方式</td><td>內掛擊殺怪物會逐漸減少活力(手動時不會扣)</td></tr>
+          <tr><td>上限限制</td><td>補充上限為 20,000 點</td></tr>
+          <tr><td>查詢指令</td><td>輸入 /who 可查看剩餘活力</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- 爆氣之書 -->
+<div class="section-title">爆氣之書</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 60px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/7325.jpg" alt="爆氣圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:30%;">說明項目</th>
+            <th>內容</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>功能說明</td><td>開啟後會獲得額外能力加成，需搭配補充水使用</td></tr>
+          <tr><td>啟動方式</td><td>為可自由開關道具，依照等級強化能力</td></tr>
+          <tr><td>等級 1~59</td><td>傷害+5、減免+5、魔攻+5</td></tr>
+          <tr><td>等級 60~69</td><td>傷害+10、減免+10、魔攻+10</td></tr>
+          <tr><td>等級 70~99</td><td>傷害+20、減免+15、魔攻+20</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 武防祝福 -->
+<div class="section-title">武防祝福</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 70px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/9071.jpg" alt="祝福圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:30%;">類別</th>
+            <th>加成效果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>可祝福防具</td><td>頭盔、T恤、衣服、手套、鞋子、斗篷、盾牌、臂甲</td></tr>
+          <tr><td>可祝福飾品</td><td>戒指、耳環、項鍊、腰帶</td></tr>
+          <tr><td>武器祝福</td><td>額外攻擊力 +2</td></tr>
+          <tr><td>防具祝福</td><td>HP +30、回血 +1</td></tr>
+          <tr><td>飾品祝福</td><td>MP +10、回魔 +1</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- 殷海薩祝福 -->
+<div class="section-title">殷海薩祝福</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 70px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/3721.jpg" alt="殷海薩圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:35%;">項目</th>
+            <th>內容說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>補充方式</td>
+            <td>使用「龍之鑽石」可補充殷海薩能量(上限200%)</td>
+          </tr>
+          <tr>
+            <td>效果一</td>
+            <td>獲得經驗值 +200%</td>
+          </tr>
+          <tr>
+            <td>效果二</td>
+            <td>道具獲得機率 +150%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- 內掛補充石 -->
+<div class="section-title">內掛補充石</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 70px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/2563.jpg" alt="補充石圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:35%;">項目</th>
+            <th>內容說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>補充方式</td><td>雙擊即可補充內掛時數</td></tr>
+          <tr><td>說明(一)</td><td>內掛狀態下 >> 僅有 20% 經驗值 (搭配活力值可達 100%)</td></tr>
+          <tr><td>說明(二)</td><td>內掛狀態下 >> 僅有 20% 金幣量 (活力值無特別加成)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- 紋樣系統 -->
+<div class="section-title">紋樣系統</div>
+<div class="bullet">
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+    <div style="flex: 0 0 70px; margin-top: 50px;">
+      <div style="border: 1px solid white; padding: 10px; border-radius: 8px;">
+        <img src="http://q1414.ddns.net:8080/aaa/7096.PNG" alt="圖示"
+             style="width: 100%; height: auto; border-radius: 4px;">
+      </div>
+    </div>
+    <div style="flex: 1 1 400px;">
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:35%;">項目</th>
+            <th>內容說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>紋樣介紹</td><td>紋樣是增加角色被動效果的正服設計(同帳號角色不同步)</td></tr>
+          <tr><td>說明(一)</td><td>玩家可藉由商店購買紋樣點數，對其進行強化升級</td></tr>
+          <tr><td>說明(二)</td><td>最大等級:33級、使用次數:20次(次數用完可擴充次數)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+</div>
+
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+  </div>
+
+  <div id="tab5" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+<div class="section-title">仿正服封測說明</div> 
+<div class="bullet"> 
+<p> 本伺服器目前正進行封閉測試階段，期間將進行各項功能測試、數據調整與穩定性驗證，歡迎玩家協助找出 BUG 並提供建議，官方將不定期發放封測獎勵給積極參與者。</p> 
+<p> 封測期間資料將視情況進行清除或保留，正式開服前會另行公告說明。封測為期短暫，敬請把握時間體驗各項自製內容與特色系統。</p> 
+<p> 預計正式開服時間為 <strong>2025 年 08 月 27 日</strong>，歡迎大家持續關注最新消息並邀請好友一同加入！</p> 
+<hr>
+</div>
+<div class="section-title">★ 遊戲懶人包下載說明 ★</div>
+<div class="bullet">
+  <p style="color:red; font-family:'標楷體'; font-weight:bold;">
+    此為遊戲懶人包壓縮檔，下載後解壓縮即可直接進行遊戲，無需額外安裝。
+  </p>
+
+<!-- 外層容器：置中整塊 -->
+<div style="text-align: center;">
+
+  <a href="https://drive.google.com/file/d/1PvJ4ay59raQxdgqukgW_mskp6PS-m8Dz/view?usp=sharing" target="_blank" style="display: inline-block; text-decoration: none;">
+    <img src="http://q1414.ddns.net:8080/aaa/999.jpg" alt="檔案下載" 
+         style="width:300px; border:2px solid #cc6600; border-radius:10px;">
+    <div style="color:magenta; margin-top:10px;">戰天堂V1.7懶人包下載（Google 雲端）上午 12:04 2025/8/18</div>
+  </a>
+
+</div>
+※此版本更新內容:<br>
+▲伺服器自動列表更新修復。<br>
+
+
+  </p>
+  <hr>
+
+  <h3 style="font-family:'標楷體';">一、無法下載懶人包（被瀏覽器阻擋）</h3>
+  <p>請依照下列圖片指示操作：</p>
+  <p>圖片1：<br><img src="https://i.imgur.com/1wQzQmW.png" style="max-width:100%;"></p>
+  <p>圖片2：<br><img src="https://i.imgur.com/85Jjwhx.png" style="max-width:100%;"></p>
+  <hr>
+
+  <h3 style="font-family:'標楷體';">二、WIN10 無法遊玩天堂（作業系統阻擋）</h3>
+  <div style="color:magenta; font-family:'標楷體';">
+    <p>請依以下步驟進行設定：</p>
+    <p><b>步驟一：</b><br>
+    右鍵點選遊戲啟動檔 → 內容 → 相容性<br>
+    勾選「以相容模式執行此程式」→ 選擇 Windows 7<br>
+    勾選「高 DPI 設定替代」→ 套用<br>
+    建議勾選「以系統管理員身分執行此程式」<br>
+    ※ 若未設定 DPI，畫面可能只顯示左上角<br>
+    ※ 若未選擇相容模式，會出現「無法使用此伺服器」</p>
+
+    <p><b>步驟二：</b><br>
+    將螢幕解析度調整為 1280x720 或 1024x768</p>
+
+    <p><b>步驟三：</b><br>
+    若仍無法進入遊戲，請對以下檔案按右鍵 → 內容 → 安全性<br>
+    Login.dll、Login.exe、TW13081901.bin、TW13081901.pak<br>
+    → 將權限設為「完全控制」</p>
+  </div>
+  <hr>
+
+  <h3 style="font-family:'標楷體';">三、防毒軟體誤判遊戲檔案（被防毒阻擋）</h3>
+  <p>請參考以下圖片教學解除防毒阻擋：</p>
+  <p>圖片1：<br><img src="https://i.imgur.com/nJoxgp6.jpg" style="max-width:100%;"></p>
+  <p>圖片2：<br><img src="https://i.imgur.com/HVzxkwU.jpg" style="max-width:100%;"></p>
+  <p>圖片3：<br><img src="https://i.imgur.com/QX4XyIF.jpg" style="max-width:100%;"></p>
+  <hr>
+
+  <h3 style="font-family:'標楷體';">四、無法啟動遊戲（顯示錯誤或閃退）</h3>
+  <div style="color:magenta;">
+    <p><b>請確認是否有以下檔案殘留於天堂資料夾，如有請移除：</b><br>
+    dgVoodoo、D3D8.dll、D3D9.dll、D3DImm.dll、DDraw.dll<br>
+    ★ 若您系統為 Win7 或顯卡過舊，這些檔案可能導致無法登入遊戲。</p>
+  </div>
+  <p><img src="https://i.imgur.com/FvCdMvw.png" style="max-width:100%;"></p>
+
+  <p>
+    <b>補充說明：</b><br>
+    dgVoodoo 是一款提升老舊 DirectX 遊戲相容性的補丁工具，能幫助部分老遊戲在新系統（Windows 10/11）下正常運行。<br>
+    但若您的顯卡或內建顯示晶片過於老舊，可能會不支援，建議如下處理方式：
+    <ul>
+      <li>更新顯卡驅動程式</li>
+      <li>重新安裝最新版 DirectX</li>
+      <li>或直接移除 dgVoodoo 檔案以恢復原始狀態</li>
+    </ul>
+  </p>
+<hr>
+  <h3 style="font-family:'標楷體';">五、createsurface failed! 88760234 錯誤閃退解決方法！</h3>
+  <div style="color:magenta;">
+
+  <p><b>當開啟遊戲時遇到「createsurface failed! 88760234」導致選完伺服器後就閃退
+  這個問題是顯示卡沒有去強制縮放那些不支援DPI縮放的軟體或遊戲
+  若沒有出現此訊息不要去改相容性，避免原本可以玩變成不能玩..</b><br>
+  </div>
+  <p><img src="http://q1414.ddns.net:8080/aaa/007.jpg" style="max-width:100%;"></p>
+  <hr>
+  <p><b>若您仍有任何疑問，歡迎於本論壇留言或私訊站務人員，我們將盡速為您處理！</b></p>
+  <p style="color:#ffcc00;"><b>祝您遊戲愉快，天堂見！</b></p>
+<hr>
+</div>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+  </div>
+<div id="tab7" class="tab-content">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+<div style="display: flex; gap: 40px; justify-content: center; align-items: center; flex-wrap: wrap; margin: 30px 0;">
+
+  <a href="http://q1414.ddns.net:8080/all_servers.html" target="_blank">
+    <img src="http://q1414.ddns.net:8080/aaa/2.jpg" alt="排行榜" 
+    style="width:180px; border:2px solid #cc6600; border-radius:10px;">
+    <div style="color:magenta; text-align:center; margin-top:10px;">排行榜入口</div>
+  </a>
+  <a href="https://lineage992.weebly.com/" target="_blank">
+    <img src="http://q1414.ddns.net:8080/aaa/3.jpg" alt="贊助" 
+     style="width:180px; border:2px solid #00cc99; border-radius:10px;">
+    <div style="color:magenta; text-align:center; margin-top:10px;">自動贊助入口</div>
+  </a>
+  <a href="http://tn1111.sellers.com.tw/index.php" target="_blank">
+    <img src="http://q1414.ddns.net:8080/aaa/4.jpg" alt="論壇" 
+    style="width:180px; border:2px solid #00cc99; border-radius:10px;">
+    <div style="color:magenta; text-align:center; margin-top:10px;">變態服介紹論壇</div>
+  </a>
+  <a href="http://tn1109.sellers.com.tw/index.php" target="_blank">
+    <img src="http://q1414.ddns.net:8080/aaa/5.jpg" alt="論壇"
+         style="width:320px; border:2px solid #00cc99; border-radius:10px;">
+    <div style="color:magenta; text-align:center; margin-top:10px;">
+      早期戰天堂入口（開服已達十二年）《營運中》
+  </a>
+  <p>※只要遊戲內還有玩家，我陪你們戰到最後！</p>
+  <p>※堅持不賺錢也不倒服！</p>
+    </div>
+</div>
+<hr>
+  <div class="section-title">★ 加入官方 LINE 領獎勵 ★</div>
+<img src="http://q1414.ddns.net:8080/aaa/line.jpg" alt="Line圖片" style="width:200px; border-radius:10px;">
+
+  <pre>LINE 官方帳號 ID：@482evvkr</pre>
+  <p><u><strong>■ 領獎須知：</strong></u><br>
+  ▲ 加入後請直接私訊告知遊戲帳號。<br>
+  ▲ 我們將統一時間點進行批次發送。<br>
+  ▲ 每個 LINE 帳號僅能對應一個遊戲帳號領取獎勵。</p>
+
+  <p><strong>【LINE 活動獎勵內容】</strong></p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>爆氣補充水（300分鐘）</td><td>x1</td></tr>
+    <tr><td>龍之鑽石</td><td>x3</td></tr>
+    <tr><td>充值內掛時間（72小時）</td><td>x1</td></tr>
+    <tr><td>活力值藥水【500點】</td><td>x2</td></tr>
+    <tr><td>經驗藥水200%（一段加倍）</td><td>x10</td></tr>
+    <tr><td>神力藥水200%（二段加倍）</td><td>x10</td></tr>
+  </table>
+
+  <p style="margin-top:10px;">
+    ※ LINE 獎勵所有獎勵皆為 <strong style="color:#ff6666;">【綁定】</strong>、<strong style="color:#ff6666;">【無法轉移】</strong>。
+  </p>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+  </div>
+
+<div id="tab6" class="tab-content active">
+<img src="http://q1414.ddns.net:8080/aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
+<div class="section-title">遊戲更新公告(仿正)</div> 
+
+<div class="section-title">2025年08月19日18:00更新公告</div> 
+<p>
+<p>▲變身抽卡包調整為:所有卡片都有機率。</p> 
+<p>▲變身抽卡包已標示:抽卡卡片機率</p> 
+<p>▲變身抽卡包溶解後給予金元寶(刻印)。</p> 
+<p>▲變身抽卡包可由世界王/BOSS掉落。</p> 
+<p>▲變身抽卡包可由升級獎勵取得。</p> 
+<p>▲取消原有的高級/稀有/傳說卡包獲得。</p> 
+下午 04:22 2025/8/19</p> 
+
+<div class="section-title">2025年08月09日18:00更新公告：</div> 
+<p>
+<p>▲經驗倍率調整為:50倍</p> 
+<p>▲等級寶箱:開放至60級</p> 
+<p>▲升級獎勵贈送象牙塔裝備全套及象牙塔武防捲</p> 
+<p>▲木頭人限制砍到15級</p> 
+<p>▲新增武防商店</p> 
+<p>▲巧克力蛋糕售價降價15000>>(2000)</p> 
+<p>▲名譽貨幣售價降價1500>>(1000)</p> 
+<p>▲內掛經驗/金幣調整為20%>>(33%)</p> 
+<p>▲修正傲塔卷軸不能飛的問題。</p> 
+<p>▲提升傲塔1~50主線掉落機率。</p> 
+<p>▲手動更新後，武器防具商人會出現在隨身商店</p> 
+<p>▲修正金元寶無法購買商品問題。</p> 
+<p>▲隱藏之谷調整為無等級限制。</p> 
+<p>▲金幣商店出售武防卷軸。</p> 
+<p>▲修復徽章無法升級問題。</p> 
+<p>▲傳送師傳送追加其他樓層</p> 
+<p>▲高級傳送師收費調整(10000>>1000)</p> 
+<p>上午 07:59 2025/8/3</p> 
+<p>▲修正傲塔主線不會掉落任務道具問題。</p> 
+<p>▲大幅降低BOSS強度</p> 
+<p>▲修正在線抽獎獎勵元寶無法使用問題。</p> 
+<p>下午 09:54 2025/8/4</p> 
+<p>▲新增黑悟空掉落物品</p> 
+<p>▲修正巨大鱷魚與部分BOSS不會掉東西問題。</p> 
+<p>下午 12:02 2025/8/5</p> 
+<p>▲象牙塔裝備調整為安定值:0</p> 
+<p>▲新增死亡經驗贖回NPC</p>
+<p>▲新增亞丁商人萬物回收。</p>  
+<p>下午 04:19 2025/8/9</p> 
+
+<hr>
+
+  <div class="section-title">★ 加入官方 LINE 領獎勵 ★</div>
+<img src="http://q1414.ddns.net:8080/aaa/line.jpg" alt="Line圖片" style="width:200px; border-radius:10px;">
+
+  <pre>LINE 官方帳號 ID：@482evvkr</pre>
+  <p><u><strong>■ 領獎須知：</strong></u><br>
+  ▲ 加入後請直接私訊告知遊戲帳號。<br>
+  ▲ 我們將統一時間點進行批次發送。<br>
+  ▲ 每個 LINE 帳號僅能對應一個遊戲帳號領取獎勵。</p>
+
+  <p><strong>【LINE 活動獎勵內容】</strong></p>
+  <table border="1" cellspacing="0" cellpadding="6"
+    style="width:100%; color:#fff; background:#222; border-collapse:collapse;">
+    <tr><td>爆氣補充水（300分鐘）</td><td>x1</td></tr>
+    <tr><td>龍之鑽石</td><td>x3</td></tr>
+    <tr><td>充值內掛時間（72小時）</td><td>x1</td></tr>
+    <tr><td>活力值藥水【500點】</td><td>x2</td></tr>
+    <tr><td>經驗藥水200%（一段加倍）</td><td>x10</td></tr>
+    <tr><td>神力藥水200%（二段加倍）</td><td>x10</td></tr>
+  </table>
+
+  <p style="margin-top:10px;">
+    ※ LINE 獎勵所有獎勵皆為 <strong style="color:#ff6666;">【綁定】</strong>、<strong style="color:#ff6666;">【無法轉移】</strong>。
+  </p>
+<!-- 友站連結 -->
+<div style="margin-top: 60px;">
+  <a href="http://gamex123.com/" target="_blank">
+    <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+  </a>
+</div>
+</div>
+
+  <script>
+    function showTab(tabId, btnElement) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      btnElement.classList.add('active');
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
