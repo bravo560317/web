@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>各服排行榜</title>
+  <style>
+    body {
+      background-image: url('http://q1414.ddns.net:8080/aaa/1294.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: "微軟正黑體", sans-serif;
+      padding: 40px;
+      color: #333;
+      text-align: center;
+    }
+
+    .tab-content {
+      display: block;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #c00;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .columns {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 12px 0;
+    }
+
+    a {
+      display: inline-block;
+      background: #444;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 5px;
+      width: 180px;
+    }
+
+    a:hover {
+      background: #cc0000;
+    }
+
+    .section-title {
+      font-size: 24px;
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<!-- 左邊漂浮廣告 -->
+<a href="http://q1414.ddns.net:8080/server.html" target="_blank" style="
+  position: fixed;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/557.png" alt="左邊客服" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+<!-- 右邊漂浮廣告 -->
+<a href="http://q1414.ddns.net:8080/money4.html" target="_blank" style="
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;">
+  <img src="http://q1414.ddns.net:8080/aaa/555.png" alt="右邊贊助" style="width: 200px; border-radius: 10px; border: 2px solid white;">
+</a>
+
+
+  <!-- 內容容器 -->
+  <div class="tab-content">
+    <div class="section-title">【各服排行榜】</div>
+
+    <div class="columns">
+      <ul>
+        <li><strong style="color:black; font-size: 20px;">【變態服】</strong></li>
+        <li><a href="http://q1414.ddns.net:8080/new0816.php" target="_blank">戰天堂(舊) 排行榜</a></li>
+        <li><a href="http://q1414.ddns.net:8080/new20250713.php" target="_blank">戰天堂(7月服) 排行榜</a></li>
+        <li><a href="http://q1414.ddns.net:8080/new20250810.php" target="_blank">伺戰天堂08月10日</a></li>
+        <li><a href="http://q1414.ddns.net:8080/new20250817.php" target="_blank">抗戰天堂08月17日</a></li>
+      </ul>
+      <ul>
+        <li><strong style="color:black; font-size: 20px;">【仿正服】</strong></li>
+        <li><a href="http://q1414.ddns.net:8080/class.php" target="_blank">封測中 排行榜</a></li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

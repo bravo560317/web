@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>【戰天堂】自動贊助系統</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #fdf6e3;
+      font-family: "微軟正黑體", sans-serif;
+      font-size: 12px;
+    }
+
+    .container {
+      width: 300px;
+      height: auto;
+      margin: auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      font-size: 14px;
+      text-align: center;
+      margin: 6px 0 12px;
+    }
+
+    label {
+      display: block;
+      margin-top: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      font-size: 12px;
+      padding: 4px;
+      box-sizing: border-box;
+      margin-top: 2px;
+    }
+
+    button {
+      margin-top: 12px;
+      width: 100%;
+      padding: 6px;
+      font-size: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .disclaimer {
+      margin-top: 12px;
+      font-size: 11px;
+      color: #555;
+      line-height: 1.4;
+      background-color: #fff7e0;
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .disclaimer-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #b30000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>【戰天堂】自動贊助系統</h2>
+    <form method="GET" action="https://ssl.smse.com.tw/ezpos/mtmk_utf.asp">
+      <input type="hidden" name="Rvg2c" value="1">
+      <input type="hidden" name="Dcvc" value="8075">
+
+      <label>遊戲帳號(必填)</label>
+      <input type="text" name="Od_sob" required>
+
+      <label>玩家名稱(必填)</label>
+      <input type="text" name="Pur_name" required>
+
+      <label>金額(500~20,000為限)</label>
+      <input type="number" name="Amount" required>
+
+      <label>付款方式(Linepay、8591、Mycard請聯繫客服)</label>
+      <select name="Pay_zg" required>
+        <option value="4">7-11</option>
+        <option value="6">全家</option>
+        <option value="10">萊爾富</option>
+      </select>
+      <button type="submit">送出</button>
+    </form>
+<p>由於近年來詐騙過於猖獗，07/31 23:59開始虛擬帳戶功能已不開放給個人商家，ATM需求者，請與客服聯繫。
+目前正在申請其他代收公司，造成不便請見諒。</p>
+
+    <div class="disclaimer">
+      <div class="disclaimer-title">贊助玩家必讀需知：</div>
+      遊戲幣值為【1:1】，贊助後約5~10分鐘入帳。<br>
+      若遲遲未收到商品，請聯繫客服:@482evvkr<br>
+      玩家必須出於自願贊助，以維護伺服器的運行。<br>
+      請自行保管好自己的帳號和密碼，不得借給其他玩家。<br>
+      如出現強化爆掉請玩家自行負責，本服一概不賠償。<br>
+      若有轉借狀況而發生糾紛或遺失，本服一率不處理。<br>
+      贊助商品購買後，不接受退換或更換，請確認後再購買。<br>
+      贊助商品玩家必須自行強化，我們沒有幫忙強化這項服務。<br>
+    </div>
+  </div>
+</body>
+</html>
