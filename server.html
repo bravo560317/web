@@ -296,19 +296,20 @@
           <td>幻術 - HP:1300 / MP:1000</td>
         </tr>
         <tr>
-          <td>寵物經驗倍率：1倍</td>
-          <td rowspan="2" align="center">（其他設定）</td>
-        </tr>
-        <tr>
-          <td>寵物等級上限：60級</td>
-        </tr>
-        <tr>
-          <td>同 IP 多開：4個帳號</td>
+          <td>同 IP 多開：4個帳號(相同IP)</td>
           <td>伺服器重開時間：18:00</td>
         </tr>
         <tr>
           <td>當前開放轉生：【5轉】</td>
           <td>轉身需求等級：99級</td>
+        </tr>
+        <tr>
+          <td>力量點數：每3點+1額外攻擊力</td>
+          <td>敏捷點數：每3點+1額外攻擊力</td>
+        </tr>
+        <tr>
+          <td>智力點數：每3點+1魔法攻擊力</td>
+          <td>體質點數：每5點+1物理減傷</td>
         </tr>
       </tbody>
     </table>
@@ -369,7 +370,8 @@
         HP 2400 / MP 1200
       </td>
       <td>
-        機動性高，擅長風箏戰術。
+        機動性高，擅長風箏戰術。<br>
+        生命的祝福可治癒到寵物。<br> 
       </td>
     </tr>
     <tr>
@@ -413,11 +415,11 @@
 
 <hr>
 
-<div class="section-title">各職業天賦介紹</div>
+<div class="section-title">轉生天賦介紹</div>
 <div style="color:#fff; background-color:#222; padding:10px; line-height:1.6; border-radius:8px;">
   <p><b style="color:#FFD700;">【王族】天賦介紹</b><br>
   【金剛護體】被玩家攻擊時有機率[無敵]1秒，每加1點發動率增加1%<br>
-  【狂暴之氣】日光束作為(啟動/關閉)，開啟後增加物理傷害且提高承受傷害，每加1點造成傷害+2.5%、受到傷害+1%<br>
+  【狂暴之氣】日光束作為(啟動/關閉)，開啟後每加1點造成傷害+2.5%、減免傷害+1%<br>
   【屬性之光】增加武器屬性卷軸發動率，每加1點發動率+1%<br>
   【禁錮動力】攻擊時有機率禁錮敵人1秒(無法傳送移動)，每加1點發動率+1%<br>
   【榮耀治癒】受到治癒效果增加，每加1點補血量+2%</p>
@@ -467,64 +469,80 @@
   【痛苦化身】血量越少減傷越高，每加1點發動率+2% (減免公式：最大血量/目前血量×40)<br>
   【衝擊封印】攻擊有機率讓敵人無法攻擊2秒，每加1點發動率+1%</p>
 </div>
-<hr>
-    <div class="section-title">武防加成</div>
-    <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
-      <thead>
-        <tr style="background-color:#444;">
-          <th style="width:20%;">類別</th>
-          <th>加成內容</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>強化上限</td>
-          <td>
-            武器最高：+15<br>
-            防具最高：+15<br>
-            飾品最高：+9<br>
-            <b>耳環無法強化</b>
-          </td>
-        </tr>
-        <tr>
-          <td>武器加成</td>
-          <td>
-            法杖每+1：額攻+2、魔攻+1<br>
-            奇古獸每+1：魔攻+3<br>
-            雙手劍、斧、雙槍矛每+1：額攻+2、HP+300
-            其他武器每+1：額攻+3<br>
-          </td>
-        </tr>
-        <tr>
-          <td>防具加成</td>
-          <td>
-            +1：物減0 / 魔減2 / HP+20 / MP+2<br>
-            +2：物減0 / 魔減4 / HP+40 / MP+4<br>
-            +3：物減1 / 魔減6 / HP+60 / MP+6<br>
-            +4：物減1 / 魔減8 / HP+80 / MP+8<br>
-            +5：物減2 / 魔減10 / HP+100 / MP+10<br>
-            +6：物減2 / 魔減12 / HP+120 / MP+12<br>
-            +7：物減3 / 魔減14 / HP+140 / MP+14<br>
-            +8：物減3 / 魔減16 / HP+160 / MP+16<br>
-            +9：物減4 / 魔減18 / HP+200 / MP+18
-          </td>
-        </tr>
-        <tr>
-          <td>飾品加成</td>
-          <td>
-            +1：HP+5 / 回血+1 / 藥水+1<br>
-            +2：HP+10 / 回血+1 / 藥水+1<br>
-            +3：HP+15 / 回血+1 / 藥水+2<br>
-            +4：HP+20 / 回血+2 / 回魔+1 / 藥水+2<br>
-            +5：HP+25 / 回血+2 / 回魔+1 / 藥水+3<br>
-            +6：HP+30 / 回血+2 / 回魔+1 / 藥水+3<br>
-            +7：HP+35 / 回血+3 / 回魔+2 / 藥水+4<br>
-            +8：HP+40 / 回血+3 / 回魔+2 / 藥水+4<br>
-            +9：HP+45 / 回血+3 / 回魔+2 / 藥水+5
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<hr><div class="section-title">武防加成</div>
+<table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+  <thead>
+    <tr style="background-color:#444;">
+      <th style="width:20%;">類別</th>
+      <th>加成內容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>強化上限</td>
+      <td>
+        武器最高：+10<br>
+        防具最高：+10<br>
+        飾品最高:未開放強化</b><br>
+      </td>
+    </tr>
+
+    <tr>
+      <td>武器加成</td>
+      <td>
+        <table border="1" cellspacing="0" cellpadding="4" style="width:100%; color:#fff; background-color:#111; border-collapse:collapse; text-align:center;">
+          <thead>
+            <tr style="background-color:#333;">
+              <th>強化值</th>
+              <th>最小攻擊力</th>
+              <th>最大攻擊力</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>+7</td><td>3</td><td>12</td></tr>
+            <tr><td>+8</td><td>6</td><td>15</td></tr>
+            <tr><td>+9</td><td>9</td><td>18</td></tr>
+            <tr><td>+10</td><td>12</td><td>21</td></tr>
+            <tr><td>+11</td><td>15</td><td>24</td></tr>
+            <tr><td>+12</td><td>18</td><td>27</td></tr>
+            <tr><td>+13</td><td>21</td><td>30</td></tr>
+            <tr><td>+14</td><td>24</td><td>33</td></tr>
+            <tr><td>+15</td><td>27</td><td>36</td></tr>
+            <tr><td>+16</td><td>30</td><td>39</td></tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+
+    <tr>
+      <td>防具加成</td>
+      <td>
+        <table border="1" cellspacing="0" cellpadding="4" style="width:100%; color:#fff; background-color:#111; border-collapse:collapse; text-align:center;">
+          <thead>
+            <tr style="background-color:#333;">
+              <th>強化值</th>
+              <th>物理減免</th>
+              <th>魔法減免</th>
+              <th>HP 增加</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>+1</td><td>0</td><td>3</td><td>30</td></tr>
+            <tr><td>+2</td><td>0</td><td>6</td><td>60</td></tr>
+            <tr><td>+3</td><td>0</td><td>9</td><td>90</td></tr>
+            <tr><td>+4</td><td>1</td><td>12</td><td>120</td></tr>
+            <tr><td>+5</td><td>1</td><td>15</td><td>150</td></tr>
+            <tr><td>+6</td><td>1</td><td>18</td><td>180</td></tr>
+            <tr><td>+7</td><td>3</td><td>21</td><td>210</td></tr>
+            <tr><td>+8</td><td>3</td><td>24</td><td>240</td></tr>
+            <tr><td>+9</td><td>3</td><td>27</td><td>270</td></tr>
+            <tr><td>+10</td><td>4</td><td>30</td><td>300</td></tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
 <hr>
 
     <div class="section-title">寵物介紹</div>
@@ -540,154 +558,79 @@
       </thead>
       <tbody>
         <tr>
+<tr>
+  <td>寵物介紹</td>
+  <td>
+    寵物一共有 <span style="color:#00FFFF; font-weight:bold;">525</span> 種不同造型<br>
+    一般寵物：<span style="color:#FFD700; font-weight:bold;">500</span> 種
+    <span style="color:#AAAAAA;">(升級HP:5~20 MP:1~10)</span><br>
+    進化寵物：<span style="color:#FF69B4; font-weight:bold;">24</span> 種
+    <span style="color:#AAAAAA;">(升級HP:20~50 MP:5~15)</span><br>
+    新手克特：<span style="color:#00FF7F; font-weight:bold;">1</span> 種
+    <span style="color:#AAAAAA;">(升級HP:50~100 MP:5~15)</span><br>
+    隨機進化：有 <span style="color:#FF4500; font-weight:bold;">1/25</span> 機率進化成
+    <span style="color:#00FF7F;">新手克特</span>（早期克特造型）<br>
+    寵物出沒地： <span style="color:#FFD700; font-weight:bold;">伺服器全域</span><br>
+  </td>
+</tr>
+        <tr>
           <td>基本設定</td>
           <td>
-            可攜帶寵物上限：依魅力<br>
-            可召喚寵物上限：依魅力<br>
-            寵物經驗倍率：1倍<br>
-            寵物等級上限：60級
+            可攜帶寵物上限：4、寵物經驗倍率：1倍<br>
+            寵物進化：３０級、寵物等級上限：60級<br>
+            寵物等級進化：２階、寵物進化道具：進化果實<br>
           </td>
         </tr>
         <tr>
-          <td>魅力影響</td>
+          <td>寵物蛋用途</td>
           <td>
-            魅力 ÷ 6 = 可攜帶數量<br>
-            妖精：隱藏魅力 +12<br>
-            法師/王族：隱藏魅力 +6
-          </td>
-        </tr>
-        <tr>
-          <td>捕捉方式</td>
-          <td>
-            名稱含「寵」之怪物可捕捉<br>
-            使用道具：漂浮之眼肉
+            擊殺：（寵）字眼怪物機率獲得該寵物蛋<br>
+            寵物蛋可雙擊前往寶可夢寵物中心完成成就圖鑑或兌換成寵<br>
+            注意：蛋換成寵物後將無法在轉換成蛋進行圖鑑登錄<br>
           </td>
         </tr>
         <tr>
           <td>捕捉流程</td>
           <td>
-            1. 打怪掉落或向 NPC 購買<br>
-            2. 靠近寵物型怪物<br>
-            3. 使用道具觸發捕捉<br>
-            4. 成功後自動成為寵物<br>
-            5. 配戴項圈可召喚與育成
-          </td>
-        </tr>
-        <tr>
-          <td>寵物進化</td>
-          <td>
-            當寵物等級達『50』級，使用進化果實進行進化。<br>
-進化過後造型與能力都會大幅度提升。(待更新)
+            ▲凡有：（寵）字眼怪物皆可捕捉<br>
+            ▲將怪物打到殘血給與漂浮之眼肉<br>
+            ▲成功後自動成為寵物（無法進行圖鑑成就寵物登錄）<br>
           </td>
         </tr>
       </tbody>
     </table>
-<!-- 完整寵物能力表 -->
-<div class="section-title">可抓寵物一覽表</div>
-
-<div style="overflow-x:auto; margin-bottom: 40px;">
-  <style>
-    .pet-table {
-      width: 100%;
-      border-collapse: collapse;
-      color: #fff;
-      background-color: #222;
-      font-family: "微軟正黑體", sans-serif;
-      font-size: 14px;
-    }
-    .pet-table thead {
-      background-color: #444;
-    }
-    .pet-table th, .pet-table td {
-      border: 1px solid #555;
-      padding: 6px 10px;
-      text-align: center;
-    }
-    .pet-table th {
-      color: #ffcc00;
-    }
-    /* 防止被主頁樣式覆蓋導致交錯黑白背景 */
-    .pet-table tr:nth-child(even) {
-      background-color: inherit !important;
-    }
-  </style>
-
-  <table class="pet-table">
-    <thead>
-      <tr>
-        <th>寵物名</th>
-        <th>等級</th>
-        <th>初始血量</th>
-        <th>初始魔力</th>
-        <th>出沒地</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>污濁安特(寵)</td><td>15</td><td>250</td><td>12</td><td>眠龍洞穴</td></tr>
-      <tr><td>污濁精靈(寵)</td><td>15</td><td>250</td><td>12</td><td>眠龍洞穴</td></tr>
-      <tr><td>奇岩 蜥蜴人(寵)</td><td>15</td><td>400</td><td>5</td><td>奇岩地下監獄</td></tr>
-      <tr><td>密密(寵)</td><td>15</td><td>150</td><td>5</td><td>象牙之塔</td></tr>
-      <tr><td>蜥蜴人(寵)</td><td>15</td><td>113</td><td>5</td><td>全域</td></tr>
-      <tr><td>歐熊(寵)</td><td>15</td><td>313</td><td>0</td><td>海音村莊外圍</td></tr>
-      <tr><td>食屍鬼(寵)</td><td>16</td><td>276</td><td>30</td><td>全域</td></tr>
-<tr><td>史巴托(寵)</td><td>16</td><td>300</td><td>30</td><td>全域</td></tr>
-<tr><td>黑騎士(寵)</td><td>16</td><td>250</td><td>5</td><td>騎士村莊外圍</td></tr>
-<tr><td>奇岩 安普長老(寵)</td><td>16</td><td>250</td><td>30</td><td>奇岩地下監獄</td></tr>
-<tr><td>史巴托(寵)</td><td>16</td><td>300</td><td>10</td><td>全域</td></tr>
-<tr><td>影魔(寵)</td><td>16</td><td>138</td><td>15</td><td>象牙之塔</td></tr>
-<tr><td>奇岩 蟹人(寵)</td><td>17</td><td>376</td><td>15</td><td>奇岩地下監獄</td></tr>
-<tr><td>奇岩 穴居人(寵)</td><td>17</td><td>400</td><td>30</td><td>奇岩地下監獄</td></tr>
-<tr><td>魔蝙蝠(寵)</td><td>17</td><td>225</td><td>50</td><td>全域</td></tr>
-<tr><td>萊肯(寵)</td><td>17</td><td>150</td><td>40</td><td>全域</td></tr>
-<tr><td>污濁精靈女皇(寵)</td><td>18</td><td>350</td><td>50</td><td>眠龍洞穴</td></tr>
-<tr><td>楊果里恩(寵)</td><td>18</td><td>500</td><td>30</td><td>全域</td></tr>
-<tr><td>蟑螂人(寵)</td><td>12</td><td>125</td><td>30</td><td>海音地下監獄</td></tr>
-<tr><td>妖魔法師(寵)</td><td>12</td><td>100</td><td>10</td><td>全域</td></tr>
-<tr><td>骷髏弓箭手(寵)</td><td>12</td><td>100</td><td>0</td><td>全域</td></tr>
-<tr><td>高侖石頭怪(寵)</td><td>13</td><td>376</td><td>0</td><td>全域</td></tr>
-<tr><td>污濁妖魔鬥士(寵)</td><td>13</td><td>188</td><td>4</td><td>眠龍洞穴</td></tr>
-<tr><td>高侖石頭怪(寵)</td><td>13</td><td>376</td><td>4</td><td>全域</td></tr>
-<tr><td>污濁蘑菇(寵)</td><td>12</td><td>200</td><td>100</td><td>眠龍洞穴</td></tr>
-<tr><td>污濁妖魔(寵)</td><td>12</td><td>176</td><td>200</td><td>眠龍洞穴</td></tr>
-<tr><td>污濁妖魔弓箭手(寵)</td><td>12</td><td>176</td><td>10</td><td>眠龍洞穴</td></tr>
-<tr><td>奇岩 安普(寵)</td><td>12</td><td>176</td><td>50</td><td>奇岩地下監獄<</td></tr>
-<tr><td>骷髏槍兵(寵)</td><td>13</td><td>113</td><td>0</td><td>全域</td></tr>
-<tr><td>奇岩 卡司特(寵)</td><td>14</td><td>276</td><td>5</td><td>全域</td></tr>
-<tr><td>雪人(寵)</td><td>14</td><td>100</td><td>10</td><td>威瑞村莊外圍</td></tr>
-<tr><td>夏洛伯(寵)</td><td>14</td><td>125</td><td>10</td><td>全域</td></tr>
-<tr><td>哈柏哥布林(寵)</td><td>14</td><td>113</td><td>40</td><td>全域</td></tr>
-<tr><td>污濁甘地妖魔(寵)</td><td>15</td><td>226</td><td>10</td><td>汙濁之地</td></tr>
-<tr><td>污濁都達瑪拉妖魔(寵)</td><td>15</td><td>250</td><td>30</td><td>汙濁之地</td></tr>
-<tr><td>鬼魂(寵)</td><td>20</td><td>150</td><td>5</td><td>象牙之塔</td></tr>
-<tr><td>受詛咒的 蟑螂人(寵)</td><td>20</td><td>750</td><td>30</td><td>封閉地下監獄</td></tr>
-<tr><td>狂暴蜥蜴人(寵)</td><td>20</td><td>250</td><td>20</td><td>海賊島</td></tr>
-<tr><td>奇岩 楊果里恩(寵)</td><td>20</td><td>450</td><td>60</td><td>奇岩地下監獄</td></tr>
-<tr><td>歐姆(寵)</td><td>19</td><td>190</td><td>17</td><td>全域</td></tr>
-<tr><td>巨大兵蟻(寵)</td><td>20</td><td>376</td><td>5</td><td>沙漠周圍</td></tr>
-<tr><td>狂野之毒(寵)</td><td>18</td><td>225</td><td>30</td><td>海賊島</td></tr>
-<tr><td>狂野毒牙(寵)</td><td>18</td><td>225</td><td>5</td><td>海賊島</td></tr>
-<tr><td>奇岩 蟑螂人(寵)</td><td>19</td><td>450</td><td>60</td><td>奇岩地下監獄</td></tr>
-<tr><td>奇岩 卡司特王(寵)</td><td>19</td><td>350</td><td>10</td><td>奇岩地下監獄</td></tr>
-<tr><td>變形怪(寵)</td><td>19</td><td>350</td><td>10</td><td>全域</td></tr>
-<tr><td>哥布林(寵)</td><td>2</td><td>19</td><td>10</td><td>全域</td></tr>
-<tr><td>妖魔(寵)</td><td>2</td><td>8</td><td>0</td><td>全域</td></tr>
-<tr><td>地靈(寵)</td><td>3</td><td>9</td><td>0</td><td>全域</td></tr>
-<tr><td>妖魔弓箭手(寵)</td><td>3</td><td>15</td><td>30</td><td>全域</td></tr>
-<tr><td>艾多倫(寵)</td><td>4</td><td>25</td><td>30</td><td>奇岩城鎮外圍</td></tr>
-<tr><td>蘑菇(寵)</td><td>4</td><td>50</td><td>5</td><td>妖精森林外圍</td></tr>
-<tr><td>安普(寵)</td><td>5</td><td>25</td><td>0</td><td>奇岩城鎮外圍</td></tr>
-<tr><td>牧羊犬(寵)</td><td>5</td><td>38</td><td>30</td><td>說話之島外圍</td></tr>
-<tr><td>貓(寵)</td><td>5</td><td>25</td><td>30</td><td>說話之島外圍</td></tr>
-<tr><td>狂野之魔(寵)</td><td>20</td><td>250</td><td>200</td><td>海賊島</td></tr>
-<tr><td>鼴鼠(寵)</td><td>20</td><td>188</td><td>25</td><td>全域</td></tr>
-<tr><td>狼人(寵)</td><td>20</td><td>180</td><td>25</td><td>全域</td></tr>
-<tr><td>蟑螂人(寵)</td><td>20</td><td>180</td><td>20</td><td>海音地下監獄</td></tr>
-<tr><td>紅色狂暴蜥蜴人(寵)</td><td>20</td><td>563</td><td>100</td><td>海賊島</td></tr>
-      <!-- 你可以在這裡貼上更多 <tr> 資料 -->
-    </tbody>
-  </table>
-</div>
 <hr>
+
+    <div class="section-title">兌換碼介紹</div>
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="aaa/a17.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+
+<!-- 說明表格 -->
+<table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+  <thead>
+    <tr style="background-color:#444;">
+      <th style="width:20%;">項目</th>
+      <th>內容說明</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>兌換邀請碼</td>
+      <td>
+        <b>取得方式：</b><br>
+        玩家可透過 <span style="color:#00FFFF; font-weight:bold;">擊殺 BOSS</span> 取得邀請碼，當 <span style="color:#FF4500; font-weight:bold;">BOSS 死亡</span> 時，會視窗中公告該邀請碼。<br>
+        <b>使用方式：</b><br>
+        取得邀請碼後，可直接由「聊天視窗」輸入兌換碼獲得獎勵。<br>
+        <b>注意事項：</b><br>
+        每組邀請碼僅限使用一次，無法重複綁定同帳號或角色。
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+
+
 <!-- 友站連結 -->
 <div style="margin-top: 60px;">
   <a href="http://gamex123.com/" target="_blank">
@@ -700,10 +643,10 @@
 
 <div id="tab2" class="tab-content">
 <img src="aaa/006.jpg" alt="Line圖片" style="width:800px; border-radius:100px;">
- <div class="section-title">變身卡系統</div>
+ <div class="section-title">變身/娃娃卡系統</div>
   <div class="bullet">
   <div style="text-align: center; margin-bottom: 15px;">
-    <img src="aaa/116.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+    <img src="aaa/a4.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
   </div>
     <table border="1" cellspacing="0" cellpadding="6"
       style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
@@ -711,43 +654,20 @@
         <tr style="background-color:#444;">
           <th style="width:30%;">項目</th><th>內容說明</th></tr></thead>
       <tbody>
-        <tr><td>功能說明</td> <td>登入變身卡後，可永久獲得變身與能力加成。</td></tr>
-        <tr><td>溶解說明</td><td>重複的卡片溶解可分解出:金元寶(刻印)。</td></tr>
-        <tr><td>關於卡片</td><td>變身卡僅針單一角色，同帳號其他角色不同步。</td></tr>
-        <tr><td>注意事項</td><td>變身卡為無法轉移的道具。</td></tr>
-        <tr><td>取得方式</td><td>BOSS/世界王取得</td></tr>
+        <tr><td>功能說明</td> <td>登入卡片後，可獲得變身/娃娃使用權限與能力被動加成。</td></tr>
+        <tr><td>合成說明</td><td>4張相同等級卡片可以進行合成。</td></tr>
+        <tr><td>注意事項</td>
+<td>
+卡片僅針單一角色，同帳號其他角色不同步。<br>
+卡片為無法轉移的道具。<br>
+加成效果可由遊戲中「展示商人」查看。</td>
+</tr>
+        <tr><td>取得方式</td><td>簽到禮包/每日任務/天幣商店/元寶商店</td></tr>
       </tbody>
     </table>
-<br>
-<table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background:#222; border-collapse:collapse; text-align:center;">
-  <thead style="background:#444;">
-    <tr>
-      <th>組合名稱</th>
-      <th>需求變身卡</th>
-      <th>組合效果1</th>
-      <th>組合效果2</th>
-      <th>組合效果3</th>
-      <th>組合效果4</th>
-      <th>組合效果5</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>【肥肥家族】</td><td>食人妖精,食人妖精王</td><td>力量+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
-    <tr><td>【野狼兄弟】</td><td>狼人,萊肯</td><td>敏捷+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
-    <tr><td>【妖魔全家福】</td><td>妖魔,妖魔弓箭手,妖魔鬥士</td><td>智力+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
-    <tr><td>【骨質疏鬆】</td><td>骷髏,骷髏弓箭手,骷髏槍兵</td><td>體質+1</td><td>HP+30</td><td>額外攻擊力+1</td><td>魔法攻擊力+1</td><td>魔法防禦+2</td></tr>
-    <tr><td>【曾經的夢想】</td><td>死亡騎士,黑暗精靈</td><td>力量+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
-    <tr><td>【五十五級】</td><td>黑暗騎士,黑暗法師,黑暗刺客,黑暗巡守</td><td>敏捷+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
-    <tr><td>【六十級】</td><td>銀光巡守,銀光騎士,銀光法師,銀光刺客</td><td>體質+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
-    <tr><td>【六十五級】</td><td>黃金騎士,黃金法師,黃金刺客,黃金巡守</td><td>智力+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
-    <tr><td>【七十級】</td><td>白金騎士,白金刺客,白金巡守,白金法師</td><td>力量+1</td><td>HP+60</td><td>額外攻擊力+2</td><td>魔法攻擊力+2</td><td>魔法防禦+5</td></tr>
-    <tr><td>【死騎全系列】</td><td>闇黑死騎,雷霆死騎,黃金死騎,焚焰死騎,白金死騎</td><td>敏捷+1</td><td>HP+80</td><td>額外攻擊力+3</td><td>魔法攻擊力+3</td><td>魔法防禦+5</td></tr>
-    <tr><td>【傳說全系列】</td><td>傳說孫悟空,傳說屠龍者,傳說變形怪首領,傳說吉爾塔斯</td><td>智力+1</td><td>HP+100</td><td>額外攻擊力+4</td><td>魔法攻擊力+4</td><td>魔法防禦+10</td></tr>
-  </tbody>
-</table>
 <hr>
 </div>
- <div class="section-title">任務系統</div>
+ <div class="section-title">新手系統</div>
   <div class="bullet">
   <div style="text-align: center; margin-bottom: 15px;">
     <img src="aaa/110.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
@@ -762,26 +682,85 @@
       </thead>
       <tbody>
         <tr>
-          <td>任務位置</td>
-          <td>各大村莊皆可接取。</td>
+          <td>任務接取方式</td>
+          <td>背包遊戲指南道具中傳送前往。</td>
         </tr>
         <tr>
-          <td>任務類型</td>
-          <td>怪物型任務、地圖型任務。</td>
-        </tr>
-        <tr>
-          <td>完成方式</td>
-          <td>擊殺指定怪物或地圖內敵人即可。</td>
-        </tr>
-        <tr>
-          <td>循環重置</td>
-          <td>伺服器重啟後，任務自動重置。</td>
+          <td>任務形式</td>
+          <td>終身型任務</td>
         </tr>
         <tr>
           <td>注意事項</td>
           <td>
-            ・同時僅能存在一項任務<br>
-            ・任務無法手動放棄，僅能等重啟清除
+            重啟會保留任務剩餘數量
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+</div>
+ <div class="section-title">主線系統(傲塔)</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="aaa/a2.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>任務接取方式</td>
+          <td>背包遊戲指南或主線傲塔道具傳送前往。</td>
+        </tr>
+        <tr>
+          <td>任務方式</td>
+          <td>請由傲塔1樓開始爬樓梯合成的方式進行升級合成（共６００層）<br>
+一樓為Lv.1傲塔徽章，二樓則掉落Lv.2傲塔徽章製作書(需1樓徽章才可升級)</td>
+        </tr>
+        <tr>
+          <td>徽章加成</td>
+          <td>
+每升級１層增加：<span style="color:#FFD700; font-weight:bold;">ＨＰ＋５、ＭＰ＋１</span><br>
+每升級１０層增加：<span style="color:#FFD700; font-weight:bold;">額外攻擊力＋１</span><br>
+每升級２０層增加：<span style="color:#FFD700; font-weight:bold;">魔法攻擊＋１</span><br>
+  </td>
+        </tr>
+      </tbody>
+    </table>
+<hr>
+</div>
+ <div class="section-title">每日任務(循環)</div>
+  <div class="bullet">
+  <div style="text-align: center; margin-bottom: 15px;">
+    <img src="aaa/110.jpg" alt="說明圖" style="max-width: 100%; height: auto; border-radius: 10px;">
+  </div>
+    <table border="1" cellspacing="0" cellpadding="6"
+      style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:30%;">項目</th>
+          <th>內容說明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>任務接取方式</td>
+          <td>背包遊戲指南道具中傳送前往。</td>
+        </tr>
+        <tr>
+          <td>任務形式</td>
+          <td>終身型任務</td>
+        </tr>
+        <tr>
+          <td>注意事項</td>
+          <td>
+            本任務重啟接一次將無須重新接取<br>
+            即便重啟他也會保留任務剩餘數量
           </td>
         </tr>
       </tbody>
