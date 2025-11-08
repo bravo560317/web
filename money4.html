@@ -20,31 +20,40 @@
     }
     h2 {
       font-size: 14px;
-      text-align: center;
-      margin: 6px 0 12px;
+      text-align: center;            /* 原本就置中 */
+      margin: 6px 0 10px;
+      color: #c60000;
+      text-shadow: 1px 1px 2px #ffaaaa;
     }
     .section {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .section-title {
       font-weight: bold;
       color: #b30000;
-      margin-bottom: 5px;
+      font-size: 13px;
+      margin-bottom: 4px;
+      text-align: center;            /* 文字置中 */
     }
     .section-content {
       font-size: 11px;
-      color: #333;
-      line-height: 1.4;
+      color: #222;
+      line-height: 1.5;
       white-space: pre-wrap;
+      text-align: center;            /* 文字置中 */
+    }
+    .section-content span {
+      color: #b8860b;
+      font-weight: bold;
     }
     .link-button {
       display: block;
       width: 100%;
-      margin-top: 10px;
+      margin-top: 8px;
       padding: 6px;
       background-color: #007bff;
       color: #fff;
-      text-align: center;
+      text-align: center;            /* 按鈕文字置中（保留） */
       text-decoration: none;
       font-size: 12px;
       border-radius: 4px;
@@ -57,21 +66,26 @@
 <body>
   <div class="container">
     <h2>贊助說明</h2>
+
     <div class="section">
       <div class="section-title">《歡迎光臨戰天堂贊助系統說明》</div>
+    </div>
+
     <div class="section">
-      <div class="section-title">贊助注意事項:</div>
+      <div class="section-title">贊助注意事項：</div>
       <div class="section-content">
-      遊戲幣值為【1:1】，贊助後約5~10分鐘入帳。<br>
-      若遲遲未收到商品，請聯繫客服:@482evvkr<br>
-      玩家必須出於自願贊助，以維護伺服器的運行。<br>
-      請自行保管好自己的帳號和密碼，不得借給其他玩家。<br>
-      如出現強化爆掉請玩家自行負責，本服一概不賠償。<br>
-      若有轉借狀況而發生糾紛或遺失，本服一率不處理。<br>
-      贊助商品購買後，不接受退換或更換，請確認後再購買。<br>
-      贊助商品玩家必須自行強化，我們沒有幫忙強化這項服務。<br>
+        遊戲幣值為 <span>1:1</span>，贊助後約 5～10 分鐘入帳。<br>
+        若遲遲未收到商品，請聯繫客服：<span>@482evvkr</span><br>
+        玩家必須出於自願贊助，以維護伺服器的運行。<br>
+        請保管好自己的帳號密碼，不得借給其他玩家。<br>
+        如出現強化爆掉請玩家自行負責，本服一概不賠償。<br>
+        若有轉借狀況而發生糾紛或遺失，本服一率不處理。<br>
+        贊助商品購買後，不接受退換，請確認後再購買。<br>
+        贊助商品玩家必須自行強化，本服無代強服務。<br>
       </div>
-          <a class="link-button" href="https://bravo560317.github.io/web/money.html">變態服開單介紹</a>
+    </div>
+
+    <a class="link-button" href="https://bravo560317.github.io/web/money.html">變態服開單介紹</a>
   </div>
 </body>
 </html>
