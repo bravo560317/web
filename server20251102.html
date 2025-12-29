@@ -192,6 +192,9 @@
   body{
     padding: 10px;
     background-attachment: scroll;
+
+    /* ✅ 手機整體字體縮小 */
+    font-size: 13px;
   }
 
   /* 手機把左右漂浮廣告先隱藏（避免蓋住內容） */
@@ -207,7 +210,9 @@
   .tab-btn{
     padding: 8px 12px;
     border-radius: 8px;
-    font-size: 14px;
+
+    /* ✅ 按鈕字縮小 */
+    font-size: 13px;
   }
 
   /* 內容區域：改成滿寬、內距縮小 */
@@ -216,6 +221,37 @@
     max-width: 100%;
     padding: 14px;
     border-radius: 10px;
+
+    /* ✅ 內容字縮小 + 行距微調 */
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ✅ 標題縮小（紅色那條 section-title） */
+  .section-title{
+    font-size: 18px;
+  }
+
+  /* ✅ 折疊標題（活動/公告那一條 summary）字縮小 */
+  details.collapse-box > summary,
+  .update-item > summary{
+    font-size: 13px;
+  }
+
+  /* ✅ 折疊內容（內文）再小一點 */
+  details.collapse-box .collapse-body,
+  .update-body{
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  /* ✅ 表格字縮小，padding 也縮小 */
+  .tab-content table{
+    font-size: 12.5px;
+  }
+  .tab-content table th,
+  .tab-content table td{
+    padding: 5px;
   }
 
   /* 所有圖片一律手機自適應（處理你寫死 800px 的） */
@@ -241,6 +277,7 @@
     margin-top: 0 !important;
   }
 }
+
   </style>
 
   <script>
