@@ -184,6 +184,63 @@
       line-height:1.7;
     }
     .update-body p{ margin:6px 0; }
+
+/* ===================== 手機版修正（只影響小螢幕） ===================== */
+@media (max-width: 768px){
+
+  /* iOS/Safari 對 fixed 背景常怪：手機改成 scroll */
+  body{
+    padding: 10px;
+    background-attachment: scroll;
+  }
+
+  /* 手機把左右漂浮廣告先隱藏（避免蓋住內容） */
+  body > a[style*="position: fixed"]{
+    display: none !important;
+  }
+
+  /* tabs 按鈕縮小一點 */
+  .tabs{
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .tab-btn{
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  /* 內容區域：改成滿寬、內距縮小 */
+  .tab-content{
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  /* 所有圖片一律手機自適應（處理你寫死 800px 的） */
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 表格手機可左右滑（避免破版） */
+  .tab-content table{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* tab4 那種「左圖右表」：手機改成上下排，並把 margin-top 取消 */
+  #tab4 .bullet div[style*="display:flex"]{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #tab4 .bullet div[style*="flex:0 0 70px"]{
+    margin-top: 0 !important;
+  }
+}
   </style>
 
   <script>
