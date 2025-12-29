@@ -49,7 +49,6 @@
       width: 80%;
       max-width: 800px;
       margin: 0 auto;
-      background: white;
   background: white;          /* ← 白底就是這行 */
   border-radius: 8px;
   padding: 30px;              /* ← 造成白色邊/間隙的主要原因 */
@@ -277,6 +276,28 @@
     margin-top: 0 !important;
   }
 }
+/* ★ 星號閃爍效果 */
+.star-blink{
+  animation: starBlink 1.2s infinite;
+  color: #FFD700;
+  text-shadow: 0 0 6px #FFD700;
+}
+
+@keyframes starBlink{
+  0%{
+    opacity: 1;
+    text-shadow: 0 0 6px #FFD700;
+  }
+  50%{
+    opacity: 0.3;
+    text-shadow: 0 0 14px #FF0000;
+  }
+  100%{
+    opacity: 1;
+    text-shadow: 0 0 6px #FFD700;
+  }
+}
+
 
   </style>
 
@@ -298,10 +319,23 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   </script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+  document.querySelectorAll("body *").forEach(el=>{
+    // 只處理「沒有子節點」的純文字節點
+    if(el.children.length === 0 && el.innerHTML.includes("★")){
+      el.innerHTML = el.innerHTML.replace(/★/g,
+        '<span class="star-blink">★</span>'
+      );
+    }
+  });
+});
+</script>
+
 </head>
 
 <body>
-
   <!-- 左邊漂浮廣告 1 -->
   <a href="https://qr-official.line.me/gs/M_482evvkr_BW.png?oat_content=qr" target="_blank" style="
     position: fixed;
