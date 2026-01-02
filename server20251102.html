@@ -1525,6 +1525,50 @@ document.addEventListener("DOMContentLoaded", function(){
   </details>
 
   <details class="collapse-box">
+    <summary>★ 無界地圖 ★</summary>
+    <div class="collapse-body">
+      <div style="text-align:center; margin-bottom:15px;">
+        <img src="aaa/a40.jpg" alt="無界" style="max-width:100%; height:auto; border-radius:10px;">
+      </div>
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background-color:#444;"><th style="width:30%;">分類</th><th>內容說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>地圖介紹</td><td>掉落副裝備<span style="color:#00FF7F;">可以自身主裝備共同配戴使用</span></td></tr>
+          <tr><td>地圖進入方式</td><td>卷軸商人<span style="color:#00FF7F;">購買傳送卷軸</span></td></tr>
+          <tr><td>掉落物品</td><td>會掉落<span style="color:#00FF7F;">無界系列地圖</span>共七層(五個部位)</td></tr>
+          <tr><td>強化介紹</td><td>強化機率<span style="color:#00FF7F;">30%</span>,最高可升至<span style="color:#00FF7F;">10級</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details class="collapse-box">
+    <summary>★ 每日副本 ★</summary>
+    <div class="collapse-body">
+      <div style="text-align:center; margin-bottom:15px;">
+        <img src="aaa/a36.jpg" alt="每日地圖" style="max-width:100%; height:auto; border-radius:10px;">
+      </div>
+      <table border="1" cellspacing="0" cellpadding="6"
+        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
+        <thead>
+          <tr style="background-color:#444;"><th style="width:30%;">分類</th><th>內容說明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>進入方式</td><td>由<span style="color:#00FF7F;">傳送師傳送或遊戲指南選項前往。</span></td></tr>
+          <tr><td>地圖說明</td><td>每日限制<span style="color:#00FF7F;">60</span>分鐘。(共四張地圖)</td></tr>
+          <tr><td>金幣地圖</td><td>掉落<span style="color:#00FF7F;">元寶、任務幣、</span>大量金幣</td></tr>
+          <tr><td>經驗地圖</td><td>掉落<span style="color:#00FF7F;">一段二段經驗加倍藥水、</span>海量經驗</td></tr>
+          <tr><td>武器地圖</td><td>掉落<span style="color:#00FF7F;">裝備保護捲、各式鑲崁用寶石(武)</span></td></tr>
+          <tr><td>防具地圖</td><td>掉落<span style="color:#00FF7F;">裝備保護捲、各式鑲崁用寶石(防)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <details class="collapse-box">
     <summary>★ 龍之副本 ★</summary>
     <div class="collapse-body">
       <div style="text-align:center; margin-bottom:15px;">
@@ -1581,6 +1625,7 @@ document.addEventListener("DOMContentLoaded", function(){
   </details>
 
 
+
   <!-- 友站連結 -->
   <div style="margin-top:60px; text-align:center;">
     <a href="http://gamex123.com/" target="_blank">
@@ -1590,322 +1635,331 @@ document.addEventListener("DOMContentLoaded", function(){
   </div>
 </div>
 
+<style>
+/* ===== 共用樣式 ===== */
+.item-row{
+  display:flex;
+  gap:20px;
+  align-items:stretch;
+  margin-bottom:30px;
+}
+
+.item-icon{
+  flex:0 0 70px;
+}
+
+.icon-box{
+  border:1px solid #fff;
+  padding:10px;
+  border-radius:8px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.item-table{
+  flex:1;
+}
+
+.item-table table{
+  width:100%;
+  height:100%;
+  background:#222;
+  color:#fff;
+  border-collapse:collapse;
+}
+
+.item-divider{
+  border:none;
+  border-top:1px solid #444;
+  margin:30px 0;
+}
+
+/* 手機版 */
+@media (max-width:768px){
+  .item-row{
+    flex-direction:column;
+  }
+  .item-icon{
+    width:70px;
+  }
+}
+</style>
 
 <div id="tab4" class="tab-content">
 
   <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/011.gif" alt="Line圖片"
-         style="width:800px; max-width:100%; border-radius:100px; display:block; margin:0 auto;">
+    <img src="aaa/011.gif" style="width:800px; max-width:100%; border-radius:100px;">
   </div>
 
-  <!-- 共用樣式說明
-    左欄標題：#FFD700
-    說明標題：#AAA
-    重點數值：#00FF7F
-  -->
-    <div class="section-title">★ 遊戲道具介紹 ★</div>
+  <div class="section-title">★ 遊戲道具介紹 ★</div>
 
   <!-- 變身抽卡包 -->
   <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
+    <div class="item-row">
+      <div class="item-icon">
+        <div class="icon-box">
           <img src="aaa/10929.png" style="width:100%; border-radius:4px;">
         </div>
       </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">變身抽卡包</td>
-              <td>開啟後可獲得卡片進行登錄使用</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">使用說明</td>
-              <td>打開卡冊選擇要變身／使用的造型</td>
-            </tr>
-          </tbody>
+      <div class="item-table">
+        <table border="1" cellpadding="6">
+          <tr>
+            <td style="color:#FFD700; width:100px;">變身抽卡包</td>
+            <td>開啟後可獲得卡片進行登錄使用</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">使用說明</td>
+            <td>打開卡冊選擇要變身／使用的造型</td>
+          </tr>
         </table>
       </div>
     </div>
   </div>
-  <hr>
+  <class="item-divider">
 
   <!-- 爆氣藥水 -->
   <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
+    <div class="item-row">
+      <div class="item-icon">
+        <div class="icon-box">
           <img src="aaa/7325.png" style="width:100%; border-radius:4px;">
         </div>
       </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">爆氣藥水</td>
-              <td>啟用後獲得額外能力，需搭配補充水</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">使用效果</td>
-              <td><span style="color:#00FF7F;">傷害+20、減免+15、魔攻+20</span></td>
-            </tr>
-          </tbody>
+      <div class="item-table">
+        <table border="1" cellpadding="6">
+          <tr>
+            <td style="color:#FFD700; width:100px;">爆氣藥水</td>
+            <td>啟用後獲得額外能力，需搭配補充水</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">使用效果</td>
+            <td style="color:#00FF7F;">傷害+20、減免+15、魔攻+20</td>
+          </tr>
         </table>
       </div>
     </div>
   </div>
-  <hr>
+  <class="item-divider">
 
   <!-- 紋樣系統 -->
   <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
+    <div class="item-row">
+      <div class="item-icon">
+        <div class="icon-box">
           <img src="aaa/11414.png" style="width:100%; border-radius:4px;">
         </div>
       </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">紋樣系統</td>
-              <td>角色被動能力系統（同帳號角色不共用）</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">取得方式</td>
-              <td><span style="color:#00FF7F;">BOSS 掉落</span> 紋樣點數進行升級</td>
-            </tr>
-          </tbody>
+      <div class="item-table">
+        <table border="1" cellpadding="6">
+          <tr>
+            <td style="color:#FFD700; width:100px;">紋樣系統</td>
+            <td>角色被動能力系統（同帳號角色不共用）</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">取得方式</td>
+            <td><span style="color:#00FF7F;">BOSS 掉落</span> 紋樣點數升級</td>
+          </tr>
         </table>
       </div>
     </div>
   </div>
-  <hr>
-
-  <!-- 紋章 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/2383.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">紋章系統</td>
-              <td>商店購買，最高可升級至 200 級</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">升級說明</td>
-              <td>等級越高成功率越低，失敗不扣等</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">升級石</td>
-              <td>全怪掉落／商店購買</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <hr>
+  <class="item-divider">
 
   <!-- 炫色卷軸 -->
   <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
+    <div class="item-row">
+      <div class="item-icon">
+        <div class="icon-box">
           <img src="aaa/6270.png" style="width:100%; border-radius:4px;">
         </div>
       </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">炫色卷軸</td>
-              <td>武器提升額外攻擊力／裝備提升 HP 上限</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">武器效果</td>
-              <td>白(+1) → 綠(+2) → 藍(+3) → 紅(+4) → 紫(+5) → 金(+6)</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">裝備效果</td>
-              <td>白(+10) → 綠(+20) → 藍(+40) → 紅(+60) → 紫(+80) → 金(+100)（盾牌雙倍）</td>
-            </tr>
-          </tbody>
+      <div class="item-table">
+        <table border="1" cellpadding="6">
+          <tr>
+            <td style="color:#FFD700; width:100px;">炫色卷軸</td>
+            <td>武器提升攻擊力／裝備提升 HP 上限</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">武器效果</td>
+            <td>白(+1) → 綠(+2) → 藍(+3) → 紅(+4) → 紫(+5) → 金(+6)</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">裝備效果</td>
+            <td>白(+10) → 綠(+20) → 藍(+40) → 紅(+60) → 紫(+80) → 金(+100)</td>
+          </tr>
         </table>
       </div>
     </div>
   </div>
-  <hr>
 
-  <!-- 生肖附魔 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/19161.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">生肖附魔</td>
-              <td>附加於武器或防具，提升角色能力</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">使用限制</td>
-              <td>每件裝備僅能存在一種生肖效果</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">升級方式</td>
-              <td>3 顆合成 1 顆，每次提升 5 級（E → A）</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 生肖附魔 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/19161.png" style="width:100%; border-radius:4px;">
       </div>
     </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">生肖附魔</td>
+          <td>附加於武器或防具，提升角色能力</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">使用限制</td>
+          <td>每件裝備僅能存在一種生肖效果</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">升級方式</td>
+          <td>3 顆合成 1 顆，每次提升 5 級（E → A）</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <hr>
+</div>
+<class="item-divider">
 
-  <!-- 寶石鑲嵌 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/19141.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">寶石鑲嵌</td>
-              <td>鑲嵌於裝備，提升武器或防具能力</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">鑲嵌限制</td>
-              <td>武器最多 3 洞／防具最多 3 洞</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">升級方式</td>
-              <td>3 顆合成 1 顆，每次提升 5 級（1 → 5）</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 寶石鑲嵌 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/19141.png" style="width:100%; border-radius:4px;">
       </div>
     </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">寶石鑲嵌</td>
+          <td>鑲嵌於裝備，提升武器或防具能力</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">鑲嵌限制</td>
+          <td>武器最多 3 洞／防具最多 3 洞</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">升級方式</td>
+          <td>3 顆合成 1 顆，每次提升 5 級（1 → 5）</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <hr>
+</div>
+<class="item-divider">
 
-  <!-- 屬性卷軸 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/13000.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">屬性卷軸成功率</td>
-              <td>10% → 10% → 10% → 10% → 5% → 4% → 3% → 2% → 1%</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">地屬性</td>
-              <td>1級(1%/1.2s/1s)・5級(5%/2s/2s)・10級(5%/3.5s/3s)-(機率／綁腳／衝暈）</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">水屬性</td>
-              <td>1級(3%/3)・5級(3%/15)・10級(3%/30)-(機率／吸魔）</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">風屬性</td>
-              <td>1級(5%/1/50)・5級(10%/5/250)・10級(10%/5/500)-(機率／範圍／傷害）</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">火屬性</td>
-              <td>1級(1%/1.1倍)・5級(3%/1.5倍)・10級(3%/2倍)-(機率／傷害倍數）</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 屬性卷軸 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/13000.png" style="width:100%; border-radius:4px;">
       </div>
     </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">卷軸成功率</td>
+          <td>10% → 10% → 10% → 10% → 5% → 4% → 3% → 2% → 1%</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">地屬性</td>
+          <td>1級(1%/1.2s/1s)・5級(5%/2s/2s)・10級(5%/3.5s/3s)-(機率／綁腳／衝暈）</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">水屬性</td>
+          <td>1級(3%/3)・5級(3%/15)・10級(3%/30)-(機率／吸魔）</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">風屬性</td>
+          <td>1級(5%/1/50)・5級(10%/5/250)・10級(10%/5/500)-(機率／範圍／傷害）</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">火屬性</td>
+          <td>1級(1%/1.1倍)・5級(3%/1.5倍)・10級(3%/2倍)-(機率／傷害倍數）</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <hr>
+</div>
+<class="item-divider">
 
-  <!-- 靈魂水晶 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/11258.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">靈魂水晶</td>
-              <td>為武器注入靈魂效果（最高 3 級）</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">成功率</td>
-              <td>100% → 40% → 30%</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">取得方式</td>
-              <td><span style="color:#00FF7F;"> BOSS 掉落</span></td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 靈魂水晶 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/11258.png" style="width:100%; border-radius:4px;">
       </div>
     </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">靈魂水晶</td>
+          <td>為武器注入靈魂效果（最高 3 級）</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">成功率</td>
+          <td>100% → 40% → 30%</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">取得方式</td>
+          <td style="color:#00FF7F;">BOSS 掉落</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <hr>
+</div>
+<class="item-divider">
 
-  <!-- 轉職藥水 -->
-  <div class="bullet">
-    <div style="display:flex; gap:20px; flex-wrap:wrap;">
-      <div style="flex:0 0 70px;">
-        <div style="border:1px solid #fff; padding:10px; border-radius:8px;">
-          <img src="aaa/7696.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div style="flex:1;">
-        <table border="1" cellpadding="6"
-          style="width:100%; background:#222; color:#fff; border-collapse:collapse;">
-          <tbody>
-            <tr>
-              <td style="color:#FFD700;">轉職藥水</td>
-              <td>商店購買使用</td>
-            </tr>
-            <tr>
-              <td style="color:#AAA;">注意事項</td>
-              <td>使用後原職業魔法消失，需重新取得</td>
-            </tr>
-          </tbody>
-        </table>
+<!-- 轉職藥水 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/7696.png" style="width:100%; border-radius:4px;">
       </div>
     </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">轉職藥水</td>
+          <td>商店購買使用</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">注意事項</td>
+          <td>使用後原職業魔法消失，需重新取得</td>
+        </tr>
+      </table>
+    </div>
   </div>
-  <hr>
+</div>
+<class="item-divider">
+
+<!-- 秘笈 -->
+<div class="bullet">
+  <div class="item-row">
+    <div class="item-icon">
+      <div class="icon-box">
+        <img src="aaa/a41.bmp" style="width:100%; border-radius:4px;">
+      </div>
+    </div>
+    <div class="item-table">
+      <table border="1" cellpadding="6">
+        <tr>
+          <td style="color:#FFD700; width:100px;">製作秘笈</td>
+          <td>經由 BOSS 掉落強化武防具的秘笈</td>
+        </tr>
+        <tr>
+          <td style="color:#AAA;">注意事項</td>
+          <td>須達 9★ 才可進行升級強化</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
 
   <!-- 友站連結 -->
   <div style="margin-top:60px; text-align:center;">
@@ -2168,28 +2222,6 @@ document.addEventListener("DOMContentLoaded", function(){
     </div>
   </details>
 
-  <details class="collapse-box">
-    <summary>★ 每日副本(日活動) ★</summary>
-    <div class="collapse-body">
-      <div style="text-align:center; margin-bottom:15px;">
-        <img src="aaa/a36.jpg" alt="每日地圖" style="max-width:100%; height:auto; border-radius:10px;">
-      </div>
-      <table border="1" cellspacing="0" cellpadding="6"
-        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:left;">
-        <thead>
-          <tr style="background-color:#444;"><th style="width:30%;">分類</th><th>內容說明</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>進入方式</td><td>由<span style="color:#00FF7F;">傳送師傳送或遊戲指南選項前往。</span></td></tr>
-          <tr><td>地圖說明</td><td>每日限制<span style="color:#00FF7F;">60</span>分鐘。(共四張地圖)</td></tr>
-          <tr><td>金幣地圖</td><td>掉落<span style="color:#00FF7F;">元寶、任務幣、</span>大量金幣</td></tr>
-          <tr><td>經驗地圖</td><td>掉落<span style="color:#00FF7F;">一段二段經驗加倍藥水、</span>海量經驗</td></tr>
-          <tr><td>武器地圖</td><td>掉落<span style="color:#00FF7F;">裝備保護捲、各式鑲崁用寶石(武)</span></td></tr>
-          <tr><td>防具地圖</td><td>掉落<span style="color:#00FF7F;">裝備保護捲、各式鑲崁用寶石(防)</span></td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
 
   <details class="collapse-box">
     <summary>★ 世界首領(日活動)  ★</summary>
