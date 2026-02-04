@@ -6,7 +6,13 @@
 
 <style>
 body {
-  background: #0f0f0f;
+  background: 
+    linear-gradient(
+      rgba(0,0,0,0.75),
+      rgba(0,0,0,0.75)
+    ),
+    url("aaa/1294.jpg") center center / cover no-repeat fixed;
+
   color: #eee;
   font-family: "Microsoft JhengHei", Arial;
   padding: 20px;
@@ -66,19 +72,42 @@ button {
   font-size: 12px;
   margin-top: 8px;
 }
+/* 控制整塊上下左右位置 */
+.center-wrap {
+  position: absolute;
+  left: 50%;
+  top: 20%;              /* 👈 七分左右的關鍵 */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* 標題微調 */
+.title {
+  font-size: 32px;
+  margin-bottom: 14px;
+  letter-spacing: 2px;
+}
+
+/* 輸入框 & 按鈕置中微調 */
+.center-wrap input,
+.center-wrap button {
+  margin-top: 6px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>道具掉落查詢</h1>
+<div class="center-wrap">
+  <h1 class="title">道具掉落查詢</h1>
 
-<input id="keyword" placeholder="輸入道具名稱（即時搜尋）" onkeyup="search()">
-<button onclick="search()">查詢</button>
+  <input id="keyword" placeholder="輸入道具名稱（即時搜尋）" onkeyup="search()">
+  <button onclick="search()">查詢</button>
 
-<div class="note">掉落機率以 1000000 = 100% 計算</div>
+  <div class="note">掉落機率以 1000000 = 100% 計算</div>
+</div>
 
-<div id="result"></div>
 
 <script>
 let DROPS = {};
