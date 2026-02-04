@@ -1,52 +1,146 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <title>掉落查詢</title>
-  <style>
-    body { font-family: Arial; background:#111; color:#eee; }
-    input { width: 300px; padding: 8px; }
-    .item { border:1px solid #444; margin:10px 0; padding:10px; }
-    .mob { margin-left: 10px; color:#ccc; }
-  </style>
+<meta charset="UTF-8">
+<title>道具掉落查詢</title>
+
+<style>
+body {
+  background: #0f0f0f;
+  color: #eee;
+  font-family: "Microsoft JhengHei", Arial;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 360px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.item {
+  border: 1px solid #333;
+  margin-top: 15px;
+  padding: 12px;
+  background: #151515;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.mob {
+  margin-left: 10px;
+  line-height: 1.6;
+}
+
+/* 機率顏色 */
+.rate-high {
+  color: #ffcc66;
+  font-weight: bold;
+}
+
+.rate-mid {
+  color: #66ccff;
+}
+
+.rate-low {
+  color: #cccccc;
+}
+
+.note {
+  color: #888;
+  font-size: 12px;
+  margin-top: 8px;
+}
+</style>
 </head>
+
 <body>
 
 <h1>道具掉落查詢</h1>
 
-<input id="keyword" placeholder="輸入道具名稱">
+<input id="keyword" placeholder="輸入道具名稱（即時搜尋）" onkeyup="search()">
 <button onclick="search()">查詢</button>
+
+<div class="note">掉落機率以 1000000 = 100% 計算</div>
 
 <div id="result"></div>
 
 <script>
 let DROPS = {};
 
-fetch('droplist.json')
+/* 機率格式化 */
+function formatRate(chance) {
+  const rate = chance / 10000;
+
+  if (rate < 0.01) return "<0.01%";
+  if (rate >= 1) {
+    return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+  }
+  return rate.toFixed(2) + "%";
+}
+
+/* 機率對應顏色 */
+function rateClass(chance) {
+  const rate = chance / 10000;
+  if (rate >= 10) return "rate-high";
+  if (rate >= 1) return "rate-mid";
+  return "rate-low";
+}
+
+/* 載入 JSON */
+fetch("droplist.json")
   .then(r => r.json())
-  .then(data => DROPS = data);
+  .then(data => {
+    DROPS = data;
+  });
 
 function search() {
-  const kw = document.getElementById('keyword').value.trim();
-  const result = document.getElementById('result');
-  result.innerHTML = '';
+  const kw = document.getElementById("keyword").value.trim();
+  const result = document.getElementById("result");
+  result.innerHTML = "";
 
   if (!kw) return;
 
   for (const id in DROPS) {
     const item = DROPS[id];
-    if (item.name.includes(kw)) {
-      const div = document.createElement('div');
-      div.className = 'item';
 
-      let html = `<strong>${item.name}</strong><br>`;
-      item.drops.forEach(d => {
-        html += `<div class="mob">- ${d.mob}（${d.chance}）</div>`;
+    if (!item.name.includes(kw)) continue;
+
+    const box = document.createElement("div");
+    box.className = "item";
+
+    let html = `<div class="item-title">${item.name}</div>`;
+
+    item.drops
+      .sort((a, b) => b.chance - a.chance)
+      .forEach(d => {
+        const rateText = formatRate(d.chance);
+        const cls = rateClass(d.chance);
+
+        html += `
+          <div class="mob ${cls}">
+            - ${d.mob}（${rateText}）
+          </div>
+        `;
       });
 
-      div.innerHTML = html;
-      result.appendChild(div);
-    }
+    box.innerHTML = html;
+    result.appendChild(box);
   }
 }
 </script>
