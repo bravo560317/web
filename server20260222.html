@@ -2598,17 +2598,24 @@ function search() {
   result.innerHTML = "";
   if (!kw) return;
 
+  let found = false;
+
+  /* =========================
+     ① 道具名稱 → 查怪物
+  ========================= */
   for (const id in DROPS) {
     const item = DROPS[id];
     if (!item.name.includes(kw)) continue;
 
+    found = true;
+
     const box = document.createElement("div");
     box.className = "item";
 
-    let html = `<div class="item-title">${item.name}</div>`;
+    let html = `<div class="item-title">【道具】${item.name}</div>`;
 
     item.drops
-      .sort((a, b) => b.chance - a.chance)
+      .sort((a,b) => b.chance - a.chance)
       .forEach(d => {
         html += `
           <div class="mob ${rateClass(d.chance)}">
@@ -2619,7 +2626,60 @@ function search() {
     box.innerHTML = html;
     result.appendChild(box);
   }
+
+  /* =========================
+     ② 怪物名稱 → 查道具
+  ========================= */
+  let mobMap = {};
+
+  for (const id in DROPS) {
+    const item = DROPS[id];
+
+    item.drops.forEach(d => {
+      if (!d.mob.includes(kw)) return;
+
+      found = true;
+
+      if (!mobMap[d.mob]) {
+        mobMap[d.mob] = [];
+      }
+
+      mobMap[d.mob].push({
+        item: item.name,
+        chance: d.chance
+      });
+    });
+  }
+
+  for (const mob in mobMap) {
+    const box = document.createElement("div");
+    box.className = "item";
+
+    let html = `<div class="item-title">【怪物】${mob}</div>`;
+
+    mobMap[mob]
+      .sort((a,b) => b.chance - a.chance)
+      .forEach(i => {
+        html += `
+          <div class="mob ${rateClass(i.chance)}">
+            - ${i.item}（${formatRate(i.chance)}）
+          </div>`;
+      });
+
+    box.innerHTML = html;
+    result.appendChild(box);
+  }
+
+  /* =========================
+     ③ 都沒找到
+  ========================= */
+  if (!found) {
+    result.innerHTML = `<div style="color:#aaa; text-align:center; margin-top:20px;">
+      查無結果
+    </div>`;
+  }
 }
+
 </script>
 
 
