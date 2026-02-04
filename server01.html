@@ -1,7 +1,7 @@
 ﻿<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>戰天堂★官方網站(變態版)</title>
+  <title>戰天堂★官方網站(2024)</title>
 
   <style>
     body {
@@ -82,6 +82,31 @@
     .bullet {
       margin-left: 20px;
     }
+
+.item {
+  border: 1px solid #444;
+  margin-top: 15px;
+  padding: 12px;
+  background: #151515;
+  color: #fff;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #FFD700;
+}
+
+.mob {
+  margin-left: 10px;
+  line-height: 1.6;
+}
+
+.rate-high { color: #ffcc66; font-weight: bold; }
+.rate-mid  { color: #66ccff; }
+.rate-low  { color: #cccccc; }
+
 
     /* ===== 通用：捲簾(活動用 details) ===== */
     details.collapse-box {
@@ -357,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   <div class="tabs">
     <div class="tab-btn active" onclick="showTab('tab6', this)">首頁</div>
+    <div class="tab-btn" onclick="showTab('tab8', this)">新年活動</div>
     <div class="tab-btn" onclick="showTab('tab0', this)">開服活動</div>
     <div class="tab-btn" onclick="showTab('tab7', this)">每週活動</div>
     <div class="tab-btn" onclick="showTab('tab1', this)">遊戲介紹</div>
@@ -364,6 +390,79 @@ document.addEventListener("DOMContentLoaded", function(){
     <div class="tab-btn" onclick="showTab('tab3', this)">地圖介紹</div>
     <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
     <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
+    <div class="tab-btn" onclick="showTab('tab9', this)">掉落查詢</div>
+  </div>
+
+  <!-- ===================== 新年活動 ===================== -->
+  <div id="tab8" class="tab-content">
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="aaa/011.gif" alt="Line圖片"
+         style="width:800px; max-width:100%; border-radius:100px; display:block; margin:0 auto;">
+  </div>
+
+    <div class="section-title">★歡慶新年活動介紹 ★</div>
+
+
+      <details class="collapse-box" open>
+        <summary>★ 新年九大活動 ★</summary>
+        <div class="collapse-body">
+          <p class="event-time"><u style="color:#00BFFF;">■ 活動時間：</u><br><span style="color:#FFD700;">02月16日 18:00 ～ 02月25日 18:00 截止。</span></p>
+
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new01.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new02.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new03.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new04.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new05.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new06.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new07.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new08.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+  <div style="text-align:center; margin:6px 0 10px;">
+    <img src="aaa/new09.gif"
+         style="max-width:100%; border-radius:6px;">
+  </div>
+
+
+          <p class="sub-title"><u style="color:#00BFFF;">■ 注意事項：</u></p>
+          <ul class="bullet">
+            <li><span style="color:#FF6666;">活動九、贊助活動</span>：每服僅有第一名可自選寵，第２、３名可以獲得與第一名相同的寵物。</li>
+          </ul>
+        </div>
+      </details>
+
+
+
+      <!-- 友站連結 -->
+      <div style="margin-top: 60px; text-align:center;">
+        <a href="http://gamex123.com/" target="_blank">
+          <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+        </a>
+      </div>
+
+    </div>
   </div>
 
   <!-- ===================== 開服活動 ===================== -->
@@ -2405,6 +2504,149 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
   </div>
   </div>
+
+<div id="tab9" class="tab-content">
+
+  <div style="text-align:center; margin-bottom:30px;">
+    <h2 style="color:#C60000;">★ 道具掉落查詢 ★</h2>
+
+    <input id="keyword"
+           placeholder="輸入道具名稱（即時搜尋）"
+           onkeyup="search()"
+           style="
+             width:360px;
+             padding:10px;
+             font-size:16px;
+             margin-top:10px;
+           ">
+
+    <button onclick="search()"
+            style="padding:10px 16px; font-size:16px; margin-left:6px;">
+      查詢
+    </button>
+
+    <div style="color:#888; font-size:12px; margin-top:8px;">
+      掉落機率以 1000000 = 100% 計算
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<script>
+let DROPS = {};
+
+function formatRate(chance) {
+  const rate = chance / 10000;
+  if (rate < 0.01) return "<0.01%";
+  if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+  return rate.toFixed(2) + "%";
+}
+
+function rateClass(chance) {
+  const rate = chance / 10000;
+  if (rate >= 10) return "rate-high";
+  if (rate >= 1) return "rate-mid";
+  return "rate-low";
+}
+
+fetch("droplist.json")
+  .then(r => r.json())
+  .then(data => {
+    DROPS = data;
+  });
+
+function search() {
+  const kw = document.getElementById("keyword").value.trim();
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+  if (!kw) return;
+
+  let found = false;
+
+  /* =========================
+     ① 道具名稱 → 查怪物
+  ========================= */
+  for (const id in DROPS) {
+    const item = DROPS[id];
+    if (!item.name.includes(kw)) continue;
+
+    found = true;
+
+    const box = document.createElement("div");
+    box.className = "item";
+
+    let html = `<div class="item-title">【道具】${item.name}</div>`;
+
+    item.drops
+      .sort((a,b) => b.chance - a.chance)
+      .forEach(d => {
+        html += `
+          <div class="mob ${rateClass(d.chance)}">
+            - ${d.mob}（${formatRate(d.chance)}）
+          </div>`;
+      });
+
+    box.innerHTML = html;
+    result.appendChild(box);
+  }
+
+  /* =========================
+     ② 怪物名稱 → 查道具
+  ========================= */
+  let mobMap = {};
+
+  for (const id in DROPS) {
+    const item = DROPS[id];
+
+    item.drops.forEach(d => {
+      if (!d.mob.includes(kw)) return;
+
+      found = true;
+
+      if (!mobMap[d.mob]) {
+        mobMap[d.mob] = [];
+      }
+
+      mobMap[d.mob].push({
+        item: item.name,
+        chance: d.chance
+      });
+    });
+  }
+
+  for (const mob in mobMap) {
+    const box = document.createElement("div");
+    box.className = "item";
+
+    let html = `<div class="item-title">【怪物】${mob}</div>`;
+
+    mobMap[mob]
+      .sort((a,b) => b.chance - a.chance)
+      .forEach(i => {
+        html += `
+          <div class="mob ${rateClass(i.chance)}">
+            - ${i.item}（${formatRate(i.chance)}）
+          </div>`;
+      });
+
+    box.innerHTML = html;
+    result.appendChild(box);
+  }
+
+  /* =========================
+     ③ 都沒找到
+  ========================= */
+  if (!found) {
+    result.innerHTML = `<div style="color:#aaa; text-align:center; margin-top:20px;">
+      查無結果
+    </div>`;
+  }
+}
+
+</script>
+
 
   <!-- ===================== 首頁（更新公告） ===================== -->
   <div id="tab6" class="tab-content active">
