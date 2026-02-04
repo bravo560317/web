@@ -365,6 +365,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <div class="tab-btn" onclick="showTab('tab3', this)">地圖介紹</div>
     <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
     <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
+    <div class="tab-btn" onclick="showTab('tab9', this)">掉落查詢</div>
   </div>
 
   <!-- ===================== 新年活動 ===================== -->
@@ -2478,6 +2479,36 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
   </div>
   </div>
+
+<div id="tab9" class="tab-content">
+
+  <div style="text-align:center; margin-bottom:30px;">
+    <h2 style="color:#C60000;">★ 道具掉落查詢 ★</h2>
+
+    <input id="keyword"
+           placeholder="輸入道具名稱（即時搜尋）"
+           onkeyup="search()"
+           style="
+             width:360px;
+             padding:10px;
+             font-size:16px;
+             margin-top:10px;
+           ">
+
+    <button onclick="search()"
+            style="padding:10px 16px; font-size:16px; margin-left:6px;">
+      查詢
+    </button>
+
+    <div style="color:#888; font-size:12px; margin-top:8px;">
+      掉落機率以 1000000 = 100% 計算
+    </div>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
 
   <!-- ===================== 首頁（更新公告） ===================== -->
   <div id="tab6" class="tab-content active">
