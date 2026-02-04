@@ -83,6 +83,31 @@
       margin-left: 20px;
     }
 
+.item {
+  border: 1px solid #444;
+  margin-top: 15px;
+  padding: 12px;
+  background: #151515;
+  color: #fff;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #FFD700;
+}
+
+.mob {
+  margin-left: 10px;
+  line-height: 1.6;
+}
+
+.rate-high { color: #ffcc66; font-weight: bold; }
+.rate-mid  { color: #66ccff; }
+.rate-low  { color: #cccccc; }
+
+
     /* ===== 通用：捲簾(活動用 details) ===== */
     details.collapse-box {
       border: 2px solid #444;
@@ -2544,7 +2569,58 @@ document.addEventListener("DOMContentLoaded", function(){
       </a>
     </div>
 
+<script>
+let DROPS = {};
 
+function formatRate(chance) {
+  const rate = chance / 10000;
+  if (rate < 0.01) return "<0.01%";
+  if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+  return rate.toFixed(2) + "%";
+}
+
+function rateClass(chance) {
+  const rate = chance / 10000;
+  if (rate >= 10) return "rate-high";
+  if (rate >= 1) return "rate-mid";
+  return "rate-low";
+}
+
+fetch("droplist.json")
+  .then(r => r.json())
+  .then(data => {
+    DROPS = data;
+  });
+
+function search() {
+  const kw = document.getElementById("keyword").value.trim();
+  const result = document.getElementById("result");
+  result.innerHTML = "";
+  if (!kw) return;
+
+  for (const id in DROPS) {
+    const item = DROPS[id];
+    if (!item.name.includes(kw)) continue;
+
+    const box = document.createElement("div");
+    box.className = "item";
+
+    let html = `<div class="item-title">${item.name}</div>`;
+
+    item.drops
+      .sort((a, b) => b.chance - a.chance)
+      .forEach(d => {
+        html += `
+          <div class="mob ${rateClass(d.chance)}">
+            - ${d.mob}（${formatRate(d.chance)}）
+          </div>`;
+      });
+
+    box.innerHTML = html;
+    result.appendChild(box);
+  }
+}
+</script>
 
 
 
