@@ -1,130 +1,168 @@
 ﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<title>道具掉落查詢</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>道具掉落查詢</title>
 
-<style>
-body {
-  background: 
-    linear-gradient(
-      rgba(0,0,0,0.75),
-      rgba(0,0,0,0.75)
-    ),
-    url("aaa/1294.jpg") center center / cover no-repeat fixed;
+  <style>
+    body{
+      margin:0;
+      background-image:url("aaa/1294.jpg");
+      background-size:cover;
+      background-position:center;
+      background-attachment:fixed;
+      font-family:"微軟正黑體", sans-serif;
+      padding:40px;
+      color:#fff;
+      text-align:center;
+    }
 
-  color: #eee;
-  font-family: "Microsoft JhengHei", Arial;
-  padding: 20px;
-}
+    /* ✅ 讓內容「縮內」像你官網 tab-content */
+    .page{
+      width:80%;
+      max-width:800px;
+      margin:0 auto;
+      background: rgba(0,0,0,0.60);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 26px 26px 22px 26px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.35);
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
 
-h1 {
-  margin-bottom: 10px;
-}
+    h1{
+      font-size:28px;
+      margin:0 0 16px 0;
+      letter-spacing:2px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.6);
+    }
 
-input {
-  width: 360px;
-  padding: 10px;
-  font-size: 16px;
-}
+    .controls{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom:6px;
+    }
 
-button {
-  padding: 10px 16px;
-  font-size: 16px;
-  margin-left: 6px;
-  cursor: pointer;
-}
+    input{
+      width:420px;
+      max-width: 100%;
+      padding:10px 12px;
+      font-size:16px;
+      border-radius:6px;
+      border:1px solid rgba(255,255,255,0.2);
+      outline:none;
+    }
 
-.item {
-  border: 1px solid #333;
-  margin-top: 15px;
-  padding: 12px;
-  background: #151515;
-}
+    button{
+      padding:10px 16px;
+      font-size:16px;
+      border-radius:6px;
+      border:0;
+      cursor:pointer;
+      background:#ccc;
+      color:#000;
+    }
+    button:hover{
+      background:#ddd;
+    }
 
-.item-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 6px;
-}
+    .note{
+      color:#ddd;
+      font-size:12px;
+      margin-top:8px;
+      opacity:0.85;
+    }
 
-.mob {
-  margin-left: 10px;
-  line-height: 1.6;
-}
+    /* ✅ 結果區也放在同一個縮內容器裡 */
+    #result{
+      margin-top:18px;
+      text-align:left;
+    }
 
-/* 機率顏色 */
-.rate-high {
-  color: #ffcc66;
-  font-weight: bold;
-}
+    .item{
+      border: 1px solid rgba(255,255,255,0.12);
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(10,10,10,0.55);
+    }
 
-.rate-mid {
-  color: #66ccff;
-}
+    .item-title{
+      font-size: 17px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #fff;
+    }
 
-.rate-low {
-  color: #cccccc;
-}
+    .mob{
+      margin-left: 10px;
+      line-height: 1.8;
+      color: #eaeaea;
+    }
 
-.note {
-  color: #888;
-  font-size: 12px;
-  margin-top: 8px;
-}
-/* 控制整塊上下左右位置 */
-.center-wrap {
-  position: absolute;
-  left: 50%;
-  top: 20%;              /* 👈 七分左右的關鍵 */
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
+    /* 機率顏色 */
+    .rate-high{ color:#ffcc66; font-weight:bold; }
+    .rate-mid{  color:#66ccff; }
+    .rate-low{  color:#cccccc; }
 
-/* 標題微調 */
-.title {
-  font-size: 32px;
-  margin-bottom: 14px;
-  letter-spacing: 2px;
-}
-
-/* 輸入框 & 按鈕置中微調 */
-.center-wrap input,
-.center-wrap button {
-  margin-top: 6px;
-}
-
-</style>
+    /* ✅ 手機版：跟你官網邏輯一樣縮排 */
+    @media (max-width: 768px){
+      body{
+        padding:10px;
+        background-attachment:scroll;
+      }
+      .page{
+        width:100%;
+        max-width:100%;
+        padding:14px;
+        border-radius:10px;
+      }
+      h1{
+        font-size:20px;
+      }
+      input, button{
+        font-size:14px;
+      }
+      .item-title{
+        font-size:15px;
+      }
+      .mob{
+        font-size:13px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="center-wrap">
-  <h1 class="title">道具掉落查詢</h1>
+  <div class="page">
+    <h1>道具掉落查詢</h1>
 
-  <input id="keyword" placeholder="輸入道具名稱（即時搜尋）" onkeyup="search()">
-  <button onclick="search()">查詢</button>
+    <div class="controls">
+      <input id="keyword" placeholder="輸入道具名稱（即時搜尋）" onkeyup="search()">
+      <button onclick="search()">查詢</button>
+    </div>
 
-  <div class="note">輸入任一關鍵字</div>
-</div>
+    <div class="note">掉落機率以 1000000 = 100% 計算</div>
 
-<div id="result"></div>
+    <div id="result"></div>
+  </div>
 
 <script>
 let DROPS = {};
 
-/* 機率格式化 */
 function formatRate(chance) {
   const rate = chance / 10000;
-
   if (rate < 0.01) return "<0.01%";
-  if (rate >= 1) {
-    return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
-  }
+  if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
   return rate.toFixed(2) + "%";
 }
 
-/* 機率對應顏色 */
 function rateClass(chance) {
   const rate = chance / 10000;
   if (rate >= 10) return "rate-high";
@@ -132,12 +170,9 @@ function rateClass(chance) {
   return "rate-low";
 }
 
-/* 載入 JSON */
 fetch("droplist.json")
   .then(r => r.json())
-  .then(data => {
-    DROPS = data;
-  });
+  .then(data => DROPS = data);
 
 function search() {
   const kw = document.getElementById("keyword").value.trim();
@@ -148,7 +183,6 @@ function search() {
 
   for (const id in DROPS) {
     const item = DROPS[id];
-
     if (!item.name.includes(kw)) continue;
 
     const box = document.createElement("div");
@@ -157,16 +191,9 @@ function search() {
     let html = `<div class="item-title">${item.name}</div>`;
 
     item.drops
-      .sort((a, b) => b.chance - a.chance)
+      .sort((a,b) => b.chance - a.chance)
       .forEach(d => {
-        const rateText = formatRate(d.chance);
-        const cls = rateClass(d.chance);
-
-        html += `
-          <div class="mob ${cls}">
-            - ${d.mob}（${rateText}）
-          </div>
-        `;
+        html += `<div class="mob ${rateClass(d.chance)}">- ${d.mob}（${formatRate(d.chance)}）</div>`;
       });
 
     box.innerHTML = html;
