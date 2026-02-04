@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>掉落查詢</title>
+  <style>
+    body { font-family: Arial; background:#111; color:#eee; }
+    input { width: 300px; padding: 8px; }
+    .item { border:1px solid #444; margin:10px 0; padding:10px; }
+    .mob { margin-left: 10px; color:#ccc; }
+  </style>
+</head>
+<body>
+
+<h1>道具掉落查詢</h1>
+
+<input id="keyword" placeholder="輸入道具名稱">
+<button onclick="search()">查詢</button>
+
+<div id="result"></div>
+
+<script>
+let DROPS = {};
+
+fetch('droplist.json')
+  .then(r => r.json())
+  .then(data => DROPS = data);
+
+function search() {
+  const kw = document.getElementById('keyword').value.trim();
+  const result = document.getElementById('result');
+  result.innerHTML = '';
+
+  if (!kw) return;
+
+  for (const id in DROPS) {
+    const item = DROPS[id];
+    if (item.name.includes(kw)) {
+      const div = document.createElement('div');
+      div.className = 'item';
+
+      let html = `<strong>${item.name}</strong><br>`;
+      item.drops.forEach(d => {
+        html += `<div class="mob">- ${d.mob}（${d.chance}）</div>`;
+      });
+
+      div.innerHTML = html;
+      result.appendChild(div);
+    }
+  }
+}
+</script>
+
+</body>
+</html>
