@@ -385,6 +385,7 @@ document.addEventListener("DOMContentLoaded", function(){
     <div class="tab-btn" onclick="showTab('tab1', this)">遊戲介紹</div>
     <div class="tab-btn" onclick="showTab('tab2', this)">特殊功能</div>
     <div class="tab-btn" onclick="showTab('tab3', this)">武器介紹</div>
+    <div class="tab-btn" onclick="showTab('tab8', this)">防具介紹</div>
     <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
     <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
     <div class="tab-btn" onclick="showTab('tab6', this)">掉落查詢</div>
@@ -970,6 +971,19 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
   </div>
   </div>
+<!-- ===================== 防具介紹 ===================== -->
+<div id="tab8" class="tab-content">
+
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="aaa/011.gif"
+         style="width:800px; max-width:100%; border-radius:100px;">
+  </div>
+
+  <div class="section-title">★ 防具介紹 ★</div>
+
+  <div id="armor-container"></div>
+
+</div>
 
 <!-- ===================== 武器介紹 ===================== -->
 <div id="tab3" class="tab-content">
@@ -1129,6 +1143,8 @@ function search() {
 
 </script>
 
+  <!-- ===================== 武器參數 ===================== -->
+
 <script>
 let WEAPONS = [];
 
@@ -1166,6 +1182,64 @@ function renderWeapons() {
             <tr>
               <td style="color:#AAA;">安定值</td>
               <td>+${w.safe}</td>
+            </tr>
+            <tr>
+              <td style="color:#AAA;">可用職業</td>
+              <td>${jobs}</td>
+            </tr>
+            <tr>
+              <td style="color:#AAA;">額外效果</td>
+              <td>${effects}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    `;
+  });
+
+  container.innerHTML = html;
+}
+</script>
+
+  <!-- ===================== 防具參數 ===================== -->
+<script>
+let ARMORS = [];
+
+fetch('armor.json')
+  .then(res => res.json())
+  .then(data => {
+    ARMORS = data;
+    renderArmors();
+  });
+
+function renderArmors() {
+  const container = document.getElementById("armor-container");
+  if (!container) return;
+
+  let html = "";
+
+  ARMORS.forEach(a => {
+
+    let jobs = a.jobs.length ? a.jobs.join(" / ") : "全職業";
+    let effects = a.effects.length ? a.effects.join(" / ") : "-";
+
+    html += `
+    <div class="bullet">
+      <div class="item-row">
+        <div class="item-table">
+          <table border="1" cellpadding="6">
+            <tr>
+              <td style="color:#FFD700; width:80px;">防具名稱</td>
+              <td>${a.name}</td>
+            </tr>
+            <tr>
+              <td style="color:#AAA;">AC</td>
+              <td>${a.ac}</td>
+            </tr>
+            <tr>
+              <td style="color:#AAA;">安定值</td>
+              <td>+${a.safe}</td>
             </tr>
             <tr>
               <td style="color:#AAA;">可用職業</td>
