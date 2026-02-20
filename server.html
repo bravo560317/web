@@ -1004,7 +1004,7 @@ document.addEventListener("DOMContentLoaded", function(){
 <div id="tab6" class="tab-content">
 
   <div style="text-align:center; margin-bottom:30px;">
-    <h2 style="color:#C60000;">★ 道具掉落查詢 ★</h2>
+    <h2 style="color:#C60000;">★ 經典天堂掉落查詢 ★</h2>
 
     <input id="keyword"
            placeholder="輸入道具名稱（即時搜尋）"
@@ -1022,7 +1022,7 @@ document.addEventListener("DOMContentLoaded", function(){
     </button>
 
     <div style="color:#888; font-size:12px; margin-top:8px;">
-      例: 哥布林 、衝擊之暈 、暗黑十字弓
+      例: 哥布林 、魂體轉換 、對武器施法卷軸
     </div>
   </div>
 
@@ -1047,7 +1047,7 @@ function rateClass(chance) {
   return "rate-low";
 }
 
-fetch("droplist.json")
+fetch("droplist_new.json")
   .then(r => r.json())
   .then(data => {
     DROPS = data;
