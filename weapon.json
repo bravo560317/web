@@ -1,0 +1,705 @@
+﻿[
+    {
+        "name":  "流星錘",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  10,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  9,
+        "safe":  6
+    },
+    {
+        "name":  "木棒",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  3,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  6,
+        "safe":  6
+    },
+    {
+        "name":  "弗萊爾",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  4,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  6,
+        "safe":  6
+    },
+    {
+        "name":  "釘錘",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  8,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  6,
+        "safe":  6
+    },
+    {
+        "name":  "亞連",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  4,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  4,
+        "safe":  6
+    },
+    {
+        "name":  "斧",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  5,
+        "type":  "blunt",
+        "effects":  [
+
+                    ],
+        "small":  3,
+        "safe":  6
+    },
+    {
+        "name":  "十字弓",
+        "jobs":  [
+                     "騎士",
+                     "妖精",
+                     "黑妖",
+                     "幻術"
+                 ],
+        "large":  2,
+        "type":  "bow",
+        "effects":  [
+                        "命中 +3",
+                        "額外攻擊 +2"
+                    ],
+        "small":  3,
+        "safe":  6
+    },
+    {
+        "name":  "尤米弓",
+        "jobs":  [
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  3,
+        "type":  "bow",
+        "effects":  [
+                        "額外攻擊 +3"
+                    ],
+        "small":  3,
+        "safe":  6
+    },
+    {
+        "name":  "獵人之弓",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  2,
+        "type":  "bow",
+        "effects":  [
+                        "命中 +5",
+                        "額外攻擊 +1"
+                    ],
+        "small":  2,
+        "safe":  6
+    },
+    {
+        "name":  "精靈弓",
+        "jobs":  [
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  2,
+        "type":  "bow",
+        "effects":  [
+                        "額外攻擊 +1"
+                    ],
+        "small":  2,
+        "safe":  6
+    },
+    {
+        "name":  "短弓",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  2,
+        "type":  "bow",
+        "effects":  [
+                        "額外攻擊 +-1"
+                    ],
+        "small":  2,
+        "safe":  6
+    },
+    {
+        "name":  "弓",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  1,
+        "type":  "bow",
+        "effects":  [
+
+                    ],
+        "small":  1,
+        "safe":  6
+    },
+    {
+        "name":  "矛",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "large":  8,
+        "type":  "singlespear",
+        "effects":  [
+
+                    ],
+        "small":  6,
+        "safe":  6
+    },
+    {
+        "name":  "帕提森",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "large":  6,
+        "type":  "singlespear",
+        "effects":  [
+
+                    ],
+        "small":  6,
+        "safe":  6
+    },
+    {
+        "name":  "三叉戟",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "large":  5,
+        "type":  "singlespear",
+        "effects":  [
+
+                    ],
+        "small":  4,
+        "safe":  6
+    },
+    {
+        "name":  "貝卡合金",
+        "jobs":  [
+                     "騎士"
+                 ],
+        "large":  17,
+        "type":  "spear",
+        "effects":  [
+
+                    ],
+        "small":  17,
+        "safe":  6
+    },
+    {
+        "name":  "戟",
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "large":  12,
+        "type":  "spear",
+        "effects":  [
+
+                    ],
+        "small":  16,
+        "safe":  6
+    },
+    {
+        "name":  "露西錘",
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "large":  17,
+        "type":  "spear",
+        "effects":  [
+                        "命中 +3"
+                    ],
+        "small":  15,
+        "safe":  6
+    },
+    {
+        "name":  "法丘",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "large":  14,
+        "type":  "spear",
+        "effects":  [
+                        "命中 +3"
+                    ],
+        "small":  14,
+        "safe":  6
+    },
+    {
+        "name":  "闊矛",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "large":  16,
+        "type":  "spear",
+        "effects":  [
+
+                    ],
+        "small":  12,
+        "safe":  6
+    },
+    {
+        "name":  "吉薩",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "large":  14,
+        "type":  "spear",
+        "effects":  [
+
+                    ],
+        "small":  12,
+        "safe":  6
+    },
+    {
+        "name":  "力量魔法杖",
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "large":  9,
+        "type":  "staff",
+        "effects":  [
+                        "額外攻擊 +3",
+                        "魔攻 +-2"
+                    ],
+        "small":  9,
+        "safe":  6
+    },
+    {
+        "name":  "瑪那魔杖",
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "large":  7,
+        "type":  "staff",
+        "effects":  [
+                        "命中 +-2",
+                        "魔攻 +1"
+                    ],
+        "small":  7,
+        "safe":  6
+    },
+    {
+        "name":  "美基魔法杖",
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "large":  5,
+        "type":  "staff",
+        "effects":  [
+                        "魔攻 +3",
+                        "魔法打擊 +3"
+                    ],
+        "small":  4,
+        "safe":  6
+    },
+    {
+        "name":  "橡木魔法杖",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "幻術"
+                 ],
+        "large":  4,
+        "type":  "staff",
+        "effects":  [
+                        "魔攻 +1",
+                        "魔法打擊 +1"
+                    ],
+        "small":  3,
+        "safe":  6
+    },
+    {
+        "name":  "巫術魔法杖",
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "large":  3,
+        "type":  "staff",
+        "effects":  [
+                        "魔攻 +1"
+                    ],
+        "small":  2,
+        "safe":  6
+    },
+    {
+        "name":  "武士刀",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  12,
+        "type":  "sword",
+        "effects":  [
+                        "命中 +1"
+                    ],
+        "small":  10,
+        "safe":  6
+    },
+    {
+        "name":  "大馬士革刀",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  11,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  10,
+        "safe":  6
+    },
+    {
+        "name":  "侵略者之劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  11,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  9,
+        "safe":  6
+    },
+    {
+        "name":  "長劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  12,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  8,
+        "safe":  6
+    },
+    {
+        "name":  "銀長劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  12,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  8,
+        "safe":  6
+    },
+    {
+        "name":  "紅騎士之劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  12,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  8,
+        "safe":  6
+    },
+    {
+        "name":  "彎刀",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  8,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  8,
+        "safe":  6
+    },
+    {
+        "name":  "小侏儒短劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  8,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  7,
+        "safe":  6
+    },
+    {
+        "name":  "銀劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  7,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  7,
+        "safe":  6
+    },
+    {
+        "name":  "鎖子甲破壞者",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  5,
+        "type":  "sword",
+        "effects":  [
+                        "命中 +10"
+                    ],
+        "small":  4,
+        "safe":  6
+    },
+    {
+        "name":  "闊劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "large":  6,
+        "type":  "sword",
+        "effects":  [
+
+                    ],
+        "small":  4,
+        "safe":  6
+    },
+    {
+        "name":  "巨斧",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  26,
+        "type":  "tohandblunt",
+        "effects":  [
+
+                    ],
+        "small":  20,
+        "safe":  6
+    },
+    {
+        "name":  "狂戰士斧",
+        "jobs":  [
+                     "騎士",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  19,
+        "type":  "tohandblunt",
+        "effects":  [
+
+                    ],
+        "small":  19,
+        "safe":  6
+    },
+    {
+        "name":  "侏儒鐵斧",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  24,
+        "type":  "tohandblunt",
+        "effects":  [
+
+                    ],
+        "small":  18,
+        "safe":  6
+    },
+    {
+        "name":  "戰斧",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  18,
+        "type":  "tohandblunt",
+        "effects":  [
+
+                    ],
+        "small":  18,
+        "safe":  6
+    },
+    {
+        "name":  "銀斧",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "龍騎",
+                     "幻術"
+                 ],
+        "large":  24,
+        "type":  "tohandblunt",
+        "effects":  [
+
+                    ],
+        "small":  17,
+        "safe":  6
+    },
+    {
+        "name":  "雙手劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "龍騎"
+                 ],
+        "large":  21,
+        "type":  "tohandsword",
+        "effects":  [
+                        "額外攻擊 +3"
+                    ],
+        "small":  17,
+        "safe":  6
+    }
+]
