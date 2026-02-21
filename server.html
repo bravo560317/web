@@ -386,7 +386,6 @@ document.addEventListener("DOMContentLoaded", function(){
     <div class="tab-btn" onclick="showTab('tab2', this)">特殊功能</div>
     <div class="tab-btn" onclick="showTab('tab3', this)">武器介紹</div>
     <div class="tab-btn" onclick="showTab('tab8', this)">防具介紹</div>
-    <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
     <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
     <div class="tab-btn" onclick="showTab('tab6', this)">掉落查詢</div>
   </div>
@@ -442,29 +441,18 @@ document.addEventListener("DOMContentLoaded", function(){
           </tr>
         </thead>
         <tbody>
-          <tr><td>經驗倍率：3000倍</td><td>王族 - HP:1800 / MP:800</td></tr>
-          <tr><td>掉寶倍率：1倍</td><td>騎士 - HP:2200 / MP:600</td></tr>
-          <tr><td>金幣倍率：1倍</td><td>妖精 - HP:1400 / MP:1200</td></tr>
-          <tr><td>武器衝過率：10%</td><td>法師 - HP:1000 / MP:1800</td></tr>
-          <tr><td>防具衝過率：10%</td><td>黑妖 - HP:1200 / MP:800</td></tr>
-          <tr><td>能力值上限：35</td><td>龍騎 - HP:1500 / MP:400</td></tr>
-          <tr><td>萬能藥上限：210瓶</td><td>幻術 - HP:1300 / MP:1000</td></tr>
-          <tr><td>同 IP 多開：4個帳號(相同IP)</td><td>伺服器重開時間：18:00</td></tr>
-          <tr><td>當前開放轉生：【30轉】</td><td>轉身需求等級：99級</td></tr>
-          <tr><td>力量點數：每3點+1額外攻擊力</td><td>敏捷點數：每3點+1額外攻擊力</td></tr>
-          <tr><td>智力點數：每3點+1魔法攻擊力</td><td>體質點數：每5點+1物理減傷</td></tr>
+          <tr><td>經驗倍率：10倍</td><td>等級上限：55</td></tr>
+          <tr><td>掉寶倍率：1倍</td><td>金幣倍率：1倍</td></tr>
+          <tr><td>武器衝過率：10%</td><td>防具衝過率：10%</td></tr>
+          <tr><td>同 IP 多開：4個帳號</td><td>每日重啟：18:00</td></tr>
+          <tr><td>力量：每3點+1額外攻擊</td><td>敏捷：每3點+1額外攻擊</td></tr>
+          <tr><td>智力：每3點+1魔法攻擊</td><td>體質：每5點+1物理減傷</td></tr>
+          <tr><td>內掛限制：無法獲得金幣以外的道具</td><td>內掛場地：僅開放歌唱之島/隱藏之谷</td></tr>
         </tbody>
       </table>
+<br>
 
-    </div>
-  </details>
-
-  <!-- 2) 職業介紹 -->
-  <details class="collapse-box">
-    <summary>★ 職業介紹 ★</summary>
-    <div class="collapse-body">
-
-      <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <table border="2" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
         <thead>
           <tr style="background-color:#444;">
             <th style="width:15%;">職業</th>
@@ -476,37 +464,22 @@ document.addEventListener("DOMContentLoaded", function(){
           <tr>
             <td>王族</td>
             <td>HP 1800 / MP 800</td>
-            <td>王族是極度燒錢的職業，<br>血盟技能升級多數依賴王族。<br>無雄厚資金請慎選。</td>
+            <td> <span style="color:#FFD700;">15級試煉:</span>紅色斗篷(刻印)<br> <span style="color:#FFD700;">30級試煉:</span>君主的威嚴(刻印)<br> <span style="color:#FFD700;">45級試煉:</span>守護者的戒指(刻印)<br></td>
           </tr>
           <tr>
             <td>法師</td>
-            <td>魅力值需求:44<br>黑豹 HP4000 / MP500 / 傷害：50∼100<br>HP 1000 / MP 1800</td>
-            <td>法術多元但需時間蒐集法書，<br>高寵流首選職業。</td>
+            <td>HP 1000 / MP 1800</td>
+            <td> <span style="color:#FFD700;">15級試煉:</span>魔法能量之書(刻印) <span style="color:#FFD700;"><br>30級試煉:</span>瑪那魔杖(刻印)<br> <span style="color:#FFD700;">45級試煉:</span>瑪那斗篷(刻印)<br></td>
           </tr>
           <tr>
             <td>騎士</td>
             <td>雙手武器可額外加 HP<br>暈眩約 2∼5 秒<br>HP 2200 / MP 600</td>
-            <td>高血量坦型職業，適合近戰肉盾。</td>
+            <td> <span style="color:#FFD700;">15級試煉:</span>紅騎士頭巾(刻印)<br> <span style="color:#FFD700;">30級試煉:</span>紅騎士盾牌(刻印)<br> <span style="color:#FFD700;">45級試煉:</span>勇敢皮帶(刻印)<br></td>
           </tr>
           <tr>
             <td>妖精</td>
-            <td>遠攻對大型怪減半<br>HP 1400 / MP 1200</td>
-            <td>四大屬性皆可學習。<br>生命的祝福可治癒到寵物。</td>
-          </tr>
-          <tr>
-            <td>黑暗妖精</td>
-            <td>爆擊率：雙刀25%、爪子33%<br>破壞盔甲對怪無效<br>HP 1200 / MP 800</td>
-            <td>操作爽快的爆發近戰職業。</td>
-          </tr>
-          <tr>
-            <td>龍騎士</td>
-            <td>弱點曝光在自動練功下無效<br>HP 1500 / MP 400</td>
-            <td>控場強、適合單挑爆發打法。</td>
-          </tr>
-          <tr>
-            <td>幻術師</td>
-            <td>疼痛歡愉上限：2000<br>計算：實際傷害 / 3<br>HP 1300 / MP 1000</td>
-            <td>奇古獸不吃物理，本遊戲中較不友善。<br>考驗技巧與時機。</td>
+            <td>遠程對大型怪傷害減半<br>HP 1400 / MP 1200</td>
+            <td> <span style="color:#FFD700;">15級試煉:</span>精靈敏捷頭盔(刻印)<br> <span style="color:#FFD700;">30級試煉:</span>精靈T恤(刻印)<br> <span style="color:#FFD700;">45級試煉:</span>保護者手套(刻印)<br></td>
           </tr>
         </tbody>
       </table>
@@ -534,92 +507,48 @@ document.addEventListener("DOMContentLoaded", function(){
           <tr>
             <td>寵物介紹</td>
             <td>
-              一般寵物：<span style="color:#FFD700; font-weight:bold;">500</span> 種
-              <span style="color:#AAAAAA;">(升級HP:5~20 MP:1~10)</span><br>
-              一階寵物：<span style="color:#FF69B4; font-weight:bold;">20</span> 種
-              <span style="color:#AAAAAA;">(升級HP:20~50 MP:5~15)</span><br>
-              新手克特：<span style="color:#00FF7F; font-weight:bold;">稀有</span> 種
-              <span style="color:#AAAAAA;">(升級HP:50~100 MP:5~15)</span><br>
-              二階寵物：<span style="color:#FF69B4; font-weight:bold;">26</span> 種
-              <span style="color:#AAAAAA;">(升級HP:80~100 MP:10~20)</span><br>
-              真死亡騎士/真黑暗妖精：<span style="color:#00FF7F; font-weight:bold;">傳說</span> 種
-              <span style="color:#AAAAAA;">(升級HP:200~300 MP:10~20)</span><br>
-            </td>
-          </tr>
-
-          <tr>
-            <td>一階寵物進化時，將隨機變化為以下造型</td>
-            <td>
-              <span style="color:#FF69B4; font-weight:bold;">【闇龍軍團】</span><br>
-              闇龍軍團士兵、闇龍軍團戰士、闇龍軍團暗殺者、闇龍將軍隊長<br><br>
-
-              <span style="color:#FF4500; font-weight:bold;">【紅騎士團】</span><br>
-              紅騎士團法師、紅騎士團戰士、紅騎士團弓箭手、紅騎士團槍兵<br><br>
-
-              <span style="color:#00BFFF; font-weight:bold;">【暴風之刃】(無法二階進化)</span><br>
-              暴風之刃戰士、暴風之刃暗殺者、暴風之刃弓箭手、暴風之刃鬥士<br><br>
-
-              <span style="color:#1E90FF; font-weight:bold;">【藍色鯊魚】(無法二階進化)</span><br>
-              藍色鯊魚戰士、藍色鯊魚法師、藍色鯊魚弓箭手、藍色鯊魚槍兵<br><br>
-
-              <span style="color:#ADFF2F; font-weight:bold;">【部落妖魔】(無法二階進化)</span><br>
-              部落妖魔戰士、部落妖魔法師、部落妖魔弓箭手、部落妖魔鬥士<br><br>
-
-              <span style="color:#00FF7F; font-weight:bold;">【稀有】</span><br>
-              新兵克特
-            </td>
-          </tr>
-
-          <tr>
-            <td>二階寵物進化時，將隨機變化為以下造型</td>
-            <td>
-              <span style="color:#E5E4E2; font-weight:bold;">【白金系列】</span><br>
-              白金龍騎士、白金火槍手、白金巡守、白金刺客、白金法師、白金騎士<br><br>
-
-              <span style="color:#FFD700; font-weight:bold;">【黃金系列】</span><br>
-              黃金龍騎士、黃金火槍手、黃金刺客、黃金巡守、黃金法師、黃金騎士<br><br>
-
-              <span style="color:#C0C0C0; font-weight:bold;">【銀光系列】</span><br>
-              銀光龍騎士、銀光火槍手、銀光刺客、銀光巡守、銀光法師、銀光騎士<br><br>
-
-              <span style="color:#8B0000; font-weight:bold;">【黑暗系列】</span><br>
-              黑暗龍騎士、黑暗火槍手、黑暗刺客、黑暗巡守、黑暗法師、黑暗騎士<br><br>
-
-              <span style="color:#00FF7F; font-weight:bold;">【傳說級】</span><br>
-              真黑暗妖精、真死亡騎士
-            </td>
-          </tr>
-
-          <tr>
-            <td>基本設定</td>
-            <td>
-              可攜帶寵物上限：4、寵物經驗倍率：1倍<br>
-              寵物進化：45級、寵物等級上限：60級<br>
-              寵物等級進化：1階、寵物進化道具：進化果實<br>
-              寵物等級進化：2階、寵物進化道具：勝利果實<br>
-            </td>
-          </tr>
-
-          <tr>
-            <td>寵物蛋用途</td>
-            <td>
-              擊殺：（寵）字眼怪物機率獲得該寵物蛋<br>
-              寵物蛋可雙擊可立刻完成成就圖鑑任務<br>
-            </td>
-          </tr>
-
-          <tr>
-            <td>捕捉流程</td>
-            <td>
-              ▲凡有：（寵）字眼怪物皆可捕捉<br>
-              ▲將怪物打到殘血給與漂浮之眼肉<br>
-              ▲成為項圈的寵物無法進行成就登入<br>
-              ▲部分怪物『無法投入道具』因此無法進化或捕捉。<br>
-              ▲無法進化的怪物將會在名稱上標示，若有發現沒標示的請告知，會補上。<br>
+              捕捉使用：<span style="color:#FFD700; font-weight:bold;">漂浮之眼肉</span> <br>
+              捕捉場地：<span style="color:#FF69B4; font-weight:bold;">說話之島外圍</span> <br>
+              進化等級：<span style="color:#00FF7F; font-weight:bold;">30級</span> <br>
+              進化道具：<span style="color:#FF69B4; font-weight:bold;">進化果實</span> <br>
             </td>
           </tr>
         </tbody>
       </table>
+
+<br>
+
+<table border="2" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+  <thead>
+    <tr style="background-color:#444;">
+      <th style="width:30%;">寵物名稱</th>
+      <th style="width:35%;">升級血量</th>
+      <th>升級魔力</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr><td>浣熊</td><td>3 ~ 9</td><td>2 ~ 4</td></tr>
+    <tr><td>小獵犬</td><td>4 ~ 8</td><td>2 ~ 4</td></tr>
+    <tr><td>聖伯納犬</td><td>6 ~ 10</td><td>2 ~ 4</td></tr>
+    <tr><td>狼</td><td>3 ~ 9</td><td>1 ~ 2</td></tr>
+    <tr><td>杜賓狗</td><td>3 ~ 6</td><td>1 ~ 2</td></tr>
+    <tr><td>貓</td><td>3 ~ 6</td><td>3 ~ 5</td></tr>
+    <tr><td>牧羊犬</td><td>5 ~ 8</td><td>1 ~ 2</td></tr>
+    <tr><td>暴走兔</td><td>3 ~ 8</td><td>3 ~ 5</td></tr>
+    <tr><td>狐狸</td><td>3 ~ 9</td><td>2 ~ 3</td></tr>
+    <tr><td>柯利</td><td>8 ~ 11</td><td>3 ~ 4</td></tr>
+    <tr><td>哈士奇</td><td>8 ~ 13</td><td>1 ~ 2</td></tr>
+    <tr><td>袋鼠</td><td>3 ~ 9</td><td>2 ~ 4</td></tr>
+    <tr><td>虎男</td><td>8 ~ 14</td><td>3 ~ 5</td></tr>
+    <tr><td>猴子</td><td>5 ~ 10</td><td>1 ~ 1</td></tr>
+    <tr><td>貓熊</td><td>3 ~ 8</td><td>3 ~ 5</td></tr>
+    <tr><td>高麗幼犬</td><td>3 ~ 6</td><td>3 ~ 5</td></tr>
+    <tr><td>熊</td><td>8 ~ 14</td><td>1 ~ 2</td></tr>
+
+  </tbody>
+</table>
+
 
     </div>
   </details>
@@ -663,49 +592,14 @@ document.addEventListener("DOMContentLoaded", function(){
         </thead>
         <tbody>
           <tr><td>功能說明</td><td>登入卡片後，可獲得變身/娃娃使用權限與能力被動加成。</td></tr>
-          <tr><td>合成說明</td><td>4張相同等級卡片可以進行合成。</td></tr>
           <tr>
             <td>注意事項</td>
             <td>
               卡片僅針單一角色，同帳號其他角色不同步。<br>
-              卡片為無法轉移的道具。<br>
-              加成效果可由遊戲中「展示商人」查看。
+              登入卡片被動加成可由遊戲中「展示商人」查看。
             </td>
           </tr>
-          <tr><td>取得方式</td><td>簽到禮包/每日任務/天幣商店/元寶商店</td></tr>
-        </tbody>
-      </table>
-
-    </div>
-  </details>
-
-
-  <!-- 排行榜系統 -->
-  <details class="collapse-box">
-    <summary>★ 排行系統 ★</summary>
-    <div class="collapse-body">
-
-      <div style="text-align:center; margin-bottom:15px;">
-        <img src="aaa/a21.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
-      </div>
-
-      <table border="1" cellspacing="0" cellpadding="6"
-        style="width:100%; color:#fff; background-color:#222; border-collapse:collapse; text-align:center;">
-        <thead>
-          <tr style="background-color:#444;">
-            <th>項目</th>
-            <th>內容</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>陣營排行榜</td><td>由「寶區」怪物給予積分，進行分數排行。</td></tr>
-          <tr><td>殺王排行榜</td><td>由擊殺「BOSS」殺王積分，進行分數排行。</td></tr>
-          <tr><td>傲塔排行榜</td><td>由「主線傲塔」所獲得的傲塔徽章，等級高低排行。</td></tr>
-          <tr><td>武器排行榜</td><td>由「玩家」當前裝備狀態下武器，加成高低排行。</td></tr>
-          <tr><td>儲值排行榜</td><td>由「贊助」累積金額排行，特定儲值競賽活動時開啟。</td></tr>
-          <tr><td>卡牌排行榜</td><td>由「玩家」登入的變身或娃娃卡牌，數量高低排行。</td></tr>
-          <tr><td>寵物排行榜</td><td>由「寵物」背包內所有寵物的血量高低排行。</td></tr>
-          <tr><td>其他排行榜</td><td>與其他私服基本相同(大家都有)，則不提供多餘介紹。</td></tr>
+          <tr><td>取得方式</td><td>BOSS/雜貨商店/歐林</td></tr>
         </tbody>
       </table>
 
@@ -733,8 +627,8 @@ document.addEventListener("DOMContentLoaded", function(){
           <tr>
             <td>功能說明</td>
             <td>
-              提供給玩家搜刮寶物。<span style="color:#00FF7F;">(金幣購買)</span><br>
-              內容物包含：<span style="color:#00FF7F;">武器、裝備、魔法書、甚至商城道具！</span>
+              提供給玩家搜刮寶物。<br>
+              內容物包含：<span style="color:#00FF7F;">武器、裝備、甚至魔法書！</span>
             </td>
           </tr>
           <tr>
@@ -757,212 +651,99 @@ document.addEventListener("DOMContentLoaded", function(){
 </div>
 
 
-<style>
-/* ===== 共用樣式 ===== */
-.item-row{
-  display:flex;
-  gap:20px;
-  align-items:stretch;
-  margin-bottom:30px;
-}
-
-.item-icon{
-  flex:0 0 70px;
-}
-
-.icon-box{
-  border:1px solid #fff;
-  padding:10px;
-  border-radius:8px;
-  height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.item-table{
-  flex:1;
-}
-
-.item-table table{
-  width:100%;
-  height:100%;
-  background:#222;
-  color:#fff;
-  border-collapse:collapse;
-}
-
-.item-divider{
-  border:none;
-  border-top:1px solid #444;
-  margin:30px 0;
-}
-
-/* 手機版 */
-@media (max-width:768px){
-  .item-row{
-    flex-direction:column;
-  }
-  .item-icon{
-    width:70px;
-  }
-}
-</style>
-
-
-<!-- ===================== 遊戲道具介紹 (tab4) ===================== -->
-
-
-<div id="tab4" class="tab-content">
-
-  <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/011.gif" style="width:800px; max-width:100%; border-radius:100px;">
-  </div>
-
-  <div class="section-title">★ 遊戲道具介紹 ★</div>
-
-  <!-- 變身抽卡包 -->
-  <div class="bullet">
-    <div class="item-row">
-      <div class="item-icon">
-        <div class="icon-box">
-          <img src="aaa/10929.png" style="width:100%; border-radius:4px;">
-        </div>
-      </div>
-      <div class="item-table">
-        <table border="1" cellpadding="6">
-          <tr>
-            <td style="color:#FFD700; width:80px;">抽卡包</td>
-            <td>開啟後可獲得卡片進行登錄使用</td>
-          </tr>
-          <tr>
-            <td style="color:#AAA;">使用說明</td>
-            <td>打開卡冊選擇要變身／使用的造型</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <!-- 友站連結 -->
-  <div style="margin-top:60px; text-align:center;">
-    <a href="http://gamex123.com/" target="_blank">
-      <img src="http://imgur.com/08CqRqx.gif"
-           style="width:80px; border-radius:10px; box-shadow:0 0 8px rgba(0,0,0,0.5);">
-    </a>
-  </div>
-
-</div>
-
-
 <div id="tab5" class="tab-content">
 
   <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/011.gif" alt="Line圖片"
-         style="width:800px; max-width:100%; border-radius:100px; display:block; margin:0 auto;">
+    <img src="aaa/011.gif"
+         style="width:800px; max-width:100%; border-radius:100px;">
   </div>
 
-  <!-- 共用樣式說明
-    左欄標題：#FFD700
-    說明標題：#AAA
-    重點數值：#00FF7F
-  -->
+  <div class="section-title">★ 遊戲懶人包下載說明 ★</div>
 
-    <div class="section-title">★ 遊戲懶人包下載說明 ★</div>
-  <div style="color:#fff; background-color:#222; border:2px solid #444; padding:20px; border-radius:8px; line-height:1.6; text-align:left; display:inline-block; max-width:900px;">
+  <!-- 1) 懶人包下載 -->
+  <details class="collapse-box" open>
+    <summary>★ 懶人包下載 ★</summary>
+    <div class="collapse-body">
 
-    <p style="color:#FF6666; font-family:'標楷體'; font-weight:bold;">
-      此為遊戲懶人包壓縮檔，下載後解壓縮即可直接進行遊戲，無需額外安裝。
-    </p>
-
-    <!-- 下載按鈕區 -->
-    <div style="text-align:center; margin:20px 0;">
-      <a href="https://drive.google.com/file/d/1RxYZuG8K1BUVteRr4MQxL6NDA1J2Hskm/view?usp=sharing" target="_blank" style="text-decoration:none;">
-        <img src="aaa/999.jpg" alt="檔案下載" style="width:300px; border:2px solid #cc6600; border-radius:10px;">
-        <div style="color:#FFD700; margin-top:10px;">戰天堂 V1.3 懶人包下載（Google 雲端）<br></div>
-      </a>
-    </div>
-
-    <p><u style="color:#00BFFF;">■ 版本更新內容：</u></p>
-    <ul style="list-style:none; padding-left:10px;">
-      <li>▲ 輔助程式追加：魔法卷軸（魔法屏障 / 聖結界）自動施放</li>
-      <li>▲ 更新官網網址、贊助網址及部分問題修正</li>
-    </ul>
-    <hr>
-
-    <h3 style="color:#FFD700; font-family:'標楷體';">一、無法下載懶人包（被瀏覽器阻擋）</h3>
-    <p>請依照下列圖片指示操作：</p>
-    <p>圖片1：<br><img src="https://i.imgur.com/1wQzQmW.png" style="max-width:100%; border-radius:6px;"></p>
-    <p>圖片2：<br><img src="https://i.imgur.com/85Jjwhx.png" style="max-width:100%; border-radius:6px;"></p>
-    <hr>
-
-    <h3 style="color:#FFD700; font-family:'標楷體';">二、Win10 無法遊玩天堂（作業系統阻擋）</h3>
-    <div style="color:#00BFFF; font-family:'標楷體';">
-      <p>請依以下步驟進行設定：</p>
-      <p><b style="color:#FFD700;">步驟一：</b><br>
-        右鍵點選遊戲啟動檔 → 內容 → 相容性<br>
-        勾選「以相容模式執行此程式」→ 選擇 Windows 7<br>
-        勾選「高 DPI 設定替代」→ 套用<br>
-        建議勾選「以系統管理員身分執行此程式」<br>
-        <span style="color:#FF6666;">※ 若未設定 DPI，畫面可能只顯示左上角</span><br>
-        <span style="color:#FF6666;">※ 若未選擇相容模式，會出現「無法使用此伺服器」</span>
+      <p style="color:#FF6666; font-weight:bold;">
+        此為遊戲懶人包壓縮檔，下載後解壓縮即可點擊資料夾內的「Login.exe」進行遊戲，無需額外申請遊戲帳號(首次輸入則為創建新帳號)。
       </p>
+
+      <div style="text-align:center; margin:20px 0;">
+        <a href="你的下載連結" target="_blank" style="text-decoration:none;">
+          <img src="aaa/999.jpg" style="width:300px; border:2px solid #cc6600; border-radius:10px;">
+          <div style="color:#FFD700; margin-top:10px;">
+            經典天堂 V1.0 懶人包下載（Google 雲端）
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- 2) 無法下載 -->
+  <details class="collapse-box">
+    <summary>★ 無法下載懶人包（瀏覽器阻擋）★</summary>
+    <div class="collapse-body">
+      <p>請依照圖片指示操作：</p>
+      <img src="https://i.imgur.com/1wQzQmW.png" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="https://i.imgur.com/85Jjwhx.png" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
+  <!-- 3) Win10 相容問題 -->
+  <details class="collapse-box">
+    <summary>★ Win10 &Win11 無法遊玩天堂 ★</summary>
+    <div class="collapse-body">
+
+      <p><b style="color:#FFD700;">步驟一：</b><br>
+      右鍵 → 內容 → 相容性 → Windows 7<br>
+      勾選「高 DPI 設定替代」<br>
+      建議勾選「系統管理員身分執行」</p>
 
       <p><b style="color:#FFD700;">步驟二：</b><br>
-        將螢幕解析度調整為 1280×720 或 1024×768
-      </p>
+      螢幕解析度調整為 1280×720 或 1024×768</p>
 
       <p><b style="color:#FFD700;">步驟三：</b><br>
-        若仍無法進入遊戲，請對以下檔案按右鍵 → 內容 → 安全性 → 設為「完全控制」<br>
-        Login.dll、Login.exe、TW13081901.bin、TW13081901.pak
-      </p>
+      將 Login.dll、Login.exe 等檔案設為完全控制</p>
+
     </div>
-    <hr>
+  </details>
 
-    <h3 style="color:#FFD700; font-family:'標楷體';">三、防毒軟體誤判遊戲檔案（被防毒阻擋）</h3>
-    <p>請參考以下圖片教學解除防毒阻擋：</p>
-    <p>圖片1：<br><img src="https://i.imgur.com/nJoxgp6.jpg" style="max-width:100%; border-radius:6px;"></p>
-    <p>圖片2：<br><img src="https://i.imgur.com/HVzxkwU.jpg" style="max-width:100%; border-radius:6px;"></p>
-    <p>圖片3：<br><img src="https://i.imgur.com/QX4XyIF.jpg" style="max-width:100%; border-radius:6px;"></p>
-    <hr>
-
-    <h3 style="color:#FFD700; font-family:'標楷體';">四、無法啟動遊戲（顯示錯誤或閃退）</h3>
-    <div style="color:#00BFFF;">
-      <p><b>請確認是否有以下檔案殘留於天堂資料夾，如有請移除：</b><br>
-        dgVoodoo、D3D8.dll、D3D9.dll、D3DImm.dll、DDraw.dll<br>
-        <span style="color:#FF6666;">★ 若您系統為 Win7 或顯卡過舊，這些檔案可能導致無法登入遊戲。</span>
-      </p>
+  <!-- 4) 防毒誤判 -->
+  <details class="collapse-box">
+    <summary>★ 防毒軟體誤判處理 ★</summary>
+    <div class="collapse-body">
+      <img src="https://i.imgur.com/nJoxgp6.jpg" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="https://i.imgur.com/HVzxkwU.jpg" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="https://i.imgur.com/QX4XyIF.jpg" style="max-width:100%; border-radius:6px;">
     </div>
-    <p><img src="https://i.imgur.com/FvCdMvw.png" style="max-width:100%; border-radius:6px;"></p>
+  </details>
 
-    <p><b style="color:#FFD700;">補充說明：</b><br>
-      dgVoodoo 是一款提升老舊 DirectX 遊戲相容性的補丁工具，可協助遊戲在 Windows 10/11 下正常運行。<br>
-      若顯卡或晶片過舊不支援，可嘗試：
-    </p>
-    <ul>
-      <li>更新顯卡驅動程式</li>
-      <li>重新安裝最新版 DirectX</li>
-      <li>或直接移除 dgVoodoo 檔案恢復原始狀態</li>
-    </ul>
-    <hr>
-
-    <h3 style="color:#FFD700; font-family:'標楷體';">五、CreateSurface Failed! 88760234 錯誤閃退解決方法</h3>
-    <div style="color:#00BFFF;">
-      <p><b>若開啟遊戲時遇到「createsurface failed! 88760234」導致選完伺服器後閃退：</b><br>
-        這是顯示卡未正確強制縮放不支援 DPI 的軟體或遊戲導致。<br>
-        <span style="color:#FF6666;">※ 若未出現此訊息，請勿隨意修改相容性，以免原可遊玩反而出錯。</span>
+  <!-- 5) 閃退問題 -->
+  <details class="collapse-box">
+    <summary>★ 無法啟動 / 閃退解決方法(win7 或 顯示卡超過8年) ★</summary>
+    <div class="collapse-body">
+      <p>請移除以下檔案：</p>
+      <p style="color:#FF6666;">
+        dgVoodoo、D3D8.dll、D3D9.dll、D3DImm.dll、DDraw.dll
       </p>
+      <img src="aaa/007.jpg" style="max-width:100%; border-radius:6px;">
     </div>
-    <p><img src="aaa/007.jpg" style="max-width:100%; border-radius:6px;"></p>
-    <hr>
+  </details>
 
-    <p><b style="color:#FFD700;">若您仍有任何疑問，歡迎於本論壇留言或私訊站務人員，我們將盡速為您處理！</b></p>
-    <p style="color:#FFD700; font-weight:bold;">祝您遊戲愉快，天堂見！</p>
-  <hr>
-  </div>
+  <!-- 6) CreateSurface 錯誤 -->
+  <details class="collapse-box">
+    <summary>★ CreateSurface Failed 88760234 解決方法 ★</summary>
+    <div class="collapse-body">
+      <p>顯示卡未正確強制縮放導致 DPI 問題。</p>
+      <img src="aaa/007.jpg" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
 <!-- 友站連結 -->
 <div style="margin-top: 60px;">
   <a href="http://gamex123.com/" target="_blank">
