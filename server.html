@@ -563,8 +563,40 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <div class="section-title">★遊戲特色內容介紹 ★</div>
 
-  <!-- 變身/娃娃卡系統 -->
+
+  <!-- 7) 暗黑詞條 -->
   <details class="collapse-box" open>
+    <summary>★ 暗黑破壞神詞條系統 ★</summary>
+    <div class="collapse-body">
+
+      <div style="text-align:center; margin-bottom:15px;">
+        <img src="aaa/114.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+      </div>
+
+      <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:25%;">類別</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>詞條介紹</td>
+            <td>
+              取得方式：<span style="color:#FFD700; font-weight:bold;">打怪獲得(製作或購買的不會出現詞條)</span> <br>
+              詞條效果：<span style="color:#FF69B4; font-weight:bold;">隨機增加傷害、減免、回血、回魔、魔攻等特殊加成</span> <br>
+              詞條種類：<span style="color:#00FF7F; font-weight:bold;">高級(1)→稀有(2)→英雄(3)→傳說(4)→神話(5)→帝王(10)。</span> <br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </details>
+
+  <!-- 變身/娃娃卡系統 -->
+  <details class="collapse-box">
     <summary>★ 卡牌系統 ★</summary>
     <div class="collapse-body">
 
@@ -639,6 +671,36 @@ document.addEventListener("DOMContentLoaded", function(){
     </a>
   </div>
 </div>
+
+<style>
+.collapse-box{
+  margin:15px 0;
+  border:1px solid #444;
+  border-radius:8px;
+  overflow:hidden;
+  background:#222;
+}
+
+.collapse-box summary{
+  padding:12px 15px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#FFD700;
+  background:#333;
+  font-size:16px;
+}
+
+.collapse-box summary:hover{
+  background:#444;
+}
+
+.collapse-body{
+  padding:15px;
+  color:#fff;
+  line-height:1.6;
+}
+</style>
+
 
 
 <div id="tab5" class="tab-content">
