@@ -941,7 +941,7 @@ function rateClass(chance) {
   return "rate-low";
 }
 
-fetch("droplist_new.json")
+fetch('droplist_new.json')
   .then(r => r.json())
   .then(data => {
     DROPS = data;
@@ -966,8 +966,7 @@ function search() {
 
     let html = `<div class="item-title">【道具】${item.name}</div>`;
 
-    item.drops
-      .sort((a,b) => b.chance - a.chance)
+    item.drops.sort((a,b) => b.chance - a.chance)
       .forEach(d => {
         html += `<div class="mob ${rateClass(d.chance)}">
           - ${d.mob}（${formatRate(d.chance)}）
@@ -978,49 +977,8 @@ function search() {
     result.appendChild(box);
   }
 
-  let mobMap = {};
-
-  for (const id in DROPS) {
-    const item = DROPS[id];
-
-    item.drops.forEach(d => {
-      if (!d.mob.includes(kw)) return;
-
-      found = true;
-
-      if (!mobMap[d.mob]) {
-        mobMap[d.mob] = [];
-      }
-
-      mobMap[d.mob].push({
-        item: item.name,
-        chance: d.chance
-      });
-    });
-  }
-
-  for (const mob in mobMap) {
-    const box = document.createElement("div");
-    box.className = "item";
-
-    let html = `<div class="item-title">【怪物】${mob}</div>`;
-
-    mobMap[mob]
-      .sort((a,b) => b.chance - a.chance)
-      .forEach(i => {
-        html += `<div class="mob ${rateClass(i.chance)}">
-          - ${i.item}（${formatRate(i.chance)}）
-        </div>`;
-      });
-
-    box.innerHTML = html;
-    result.appendChild(box);
-  }
-
   if (!found) {
-    result.innerHTML = `<div style="color:#aaa; text-align:center; margin-top:20px;">
-      查無結果
-    </div>`;
+    result.innerHTML = `<div style="color:#aaa; text-align:center;">查無結果</div>`;
   }
 }
 </script>
@@ -1052,26 +1010,17 @@ function renderWeapons() {
     <div class="bullet">
       <table class="weapon-table">
         <tr>
-          <td class="title">武器名稱</td>
+          <td>武器名稱</td>
           <td colspan="7">${w.name}</td>
         </tr>
-
         <tr>
-          <td class="label">小傷</td>
-          <td>${w.small}</td>
-
-          <td class="label">大傷</td>
-          <td>${w.large}</td>
-
-          <td class="label">安定</td>
-          <td>+${w.safe}</td>
-
-          <td class="label">特效</td>
-          <td>${effects}</td>
+          <td>小傷</td><td>${w.small}</td>
+          <td>大傷</td><td>${w.large}</td>
+          <td>安定</td><td>+${w.safe}</td>
+          <td>特效</td><td>${effects}</td>
         </tr>
-
         <tr>
-          <td class="label">可用職業</td>
+          <td>可用職業</td>
           <td colspan="7">${jobs}</td>
         </tr>
       </table>
@@ -1109,23 +1058,16 @@ function renderArmors() {
     <div class="bullet">
       <table class="armor-table">
         <tr>
-          <td class="title">防具名稱</td>
+          <td>防具名稱</td>
           <td colspan="5">${a.name}</td>
         </tr>
-
         <tr>
-          <td class="label">AC</td>
-          <td>${a.ac}</td>
-
-          <td class="label">安定</td>
-          <td>+${a.safe}</td>
-
-          <td class="label">特效</td>
-          <td>${effects}</td>
+          <td>AC</td><td>${a.ac}</td>
+          <td>安定</td><td>+${a.safe}</td>
+          <td>特效</td><td>${effects}</td>
         </tr>
-
         <tr>
-          <td class="label">可用職業</td>
+          <td>可用職業</td>
           <td colspan="5">${jobs}</td>
         </tr>
       </table>
