@@ -405,13 +405,13 @@ document.addEventListener("DOMContentLoaded", function(){
           </tr>
         </thead>
         <tbody>
-          <tr><td>經驗倍率：50倍</td><td>等級上限：55</td></tr>
+          <tr><td>經驗倍率：1倍</td><td>等級上限：55</td></tr>
           <tr><td>掉寶倍率：1倍</td><td>金幣倍率：1倍</td></tr>
           <tr><td>武器衝過率：10%</td><td>防具衝過率：10%</td></tr>
           <tr><td>同 IP 多開：4個帳號</td><td>每日重啟：18:00</td></tr>
           <tr><td>力量：每3點+1額外攻擊</td><td>敏捷：每3點+1額外攻擊</td></tr>
           <tr><td>智力：每3點+1魔法攻擊</td><td>體質：每5點+1物理減傷</td></tr>
-          <tr><td>內掛限制：經驗倍率x0.2</td><td>內掛場地：祝福之地/隱藏之谷</td></tr>
+          <tr><td>內掛限制：無法獲得金幣以外的道具</td><td>內掛場地：僅開放歌唱之島/隱藏之谷</td></tr>
         </tbody>
       </table>
 <br>
@@ -455,137 +455,127 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
 
-<!-- 2) 寵物介紹 -->
-<details class="collapse-box">
-  <summary>★ 寵物介紹 ★</summary>
-  <div class="collapse-body">
+  <!-- 2) 寵物介紹 -->
+  <details class="collapse-box">
+    <summary>★ 寵物介紹 ★</summary>
+    <div class="collapse-body">
 
-    <div style="text-align:center; margin-bottom:15px;">
-      <img src="aaa/114.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
-    </div>
+      <div style="text-align:center; margin-bottom:15px;">
+        <img src="aaa/114.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+      </div>
 
-    <table border="1" cellspacing="0" cellpadding="6"
-           style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <table border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+        <thead>
+          <tr style="background-color:#444;">
+            <th style="width:25%;">類別</th>
+            <th>說明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>寵物介紹</td>
+            <td>
+              一般寵物：<span style="color:#FFD700; font-weight:bold;">687</span> 種
+              <span style="color:#AAAAAA;">(升級HP:5~20 MP:1~10)</span><br>
+              一階寵物：<span style="color:#FF69B4; font-weight:bold;">20</span> 種
+              <span style="color:#AAAAAA;">(升級HP:20~50 MP:5~15)</span><br>
+              新手克特：<span style="color:#00FF7F; font-weight:bold;">稀有</span> 種
+              <span style="color:#AAAAAA;">(升級HP:50~100 MP:5~15)</span><br>
+              二階寵物：<span style="color:#FF69B4; font-weight:bold;">26</span> 種
+              <span style="color:#AAAAAA;">(升級HP:80~100 MP:10~20)</span><br>
+              真死亡騎士/真黑暗妖精：<span style="color:#00FF7F; font-weight:bold;">傳說</span> 種
+              <span style="color:#AAAAAA;">(升級HP:200~300 MP:10~20)</span><br>
+            </td>
+          </tr>
 
-      <thead>
-        <tr style="background-color:#444;">
-          <th style="width:25%;">類別</th>
-          <th>說明</th>
-        </tr>
-      </thead>
+          <tr>
+            <td>一階寵物進化時，將隨機變化為以下造型</td>
+            <td>
+              <span style="color:#FF69B4; font-weight:bold;">【闇龍軍團】</span><br>
+              闇龍軍團士兵、闇龍軍團戰士、闇龍軍團暗殺者、闇龍將軍隊長<br><br>
 
-      <tbody>
+              <span style="color:#FF4500; font-weight:bold;">【紅騎士團】</span><br>
+              紅騎士團法師、紅騎士團戰士、紅騎士團弓箭手、紅騎士團槍兵<br><br>
 
-        <!-- 捕捉流程（已移最上） -->
-        <tr>
-          <td>捕捉流程</td>
-          <td>
-            <div style="background-color:#222; border:2px solid #00FFFF; padding:8px; border-radius:6px; margin-bottom:6px;">
-              <span style="color:#00FFFF; font-weight:bold; font-size:20px;">
-                ▲遊戲中所有可見怪物皆可捕捉（自創怪與BOSS除外）
-              </span>
-            </div>
+              <span style="color:#00BFFF; font-weight:bold;">【暴風之刃】</span><br>
+              暴風之刃戰士、暴風之刃暗殺者、暴風之刃弓箭手、暴風之刃鬥士<br><br>
 
-            ▲使用道具「漂浮之眼肉」對怪物進行捕捉<br><br>
+              <span style="color:#1E90FF; font-weight:bold;">【藍色鯊魚】</span><br>
+              藍色鯊魚戰士、藍色鯊魚法師、藍色鯊魚弓箭手、藍色鯊魚槍兵<br><br>
 
-            <span style="color:#FFD700; font-weight:bold;">【捕捉條件】</span><br>
-            ▲怪物血量需低於50%，否則無法捕捉<br>
-            ▲血量越低，捕捉成功率越高<br><br>
+              <span style="color:#ADFF2F; font-weight:bold;">【部落妖魔】</span><br>
+              部落妖魔戰士、部落妖魔法師、部落妖魔弓箭手、部落妖魔鬥士<br><br>
 
-            <span style="color:#FFD700; font-weight:bold;">【成功機率】</span><br>
-            ▲最低成功率：0.01%　最高成功率：20%<br>
-            ▲依照怪物血量動態計算（血越少越好抓）<br><br>
+              <span style="color:#00FF7F; font-weight:bold;">【稀有】</span><br>
+              新兵克特
+            </td>
+          </tr>
 
-            <span style="color:#FF4500; font-weight:bold;">【難度機制】</span><br>
-            ▲20級以下怪物：正常機率<br>
-            ▲20級以上：怪物每提升5級，成功率減半<br>
-            ▲等級越高，捕捉難度大幅提升<br><br>
+          <tr>
+            <td>二階寵物進化時，將隨機變化為以下造型</td>
+            <td>
+              <span style="color:#E5E4E2; font-weight:bold;">【白金系列】</span><br>
+              白金龍騎士、白金火槍手、白金巡守、白金刺客、白金法師、白金騎士<br><br>
 
-            <span style="color:#00FF7F; font-weight:bold;">【重要提醒】</span><br>
-            ▲「漂浮之眼肉」使用後將會消耗並顯示成功率<br>
-            ▲高等怪物成功率極低，建議先削弱血量再捕捉<br>
-          </td>
-        </tr>
+              <span style="color:#FFD700; font-weight:bold;">【黃金系列】</span><br>
+              黃金龍騎士、黃金火槍手、黃金刺客、黃金巡守、黃金法師、黃金騎士<br><br>
 
-        <!-- 寵物介紹 -->
-        <tr>
-          <td>寵物介紹</td>
-          <td>
-            一般寵物：<span style="color:#FFD700; font-weight:bold;">687</span> 種
-            <span style="color:#AAAAAA;">(升級HP:5~20 MP:1~10)</span><br>
-            一階寵物：<span style="color:#FF69B4; font-weight:bold;">20</span> 種
-            <span style="color:#AAAAAA;">(升級HP:20~50 MP:5~15)</span><br>
-            新手克特：<span style="color:#00FF7F; font-weight:bold;">稀有</span> 種
-            <span style="color:#AAAAAA;">(升級HP:50~100 MP:5~15)</span><br>
-            二階寵物：<span style="color:#FF69B4; font-weight:bold;">26</span> 種
-            <span style="color:#AAAAAA;">(升級HP:80~100 MP:10~20)</span><br>
-            真死亡騎士/真黑暗妖精：<span style="color:#00FF7F; font-weight:bold;">傳說</span> 種
-            <span style="color:#AAAAAA;">(升級HP:200~300 MP:10~20)</span><br>
-          </td>
-        </tr>
+              <span style="color:#C0C0C0; font-weight:bold;">【銀光系列】</span><br>
+              銀光龍騎士、銀光火槍手、銀光刺客、銀光巡守、銀光法師、銀光騎士<br><br>
 
-        <!-- 一階 -->
-        <tr>
-          <td>一階寵物進化時</td>
-          <td>
-            <span style="color:#FF69B4; font-weight:bold;">【闇龍軍團】</span><br>
-            闇龍軍團士兵、闇龍軍團戰士、闇龍軍團暗殺者、闇龍將軍隊長<br><br>
+              <span style="color:#8B0000; font-weight:bold;">【黑暗系列】</span><br>
+              黑暗龍騎士、黑暗火槍手、黑暗刺客、黑暗巡守、黑暗法師、黑暗騎士<br><br>
 
-            <span style="color:#FF4500; font-weight:bold;">【紅騎士團】</span><br>
-            紅騎士團法師、紅騎士團戰士、紅騎士團弓箭手、紅騎士團槍兵<br><br>
+              <span style="color:#00FF7F; font-weight:bold;">【傳說級】</span><br>
+              真黑暗妖精、真死亡騎士
+            </td>
+          </tr>
 
-            <span style="color:#00BFFF; font-weight:bold;">【暴風之刃】</span><br>
-            暴風之刃戰士、暴風之刃暗殺者、暴風之刃弓箭手、暴風之刃鬥士<br><br>
+          <tr>
+            <td>基本設定</td>
+            <td>
+              可攜帶寵物上限：4、寵物經驗倍率：1倍<br>
+              寵物進化：30級、寵物等級上限：60級<br>
+              寵物等級進化：1階、寵物進化道具：進化果實<br>
+              寵物等級進化：2階、寵物進化道具：勝利果實<br>
+            </td>
+          </tr>
 
-            <span style="color:#1E90FF; font-weight:bold;">【藍色鯊魚】</span><br>
-            藍色鯊魚戰士、藍色鯊魚法師、藍色鯊魚弓箭手、藍色鯊魚槍兵<br><br>
+<tr>
+  <td>捕捉流程</td>
+  <td>
+    ▲遊戲中所有可見怪物皆可捕捉（自創怪與BOSS除外）<br>
+    ▲使用道具「漂浮之眼肉」對怪物進行捕捉<br><br>
 
-            <span style="color:#ADFF2F; font-weight:bold;">【部落妖魔】</span><br>
-            部落妖魔戰士、部落妖魔法師、部落妖魔弓箭手、部落妖魔鬥士<br><br>
+    <span style="color:#FFD700; font-weight:bold;">【捕捉條件】</span><br>
+    ▲怪物血量需低於50%，否則無法捕捉<br>
+    ▲血量越低，捕捉成功率越高<br><br>
 
-            <span style="color:#00FF7F; font-weight:bold;">【稀有】</span><br>
-            新兵克特
-          </td>
-        </tr>
+    <span style="color:#FFD700; font-weight:bold;">【成功機率】</span><br>
+    ▲最低成功率：0.01%　最高成功率：20%<br>
+    ▲依照怪物血量動態計算（血越少越好抓）<br><br>
 
-        <!-- 二階 -->
-        <tr>
-          <td>二階寵物進化時</td>
-          <td>
-            <span style="color:#E5E4E2; font-weight:bold;">【白金系列】</span><br>
-            白金龍騎士、白金火槍手、白金巡守、白金刺客、白金法師、白金騎士<br><br>
+    <span style="color:#FF4500; font-weight:bold;">【難度機制】</span><br>
+    ▲20級以下怪物：正常機率<br>
+    ▲20級以上：怪物每提升5級，成功率減半<br>
+    ▲等級越高，捕捉難度大幅提升<br><br>
 
-            <span style="color:#FFD700; font-weight:bold;">【黃金系列】</span><br>
-            黃金龍騎士、黃金火槍手、黃金刺客、黃金巡守、黃金法師、黃金騎士<br><br>
+    <span style="color:#00FF7F; font-weight:bold;">【重要提醒】</span><br>
+    ▲「漂浮之眼肉」使用後將會消耗並顯示成功率<br>
+    ▲高等怪物成功率極低，建議先削弱血量再捕捉<br>
+  </td>
+</tr>
 
-            <span style="color:#C0C0C0; font-weight:bold;">【銀光系列】</span><br>
-            銀光龍騎士、銀光火槍手、銀光刺客、銀光巡守、銀光法師、銀光騎士<br><br>
-
-            <span style="color:#8B0000; font-weight:bold;">【黑暗系列】</span><br>
-            黑暗龍騎士、黑暗火槍手、黑暗刺客、黑暗巡守、黑暗法師、黑暗騎士<br><br>
-
-            <span style="color:#00FF7F; font-weight:bold;">【傳說級】</span><br>
-            真黑暗妖精、真死亡騎士
-          </td>
-        </tr>
-
-        <!-- 基本設定 -->
-        <tr>
-          <td>基本設定</td>
-          <td>
-            可攜帶寵物上限：6、寵物經驗倍率：1倍<br>
-            寵物進化：30級、寵物等級上限：60級<br>
-            寵物等級進化：1階、寵物進化道具：進化果實<br>
-            寵物等級進化：2階、寵物進化道具：勝利果實<br>
-  ※ 寵物裝備安定值：0（可強化，失敗將消失）<br>
-  ※ 寵物裝備強化機率：２０％<br>
-          </td>
-        </tr>
+<br>
 
 <!-- 寵物裝備介紹 -->
 <table border="2" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
   <thead>
     <tr style="background-color:#444;">
+      <th style="width:30%;">裝備名稱</th>
+      <th style="width:35%;">能力效果</th>
+      <th>附加能力</th>
+    </tr>
   </thead>
   <tbody>
 
@@ -594,35 +584,43 @@ document.addEventListener("DOMContentLoaded", function(){
       <td colspan="3" style="color:#FFD700; font-weight:bold;">🦷 寵物武器系列</td>
     </tr>
 
-    <tr><td>獵犬之牙 (Lv.1)</td><td>命中+1 / 傷害+3</td><td>SP+1</td></tr>
-    <tr><td>破滅之牙 (Lv.2)</td><td>命中+2 / 傷害+6</td><td>SP+2</td></tr>
-    <tr><td>斗犬之牙 (Lv.3)</td><td>命中+3 / 傷害+9</td><td>SP+3</td></tr>
-    <tr><td>鋼鐵之牙 (Lv.4)</td><td>命中+4 / 傷害+12</td><td>SP+4</td></tr>
-    <tr><td>黃金之牙 (Lv.5)</td><td>命中+5 / 傷害+15</td><td>SP+5</td></tr>
-    <tr><td>勝利之牙 (Lv.6)</td><td>命中+6 / 傷害+18</td><td>SP+6</td></tr>
-    <tr><td>黑暗之牙 (Lv.7)</td><td>命中+7 / 傷害+21</td><td>SP+7</td></tr>
-    <tr><td>不滅之牙 (Lv.8)</td><td>命中+8 / 傷害+24</td><td>SP+8</td></tr>
-    <tr><td>龍之牙 (Lv.9)</td><td>命中+9 / 傷害+27</td><td>SP+9</td></tr>
-    <tr><td>神之牙 (Lv.10)</td><td>命中+10 / 傷害+30</td><td>SP+10</td></tr>
+    <tr><td>獵犬之牙 (Lv.1)</td><td>命中+2 / 傷害+2</td><td>SP+1</td></tr>
+    <tr><td>破滅之牙 (Lv.2)</td><td>命中+4 / 傷害+4</td><td>SP+2</td></tr>
+    <tr><td>斗犬之牙 (Lv.3)</td><td>命中+6 / 傷害+6</td><td>SP+3</td></tr>
+    <tr><td>鋼鐵之牙 (Lv.4)</td><td>命中+8 / 傷害+8</td><td>SP+4</td></tr>
+    <tr><td>黃金之牙 (Lv.5)</td><td>命中+10 / 傷害+10</td><td>SP+5</td></tr>
+    <tr><td>勝利之牙 (Lv.6)</td><td>命中+12 / 傷害+12</td><td>SP+6</td></tr>
+    <tr><td>黑暗之牙 (Lv.7)</td><td>命中+14 / 傷害+14</td><td>SP+7</td></tr>
+    <tr><td>不滅之牙 (Lv.8)</td><td>命中+16 / 傷害+16</td><td>SP+8</td></tr>
+    <tr><td>龍之牙 (Lv.9)</td><td>命中+18 / 傷害+18</td><td>SP+9</td></tr>
+    <tr><td>神之牙 (Lv.10)</td><td>命中+20 / 傷害+20</td><td>SP+10</td></tr>
 
     <!-- 盔甲 -->
     <tr style="background-color:#333;">
       <td colspan="3" style="color:#00FF7F; font-weight:bold;">🛡 寵物盔甲系列</td>
     </tr>
 
-    <tr><td>寵物皮盔甲 (Lv.1)</td><td>AC -4</td><td>HP+100 / MP+10 / MR+10</td></tr>
-    <tr><td>寵物鏈甲 (Lv.2)</td><td>AC -8</td><td>HP+200 / MP+20 / MR+20</td></tr>
-    <tr><td>寵物骷髏盔甲 (Lv.3)</td><td>AC -12</td><td>HP+350 / MP+35 / MR+30</td></tr>
-    <tr><td>寵物鋼鐵盔甲 (Lv.4)</td><td>AC -16</td><td>HP+500 / MP+50 / MR+40</td></tr>
-    <tr><td>寵物米索莉盔甲 (Lv.5)</td><td>AC -20</td><td>HP+700 / MP+70 / MR+50</td></tr>
-    <tr><td>寵物十字盔甲 (Lv.6)</td><td>AC -24</td><td>HP+900 / MP+90 / MR+60</td></tr>
-    <tr><td>寵物光明盔甲 (Lv.7)</td><td>AC -28</td><td>HP+1200 / MP+120 / MR+70</td></tr>
-    <tr><td>寵物祝福盔甲 (Lv.8)</td><td>AC -32</td><td>HP+1800 / MP+180 / MR+80</td></tr>
+    <tr><td>寵物皮盔甲 (Lv.1)</td><td>AC -4</td><td>HP+50 / MP+20 / MR+10</td></tr>
+    <tr><td>寵物鏈甲 (Lv.2)</td><td>AC -8</td><td>HP+100 / MP+40 / MR+20</td></tr>
+    <tr><td>寵物骷髏盔甲 (Lv.3)</td><td>AC -12</td><td>HP+150 / MP+60 / MR+30</td></tr>
+    <tr><td>寵物鋼鐵盔甲 (Lv.4)</td><td>AC -16</td><td>HP+200 / MP+80 / MR+40</td></tr>
+    <tr><td>寵物米索莉盔甲 (Lv.5)</td><td>AC -20</td><td>HP+250 / MP+100 / MR+50</td></tr>
+    <tr><td>寵物十字盔甲 (Lv.6)</td><td>AC -24</td><td>HP+300 / MP+120 / MR+60</td></tr>
+    <tr><td>寵物光明盔甲 (Lv.7)</td><td>AC -28</td><td>HP+350 / MP+140 / MR+70</td></tr>
+    <tr><td>寵物祝福盔甲 (Lv.8)</td><td>AC -32</td><td>HP+400 / MP+160 / MR+80</td></tr>
 
   </tbody>
 </table>
 
+<div style="margin-top:12px; color:#FFB6C1;">
+  ※ 寵物裝備安定值：0（可強化，失敗將消失）<br>
+  ※ 寵物裝備強化機率：２０％<br>
 
+        </tbody>
+      </table>
+
+    </div>
+  </details>
 
   <!-- 友站連結 -->
   <div style="margin-top:60px; text-align:center;">
@@ -1113,8 +1111,7 @@ function search() {
 
 </script>
 
-  <!-- ===================== 武器參數 ===================== -->
-
+<!-- ===================== 武器參數 ===================== -->
 <script>
 let WEAPONS = [];
 
@@ -1138,27 +1135,35 @@ function renderWeapons() {
 
     html += `
     <div class="bullet">
-      <table>
+      <table class="weapon-table">
+
+        <!-- 名稱 -->
         <tr>
-          <td style="color:#FFD700; width:100px;">武器名稱</td>
-          <td>${w.name}</td>
+          <td class="title">武器名稱</td>
+          <td colspan="7">${w.name}</td>
         </tr>
+
+        <!-- ⭐ 橫向排列 -->
         <tr>
-          <td style="color:#AAA;">大小傷害</td>
-          <td>小型 ${w.small} / 大型 ${w.large}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">安定值</td>
+          <td class="label">小傷</td>
+          <td>${w.small}</td>
+
+          <td class="label">大傷</td>
+          <td>${w.large}</td>
+
+          <td class="label">安定</td>
           <td>+${w.safe}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">可用職業</td>
-          <td>${jobs}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">額外效果</td>
+
+          <td class="label">特效</td>
           <td>${effects}</td>
         </tr>
+
+        <!-- 職業 -->
+        <tr>
+          <td class="label">可用職業</td>
+          <td colspan="7">${jobs}</td>
+        </tr>
+
       </table>
     </div>
     `;
@@ -1167,8 +1172,7 @@ function renderWeapons() {
   container.innerHTML = html;
 }
 </script>
-
-  <!-- ===================== 防具參數 ===================== -->
+<!-- ===================== 防具參數 ===================== -->
 <script>
 let ARMORS = [];
 
@@ -1192,27 +1196,32 @@ function renderArmors() {
 
     html += `
     <div class="bullet">
-      <table>
+      <table class="armor-table">
+
+        <!-- 名稱 -->
         <tr>
-          <td style="color:#FFD700; width:100px;">防具名稱</td>
-          <td>${a.name}</td>
+          <td class="title">防具名稱</td>
+          <td colspan="5">${a.name}</td>
         </tr>
+
+        <!-- ⭐ 重點：橫向排列 -->
         <tr>
-          <td style="color:#AAA;">AC</td>
+          <td class="label">AC</td>
           <td>${a.ac}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">安定值</td>
+
+          <td class="label">安定</td>
           <td>+${a.safe}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">可用職業</td>
-          <td>${jobs}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">額外效果</td>
+
+          <td class="label">特殊</td>
           <td>${effects}</td>
         </tr>
+
+        <!-- 職業 -->
+        <tr>
+          <td class="label">可用職業</td>
+          <td colspan="5">${jobs}</td>
+        </tr>
+
       </table>
     </div>
     `;
@@ -1220,7 +1229,6 @@ function renderArmors() {
 
   container.innerHTML = html;
 }
-
 </script>
 
 
