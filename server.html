@@ -1120,27 +1120,32 @@ function renderWeapons() {
 
     html += `
     <div class="bullet">
-      <table>
+      <table class="weapon-table">
+
         <tr>
-          <td style="color:#FFD700; width:100px;">武器名稱</td>
-          <td>${w.name}</td>
+          <td class="title">武器名稱</td>
+          <td colspan="7">${w.name}</td>
         </tr>
+
         <tr>
-          <td style="color:#AAA;">大小傷害</td>
-          <td>小型 ${w.small} / 大型 ${w.large}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">安定值</td>
+          <td class="label">小傷</td>
+          <td>${w.small}</td>
+
+          <td class="label">大傷</td>
+          <td>${w.large}</td>
+
+          <td class="label">安定</td>
           <td>+${w.safe}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">可用職業</td>
-          <td>${jobs}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">額外效果</td>
+
+          <td class="label">特效</td>
           <td>${effects}</td>
         </tr>
+
+        <tr>
+          <td class="label">可用職業</td>
+          <td colspan="7">${jobs}</td>
+        </tr>
+
       </table>
     </div>
     `;
@@ -1148,7 +1153,6 @@ function renderWeapons() {
 
   container.innerHTML = html;
 }
-</script>
 
   <!-- ===================== 防具參數 ===================== -->
 <script>
@@ -1174,27 +1178,29 @@ function renderArmors() {
 
     html += `
     <div class="bullet">
-      <table>
+      <table class="armor-table">
+
         <tr>
-          <td style="color:#FFD700; width:100px;">防具名稱</td>
-          <td>${a.name}</td>
+          <td class="title">防具名稱</td>
+          <td colspan="5">${a.name}</td>
         </tr>
+
         <tr>
-          <td style="color:#AAA;">AC</td>
+          <td class="label">AC</td>
           <td>${a.ac}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">安定值</td>
+
+          <td class="label">安定</td>
           <td>+${a.safe}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">可用職業</td>
-          <td>${jobs}</td>
-        </tr>
-        <tr>
-          <td style="color:#AAA;">額外效果</td>
+
+          <td class="label">特效</td>
           <td>${effects}</td>
         </tr>
+
+        <tr>
+          <td class="label">可用職業</td>
+          <td colspan="5">${jobs}</td>
+        </tr>
+
       </table>
     </div>
     `;
@@ -1203,8 +1209,6 @@ function renderArmors() {
   container.innerHTML = html;
 }
 
-</script>
-
 
 
   <!-- ===================== 首頁（更新公告） ===================== -->
@@ -1212,7 +1216,12 @@ function renderArmors() {
     <img src="aaa/011.gif" style="width:800px; border-radius:100px;">
 
     <div class="section-title">★遊戲最新更新公告 ★</div>
-    <div class="update-list">
+
+
+    <a class="button" href="https://bravo560317.github.io/web/server20251102.html" target="_blank">
+      👉 前往 新官方網站
+    </a>
+
 
 
     <!-- 友站連結 -->
@@ -1221,8 +1230,11 @@ function renderArmors() {
         <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
       </a>
     </div>
+  </div>
 
-</div>
+
+
+
 
 
 </body>
