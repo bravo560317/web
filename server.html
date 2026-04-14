@@ -1384,16 +1384,15 @@ document.addEventListener("DOMContentLoaded", function(){
 }
 </style>
 
-
-<!-- ===================== 掉落查詢 ===================== -->
+<!-- ===================== 掉落查詢（智慧版） ===================== -->
 
 <div id="tab6" class="tab-content">
 
   <div style="text-align:center; margin-bottom:30px;">
-    <h2 style="color:#C60000;">★ 經典天堂掉落查詢 ★</h2>
+    <h2 style="color:#C60000;">★ 掉落查詢系統 ★</h2>
 
     <input id="keyword"
-           placeholder="輸入道具名稱（即時搜尋）"
+           placeholder="輸入道具名稱 / 怪物名稱"
            onkeyup="search()"
            style="width:360px; padding:10px; font-size:16px;">
 
@@ -1407,45 +1406,125 @@ document.addEventListener("DOMContentLoaded", function(){
 
 </div>
 
+<style>
+.box{
+  background:#222;
+  border:1px solid #444;
+  padding:15px;
+  margin-bottom:20px;
+  border-radius:8px;
+}
+
+.title{
+  font-size:18px;
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+.mob-title{ color:#00FFFF; }
+.item-title{ color:#FFD700; }
+
+.line{ padding:4px 0; }
+
+.rate-high{ color:#00FF00; }
+.rate-mid{ color:#00FFFF; }
+.rate-low{ color:#AAAAAA; }
+</style>
+
 <script>
 let DROPS = {};
+let MOB_MAP = {};
 
+// 掉率格式
+function formatRate(chance) {
+  const rate = chance / 10000;
+  if (rate < 0.01) return "<0.01%";
+  if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+  return rate.toFixed(2) + "%";
+}
+
+// 掉率顏色
+function rateClass(chance) {
+  const rate = chance / 10000;
+  if (rate >= 10) return "rate-high";
+  if (rate >= 1) return "rate-mid";
+  return "rate-low";
+}
+
+// 建立怪物索引
+fetch('droplist_new.json')
+  .then(r => r.json())
+  .then(data => {
+    DROPS = data;
+
+    for (const id in DROPS) {
+      const item = DROPS[id];
+
+      item.drops.forEach(d => {
+        if (!MOB_MAP[d.mob]) {
+          MOB_MAP[d.mob] = [];
+        }
+
+        MOB_MAP[d.mob].push({
+          name: item.name,
+          chance: d.chance
+        });
+      });
+    }
+  });
+
+// ⭐ 核心搜尋（智慧判斷）
 function search() {
-  const kw = document.getElementById("keyword").value.trim();
+  const kw = document.getElementById("keyword").value.trim().toLowerCase();
   const result = document.getElementById("result");
   result.innerHTML = "";
   if (!kw) return;
 
+  let mobMatchCount = 0;
+  let itemMatchCount = 0;
+
+  // 判斷怪物命中
+  for (const mob in MOB_MAP) {
+    if (mob.toLowerCase().includes(kw)) {
+      mobMatchCount++;
+    }
+  }
+
+  // 判斷道具命中
+  for (const id in DROPS) {
+    if (DROPS[id].name.toLowerCase().includes(kw)) {
+      itemMatchCount++;
+    }
+  }
+
+  // ⭐ 判斷用哪種模式（哪個命中多用哪個）
+  if (mobMatchCount > itemMatchCount) {
+    searchMob(kw);
+  } else {
+    searchItem(kw);
+  }
+}
+
+// ⭐ 怪物模式
+function searchMob(kw) {
+  const result = document.getElementById("result");
   let found = false;
 
-  for (const id in DROPS) {
-    const item = DROPS[id];
-
-    // ⭐ 判斷：道具 or 怪物
-    let matchItem = item.name.includes(kw);
-    let matchMob = item.drops.some(d => d.mob.includes(kw));
-
-    if (!matchItem && !matchMob) continue;
+  for (const mob in MOB_MAP) {
+    if (!mob.toLowerCase().includes(kw)) continue;
 
     found = true;
 
     const box = document.createElement("div");
-    box.className = "item";
+    box.className = "box";
 
-    let html = `<div class="item-title">【道具】${item.name}</div>`;
+    let html = `<div class="title mob-title">【怪物】${mob}</div>`;
 
-    item.drops
-      .sort((a, b) => b.chance - a.chance)
-      .forEach(d => {
-
-        // ⭐ 如果是用怪物搜尋 → 高亮
-        let mobName = d.mob;
-        if (d.mob.includes(kw)) {
-          mobName = `<span style="color:#00FFFF;">${d.mob}</span>`;
-        }
-
-        html += `<div class="mob ${rateClass(d.chance)}">
-          - ${mobName}（${formatRate(d.chance)}）
+    MOB_MAP[mob]
+      .sort((a,b) => b.chance - a.chance)
+      .forEach(item => {
+        html += `<div class="line ${rateClass(item.chance)}">
+          - ${item.name}（${formatRate(item.chance)}）
         </div>`;
       });
 
@@ -1454,7 +1533,40 @@ function search() {
   }
 
   if (!found) {
-    result.innerHTML = `<div style="color:#aaa; text-align:center;">查無結果</div>`;
+    result.innerHTML = `<div style="color:#aaa;text-align:center;">查無結果</div>`;
+  }
+}
+
+// ⭐ 道具模式（你原本的）
+function searchItem(kw) {
+  const result = document.getElementById("result");
+  let found = false;
+
+  for (const id in DROPS) {
+    const item = DROPS[id];
+    if (!item.name.toLowerCase().includes(kw)) continue;
+
+    found = true;
+
+    const box = document.createElement("div");
+    box.className = "box";
+
+    let html = `<div class="title item-title">【道具】${item.name}</div>`;
+
+    item.drops
+      .sort((a,b) => b.chance - a.chance)
+      .forEach(d => {
+        html += `<div class="line ${rateClass(d.chance)}">
+          - ${d.mob}（${formatRate(d.chance)}）
+        </div>`;
+      });
+
+    box.innerHTML = html;
+    result.appendChild(box);
+  }
+
+  if (!found) {
+    result.innerHTML = `<div style="color:#aaa;text-align:center;">查無結果</div>`;
   }
 }
 </script>
