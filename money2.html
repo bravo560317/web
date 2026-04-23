@@ -73,7 +73,8 @@
 <body>
   <div class="container">
     <h2>【戰天堂】自動贊助系統</h2>
-    <form method="GET" action="https://ssl.smse.com.tw/ezpos/mtmk_utf.asp">
+
+    <form id="donateForm" method="GET" action="https://ssl.smse.com.tw/ezpos/mtmk_utf.asp">
       <input type="hidden" name="Rvg2c" value="1">
       <input type="hidden" name="Dcvc" value="8075">
 
@@ -88,12 +89,14 @@
 
       <label>付款方式</label>
       <select name="Pay_zg" required>
+        <option value="999">ATM</option>
         <option value="4">7-11</option>
         <option value="6">全家</option>
         <option value="10">萊爾富</option>
-        <option value="10">配合政府打詐、不開放虛擬帳戶。(聯繫客服)</option>
       </select>
-      <label>(Linepay、8591、Mycard、ATM請聯繫客服開單)</label>
+
+      <label>(Linepay、8591、Mycard請聯繫客服開單)</label>
+
       <button type="submit">送出</button>
     </form>
 
@@ -109,5 +112,17 @@
       贊助商品玩家必須自行強化，我們沒有幫忙強化這項服務。<br>
     </div>
   </div>
+
+  <script>
+    document.getElementById("donateForm").addEventListener("submit", function(e) {
+      var payType = document.querySelector("select[name='Pay_zg']").value;
+
+      // 如果選擇「聯繫客服」
+      if (payType == "999") {
+        e.preventDefault();
+        window.location.href = "https://bravo560317.github.io/web/money1.html";
+      }
+    });
+  </script>
 </body>
 </html>
