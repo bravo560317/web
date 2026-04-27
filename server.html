@@ -227,6 +227,7 @@
 
 /* ===================== 手機版修正（max-width: 768px） ===================== */
 @media (max-width: 768px) {
+    /* 1. 廣告在手機上自動縮小 */
     .floating-ad img {
         width: 80px !important; 
         height: auto !important;
@@ -234,12 +235,39 @@
     .ad-left { left: 5px !important; }
     .ad-right { right: 5px !important; }
 
-    body { padding: 10px; background-attachment: scroll; font-size: 13px; }
+    /* ✅ [新增] 修正 #tab1 裡的 Logo 在手機上過大的問題 */
+    #tab1 img {
+        width: auto !important;        /* 重置固定寬度 (800px) */
+        max-width: 70% !important;   /* 將最大寬度限制為 parent 的 70% (而非 100%) */
+    }
+
+    /* 2. 手機版主體設定 */
+    body {
+        padding: 10px;
+        background-attachment: scroll;
+        font-size: 13px;
+    }
+
+    /* 3. 選單與內容縮小 */
     .tabs { gap: 6px; margin-bottom: 14px; }
     .tab-btn { padding: 8px 12px; font-size: 13px; }
     .tab-content { width: 100%; padding: 14px; font-size: 13px; }
     .section-title { font-size: 18px; }
-    .tab-content table { display: block; width: 100%; overflow-x: auto; }
+
+    /* 4. 表格與摺疊選單優化 */
+    .tab-content table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        font-size: 12.5px;
+    }
+    details.collapse-box > summary, .update-item > summary { font-size: 13px; }
+    
+    /* 5. Tab4 左圖右表改上下排 */
+    #tab4 .bullet div[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
 }
 
 /* ★ 星號閃爍效果 */
