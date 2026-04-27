@@ -207,79 +207,135 @@
     }
     .update-body p{ margin:6px 0; }
 
-/* ===================== 漂浮廣告通用設定 (電腦版) ===================== */
-.floating-ad {
-    position: fixed;
-    top: 30%;
-    transform: translateY(-50%);
-    z-index: 9999;
-    text-decoration: none;
-    display: block !important;
-}
+/* ===================== 手機版修正（只影響小螢幕） ===================== */
+@media (max-width: 768px){
 
-.ad-left { left: 10px; }
-.ad-right { right: 10px; }
+  /* iOS/Safari 對 fixed 背景常怪：手機改成 scroll */
+  body{
+    padding: 10px;
+    background-attachment: scroll;
 
-.floating-ad img {
-    width: 190px; /* 電腦版原始寬度 */
+    /* ✅ 手機整體字體縮小 */
+    font-size: 13px;
+  }
+
+  /* tabs 按鈕縮小一點 */
+  .tabs{
+    gap: 6px;
+    margin-bottom: 14px;
+  }
+  .tab-btn{
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    /* ✅ 按鈕字縮小 */
+    font-size: 13px;
+  }
+
+  /* 內容區域：改成滿寬、內距縮小 */
+  .tab-content{
+    width: 100%;
+    max-width: 100%;
+    padding: 14px;
     border-radius: 10px;
+
+    /* ✅ 內容字縮小 + 行距微調 */
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ✅ 標題縮小（紅色那條 section-title） */
+  .section-title{
+    font-size: 18px;
+  }
+
+  /* ✅ 折疊標題（活動/公告那一條 summary）字縮小 */
+  details.collapse-box > summary,
+  .update-item > summary{
+    font-size: 13px;
+  }
+
+  /* ✅ 折疊內容（內文）再小一點 */
+  details.collapse-box .collapse-body,
+  .update-body{
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+
+  /* ✅ 表格字縮小,padding 也縮小 */
+  .tab-content table{
+    font-size: 12.5px;
+  }
+  .tab-content table th,
+  .tab-content table td{
+    padding: 5px;
+  }
+
+  /* 所有圖片一律手機自適應（處理你寫死 800px 的） */
+  img{
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 表格手機可左右滑（避免破版） */
+  .tab-content table{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* tab4 那種「左圖右表」：手機改成上下排,並把 margin-top 取消 */
+  #tab4 .bullet div[style*="display:flex"]{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  #tab4 .bullet div[style*="flex:0 0 70px"]{
+    margin-top: 0 !important;
+  }
 }
-
-/* ===================== 手機版修正（max-width: 768px） ===================== */
-@media (max-width: 768px) {
-    /* 1. 廣告在手機上自動縮小 */
-    .floating-ad img {
-        width: 80px !important; 
-        height: auto !important;
-    }
-    .ad-left { left: 5px !important; }
-    .ad-right { right: 5px !important; }
-
-    /* ✅ [新增] 修正 #tab1 裡的 Logo 在手機上過大的問題 */
-    #tab1 img {
-        width: auto !important;        /* 重置固定寬度 (800px) */
-        max-width: 70% !important;   /* 將最大寬度限制為 parent 的 70% (而非 100%) */
-    }
-
-    /* 2. 手機版主體設定 */
-    body {
-        padding: 10px;
-        background-attachment: scroll;
-        font-size: 13px;
-    }
-
-    /* 3. 選單與內容縮小 */
-    .tabs { gap: 6px; margin-bottom: 14px; }
-    .tab-btn { padding: 8px 12px; font-size: 13px; }
-    .tab-content { width: 100%; padding: 14px; font-size: 13px; }
-    .section-title { font-size: 18px; }
-
-    /* 4. 表格與摺疊選單優化 */
-    .tab-content table {
-        display: block;
-        width: 100%;
-        overflow-x: auto;
-        font-size: 12.5px;
-    }
-    details.collapse-box > summary, .update-item > summary { font-size: 13px; }
-    
-    /* 5. Tab4 左圖右表改上下排 */
-    #tab4 .bullet div[style*="display:flex"] {
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-}
-
 /* ★ 星號閃爍效果 */
-.star-blink {
-    animation: starBlink 1.2s infinite;
-    color: #FFD700;
+.star-blink{
+  animation: starBlink 1.2s infinite;
+  color: #FFD700;
+  text-shadow: 0 0 6px #FFD700;
 }
-@keyframes starBlink {
-    0%   { opacity: 1; }
-    50%  { opacity: 0.3; text-shadow: 0 0 14px #FF0000; }
-    100% { opacity: 1; }
+
+@keyframes starBlink{
+  0%{
+    opacity: 1;
+    text-shadow: 0 0 6px #FFD700;
+  }
+  50%{
+    opacity: 0.3;
+    text-shadow: 0 0 14px #FF0000;
+  }
+  100%{
+    opacity: 1;
+    text-shadow: 0 0 6px #FFD700;
+  }
 }
+
+
+  </style>
+
+  <script>
+    function showTab(tabId, btn) {
+      // content
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(el => el.classList.remove('active'));
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+
+      // buttons
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      // 回到內容頂部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   </script>
 
 <script>
@@ -293,20 +349,31 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 });
-</style>
+</script>
 
 </head>
 
 
 <body>
 
-<a href="https://line.me/ti/p/@482evvkr" target="_blank" class="floating-ad ad-left"> 
-    <img src="aaa/557.png" alt="左邊客服">
+  <!-- 左邊漂浮廣告 1 -->
+<a href="https://line.me/ti/p/@482evvkr" target="_blank" style="
+    position: fixed;
+    left: 10px;
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    text-decoration: none;"> <img src="aaa/557.png" alt="左邊客服" style="width: 190px; border-radius: 10px;">
 </a>
 
-<a href="https://bravo560317.github.io/web/money4.html" target="_blank" class="floating-ad ad-right">
-    <img src="aaa/555.png" alt="右邊贊助">
-</a>
+    <a href="https://bravo560317.github.io/web/money4.html" target="_blank" style="
+    position: fixed;
+    right: 10px;
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 9999;">
+    <img src="aaa/555.png" alt="右邊贊助" style="width: 200px; border-radius: 10px;">
+  </a>
 
   <div class="tabs">
     <div class="tab-btn active" onclick="showTab('tab7', this)">首頁</div>
