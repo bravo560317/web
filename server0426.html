@@ -219,10 +219,6 @@
     font-size: 13px;
   }
 
-  /* 手機把左右漂浮廣告先隱藏（避免蓋住內容） */
-  body > a[style*="position: fixed"]{
-    display: none !important;
-  }
 
   /* tabs 按鈕縮小一點 */
   .tabs{
@@ -297,6 +293,31 @@
   }
   #tab4 .bullet div[style*="flex:0 0 70px"]{
     margin-top: 0 !important;
+  }
+}
+/* 當螢幕寬度小於 768px 時（手機版） */
+@media (max-width: 768px) {
+  
+  /* 左側客服廣告縮小 */
+  a[style*="left: 10px"] {
+    left: 5px !important;  /* 往左邊邊緣靠一點 */
+    top: 25% !important;   /* 調整高度，避免擋住中間文字 */
+  }
+  
+  a[style*="left: 10px"] img {
+    width: 80px !important; /* 原本 190px，縮小為 80px */
+    opacity: 0.8;           /* 增加透明度，減少視覺遮擋 */
+  }
+
+  /* 右側贊助廣告縮小 */
+  a[style*="right: 10px"] {
+    right: 5px !important; /* 往右邊邊緣靠一點 */
+    top: 25% !important;
+  }
+  
+  a[style*="right: 10px"] img {
+    width: 80px !important; /* 原本 200px，縮小為 80px */
+    opacity: 0.8;           /* 增加透明度 */
   }
 }
 /* ★ 星號閃爍效果 */
@@ -1967,6 +1988,15 @@ Promise.all([
 
   </div>
 </details>
+
+                  <details class="update-item" open>
+        <summary>04月28日18:00遊戲更新內容</summary>
+        <div class="update-body">
+<p><span style="color:#00FF7F;">「調整」</span>降低掉寶率、提高金幣掉落數量2倍。</p>
+<p><span style="color:#00FF7F;">「調整」</span>網頁手機版顯示漂浮廣告。</p>
+<p><span style="color:#00FF7F;">「調整」</span>網站進行部分介面更新。</p>
+        </div>
+      </details>
 
                   <details class="update-item" open>
         <summary>04月27日18:00遊戲更新內容</summary>
