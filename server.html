@@ -207,125 +207,51 @@
     }
     .update-body p{ margin:6px 0; }
 
-/* ===================== 手機版修正（只影響小螢幕） ===================== */
-@media (max-width: 768px) {
-
-  /* 1. 左右漂浮廣告：顯示但縮小，避免遮擋內容 */
-  body > a[style*="position: fixed"] {
-    display: block !important; /* 確保它是顯示的 */
-  }
-  body > a[style*="position: fixed"] img {
-    width: 80px !important; 
-    height: auto !important;
-  }
-  body > a[style*="left: 10px"] { left: 5px !important; }
-  body > a[style*="right: 10px"] { right: 5px !important; }
-
-  /* 2. 手機版主體設定 */
-  body {
-    padding: 10px;
-    background-attachment: scroll; /* 修正 iOS 背景固定問題 */
-    font-size: 13px;
-  }
-
-  /* 3. 選單按鈕 (Tabs) */
-  .tabs {
-    gap: 6px;
-    margin-bottom: 14px;
-  }
-  .tab-btn {
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 13px;
-  }
-
-  /* 4. 內容區域容器 */
-  .tab-content {
-    width: 100%;
-    max-width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  /* 5. 標題與折疊元件 */
-  .section-title {
-    font-size: 18px;
-  }
-  details.collapse-box > summary,
-  .update-item > summary {
-    font-size: 13px;
-    padding: 10px 12px;
-  }
-  details.collapse-box .collapse-body,
-  .update-body {
-    font-size: 12.5px;
-    line-height: 1.6;
-    padding: 10px;
-  }
-
-  /* 6. 表格自適應：支援左右滑動，避免撐破畫面 */
-  .tab-content table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    font-size: 12.5px;
-  }
-  .tab-content table th,
-  .tab-content table td {
-    padding: 6px 4px;
-  }
-
-  /* 7. 圖片自適應 */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-  }
-
-  /* 8. Tab4 特殊排版修正：左圖右表改為上下排 */
-  #tab4 .bullet div[style*="display:flex"] {
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  #tab4 .bullet div[style*="flex:0 0 70px"] {
-    margin-top: 0 !important;
-    margin-bottom: 10px;
-  }
+/* ===================== 漂浮廣告通用設定 (電腦版) ===================== */
+.floating-ad {
+    position: fixed;
+    top: 30%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    text-decoration: none;
+    display: block !important;
 }
 
-/* ===================== 全域特效（不分裝置） ===================== */
+.ad-left { left: 10px; }
+.ad-right { right: 10px; }
+
+.floating-ad img {
+    width: 190px; /* 電腦版原始寬度 */
+    border-radius: 10px;
+}
+
+/* ===================== 手機版修正（max-width: 768px） ===================== */
+@media (max-width: 768px) {
+    .floating-ad img {
+        width: 80px !important; 
+        height: auto !important;
+    }
+    .ad-left { left: 5px !important; }
+    .ad-right { right: 5px !important; }
+
+    body { padding: 10px; background-attachment: scroll; font-size: 13px; }
+    .tabs { gap: 6px; margin-bottom: 14px; }
+    .tab-btn { padding: 8px 12px; font-size: 13px; }
+    .tab-content { width: 100%; padding: 14px; font-size: 13px; }
+    .section-title { font-size: 18px; }
+    .tab-content table { display: block; width: 100%; overflow-x: auto; }
+}
+
 /* ★ 星號閃爍效果 */
 .star-blink {
-  animation: starBlink 1.2s infinite;
-  color: #FFD700;
-  text-shadow: 0 0 6px #FFD700;
+    animation: starBlink 1.2s infinite;
+    color: #FFD700;
 }
-
 @keyframes starBlink {
-  0%   { opacity: 1;   text-shadow: 0 0 6px #FFD700; }
-  50%  { opacity: 0.3; text-shadow: 0 0 14px #FF0000; }
-  100% { opacity: 1;   text-shadow: 0 0 6px #FFD700; }
+    0%   { opacity: 1; }
+    50%  { opacity: 0.3; text-shadow: 0 0 14px #FF0000; }
+    100% { opacity: 1; }
 }
-
-  <script>
-    function showTab(tabId, btn) {
-      // content
-      const contents = document.querySelectorAll('.tab-content');
-      contents.forEach(el => el.classList.remove('active'));
-
-      const target = document.getElementById(tabId);
-      if (target) target.classList.add('active');
-
-      // buttons
-      const btns = document.querySelectorAll('.tab-btn');
-      btns.forEach(b => b.classList.remove('active'));
-      if (btn) btn.classList.add('active');
-
-      // 回到內容頂部
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
   </script>
 
 <script>
@@ -339,31 +265,20 @@ document.addEventListener("DOMContentLoaded", function(){
     }
   });
 });
-</script>
+</style>
 
 </head>
 
 
 <body>
 
-  <!-- 左邊漂浮廣告 1 -->
-<a href="https://line.me/ti/p/@482evvkr" target="_blank" style="
-    position: fixed;
-    left: 10px;
-    top: 30%;
-    transform: translateY(-50%);
-    z-index: 9999;
-    text-decoration: none;"> <img src="aaa/557.png" alt="左邊客服" style="width: 190px; border-radius: 10px;">
+<a href="https://line.me/ti/p/@482evvkr" target="_blank" class="floating-ad ad-left"> 
+    <img src="aaa/557.png" alt="左邊客服">
 </a>
 
-    <a href="https://bravo560317.github.io/web/money4.html" target="_blank" style="
-    position: fixed;
-    right: 10px;
-    top: 30%;
-    transform: translateY(-50%);
-    z-index: 9999;">
-    <img src="aaa/555.png" alt="右邊贊助" style="width: 200px; border-radius: 10px;">
-  </a>
+<a href="https://bravo560317.github.io/web/money4.html" target="_blank" class="floating-ad ad-right">
+    <img src="aaa/555.png" alt="右邊贊助">
+</a>
 
   <div class="tabs">
     <div class="tab-btn active" onclick="showTab('tab7', this)">首頁</div>
