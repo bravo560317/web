@@ -1,57 +1,67 @@
-﻿<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
+﻿<head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>贊助說明</title>
   <style>
     body {
       margin: 0;
       background-color: #fdf6e3;
       font-family: "微軟正黑體", sans-serif;
-      font-size: 12px;
+      /* 加大基礎字體 */
+      font-size: 16px; 
+      padding: 10px;
     }
     .container {
-      width: 300px;
-      margin: auto;
-      padding: 8px;
+      /* 修改：寬度改為 95% 並設定最大寬度，讓它在手機上鋪滿 */
+      width: 95%;
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
       box-sizing: border-box;
       background-color: #fff;
       border: 1px solid #ccc;
+      border-radius: 12px; /* 圓角看起來更現代 */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     h2 {
-      font-size: 13px;
+      font-size: 20px;
       text-align: center;
-      margin: 4px 0 8px;
+      margin: 10px 0 15px;
       color:#C60000;
       text-shadow:1px 1px 2px #FFAAAA;
     }
     .section {
-      margin-bottom: 6px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #eee; /* 增加分隔感 */
+    }
+    .section:last-child {
+      border-bottom: none;
     }
     .section-title {
       font-weight: bold;
       color: #C60000;
-      font-size: 13px;
-      margin-bottom: 3px;
+      font-size: 18px;
+      margin-bottom: 8px;
     }
     .section-content {
-      font-size: 11px;
+      font-size: 15px; /* 加大內文字體 */
       color: #222;
-      line-height: 1.5;
+      line-height: 1.8;
     }
 
-    /* 使用你原本的藍色按鈕 */
     .link-button {
       display: block;
       width: 100%;
-      margin-top: 8px;
-      padding: 6px;
+      margin-top: 15px;
+      padding: 12px; /* 加大按鈕點擊範圍 */
       background-color: #007bff;
       color: #fff;
       text-align: center;
       text-decoration: none;
-      font-size: 12px;
-      border-radius: 4px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
     }
     .link-button:hover {
       background-color: #0056b3;
@@ -61,40 +71,37 @@
 
 <body>
 <div class="container">
-
-<div style="text-align:center; margin-bottom:8px;">
-
-  <!-- 1：幣值說明 -->
-  <div class="section">
-    <div class="section-title">《贊助幣值說明》</div>
-    <div class="section-content">
-      遊戲幣值為 <span style="color:#B8860B; font-weight:bold;">１：１</span><br>
-      NT500~1,999 贊助幣 <span style="color:#007B00;">回饋10%</span><br>
-      NT2000~4,999 贊助幣 <span style="color:#0055CC;">回饋15%</span><br>
-      NT5000~9,999 贊助幣 <span style="color:#E67300;">回饋20%</span><br>
-      NT10,000~20,000 贊助幣 <span style="color:#C69C00; font-weight:bold;">回饋30%</span>
+  <div style="text-align:center;">
+    <div class="section">
+      <div class="section-title">《贊助幣值說明》</div>
+      <div class="section-content">
+        遊戲幣值為 <span style="color:#B8860B; font-weight:bold;">１：１</span><br>
+        NT500~1,999 贊助幣 <span style="color:#007B00;">回饋10%</span><br>
+        NT2000~4,999 贊助幣 <span style="color:#0055CC;">回饋15%</span><br>
+        NT5000~9,999 贊助幣 <span style="color:#E67300;">回饋20%</span><br>
+        NT10,000~20,000 贊助幣 <span style="color:#C69C00; font-weight:bold;">回饋30%</span>
+      </div>
     </div>
-  </div>
-  <!-- 2：首充獎勵 -->
-  <div class="section">
-      <span style="color:#C69C00; font-weight:bold;">首充500NT贈送：</span><br>
-      <span style="color:#007B00;">永久開通: 自動練功(進階功能)</span><br>
-      <span style="color:#007B00;">永久開通: 掉落歸屬(自動撿取)</span><br>
-      <span style="color:#007B00;">永久開通: 高寵系統(自動跟隨)</span><br>
-  </div>
-    <!-- 3：單筆獎勵 -->
-  <div class="section">
-      <span style="color:#7b0000; font-weight:bold;">贊助每500贈送1顆：</span><br>
-      <span style="color:#7b0000;">雙倍傷害靈魂水晶(30天)</span><br>
-      <span style="color:#7b0000;">可升級Lv.20 每層增加發動率+3%及5%傷害</span><br>
-      <span style="color:#7b0000;">(水晶升級時間不會疊加，第一顆時效為準。)</span><br>
-      
-            
-   
 
-  <!-- 按鈕（藍色） -->
-          <a class="link-button" href="https://bravo560317.github.io/web/money3.html">前往下一頁</a>
+    <div class="section">
+      <div class="section-content">
+        <span style="color:#C69C00; font-weight:bold; font-size: 17px;">首充500NT贈送：</span><br>
+        <span style="color:#007B00;">★ 永久開通: 自動練功(進階功能)</span><br>
+        <span style="color:#007B00;">★ 永久開通: 掉落歸屬(自動撿取)</span><br>
+        <span style="color:#007B00;">★ 永久開通: 高寵系統(自動跟隨)</span>
+      </div>
+    </div>
 
+    <div class="section">
+      <div class="section-content">
+        <span style="color:#7b0000; font-weight:bold; font-size: 17px;">贊助每500贈送1顆：</span><br>
+        <span style="color:#7b0000;">雙倍傷害靈魂水晶(30天)</span><br>
+        <span style="color:#7b0000; font-size: 13px;">可升級Lv.20 每層增加發動率+3%及5%傷害</span><br>
+        <span style="color:#7b0000; font-size: 13px;">(水晶升級時間不會疊加，第一顆時效為準。)</span>
+      </div>
+    </div>
+
+    <a class="link-button" href="https://bravo560317.github.io/web/money3.html">前往下一頁</a>
+  </div>
 </div>
 </body>
-</html>

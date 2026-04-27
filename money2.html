@@ -2,51 +2,67 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>【戰天堂】自動贊助系統</title>
   <style>
     body {
       margin: 0;
       background-color: #fdf6e3;
       font-family: "微軟正黑體", sans-serif;
-      font-size: 12px;
+      font-size: 16px; /* 基礎字體加大 */
+      padding: 10px;
     }
 
     .container {
-      width: 300px;
-      height: auto;
-      margin: auto;
-      padding: 10px;
+      width: 95%; /* 手機版自動鋪滿 */
+      max-width: 450px;
+      margin: 20px auto;
+      padding: 20px;
       box-sizing: border-box;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     h2 {
-      font-size: 14px;
+      font-size: 20px;
       text-align: center;
-      margin: 6px 0 12px;
+      margin: 10px 0 20px;
+      color: #333;
     }
 
     label {
       display: block;
-      margin-top: 8px;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #444;
+      font-size: 15px;
     }
 
     input, select {
       width: 100%;
-      font-size: 12px;
-      padding: 4px;
+      font-size: 16px; /* 防止 iOS 點擊輸入框時自動放大 */
+      padding: 12px;
       box-sizing: border-box;
-      margin-top: 2px;
+      margin-top: 5px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      background-color: #fafafa;
     }
 
     button {
-      margin-top: 12px;
+      margin-top: 25px;
       width: 100%;
-      padding: 6px;
-      font-size: 12px;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
       background-color: #007bff;
       color: white;
       border: none;
+      border-radius: 8px;
       cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,123,255,0.3);
     }
 
     button:hover {
@@ -54,19 +70,31 @@
     }
 
     .disclaimer {
-      margin-top: 12px;
-      font-size: 11px;
+      margin-top: 20px;
+      font-size: 14px;
       color: #555;
-      line-height: 1.4;
+      line-height: 1.7;
       background-color: #fff7e0;
-      padding: 8px;
-      border: 1px solid #ccc;
+      padding: 15px;
+      border: 1px solid #e0d0a0;
+      border-radius: 8px;
     }
 
     .disclaimer-title {
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       color: #b30000;
+      font-size: 16px;
+      border-bottom: 1px solid #f0e0b0;
+      padding-bottom: 5px;
+    }
+
+    /* 小提示文字 */
+    .hint {
+      font-size: 13px;
+      color: #0056b3;
+      margin-top: 5px;
+      display: block;
     }
   </style>
 </head>
@@ -78,38 +106,54 @@
       <input type="hidden" name="Rvg2c" value="1">
       <input type="hidden" name="Dcvc" value="8075">
 
-      <label>遊戲帳號(必填)</label>
-      <input type="text" name="Od_sob" required>
+      <label>遊戲帳號 (必填)</label>
+      <input type="text" name="Od_sob" placeholder="請輸入登入帳號" required>
 
-      <label>玩家名稱(必填)</label>
-      <input type="text" name="Pur_name" required>
+      <label>玩家名稱 (必填)</label>
+      <input type="text" name="Pur_name" placeholder="請輸入遊戲內角色名稱" required>
 
-      <label>金額(500~20,000為限)</label>
-      <input type="number" name="Amount" required>
+      <label>金額 (500~20,000為限)</label>
+      <input type="number" name="Amount" placeholder="請輸入贊助金額" min="500" max="20000" required>
 
       <label>付款方式</label>
       <select name="Pay_zg" required>
-        <option value="999">ATM</option>
-        <option value="4">7-11</option>
-        <option value="6">全家</option>
-        <option value="10">萊爾富</option>
+        <option value="999">ATM 轉帳</option>
+        <option value="4">超商代碼：7-11</option>
+        <option value="6">超商代碼：全家</option>
+        <option value="10">超商代碼：萊爾富</option>
       </select>
+      
+      <span class="hint">※ Linepay、8591、Mycard 請聯繫客服開單</span>
 
-      <label>(Linepay、8591、Mycard請聯繫客服開單)</label>
-
-      <button type="submit">送出</button>
+<button type="submit">立即送出單據</button>
+      
+      <a href="https://line.me/ti/p/@482evvkr" target="_blank" style="
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+        background-color: #06C755; /* Line 的官方綠色 */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 8px;
+        box-sizing: border-box;
+      ">
+        透過 Line 聯繫客服開單 (Linepay/8591)
+      </a>
     </form>
 
     <div class="disclaimer">
       <div class="disclaimer-title">贊助玩家必讀需知：</div>
-      遊戲幣值為【1:1】，贊助後約5~10分鐘入帳。<br>
-      若遲遲未收到商品，請聯繫客服:@482evvkr<br>
-      玩家必須出於自願贊助，以維護伺服器的運行。<br>
-      請自行保管好自己的帳號和密碼，不得借給其他玩家。<br>
-      如出現強化爆掉請玩家自行負責，本服一概不賠償。<br>
-      若有轉借狀況而發生糾紛或遺失，本服一率不處理。<br>
-      贊助商品購買後，不接受退換或更換，請確認後再購買。<br>
-      贊助商品玩家必須自行強化，我們沒有幫忙強化這項服務。<br>
+      ● 遊戲幣值為【1:1】，贊助後約 5~10 分鐘入帳。<br>
+      ● 若未收到商品，請聯繫客服：<span style="color:#0056b3; font-weight:bold;">@482evvkr</span><br>
+      ● 玩家必須出於自願贊助，以維護伺服器運行。<br>
+      ● 請自行保管帳號密碼，勿借予他人使用。<br>
+      ● 強化機率屬遊戲機制，爆掉本服概不賠償。<br>
+      ● 贊助商品購買後，不接受退換或更換。<br>
+      ● 我們不提供代理強化服務，需由玩家自行操作。
     </div>
   </div>
 
@@ -117,7 +161,7 @@
     document.getElementById("donateForm").addEventListener("submit", function(e) {
       var payType = document.querySelector("select[name='Pay_zg']").value;
 
-      // 如果選擇「聯繫客服」
+      // 如果選擇 ATM，保持原邏輯導向 money1.html
       if (payType == "999") {
         e.preventDefault();
         window.location.href = "https://bravo560317.github.io/web/money1.html";

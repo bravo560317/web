@@ -2,57 +2,76 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>贊助說明</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贊助說明 - 手動轉帳</title>
   <style>
     body {
       margin: 0;
       background-color: #fdf6e3;
       font-family: "微軟正黑體", sans-serif;
-      font-size: 12px;
+      font-size: 16px; /* 基礎字體加大 */
+      padding: 10px;
     }
     .container {
-      width: 300px;
-      margin: auto;
-      padding: 8px;
+      width: 95%; /* 手機版寬度 */
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
       box-sizing: border-box;
       background-color: #fff;
       border: 1px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     h2 {
-      font-size: 13px;
+      font-size: 22px;
       text-align: center;
-      margin: 4px 0 8px;
+      margin: 10px 0 20px;
       color:#C60000;
       text-shadow:1px 1px 2px #FFAAAA;
     }
     .section {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      background-color: #fcfcfc;
+      padding: 12px;
+      border-radius: 8px;
+      border-left: 5px solid #C60000;
     }
     .section-title {
       font-weight: bold;
       color: #C60000;
-      font-size: 13px;
-      margin-bottom: 3px;
+      font-size: 18px;
+      margin-bottom: 8px;
     }
     .section-content {
-      font-size: 11px;
-      color: #222;
-      line-height: 1.5;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.7;
     }
-    .link-button {
-      display: block;
-      width: 100%;
-      margin-top: 8px;
-      padding: 6px;
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
-      font-size: 12px;
+    .copy-text {
+      color: #0056b3;
+      font-weight: bold;
+      background: #eef5ff;
+      padding: 2px 5px;
       border-radius: 4px;
     }
-    .link-button:hover {
-      background-color: #0056b3;
+    /* 綠色 Line 客服按鈕 */
+    .line-button {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #06C755;
+      color: #fff !important;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .line-button:hover {
+      background-color: #05a647;
     }
   </style>
 </head>
@@ -60,42 +79,44 @@
 <body>
 <div class="container">
 
-  <h2>《戰天堂》</h2>
+  <h2>《戰天堂》贊助管道</h2>
 
-  <!-- ATM -->
   <div class="section">
-    <div class="section-title">ATM轉帳帳號：</div>
+    <div class="section-title">ATM 轉帳帳號：</div>
     <div class="section-content">
-      轉帳郵局(700)：03114810644779<br>
-      轉帳成功後，聯繫客服:@482evvkr 提供您的遊戲帳號 以及 轉帳後五碼。
+      銀行名稱：<span class="copy-text">郵局 (700)</span><br>
+      轉帳帳號：<span class="copy-text">03114810644779</span><br>
+      <span style="color: #666; font-size: 13px;">※ 轉帳後請聯繫客服提供帳號及後五碼。</span>
     </div>
   </div>
 
-  <!-- Line Pay -->
   <div class="section">
     <div class="section-title">Line pay：</div>
     <div class="section-content">
-     LINE帳號：annnaxx5118<br>
-     轉入後，聯繫客服:@482evvkr 提供您的遊戲帳號 及 贊助金額。
+      LINE ID：<span class="copy-text">annnaxx5118</span><br>
+      轉入後，請聯繫客服提供遊戲帳號及贊助金額。
     </div>
   </div>
 
-  <!-- MyCard -->
   <div class="section">
-    <div class="section-title">Mycard點數卡：</div>
+    <div class="section-title">Mycard 點數卡：</div>
     <div class="section-content">
-      請聯繫客服並提供：點數卡卡號及點數卡密碼，為求公平性，收購幣值為1:0.8
+      請聯繫客服提供：<span class="copy-text">卡號及密碼</span><br>
+      為求公平性，Mycard 收購幣值為 <span style="color: red; font-weight: bold;">1 : 0.8</span>
     </div>
   </div>
 
-  <!-- 8591 -->
   <div class="section">
-    <div class="section-title">8591：</div>
+    <div class="section-title">8591 交易：</div>
     <div class="section-content">
-      請聯繫客服並提供：8591會員代號，以便我們開設專屬賣場
+      請聯繫客服並提供：<span class="copy-text">8591 會員代號</span><br>
+      我們將為您開設專屬賣場。
     </div>
   </div>
 
+  <a class="line-button" href="https://line.me/ti/p/@482evvkr" target="_blank">
+    已完成轉帳？點此聯繫客服
+  </a>
 
 </div>
 </body>
