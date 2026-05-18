@@ -421,6 +421,27 @@ document.addEventListener("DOMContentLoaded", function(){
 
     <div class="section-title">★遊戲基本內容介紹 ★</div>
 
+     <!-- 1) 每周活動 -->
+  <details class="collapse-box" open>
+    <summary>★ 每週活動 ★</summary>
+    <div class="collapse-body">
+
+    <!-- ===== 贊助 ===== -->
+    <div class="section-title" style="color:#00FF00;">★ 儲值排行（每週日至下週日18:00結算）★</div>
+    <ul class="bullet">
+            <li><span style="color:#FFD700;">第1名：</span>贊助幣x5000</li>
+            <li><span style="color:#FFD700;">第2名：</span>贊助幣x3000</li>
+            <li><span style="color:#FFD700;">第3名：</span>贊助幣x2000</li>
+            <li><span style="color:#FFD700;">第4-6名：</span>贊助幣x1000</li>
+            <li><span style="color:#FFD700;">第7-10名：</span>贊助幣x500</li>
+<br>
+      <li>注意事項：</li>
+      <li>若贊助金額相同，系統將依贊助時間先後順序進行排名。</li>
+      <li><span style="border-bottom:2px solid #FFD700;">贊助金額需大於獎勵金額</span>，獎勵才會發送！</li>
+    </ul>
+
+    </div>
+  </details>
 
   <!-- 1) 伺服器設定 -->
   <details class="collapse-box" open>
@@ -1847,17 +1868,17 @@ Promise.all([
     <div class="update-list">
 
 <details class="update-item">
-  <summary>開服八大精彩活動介紹</summary>
+  <summary>開服精彩活動介紹</summary>
   <div class="update-body">
 
 
     <!-- ===== 活動1 ===== -->
     <div class="section-title" style="color:#00FF00;">★ 衝等活動（開服起 ~ 21日18:00結束）★</div>
     <ul class="bullet">
-      <li>Lv45：金幣 x100,000、變身抽卡包x3、娃娃抽卡包x3（前30名）</li>
-      <li>Lv48：金幣 x300,000、變身抽卡包x5、娃娃抽卡包x5（前20名）</li>
-      <li>Lv50：贊助幣 x200、變身抽卡包x10、娃娃抽卡包x10（前5名）</li>
-      <li>Lv52：贊助幣 x800、變身抽卡包x20、娃娃抽卡包x20（前3名）</li>
+      <li>Lv50：金幣(50000)、變身卡包x1、娃娃卡包x1（前30名額）</li>
+      <li>Lv52：贊助幣(200)、變身卡包x2、娃娃卡包x2（前20名額）</li>
+      <li>Lv55：贊助幣(300)、變身卡包x3、娃娃卡包x3（前10名額）</li>
+      <li>Lv60：贊助幣(500)、變身卡包x5、娃娃卡包x5（前5名額）</li>
 <br>
       <li>注意事項：</li>
       <li>▲獎勵為即時發放獎勵,數量有限送完為止。</li>
@@ -1877,7 +1898,7 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲若卡片數量相同,系統無法判定優先順序,會採『隨機』排名。</li>
-      <li>▲卡片數量若低於<span style="border-bottom:2px solid #FFD700;">10張</span>,將不列入排行獎勵資格。</li>
+      <li>▲卡片數量若低於<span style="border-bottom:2px solid #FFD700;">20張</span>,將不列入排行獎勵資格。</li>
     </ul>
 
     <hr class="item-divider">
@@ -1893,7 +1914,7 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲若卡片數量相同,系統無法判定優先順序,會採『隨機』排名。</li>
-      <li>▲卡片數量若低於<span style="border-bottom:2px solid #FFD700;">10張</span>,將不列入排行獎勵資格。</li>
+      <li>▲卡片數量若低於<span style="border-bottom:2px solid #FFD700;">15張</span>,將不列入排行獎勵資格。</li>
     </ul>
 
     <hr class="item-divider">
@@ -1909,7 +1930,7 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲陣營積分可藉由寶區擊殺怪物獲得。(進入地圖後請選擇陣營)</li>
-      <li>▲陣營積分低於<span style="border-bottom:2px solid #FFD700;">50</span>,將不列入排行獎勵資格。</li>
+      <li>▲陣營積分低於<span style="border-bottom:2px solid #FFD700;">100</span>,將不列入排行獎勵資格。</li>
     </ul>
 
     <hr class="item-divider">
@@ -1925,7 +1946,7 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲殺王積分可藉由擊殺BOSS獲得。</li>
-      <li>▲殺王積分低於<span style="border-bottom:2px solid #FFD700;">3</span>,將不列入排行獎勵資格。</li>
+      <li>▲殺王積分低於<span style="border-bottom:2px solid #FFD700;">20</span>,將不列入排行獎勵資格。</li>
     </ul>
 
     <hr class="item-divider">
@@ -1941,7 +1962,7 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲若武器加成相同,系統無法判定優先順序,會採『隨機』排名。</li>
-      <li>▲武器若低於<span style="border-bottom:2px solid #FFD700;">+6</span>,將不列入排行獎勵資格。</li>
+      <li>▲武器若低於<span style="border-bottom:2px solid #FFD700;">+7</span>,將不列入排行獎勵資格。</li>
     </ul>
 
     <hr class="item-divider">
@@ -1957,27 +1978,20 @@ Promise.all([
 <br>
       <li>注意事項：</li>
       <li>▲寵物排行是<span style="border-bottom:2px solid #FFD700;">寵物HP最大值</span>進行排行。</li>
-    </ul>
-
-
-    <hr class="item-divider">
-
-    <!-- ===== 活動8 ===== -->
-    <div class="section-title" style="color:#00FF00;">★ 儲值排行（開服起~下周日18:00結算）★</div>
-    <ul class="bullet">
-            <li><span style="color:#FFD700;">第1名：</span>贊助總額x1 = 獎勵</li>
-            <li><span style="color:#FFD700;">第2名：</span>贊助總額x0.8  = 獎勵</li>
-            <li><span style="color:#FFD700;">第3名：</span>贊助總額x0.7  = 獎勵</li>
-            <li><span style="color:#FFD700;">第4-6名：</span>贊助總額x0.6  = 獎勵</li>
-            <li><span style="color:#FFD700;">第7-10名：</span>贊助總額x0.5  = 獎勵</li>
-<br>
-      <li>注意事項：</li>
-      <li>▲若贊助金額相同,系統時間「判定優後順序」進行排名。</li>
-      <li>▲獎勵發放金額最大上限:<span style="border-bottom:2px solid #FFD700;">20,000</span>。</li>
+      <li>▲血量低於<span style="border-bottom:2px solid #FFD700;">HP:350</span>將不列入排行獎勵資格。</li>
     </ul>
 
   </div>
 </details>
+                                         <details class="update-item" open>
+        <summary>05月19日18:00遊戲更新內容</summary>
+        <div class="update-body">
+<p><span style="color:#00FF7F;">「調整」</span>提高寶區掉落率。</p>
+<p><span style="color:#00FF7F;">「新增」</span>贊助商城販售物品及部分售價調整。</p>
+<p><span style="color:#00FF7F;">「活動」</span>贊助活動改為週活動，每週日結算一次。</p>
+        </div>
+      </details>
+
 
                                          <details class="update-item" open>
         <summary>05月18日18:00遊戲更新內容</summary>
