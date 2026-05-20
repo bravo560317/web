@@ -1720,12 +1720,11 @@ function searchItem(kw) {
 }
 </script>
 
-
 <!-- ===================== 武器介紹 ===================== -->
 <div id="tab3" class="tab-content">
 
   <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/焰戰天堂.jpg"
+    <img src="aaa/問戰logo.png"
          style="width:800px; max-width:100%; border-radius:100px;">
   </div>
 
@@ -1744,18 +1743,50 @@ Promise.all([
 
   let html = "";
 
-  // ⭐ 先排序（關鍵,不然會亂切）
-  weapons.sort((a, b) => Number(a.type) - Number(b.type));
+  // 1. 先幫每把武器預先配對好「掉落資訊」，方便等等排序與分類
+  weapons.forEach(w => {
+    let dropInfo = "『製作方式獲得』"; // 預設改為製作獲得
+
+    for (let id in drops) {
+      let dropName = drops[id].name.trim();
+      let weaponName = w.name.trim();
+
+      if (dropName === weaponName) {
+        dropInfo = drops[id].drops
+          .map(d => d.mob)
+          .join("、");
+        break; 
+      }
+    }
+    // 把比對好的結果直接塞回武器物件裡，方便後面使用
+    w.calculatedDropInfo = dropInfo;
+    w.isCrafted = (dropInfo === "『製作方式獲得』"); // 標記是否為製作武器
+  });
+
+  // 2. 排序邏輯（核心修改）
+  weapons.sort((a, b) => {
+    // 優先規則：先按「武器類型 type」由小到大排序
+    let typeA = Number(a.type) || 0;
+    let typeB = Number(b.type) || 0;
+    if (typeA !== typeB) return typeA - typeB;
+
+    // 次要規則：同類型中，「怪物掉落」排前面，「製作方式獲得」排後面（聚集在一起）
+    if (a.isCrafted !== b.isCrafted) {
+      return a.isCrafted ? 1 : -1; // a是製作就往後排，b是製作就往前排
+    }
+
+    return 0;
+  });
 
   let lastType = null;
+  let lastCraftedStatus = null;
 
   weapons.forEach(w => {
 
-    // ⭐ 保證 type 正常（防呆）
     let currentType = w.type ? String(w.type) : "unknown";
 
-    // ⭐ 只有「真的換類型」才切線
-    if (lastType !== null && currentType !== lastType) {
+    // ⭐ 切線邏輯：換武器類型，或者同類型中從「怪物掉落」變成「製作獲得」時切線
+    if (lastType !== null && (currentType !== lastType || w.isCrafted !== lastCraftedStatus)) {
       html += `
       <div style="
         margin:25px 0;
@@ -1764,6 +1795,7 @@ Promise.all([
     }
 
     lastType = currentType;
+    lastCraftedStatus = w.isCrafted;
 
     // ⭐ 職業
     let jobs = (w.jobs && w.jobs.length)
@@ -1775,20 +1807,8 @@ Promise.all([
       ? w.effects.join(" / ")
       : "無";
 
-    // ⭐ 掉落（模糊比對）
-    let dropInfo = "無";
-
-    for (let id in drops) {
-      let dropName = drops[id].name.trim();
-      let weaponName = w.name.trim();
-
-      if (dropName.includes(weaponName) || weaponName.includes(dropName)) {
-        dropInfo = drops[id].drops
-          .map(d => d.mob)
-          .join("、");
-        break;
-      }
-    }
+    // 💡 掉落怪物欄位顏色微調（如果是製作獲得，可以用顏色區分，這裡預設維持原樣或隨你調整）
+    let dropColor = w.isCrafted ? "#ffcc00" : "#fff"; 
 
     html += `
     <div class="bullet" style="margin-bottom:10px;">
@@ -1817,7 +1837,7 @@ Promise.all([
 
         <tr>
           <td>掉落怪物</td>
-          <td colspan="5">${dropInfo}</td>
+          <td colspan="5" style="color:${dropColor};">${w.calculatedDropInfo}</td>
         </tr>
       </table>
     </div>`;
@@ -1834,7 +1854,7 @@ Promise.all([
 <div id="tab8" class="tab-content">
 
   <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/焰戰天堂.jpg"
+    <img src="aaa/問戰logo.png"
          style="width:800px; max-width:100%; border-radius:100px;">
   </div>
 
@@ -1853,15 +1873,51 @@ Promise.all([
 
   let html = "";
 
-  // ⭐ 排序
-  armors.sort((a, b) => a.type - b.type);
+  // 1. 將 drops 建立一個精準的「名稱對應怪物」快速對照表
+  const dropMap = new Map();
+  for (let id in drops) {
+    const dropName = drops[id].name.trim();
+    const mobList = drops[id].drops.map(d => d.mob).join("、");
+    dropMap.set(dropName, mobList);
+  }
+
+  // 2. 預先幫每件防具計算好掉落資訊與製作標記
+  armors.forEach(a => {
+    const armorName = a.name.trim();
+    
+    // 💡 精準配對，找不到就預設為『無 或 製作方式獲得』
+    if (dropMap.has(armorName)) {
+      a.calculatedDropInfo = dropMap.get(armorName);
+      a.isCrafted = false; // 屬於怪物掉落
+    } else {
+      a.calculatedDropInfo = "『無 或 製作方式獲得』";
+      a.isCrafted = true;  // 屬於製作獲得
+    }
+  });
+
+  // 3. 排序優化：先排防具部位(type)，同部位內再把掉落與製作分開排
+  armors.sort((a, b) => {
+    let typeA = Number(a.type) || 0;
+    let typeB = Number(b.type) || 0;
+    if (typeA !== typeB) return typeA - typeB;
+
+    // 同部位內，掉落(false)在前，製作(true)在後
+    if (a.isCrafted !== b.isCrafted) {
+      return a.isCrafted ? 1 : -1;
+    }
+    return 0;
+  });
+
+  // ⭐ 定義允許顯示的四種職業
+  const allowedJobs = ["王族", "妖精", "騎士", "法師"];
 
   let lastType = -1;
+  let lastCraftedStatus = null;
 
   armors.forEach(a => {
 
-    // ⭐ 不同部位 → 加分隔線
-    if (lastType !== -1 && a.type !== lastType) {
+    // ⭐ 切線邏輯：不同部位 → 加分隔線；或者同部位內從「怪物掉落」變成「製作獲得」時也切線
+    if (lastType !== -1 && (a.type !== lastType || a.isCrafted !== lastCraftedStatus)) {
       html += `
       <div style="
         margin:25px 0;
@@ -1870,22 +1926,18 @@ Promise.all([
     }
 
     lastType = a.type;
+    lastCraftedStatus = a.isCrafted;
 
-    let jobs = a.jobs.length ? a.jobs.join(" / ") : "全職業";
+    // ⭐ 職業過濾
+    let filteredJobs = a.jobs.length 
+      ? a.jobs.filter(job => allowedJobs.includes(job.trim())) 
+      : allowedJobs;
+
+    let jobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
     let effects = a.effects.length ? a.effects.join(" / ") : "-";
 
-    // ⭐ 掉落
-    let dropInfo = "無";
-
-    for (let id in drops) {
-      let dropName = drops[id].name.trim();
-      let armorName = a.name.trim();
-
-      if (dropName.includes(armorName) || armorName.includes(dropName)) {
-        dropInfo = drops[id].drops.map(d => d.mob).join("、");
-        break;
-      }
-    }
+    // 💡 製作獲得的防具，掉落怪物字體給予黃色區分，方便玩家觀看
+    let dropColor = a.isCrafted ? "#ffcc00" : "#fff";
 
     html += `
     <div class="bullet" style="margin-bottom:10px;">
@@ -1917,7 +1969,7 @@ Promise.all([
 
         <tr>
           <td>掉落怪物</td>
-          <td colspan="5">${dropInfo}</td>
+          <td colspan="5" style="color:${dropColor};">${a.calculatedDropInfo}</td>
         </tr>
       </table>
     </div>`;
@@ -1926,6 +1978,7 @@ Promise.all([
   document.getElementById("armor-container").innerHTML = html;
 });
 </script>
+
   <!-- ===================== 首頁（更新公告） ===================== -->
   <div id="tab7" class="tab-content active">
     <img src="aaa/焰戰天堂.jpg" style="width:800px; border-radius:100px;">
