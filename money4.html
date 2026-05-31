@@ -1,105 +1,602 @@
-﻿<head>
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>贊助說明</title>
+  <title>【戰天堂】自動贊助系統</title>
   <style>
-    body {
-      margin: 0;
-      background-color: #fdf6e3;
-      font-family: "微軟正黑體", sans-serif;
-      /* 加大基礎字體 */
-      font-size: 16px; 
-      padding: 10px;
-    }
-    .container {
-      /* 修改：寬度改為 95% 並設定最大寬度，讓它在手機上鋪滿 */
-      width: 95%;
-      max-width: 500px;
-      margin: 20px auto;
-      padding: 20px;
-      box-sizing: border-box;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 12px; /* 圓角看起來更現代 */
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    h2 {
-      font-size: 20px;
-      text-align: center;
-      margin: 10px 0 15px;
-      color:#C60000;
-      text-shadow:1px 1px 2px #FFAAAA;
-    }
-    .section {
-      margin-bottom: 15px;
-      padding-bottom: 10px;
-      border-bottom: 1px dashed #eee; /* 增加分隔感 */
-    }
-    .section:last-child {
-      border-bottom: none;
-    }
-    .section-title {
-      font-weight: bold;
-      color: #C60000;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-    .section-content {
-      font-size: 15px; /* 加大內文字體 */
-      color: #222;
-      line-height: 1.8;
+    :root {
+      --primary-color: #b3885a;
+      --bg-color: #f9f7f2;
+      --card-bg: #ffffff;
+      --text-main: #333333;
+      --text-sub: #777777;
+      --border-color: #e5e0d8;
     }
 
-    .link-button {
-      display: block;
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      font-family: "微軟正黑體", -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-main);
+      padding: 15px;
+    }
+
+    .container {
       width: 100%;
-      margin-top: 15px;
-      padding: 12px; /* 加大按鈕點擊範圍 */
-      background-color: #007bff;
-      color: #fff;
-      text-align: center;
-      text-decoration: none;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* 區塊共同樣式 */
+    .card-section {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    }
+
+    .section-title {
       font-size: 16px;
       font-weight: bold;
-      border-radius: 8px;
+      color: var(--text-main);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
     }
-    .link-button:hover {
-      background-color: #0056b3;
+
+    .section-title span.step {
+      background-color: var(--primary-color);
+      color: #fff;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    /* 付款方式網格 */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+    }
+
+    .pay-option input {
+      display: none;
+    }
+
+    .pay-card {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background-color: #fff;
+    }
+
+    .pay-card:hover {
+      border-color: var(--primary-color);
+    }
+
+    .pay-option input:checked + .pay-card {
+      border-color: var(--primary-color);
+      background-color: #fdfaf5;
+      box-shadow: 0 0 0 1px var(--primary-color);
+    }
+
+    .pay-card .icon {
+      font-size: 24px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .pay-card .name {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--text-main);
+    }
+
+    /* 輸入框與下拉選單樣式 */
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--text-sub);
+    }
+
+    /* 新增：將 select 也加入樣式設定 */
+    .input-group input, .input-group select {
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 15px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-sizing: border-box;
+      outline: none;
+      transition: border-color 0.2s;
+      background-color: #fff;
+    }
+
+    .input-group select {
+      cursor: pointer;
+      appearance: auto; /* 讓不同瀏覽器顯示預設的下拉箭頭 */
+    }
+
+    .input-group input:focus, .input-group select:focus {
+      border-color: var(--primary-color);
+    }
+
+    /* 獎勵動態顯示區塊 */
+    .rewards-box {
+      background-color: #fcf9f2;
+      border: 1px solid #f0e6d2;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .reward-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .reward-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-gold { color: #b3885a; font-weight: bold; }
+    .highlight-red { color: #d9534f; font-weight: bold; }
+
+    /* 說明區塊 */
+    .info-list {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.8;
+      background: #fafafa;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border-left: 4px solid var(--primary-color);
+    }
+
+    /* 按鈕樣式 */
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(179, 136, 90, 0.3);
+      transition: background-color 0.2s;
+      margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+      background-color: #967048;
+    }
+
+    .line-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #06C755;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      box-sizing: border-box;
+      margin-top: 15px;
+    }
+    
+    .final-confirm {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px dashed var(--border-color);
+    }
+    .confirm-item label {
+      font-size: 12px;
+      color: #888;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .confirm-item span {
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* 新增 VIP 列表樣式 */
+    .vip-list {
+      background-color: #fff9f0;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      line-height: 1.8;
+      font-size: 15px;
+      color: #333;
+    }
+    .highlight {
+      color: #C60000;
+      font-weight: bold;
     }
   </style>
 </head>
-
 <body>
-<div class="container">
-  <div style="text-align:center;">
-    <div class="section">
-      <div class="section-title">《贊助幣值說明》</div>
-      <div class="section-content">
-        遊戲幣值為 <span style="color:#B8860B; font-weight:bold;">１：１</span><br>
-        NT500~1,999 贊助幣 <span style="color:#007B00;">回饋10%</span><br>
-        NT2000~4,999 贊助幣 <span style="color:#0055CC;">回饋15%</span><br>
-        NT5000~9,999 贊助幣 <span style="color:#E67300;">回饋20%</span><br>
-        NT10,000~20,000 贊助幣 <span style="color:#C69C00; font-weight:bold;">回饋30%</span>
-      </div>
-    </div>
 
-    <div class="section">
-      <div class="section-content">
-        <span style="color:#C69C00; font-weight:bold; font-size: 17px;">首充500NT贈送：</span><br>
-        <span style="color:#007B00;">★ 永久開通: 高寵系統(自動跟隨)</span>
-      </div>
-    </div>
+  <div class="container">
+    <form id="donateForm" method="GET" action="https://ssl.smse.com.tw/ezpos/mtmk_utf.asp">
+      <input type="hidden" name="Rvg2c" value="1">
+      <input type="hidden" name="Dcvc" value="13934">
 
-    <div class="section">
-      <div class="section-content">
-        <span style="color:#7b0000; font-weight:bold; font-size: 17px;">贊助每500贈送1顆：</span><br>
-        <span style="color:#7b0000;">傷害靈魂水晶(30天)</span><br>
-        <span style="color:#7b0000; font-size: 13px;">可升級Lv.20 每層增加發動率+1%及10%傷害</span><br>
-        <span style="color:#7b0000; font-size: 13px;">(水晶升級時間不會疊加，第一顆時效為準。)</span>
+      <div class="card-section">
+        <div class="section-title"><span class="step">1</span>選擇付款方式</div>
+        <div class="payment-grid">
+          <label class="pay-option">
+            <input type="radio" name="Pay_zg" value="999" checked onchange="updateConfirmUI()">
+            <div class="pay-card">
+              <span class="icon">🏛️</span>
+              <span class="name">ATM 轉帳</span>
+            </div>
+          </label>
+          <label class="pay-option">
+            <input type="radio" name="Pay_zg" value="4" onchange="updateConfirmUI()">
+            <div class="pay-card">
+              <span class="icon">🏪</span>
+              <span class="name">7-ELEVEN</span>
+            </div>
+          </label>
+          <label class="pay-option">
+            <input type="radio" name="Pay_zg" value="6" onchange="updateConfirmUI()">
+            <div class="pay-card">
+              <span class="icon">🏪</span>
+              <span class="name">全家 FamilyMart</span>
+            </div>
+          </label>
+        </div>
+        
+        <div id="convenienceStoreNotice" style="display: none; color: red; font-weight: bold; margin-top: 15px; font-size: 14px; border: 1px dashed red; padding: 10px; border-radius: 8px; background-color: #fff5f5; text-align: center;">
+          為配合政府防洗錢打詐，超商繳費需提供發票明細，拍照後傳送至官方 Line帳號:@482evvkr。
+        </div>
       </div>
-    </div>
 
-    <a class="link-button" href="https://bravo560317.github.io/web/money3.html">前往下一頁</a>
+      <div class="card-section">
+        <div class="section-title"><span class="step">2</span>填寫帳號與金額</div>
+        
+
+                <div class="input-group">
+          <label>遊戲帳號 (必填)</label>
+          <input type="text" name="Od_sob" id="accountInput" placeholder="請輸入登入帳號" required oninput="updateConfirmUI()">
+        </div>
+
+        <div class="input-group">
+          <label>角色名稱 (必填)</label>
+          <input type="text" id="charNameInput" placeholder="請輸入遊戲內角色名稱" required oninput="updateConfirmUI()">
+          <!-- 將最終結果（加上方案名稱）放入此隱藏欄位送給金流平台 -->
+          <input type="hidden" name="Pur_name" id="hiddenPurName">
+        </div>
+
+        <div class="input-group">
+          <label>贊助金額 (TWD)</label>
+          <select name="Amount" id="amountInput" required onchange="calculateRewards()">
+            <option value="" disabled selected>請選擇本次充值方案</option>
+            <option value="500">500 TWD</option>
+            <option value="1000">1000 TWD</option>
+            <option value="2000">2000 TWD</option>
+            <option value="3500">3500 TWD</option>
+            <option value="5000">5000 TWD -- (滿額好禮)</option>
+            <option value="10000">10000 TWD -- (滿額好禮)</option>
+            <option value="20000">20000 TWD -- (滿額好禮)</option>
+          </select>
+        </div>
+
+        <!-- 動態滿額選項 -->
+        <div class="input-group" id="bonusOptionGroup" style="display: none;">
+          <label>滿額好禮選擇 (必選)</label>
+          <select name="Bonus_Option" id="bonusOptionInput" onchange="updateConfirmUI()">
+          </select>
+        </div>
+
+        <div class="rewards-box">
+          <div class="reward-row">
+            <span>💎 獲得贊助幣 (含回饋)：</span>
+            <span class="highlight-gold" id="displayCoins">0</span>
+          </div>
+          <div class="reward-row" style="margin-top: 10px; border-top: 1px dashed #e5e0d8; padding-top: 10px;">
+            <span>🎁 額外贈送：</span>
+            <span class="highlight-red">傷害靈魂水晶 x <span id="displayCrystals">0</span></span>
+          </div>
+          <div class="reward-row" id="firstChargeDiv" style="font-size: 13px; color: #555; margin-top: 5px;">
+            溫馨提示：<br>
+            ※ 帳號首次充值：開通高寵系統(永久)、稀有變身卡(自選)x1、稀有娃娃卡(自選)x1<br>
+            ※ 傷害靈魂水晶：附加在武器上(30天)，每層增加發動率+3%及10%及物理攻擊傷害（可升至Lv.20）
+          </div>
+        </div>
+      </div>
+
+      <div class="card-section">
+        <div class="section-title"><span class="step">3</span>最終確認</div>
+        <div class="final-confirm">
+          
+          <div class="confirm-item">
+            <label>角色名稱</label>
+            <span id="confirmName">尚未輸入</span>
+          </div>
+        
+          <div class="confirm-item">
+            <label>遊戲帳號</label>
+            <span id="confirmAccount">尚未輸入</span>
+          </div>
+
+          <div class="confirm-item">
+            <label>支付方式</label>
+            <span id="confirmPay">ATM 轉帳</span>
+          </div>
+          <div class="confirm-item">
+            <label>充值金額</label>
+            <span id="confirmAmt">0 TWD</span>
+          </div>
+          <div class="confirm-item" id="confirmBonusGroup" style="display: none; grid-column: 1 / -1;">
+            <label>滿額好禮</label>
+            <span id="confirmBonus" style="color: #d9534f;">尚未選擇</span>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn">立即結帳</button>
+        <a href="https://line.me/ti/p/@482evvkr" target="_blank" class="line-btn">聯繫客服開單 (Linepay / 8591)</a>
+      </div>
+
+
+      <div class="card-section">
+        <div class="section-title" style="color: #C60000; border-bottom: 2px solid #C60000; padding-bottom: 5px; margin-bottom: 10px; justify-content: center;">《累積金額VIP特權》</div>
+
+        <div class="vip-list" style="font-family: '微軟正黑體', sans-serif; font-size: 14px; line-height: 1.6;">
+          <div style="margin-bottom: 8px;">
+            <strong>【+0】VIP</strong>：經驗/金幣 +30% <span class="highlight">(500NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+200, 近傷+5, 遠傷+3, 物減+1, 魔防+5, 魔攻+3, PVP傷/免+2</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+1】VIP</strong>：經驗/金幣 +35% <span class="highlight">(1,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+400, 近傷+10/命+1, 遠傷+6/命+1, 物魔減+1, 魔防+5, 魔攻+6, PVP傷/免+4</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+2】VIP</strong>：經驗/金幣 +40% <span class="highlight">(2,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+600, 近傷+15/命+1, 遠傷+9/命+1, 物減+2/魔減+1, 魔防+10, 魔攻+9, PVP傷/免+6</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+3】VIP</strong>：經驗/金幣 +45% <span class="highlight">(3,500NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+800, 近傷+20/命+2, 遠傷+12/命+2, 物魔減+2, 魔防+10, 魔攻+12, PVP傷/免+8</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+4】VIP</strong>：經驗/金幣 +50% <span class="highlight">(5,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+1000, 近傷+25/命+2, 遠傷+15/命+2, 物減+3/魔減+2, 魔防+15, 魔攻+15, PVP傷/免+10</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+5】VIP</strong>：經驗/金幣 +55% <span class="highlight">(7,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+1200, 近傷+30/命+3, 遠傷+18/命+3, 物魔減+3, 魔防+15, 魔攻+18, PVP傷/免+12</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+6】VIP</strong>：經驗/金幣 +60% <span class="highlight">(10,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+1400, 近傷+35/命+3, 遠傷+21/命+3, 物減+4/魔減+3, 魔防+20, 魔攻+21, PVP傷/免+14</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+7】VIP</strong>：經驗/金幣 +65% <span class="highlight">(13,500NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+1600, 近傷+40/命+4, 遠傷+24/命+4, 物魔減+4, 魔防+20, 魔攻+24, PVP傷/免+16</span>
+          </div>
+          <div style="margin-bottom: 8px;">
+            <strong>【+8】VIP</strong>：經驗/金幣 +70% <span class="highlight">(17,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+1800, 近傷+45/命+4, 遠傷+27/命+4, 物減+5/魔減+4, 魔防+25, 魔攻+27, PVP傷/免+18</span>
+          </div>
+          <div style="margin-bottom: 0;">
+            <strong>【+9】VIP</strong>：經驗/金幣 +75% <span class="highlight">(20,000NT)</span><br>
+            <span style="color:#666; font-size: 12px;">└ HP+2000, 近傷+50/命+5, 遠傷+30/命+5, 物魔減+5, 魔防+25, 魔攻+30, PVP傷/免+20</span>
+          </div>
+        </div>
+      </div>
+
+            <div class="card-section" style="background-color: transparent; border: none; box-shadow: none; padding: 0;">
+        <div class="info-list">
+          <strong style="color: #b30000;">【回饋級距與 VIP 說明】</strong><br>
+          ● <span class="highlight-gold">10%回饋:</span> 500~1,999 / <span class="highlight-gold">15%回饋:</span> 2,000~4,999 / <span class="highlight-gold">20%回饋:</span> 5,000~9,999<br>
+          ● <span class="highlight-gold">30%回饋:</span> 10,000~19,999 / <span class="highlight-gold">50%回饋:</span> 20,000以上<br>
+          ● 採<span class="highlight-red">帳號累計</span>制，消費滿額升級<br>
+          ● 贊助後約 10~15 分鐘入帳，請自行保管帳號密碼，虛擬商品售出概不退換。
+        </div>
+      </div>
+
+    </form>
   </div>
-</div>
+
+  <script>
+    // 動態計算獎勵
+    function calculateRewards() {
+      let amt = parseInt(document.getElementById('amountInput').value) || 0;
+      let ratio = 1; // 基礎比例 1:1
+      let bonus = 0;
+
+      // 判斷回饋比例
+      if (amt >= 20000) {
+        bonus = 0.50;
+      } else if (amt >= 10000) {
+        bonus = 0.30;
+      } else if (amt >= 5000) {
+        bonus = 0.20;
+      } else if (amt >= 2000) {
+        bonus = 0.15;
+      } else if (amt >= 500) {
+        bonus = 0.10;
+      }
+
+      // 計算總幣值 = 基礎 + 額外%數
+      let totalCoins = Math.floor(amt * ratio * (1 + bonus));
+      
+      // 計算水晶數量 (每500一顆)
+      let crystals = Math.floor(amt / 500);
+
+      // 更新畫面顯示
+      document.getElementById('displayCoins').innerText = totalCoins.toLocaleString();
+      document.getElementById('displayCrystals').innerText = crystals;
+      
+      // 動態滿額好禮選項
+      let bonusGroup = document.getElementById('bonusOptionGroup');
+      let bonusSelect = document.getElementById('bonusOptionInput');
+      let currentValue = bonusSelect.value; // 記住當前選擇
+      
+      bonusSelect.innerHTML = '<option value="" disabled selected>請選擇滿額好禮</option>';
+      
+      if (amt >= 20000) {
+        bonusGroup.style.display = 'block';
+        bonusSelect.required = true;
+        let options = ['英雄變身卡x2、英雄娃娃卡(自選)x2', '英雄變身卡(自選)x4', '英雄娃娃卡(自選)x4'];
+        options.forEach(opt => {
+          let optionElement = document.createElement('option');
+          optionElement.value = opt;
+          optionElement.innerText = opt;
+          if(opt === currentValue) optionElement.selected = true;
+          bonusSelect.appendChild(optionElement);
+        });
+      } else if (amt >= 10000) {
+        bonusGroup.style.display = 'block';
+        bonusSelect.required = true;
+        let options = ['英雄變身卡(自選)x1、英雄娃娃卡(自選)x1', '英雄變身卡(自選)x2', '英雄娃娃卡(自選)x2'];
+        options.forEach(opt => {
+          let optionElement = document.createElement('option');
+          optionElement.value = opt;
+          optionElement.innerText = opt;
+          if(opt === currentValue) optionElement.selected = true;
+          bonusSelect.appendChild(optionElement);
+        });
+      } else if (amt >= 5000) {
+        bonusGroup.style.display = 'block';
+        bonusSelect.required = true;
+        let options = ['英雄變身卡(自選)x1', '英雄娃娃卡(自選)x1'];
+        options.forEach(opt => {
+          let optionElement = document.createElement('option');
+          optionElement.value = opt;
+          optionElement.innerText = opt;
+          if(opt === currentValue) optionElement.selected = true;
+          bonusSelect.appendChild(optionElement);
+        });
+      } else {
+        bonusGroup.style.display = 'none';
+        bonusSelect.required = false;
+      }
+
+      updateConfirmUI();
+    }
+
+    // 更新下方最終確認區域的資訊
+    function updateConfirmUI() {
+      // 取得當前金額與選擇的方案
+      let currentAmt = parseInt(document.getElementById('amountInput').value) || 0;
+      let bonusSelect = document.getElementById('bonusOptionInput');
+
+      // 更新名字與隱藏的提交欄位
+      let charName = document.getElementById('charNameInput').value;
+      let finalCharName = charName;
+      if (currentAmt >= 5000 && bonusSelect.selectedIndex > 0) {
+        let selectedVal = bonusSelect.value;
+        let shortName = "滿額好禮";
+        if (selectedVal === '英雄變身卡x2、英雄娃娃卡(自選)x2') shortName = "變身2娃娃2";
+        else if (selectedVal === '英雄變身卡(自選)x4') shortName = "變身4";
+        else if (selectedVal === '英雄娃娃卡(自選)x4') shortName = "娃娃4";
+        else if (selectedVal === '英雄變身卡(自選)x1、英雄娃娃卡(自選)x1') shortName = "變身1娃娃1";
+        else if (selectedVal === '英雄變身卡(自選)x2') shortName = "變身2";
+        else if (selectedVal === '英雄娃娃卡(自選)x2') shortName = "娃娃2";
+        else if (selectedVal === '英雄變身卡(自選)x1') shortName = "變身1";
+        else if (selectedVal === '英雄娃娃卡(自選)x1') shortName = "娃娃1";
+        
+        finalCharName += "(" + shortName + ")";
+      }
+      document.getElementById('hiddenPurName').value = finalCharName;
+      document.getElementById('confirmName').innerText = finalCharName ? finalCharName : '尚未輸入';
+
+      // 更新帳號
+      let accountName = document.getElementById('accountInput').value;
+      document.getElementById('confirmAccount').innerText = accountName ? accountName : '尚未輸入';
+
+      // 更新金額 (處理預設選項未選擇的狀況)
+      let amountStr = document.getElementById('amountInput').value;
+      document.getElementById('confirmAmt').innerText = amountStr ? amountStr + ' TWD' : '0 TWD';
+
+      // 更新付款方式名稱
+      let payType = document.querySelector('input[name="Pay_zg"]:checked').value;
+      let payText = "ATM 轉帳";
+      let convenienceStoreNotice = document.getElementById('convenienceStoreNotice');
+      
+      if (payType === "4") {
+        payText = "7-ELEVEN";
+        convenienceStoreNotice.style.display = "block";
+      } else if (payType === "6") {
+        payText = "全家 FamilyMart";
+        convenienceStoreNotice.style.display = "block";
+      } else {
+        convenienceStoreNotice.style.display = "none";
+      }
+      document.getElementById('confirmPay').innerText = payText;
+
+      // 更新滿額好禮顯示
+      let numAmt = parseInt(document.getElementById('amountInput').value) || 0;
+      let confirmBonusGroup = document.getElementById('confirmBonusGroup');
+      let confirmBonus = document.getElementById('confirmBonus');
+      if (numAmt >= 5000) {
+        confirmBonusGroup.style.display = 'block';
+        let selectedBonus = document.getElementById('bonusOptionInput').value;
+        confirmBonus.innerText = selectedBonus ? selectedBonus : '尚未選擇';
+      } else {
+        confirmBonusGroup.style.display = 'none';
+      }
+    }
+
+    // 攔截表單送出，若為 ATM 則導向 money1.html 並帶上參數
+    document.getElementById("donateForm").addEventListener("submit", function(e) {
+      let payType = document.querySelector('input[name="Pay_zg"]:checked').value;
+      if (payType === "999") {
+        e.preventDefault(); // 阻止表單預設的送出行為
+        
+        let accountName = document.getElementById('accountInput').value;
+        let charName = document.getElementById('hiddenPurName').value || document.getElementById('charNameInput').value;
+        let amount = document.getElementById('amountInput').value;
+
+        let numAmt = parseInt(amount) || 0;
+        let bonusSelect = document.getElementById('bonusOptionInput');
+        let bonus = (numAmt >= 5000 && bonusSelect) ? bonusSelect.value : "";
+        let coins = document.getElementById('displayCoins').innerText;
+        let crystals = document.getElementById('displayCrystals').innerText;
+        
+        let params = new URLSearchParams();
+        params.append("account", accountName);
+        params.append("charName", charName);
+        params.append("amount", amount);
+        if (bonus) params.append("bonus", bonus);
+        if (coins && coins !== "0") params.append("coins", coins);
+        if (crystals && crystals !== "0") params.append("crystals", crystals);
+        
+        window.location.href = "money1.html?" + params.toString();
+      }
+    });
+  </script>
 </body>
+</html>
