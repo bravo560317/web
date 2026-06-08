@@ -545,7 +545,7 @@ document.addEventListener("DOMContentLoaded", function(){
             ▲血量越低,捕捉成功率越高<br><br>
 
             <span style="color:#FFD700; font-weight:bold;">【成功機率】</span><br>
-            ▲最低成功率：0.01%　最高成功率：20%<br>
+            ▲最低成功率：0.01%　最高成功率：30%<br>
             ▲依照怪物血量動態計算(血越少越好抓)<br><br>
 
             <span style="color:#FF4500; font-weight:bold;">【難度機制】</span><br>
@@ -617,11 +617,13 @@ document.addEventListener("DOMContentLoaded", function(){
         <tr>
           <td>基本設定</td>
           <td>
-            可攜帶寵物上限：6、寵物經驗倍率：1倍<br>
+            可攜帶寵物上限：6、寵物經驗倍率：10倍<br>
             寵物進化：30級、寵物等級上限：60級<br>
             寵物等級進化：2階、寵物進化道具：進化果實<br>
             寵物等級進化：3階、寵物進化道具：勝利果實<br>
-  ※ 寵物進化說明：升級血魔不保留<br>         
+  ※ 寵物進化說明：完整保留血量與魔力<br>
+  ※ 寵物魅力需求一階:6、二階:10、三階:12<br>   
+  ※ 綠色藥水丟寵物身上，當沒有加速時會自動補充。<br>  
   ※ 寵物裝備安定值：0(可強化,失敗將消失)<br>
   ※ 寵物裝備強化機率：２０％<br>
   ※ 寵物裝備抓了就可以直接穿！不須等到進階<br>
@@ -640,30 +642,30 @@ document.addEventListener("DOMContentLoaded", function(){
       <td colspan="3" style="color:#FFD700; font-weight:bold;">🦷 寵物武器系列</td>
     </tr>
 
-    <tr><td>獵犬之牙 (Lv.1)</td><td>命中+1 / 傷害+5</td><td>SP+1</td></tr>
-    <tr><td>破滅之牙 (Lv.2)</td><td>命中+2 / 傷害+10</td><td>SP+2</td></tr>
-    <tr><td>斗犬之牙 (Lv.3)</td><td>命中+3 / 傷害+15</td><td>SP+3</td></tr>
-    <tr><td>鋼鐵之牙 (Lv.4)</td><td>命中+4 / 傷害+20</td><td>SP+4</td></tr>
-    <tr><td>黃金之牙 (Lv.5)</td><td>命中+5 / 傷害+25</td><td>SP+5</td></tr>
-    <tr><td>勝利之牙 (Lv.6)</td><td>命中+6 / 傷害+30</td><td>SP+6</td></tr>
-    <tr><td>黑暗之牙 (Lv.7)</td><td>命中+7 / 傷害+35</td><td>SP+7</td></tr>
-    <tr><td>不滅之牙 (Lv.8)</td><td>命中+8 / 傷害+40</td><td>SP+8</td></tr>
-    <tr><td>龍之牙 (Lv.9)</td><td>命中+9 / 傷害+45</td><td>SP+9</td></tr>
-    <tr><td>神之牙 (Lv.10)</td><td>命中+10 / 傷害+50</td><td>SP+10</td></tr>
+    <tr><td>獵犬之牙 (Lv.1)</td><td>命中+1 / 傷害+10</td><td>SP+1</td></tr>
+    <tr><td>破滅之牙 (Lv.2)</td><td>命中+2 / 傷害+20</td><td>SP+2</td></tr>
+    <tr><td>斗犬之牙 (Lv.3)</td><td>命中+3 / 傷害+30</td><td>SP+3</td></tr>
+    <tr><td>鋼鐵之牙 (Lv.4)</td><td>命中+4 / 傷害+40</td><td>SP+4</td></tr>
+    <tr><td>黃金之牙 (Lv.5)</td><td>命中+5 / 傷害+50</td><td>SP+5</td></tr>
+    <tr><td>勝利之牙 (Lv.6)</td><td>命中+6 / 傷害+60</td><td>SP+6</td></tr>
+    <tr><td>黑暗之牙 (Lv.7)</td><td>命中+7 / 傷害+70</td><td>SP+7</td></tr>
+    <tr><td>不滅之牙 (Lv.8)</td><td>命中+8 / 傷害+80</td><td>SP+8</td></tr>
+    <tr><td>龍之牙 (Lv.9)</td><td>命中+9 / 傷害+90</td><td>SP+9</td></tr>
+    <tr><td>神之牙 (Lv.10)</td><td>命中+10 / 傷害+100</td><td>SP+10</td></tr>
 
     <!-- 盔甲 -->
     <tr style="background-color:#333;">
       <td colspan="3" style="color:#00FF7F; font-weight:bold;">🛡 寵物盔甲系列</td>
     </tr>
 
-    <tr><td>寵物皮盔甲 (Lv.1)</td><td>AC -4</td><td>HP+100 / MP+10 / MR+10</td></tr>
-    <tr><td>寵物鏈甲 (Lv.2)</td><td>AC -8</td><td>HP+200 / MP+20 / MR+20</td></tr>
-    <tr><td>寵物骷髏盔甲 (Lv.3)</td><td>AC -12</td><td>HP+350 / MP+35 / MR+30</td></tr>
-    <tr><td>寵物鋼鐵盔甲 (Lv.4)</td><td>AC -16</td><td>HP+500 / MP+50 / MR+40</td></tr>
-    <tr><td>寵物米索莉盔甲 (Lv.5)</td><td>AC -20</td><td>HP+700 / MP+70 / MR+50</td></tr>
-    <tr><td>寵物十字盔甲 (Lv.6)</td><td>AC -24</td><td>HP+900 / MP+90 / MR+60</td></tr>
-    <tr><td>寵物光明盔甲 (Lv.7)</td><td>AC -28</td><td>HP+1200 / MP+120 / MR+70</td></tr>
-    <tr><td>寵物祝福盔甲 (Lv.8)</td><td>AC -32</td><td>HP+1800 / MP+180 / MR+80</td></tr>
+    <tr><td>寵物皮盔甲 (Lv.1)</td><td>AC -4</td><td>HP+200 / MP+10 / MR+10</td></tr>
+    <tr><td>寵物鏈甲 (Lv.2)</td><td>AC -8</td><td>HP+400 / MP+20 / MR+20</td></tr>
+    <tr><td>寵物骷髏盔甲 (Lv.3)</td><td>AC -12</td><td>HP+700 / MP+35 / MR+30</td></tr>
+    <tr><td>寵物鋼鐵盔甲 (Lv.4)</td><td>AC -16</td><td>HP+1000 / MP+50 / MR+40</td></tr>
+    <tr><td>寵物米索莉盔甲 (Lv.5)</td><td>AC -20</td><td>HP+1400 / MP+70 / MR+50</td></tr>
+    <tr><td>寵物十字盔甲 (Lv.6)</td><td>AC -24</td><td>HP+1800 / MP+90 / MR+60</td></tr>
+    <tr><td>寵物光明盔甲 (Lv.7)</td><td>AC -28</td><td>HP+2400 / MP+120 / MR+70</td></tr>
+    <tr><td>寵物祝福盔甲 (Lv.8)</td><td>AC -32</td><td>HP+3600 / MP+180 / MR+80</td></tr>
 
   </tbody>
 </table>
@@ -1087,6 +1089,29 @@ document.addEventListener("DOMContentLoaded", function(){
           <tr>
             <td style="color:#AAA;">取得方式</td>
             <td>玩家創角獲得</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+        <!-- 寵物治癒藥水 -->
+  <div class="bullet">
+    <div class="item-row">
+      <div class="item-icon">
+        <div class="icon-box">
+          <img src="aaa/寵物治癒藥水.png" style="width:100%; border-radius:4px;">
+        </div>
+      </div>
+      <div class="item-table">
+        <table border="1" cellpadding="6">
+          <tr>
+            <td style="color:#FFD700; width:80px;">寵物治癒藥水</td>
+            <td>玩家使用可對所有寵物補血，放入寵物背包80%自動補血(治癒量:200)</td>
+          </tr>
+          <tr>
+            <td style="color:#AAA;">取得方式</td>
+            <td>商店購買</td>
           </tr>
         </table>
       </div>
@@ -2013,7 +2038,7 @@ Promise.all([
     <div class="section-title">★遊戲最新更新公告 ★</div>
     <div class="update-list">
 
-<details class="update-item" open>
+<details class="update-item" >
   <summary>06月07日 15:00開服精彩活動介紹</summary>
   <div class="update-body">
 
@@ -2127,6 +2152,19 @@ Promise.all([
       <li>▲血量低於<span style="border-bottom:2px solid #FFD700;">HP:350</span>將不列入排行獎勵資格。</li>
     </ul>
     </div>
+
+                                                   <details class="update-item" open>
+        <summary>06月08日18:00遊戲更新內容</summary>
+        <div class="update-body">
+<p><span style="color:#00FF7F;">「新增」</span>寵物治癒藥水(金幣商店)。</p>
+<p><span style="color:#00FF7F;">▲</span>放入寵物背包80%自動喝水、玩家喝一瓶全部寵物都補。</p>
+<p><span style="color:#00FF7F;">「新增」</span>綠色藥水丟寵物身上，當沒有加速時會自動補充。</p>
+<p><span style="color:#00FF7F;">「調整」</span>寵物裝備、武器增強。</p>
+<p><span style="color:#00FF7F;">「調整」</span>寵物捕獲機率提升。</p>
+<p><span style="color:#00FF7F;">「調整」</span>寵物魅力需求一階:6、二階:10、三階:12。</p>
+<p><span style="color:#00FF7F;">「調整」</span>寵物進化將保留血量與魔力。</p>
+        </div>
+      </details>
 
             </div>
     <!-- 友站連結 -->
