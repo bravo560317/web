@@ -302,13 +302,13 @@
           <label>贊助金額 (TWD)</label>
           <select name="Amount" id="amountInput" required onchange="calculateRewards()">
             <option value="" disabled selected>請選擇本次充值方案</option>
-            <option value="500">500 TWD</option>
-            <option value="1000">1000 TWD</option>
-            <option value="2000">2000 TWD</option>
-            <option value="3500">3500 TWD</option>
-            <option value="5000">5000 TWD -- (滿額好禮)</option>
-            <option value="10000">10000 TWD -- (滿額好禮)</option>
-            <option value="20000">20000 TWD -- (滿額好禮)</option>
+            <option value="500">500 TWD -- (幣值1:2)</option>
+            <option value="1000">1000 TWD -- (幣值1:2.2)</option>
+            <option value="2000">2000 TWD -- (幣值1:2.3)</option>
+            <option value="3500">3500 TWD -- (幣值1:2.3)</option>
+            <option value="5000">5000 TWD -- (幣值1:2.4、另有滿額獎勵可選擇)</option>
+            <option value="10000">10000 TWD -- (幣值1:2.6、另有滿額獎勵可選擇)</option>
+            <option value="20000">20000 TWD -- (幣值1:3、另有滿額獎勵可選擇)</option>
           </select>
         </div>
 
@@ -330,8 +330,10 @@
           </div>
           <div class="reward-row" id="firstChargeDiv" style="font-size: 13px; color: #555; margin-top: 5px;">
             溫馨提示：<br>
-            ※ 帳號首次充值：開通高寵系統(永久)、稀有變身卡(自選)x1、稀有娃娃卡(自選)x1<br>
-            ※ 傷害靈魂水晶：附加在武器上(30天)，每層增加發動率+3%及10%及物理攻擊傷害（可升至Lv.20）
+            ※ 帳號首次充值：開通高寵系統(永久)、稀有變身卡(自選)x1、稀有娃娃卡(自選)x1、新兵克特寵物蛋x1<br>
+            ※ 新兵克特寵物蛋：初始等級5級 HP:3000、MP:200 魅力需求值:8<br>
+            ※ 傷害靈魂水晶：附加在武器上(30天)，每層增加發動率+3%及10%及物理攻擊傷害（可升至Lv.20）<br>
+            ※ 傷害靈魂水晶：時效為時間第一顆為準，時間並不會疊加，請合理安排使用<br>
           </div>
         </div>
       </div>
@@ -433,7 +435,7 @@
     // 動態計算獎勵
     function calculateRewards() {
       let amt = parseInt(document.getElementById('amountInput').value) || 0;
-      let ratio = 1; // 基礎比例 1:1
+      let ratio = 2; // 基礎比例 1:2
       let bonus = 0;
 
       // 判斷回饋比例
