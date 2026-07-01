@@ -83,6 +83,10 @@
       margin-left: 20px;
     }
 
+    .reward-green {
+      color: #00FF7F !important;
+    }
+
 .item {
   border: 1px solid #444;
   margin-top: 15px;
@@ -106,6 +110,7 @@
 .rate-high { color: #ffcc66; font-weight: bold; }
 .rate-mid  { color: #66ccff; }
 .rate-low  { color: #cccccc; }
+
 
 
     /* ===== 通用：捲簾(活動用 details) ===== */
@@ -373,6 +378,26 @@ document.addEventListener("DOMContentLoaded", function(){
       );
     }
   });
+
+  document.querySelectorAll('.mission-table tbody tr').forEach(row => {
+    const cells = row.querySelectorAll('td');
+    if (cells.length === 3) {
+      cells[1].remove();
+    }
+  });
+
+  document.querySelectorAll('.mission-table tbody tr td:last-child').forEach(cell => {
+    const text = cell.textContent || '';
+    const parts = text.split(/([、,])/);
+    const html = parts.map(part => {
+      if (part === '、' || part === ',') return part;
+      const trimmed = part.trim();
+      if (trimmed === '') return part;
+      if (/金幣/.test(trimmed)) return part;
+      return '<span class="reward-green">' + part + '</span>';
+    }).join('');
+    cell.innerHTML = html;
+  });
 });
 </script>
 
@@ -457,7 +482,7 @@ document.addEventListener("DOMContentLoaded", function(){
           </tr>
         </thead>
         <tbody>
-          <tr><td>經驗倍率：500倍</td><td>等級上限：2轉99級</td></tr>
+          <tr><td>經驗倍率：600倍(手動3000倍)</td><td>等級上限：2轉99級</td></tr>
           <tr><td>掉寶倍率：1倍</td><td>金幣倍率：1倍</td></tr>
           <tr><td>武器衝過率：10%</td><td>防具衝過率：10%</td></tr>
           <tr><td>萬能藥使用數：120瓶(各20瓶)</td><td>能力上限：35、升級點數上限:25<br><span style="color:#ff0000;">能力點若超過25，升級時點數將無法再點★</span></td></tr> 
@@ -504,9 +529,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     </div>
   </details>
-
-
-
 
 
 <!-- 2) 寵物介紹 -->
@@ -671,6 +693,123 @@ document.addEventListener("DOMContentLoaded", function(){
   </tbody>
 </table>
 </div>
+  </details>
+
+<!-- 3) 主線任務介紹 -->
+<details class="collapse-box">
+  <summary>★ 主線任務介紹 ★</summary>
+
+      <div style="text-align:center; margin-bottom:15px;">
+      <img src="aaa/主線任務.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+    </div>
+
+  <div class="collapse-body">
+    <p>主線任務是遊戲的重要進度，帶領玩家探索城鎮、地牢與世界秘境。完成主線任務可以獲得大量經驗、金幣、專屬道具與變身卡，並解鎖更多遊戲內容。</p>
+    <table class="mission-table" border="1" cellspacing="0" cellpadding="6" style="width:100%; color:#fff; background-color:#222; border-collapse:collapse;">
+      <thead>
+        <tr style="background-color:#444;">
+          <th style="width:35%;">任務</th>
+          <th>獎勵</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>哥布林 任務.1(1/30)</td><td>金幣(5000)、<span style="color:#00FF00;">普通變身卡[任選]</span></td></tr>
+        <tr><td>妖魔 任務.2(1/30)</td><td>金幣(10000)</td></tr>
+        <tr><td>地靈 任務.3(1/35)</td><td>金幣(15000)</td></tr>
+        <tr><td>妖魔弓箭手 任務.4(1/35)</td><td>金幣(20000)</td></tr>
+        <tr><td>侏儒 任務.5(1/40)</td><td>金幣(25000)、<span style="color:#00FF00;">對盔甲施法卷軸</span></td></tr>
+        <tr><td>人形殭屍 任務.6(1/40)</td><td>金幣(30000)</td></tr>
+        <tr><td>妖魔鬥士 任務.7(1/45)</td><td>金幣(35000)</td></tr>
+        <tr><td>冰原狼人 任務.8(1/45)</td><td>金幣(40000)、<span style="color:#00FF00;">普通娃娃卡[任選]</span></td></tr>
+        <tr><td>奇岩 安普 任務.9(1/50)</td><td>金幣(45000)</td></tr>
+        <tr><td>侏儒戰士 任務.10(1/50)</td><td>金幣(50000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>羅孚妖魔 任務.11(1/55)</td><td>金幣(55000)</td></tr>
+        <tr><td>甘地妖魔 任務.12(1/55)</td><td>金幣(60000)</td></tr>
+        <tr><td>骷髏 任務.13(1/60)</td><td>金幣(65000)</td></tr>
+        <tr><td>骷髏弓箭手 任務.14(1/60)</td><td>金幣(70000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>妖魔法師 任務.15(1/65)</td><td>金幣(75000)</td></tr>
+        <tr><td>蘑菇 任務.16(1/65)</td><td>金幣(80000)、<span style="color:#00FF00;">高級變身卡[任選]</span></td></tr>
+        <tr><td>骷髏斧手 任務.17(1/70)</td><td>金幣(85000)</td></tr>
+        <tr><td>骷髏槍兵 任務.18(1/70)</td><td>金幣(90000)</td></tr>
+        <tr><td>巨蟻 任務.19(1/75)</td><td>金幣(95000)</td></tr>
+        <tr><td>哈柏哥布林 任務.20(1/75)</td><td>金幣(100000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>蜥蜴人 任務.21(1/80)</td><td>金幣(105000)</td></tr>
+        <tr><td>都達瑪拉妖魔 任務.22(1/80)</td><td>金幣(110000)、<span style="color:#00FF00;">高級娃娃卡[任選]</span></td></tr>
+        <tr><td>妖魔殭屍 任務.23(1/85)</td><td>金幣(115000)</td></tr>
+        <tr><td>狼人 任務.24(1/85)</td><td>金幣(120000)</td></tr>
+        <tr><td>夏洛伯 任務.25(1/90)</td><td>金幣(125000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>黑騎士 任務.26(1/90)</td><td>金幣(130000)</td></tr>
+        <tr><td>食屍鬼 任務.27(1/95)</td><td>金幣(135000)、<span style="color:#00FF00;">稀有變身卡[任選]</span></td></tr>
+        <tr><td>阿吐巴妖魔 任務.28(1/95)</td><td>金幣(140000)</td></tr>
+        <tr><td>史巴托 任務.29(1/100)</td><td>金幣(145000)</td></tr>
+        <tr><td>萊肯 任務.30(1/100)</td><td>金幣(150000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>地獄犬 任務.31(1/105)</td><td>金幣(155000)</td></tr>
+        <tr><td>那魯加妖魔 任務.32(1/105)</td><td>金幣(160000)</td></tr>
+        <tr><td>巨大兵蟻 任務.33(1/110)</td><td>金幣(165000)</td></tr>
+        <tr><td>高侖石頭怪 任務.34(1/110)</td><td>金幣(170000)</td></tr>
+        <tr><td>楊果里恩 任務.35(1/115)</td><td>金幣(175000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>卡司特 任務.36(1/115)</td><td>金幣(180000)</td></tr>
+        <tr><td>哈維 任務.37(1/120)</td><td>金幣(185000)、<span style="color:#00FF00;">稀有娃娃卡[任選]</span></td></tr>
+        <tr><td>歐熊 任務.38(1/120)</td><td>金幣(190000)</td></tr>
+        <tr><td>食人妖精 任務.39(1/125)</td><td>金幣(195000)</td></tr>
+        <tr><td>長者 任務.40(1/125)</td><td>金幣(200000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>多羅 任務.41(1/130)</td><td>金幣(205000)</td></tr>
+        <tr><td>強盜(劍) 任務.42(1/130)</td><td>金幣(210000)</td></tr>
+        <tr><td>卡司特王 任務.43(1/135)</td><td>金幣(215000)</td></tr>
+        <tr><td>強盜(槌) 任務.44(1/135)</td><td>金幣(220000)</td></tr>
+        <tr><td>強盜頭目 任務.45(1/140)</td><td>金幣(225000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>莫妮亞 任務.46(1/140)</td><td>金幣(230000)</td></tr>
+        <tr><td>黑暗精靈 任務.47(1/145)</td><td>金幣(235000)</td></tr>
+        <tr><td>思克巴 任務.48(1/145)</td><td>金幣(240000)</td></tr>
+        <tr><td>食人妖精王 任務.49(1/150)</td><td>金幣(245000)</td></tr>
+        <tr><td>阿魯巴 任務.50(1/150)</td><td>金幣(250000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>亞力安 任務.51(1/155)</td><td>金幣(255000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>歐吉 任務.52(1/155)</td><td>金幣(260000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>思克巴女皇 任務.53(1/160)</td><td>金幣(265000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>骷髏警衛 任務.54(1/160)</td><td>金幣(270000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>骷髏神射手 任務.55(1/165)</td><td>金幣(275000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>骷髏鬥士 任務.56(1/165)</td><td>金幣(280000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>邪惡蜥蜴 任務.57(1/170)</td><td>金幣(285000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>獨眼巨人 任務.58(1/170)</td><td>金幣(290000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>飛龍 任務.59(1/3)</td><td>金幣(295000)、<span style="color:#00FF00;">對武器施法卷軸(祝福)、對盔甲施法卷軸(祝福)</span></td></tr>
+        <tr><td>黑長者 任務.60(1/1)</td><td>金幣(300000)、<span style="color:#00FF00;">對武器施法卷軸(祝福)、對盔甲施法卷軸(祝福)</span></td></tr>
+        <tr><td>變形怪 任務.61(1/180)</td><td>金幣(305000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>鯊魚 任務.62(1/180)</td><td>金幣(310000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>龍龜 任務.63(1/180)</td><td>金幣(315000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>伊萊克頓 任務.64(1/185)</td><td>金幣(320000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>奎斯坦修 任務.65(1/185)</td><td>金幣(325000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>希爾黛斯 任務.66(1/185)</td><td>金幣(330000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>火炎蛋 任務.67(1/190)</td><td>金幣(335000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>爆彈花 任務.68(1/190)</td><td>金幣(340000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>火蜥蜴 任務.69(1/190)</td><td>金幣(345000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>龍蠅 任務.70(1/195)</td><td>金幣(350000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>火焰戰士 任務.71(1/195)</td><td>金幣(355000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>火焰弓箭手 任務.72(1/195)</td><td>金幣(360000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>烈炎獸 任務.73(1/200)</td><td>金幣(365000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>阿西塔基奧 任務.74(1/200)</td><td>金幣(370000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>熔岩高崙 任務.75(1/200)</td><td>金幣(375000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>影魔 任務.76(1/205)</td><td>金幣(380000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>密密 任務.77(1/205)</td><td>金幣(385000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>艾爾摩法師 任務.78(1/205)</td><td>金幣(390000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>死神 任務.79(1/210)</td><td>金幣(395000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>艾爾摩士兵 任務.80(1/210)</td><td>金幣(400000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>艾爾摩將軍 任務.81(1/210)</td><td>金幣(405000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>活鎧甲 任務.82(1/215)</td><td>金幣(410000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>雪人 任務.83(1/215)</td><td>金幣(415000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>雪怪 任務.84(1/215)</td><td>金幣(420000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>冰原老虎 任務.85(1/220)</td><td>金幣(425000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>鋼鐵高崙 任務.86(1/220)</td><td>金幣(430000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>冰石高崙 任務.87(1/220)</td><td>金幣(435000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>冰人 任務.88(1/225)</td><td>金幣(440000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+        <tr><td>死亡騎士 任務.89(1/1)</td><td>金幣(445000)、<span style="color:#00FF00;">英雄娃娃卡[任選]</span></td></tr>
+        <tr><td>不死鳥 任務.90(1/1)</td><td>金幣(450000)、<span style="color:#00FF00;">英雄變身卡[任選]</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+  
+
 </div>
 
 
@@ -2241,6 +2380,17 @@ Promise.all([
 
   </div>
 </details>
+
+
+                                               <details class="update-item" open>
+        <summary>07月02日18:00遊戲更新內容</summary>
+        <div class="update-body">
+<p><span style="color:#00FF7F;">「新增」</span>主線任務NO.61~NO.90</p>
+<p><span style="color:#00FF7F;">「更新」</span>對話檔更新(主線任務61~90)</p>
+<p><span style="color:#00FF7F;">「更新」</span>手動更新對話檔教學▼</p>
+<img src="aaa/up.jpg" " style="max-width:100%; height:auto; display:block; margin:10px 0;"></p>
+        </div>
+      </details>
 
                                                <details class="update-item" open>
         <summary>06月30日18:00遊戲更新內容</summary>
