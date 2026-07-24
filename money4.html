@@ -304,11 +304,11 @@
             <option value="" disabled selected>請選擇本次充值方案</option>
             <option value="500">500 TWD -- (幣值1:2)</option>
             <option value="1000">1000 TWD -- (幣值1:2.2)</option>
-            <option value="2000">2000 TWD -- (幣值1:2.3)</option>
-            <option value="3500">3500 TWD -- (幣值1:2.3)</option>
-            <option value="5000">5000 TWD -- (幣值1:2.4、另有滿額獎勵可選擇)</option>
-            <option value="10000">10000 TWD -- (幣值1:2.6、另有滿額獎勵可選擇)</option>
-            <option value="20000">20000 TWD -- (幣值1:3、另有滿額獎勵可選擇)</option>
+            <option value="2000">2000 TWD -- (幣值1:2.3、額外獎勵)</option>
+            <option value="3500">3500 TWD -- (幣值1:2.3、額外獎勵)</option>
+            <option value="5000">5000 TWD -- (幣值1:2.4、額外獎勵)</option>
+            <option value="10000">10000 TWD -- (幣值1:2.6、額外獎勵)</option>
+            <option value="20000">20000 TWD -- (幣值1:3、額外獎勵)</option>
           </select>
         </div>
 
@@ -471,7 +471,7 @@
       if (amt >= 20000) {
         bonusGroup.style.display = 'block';
         bonusSelect.required = true;
-        let options = ['英雄變身卡x2、英雄娃娃卡(自選)x2', '英雄變身卡(自選)x4', '英雄娃娃卡(自選)x4'];
+        let options = ['傳說變身卡(自選)x1、傳說娃娃卡(自選)x1', '贊助幣x15000'];
         options.forEach(opt => {
           let optionElement = document.createElement('option');
           optionElement.value = opt;
@@ -482,7 +482,7 @@
       } else if (amt >= 10000) {
         bonusGroup.style.display = 'block';
         bonusSelect.required = true;
-        let options = ['英雄變身卡(自選)x1、英雄娃娃卡(自選)x1', '英雄變身卡(自選)x2', '英雄娃娃卡(自選)x2'];
+        let options = ['傳說變身卡(自選)x1', '傳說娃娃卡(自選)x1', '贊助幣x5000'];
         options.forEach(opt => {
           let optionElement = document.createElement('option');
           optionElement.value = opt;
@@ -493,7 +493,19 @@
       } else if (amt >= 5000) {
         bonusGroup.style.display = 'block';
         bonusSelect.required = true;
-        let options = ['英雄變身卡(自選)x1', '英雄娃娃卡(自選)x1'];
+        let options = ['英雄變身卡(自選)x1、英雄娃娃卡(自選)x1', '贊助幣x2000'];
+        options.forEach(opt => {
+          let optionElement = document.createElement('option');
+          optionElement.value = opt;
+          optionElement.innerText = opt;
+          if(opt === currentValue) optionElement.selected = true;
+          bonusSelect.appendChild(optionElement);
+        });
+
+              } else if (amt >= 2000) {
+        bonusGroup.style.display = 'block';
+        bonusSelect.required = true;
+        let options = ['英雄變身卡(自選)x1','英雄娃娃卡(自選)x1', '贊助幣x500'];
         options.forEach(opt => {
           let optionElement = document.createElement('option');
           optionElement.value = opt;
