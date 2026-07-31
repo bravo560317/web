@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>翼戰天堂★官方網站 (全新Cyber/RPG風格)</title>
+  <title>奇戰天堂</title>
   <style>
     :root {
       --bg-color: #0c0d14;
@@ -183,7 +183,6 @@
       user-select: none;
       display: flex;
       align-items: center;
-      
     }
     details.collapse-box > summary::-webkit-details-marker { display: none; }
     details.collapse-box > summary::after {
@@ -225,7 +224,6 @@
       color: var(--accent-gold);
       display: flex;
       align-items: center;
-      
       background: rgba(25, 35, 55, 0.8);
       user-select: none;
     }
@@ -370,6 +368,68 @@
       .item-row { flex-direction: column; }
       .item-icon { width: 60px; }
     }
+
+    /* 浮動側邊欄廣告外框容器 */
+    .float-ad {
+      position: fixed;
+      top: 35%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .float-ad.left { left: 15px; }
+    .float-ad.right { right: 15px; }
+    
+    .float-ad img {
+      width: 140px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      display: block;
+    }
+
+    /* 關閉按鈕樣式 */
+    .float-ad .close-btn {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 24px;
+      height: 24px;
+      background: #ff007f;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 10000;
+      padding: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+    
+    .float-ad .close-btn:hover {
+      transform: scale(1.15);
+      background: #ff4500;
+    }
+
+    /* 手機版適應縮小 */
+    @media (max-width: 768px) {
+      .float-ad.left { left: 5px; top: 22%; }
+      .float-ad.right { right: 5px; top: 22%; }
+      .float-ad img { width: 75px; opacity: 0.9; }
+      .float-ad .close-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: -6px;
+        right: -6px;
+      }
+    }
   </style>
 
   <script>
@@ -401,20 +461,23 @@
 
 <body>
 
-  <!-- 左側漂浮客服廣告 -->
-  <a href="https://line.me/ti/p/@482evvkr" target="_blank" class="float-ad left">
-    <img src="aaa/557.png" alt="左邊客服">
-  </a>
+<!-- 左邊漂浮客服廣告 -->
+  <div id="left-ad" class="float-ad left">
+    <button class="close-btn" onclick="document.getElementById('left-ad').style.display='none';">×</button>
+    <a href="https://line.me/ti/p/@482evvkr" target="_blank">
+      <img src="aaa/557.png" alt="左邊客服">
+    </a>
+  </div>
 
-  <!-- 右側漂浮贊助廣告 -->
-  <a href="https://bravo560317.github.io/web/money4.html" target="_blank" class="float-ad right">
-    <img src="aaa/555.png" alt="右邊贊助">
-  </a>
+  <!-- 右邊漂浮贊助廣告 -->
+  <div id="right-ad" class="float-ad right">
+    <button class="close-btn" onclick="document.getElementById('right-ad').style.display='none';">×</button>
+    <a href="https://bravo560317.github.io/web/money4.html" target="_blank">
+      <img src="aaa/555.png" alt="右邊贊助">
+    </a>
+  </div>
 
   <div class="wrapper">
-    <header>
-      <h1>翼戰天堂 ★ 官方網站</h1>
-    </header>
 
     <div class="tabs">
       <div class="tab-btn active" onclick="showTab('tab7', this)">首頁</div>
