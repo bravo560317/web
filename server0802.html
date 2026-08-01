@@ -1541,6 +1541,7 @@
       if (!found) result.innerHTML = `<div style="color:#aaa;text-align:center;">查無結果</div>`;
     }
   </script>
+
 <!-- JS: 武器載入 -->
   <script>
     Promise.all([
@@ -1550,37 +1551,84 @@
       if (!weapons.length) return;
       let html = "";
       weapons.forEach(w => {
-        let dropInfo = "『製作方式獲得』";
+        let dropInfo = "『製作或活動取得』";
         for (let id in drops) {
           let dropName = drops[id].name.trim();
           let weaponName = w.name.trim();
           if (dropName === weaponName) {
-            dropInfo = drops[id].drops.map(d => d.mob).join("、");
+            let mobList = drops[id].drops.map(d => d.mob).join("、");
+            if (mobList) {
+              dropInfo = mobList;
+            }
             break;
           }
         }
         w.calculatedDropInfo = dropInfo;
-        w.isCrafted = (dropInfo === "『製作方式獲得』");
+        w.isCrafted = (dropInfo === "『製作或活動取得』");
       });
 
+      // 修正排序：改用字串比對 type，確保不同武器類型正確分開
       weapons.sort((a, b) => {
-        let typeA = Number(a.type) || 0;
-        let typeB = Number(b.type) || 0;
-        if (typeA !== typeB) return typeA - typeB;
-        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
+        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+        
+        if (typeA !== typeB) {
+          return typeA.localeCompare(typeB);
+        }
+        if (a.isCrafted !== b.isCrafted) {
+          return a.isCrafted ? 1 : -1;
+        }
         return a.name.localeCompare(b.name, 'zh-Hant');
       });
 
       let lastType = null;
 
+      // 武器類型代碼對應中文名稱（可依您的資料庫實際 type 內容自行增減調整）
+      const weaponTypeNames = {
+        "sword": "長劍",
+        "dagger": "匕首",
+        "tohandsword": "雙手劍",
+        "bow": "弓",
+        "spear": "矛",
+        "blunt": "鈍器",
+        "staff": "魔杖",
+        "edoryu": "雙刀",
+        "claw": "爪",
+        "kiringku": "奇古獸",
+        "singlespear": "單手矛",
+        "tohandblunt": "雙手鈍器",
+        "chainsword": "鎖鏈劍"
+        // 如果您的 type 是數字（例如 "1", "2"...），也可以直接對應修改寫成：
+        // "1": "短劍",
+        // "2": "長劍"
+      };
+
       weapons.forEach(w => {
         let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
+        
+        // 當類型改變時，插入分隔線與置中、醒目顏色的武器一覽標題方塊
         if (lastType !== null && currentType !== lastType) {
           html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
         }
+        
+        if (lastType !== currentType) {
+          let typeDisplayName = weaponTypeNames[currentType] || `類型 ${currentType}`;
+          html += `
+          <div style="margin:20px 0 10px 0;">
+            <table style="width:100%; table-layout:fixed;">
+              <tr>
+                <td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">
+                  ${typeDisplayName}一覽
+                </td>
+              </tr>
+            </table>
+          </div>`;
+        }
+        
         lastType = currentType;
 
-        let jobs = (w.jobs && w.jobs.length) ? w.jobs.join(" / ") : "全職業";
+        let baseJobs = (w.jobs && w.jobs.length) ? w.jobs.join(" / ") : "全職業";
+        let jobs = w.isCrafted ? `${baseJobs}、『製作或活動取得』` : baseJobs;
         let effects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
 
         html += `
@@ -1603,7 +1651,7 @@
   </script>
 
 
-  <!-- JS: 防具載入 -->
+<!-- JS: 防具載入 -->
   <script>
     Promise.all([
       fetch('armor.json').then(r => r.json()).catch(() => []),
@@ -1618,27 +1666,75 @@
         dropMap.set(dropName, mobList);
       }
 
+      armors.forEach(a => {
+        const armorName = a.name.trim();
+        if (dropMap.has(armorName)) {
+          a.calculatedDropInfo = dropMap.get(armorName);
+          a.isCrafted = false;
+        } else {
+          a.calculatedDropInfo = "『製作或活動取得』";
+          a.isCrafted = true;
+        }
+      });
+
       armors.sort((a, b) => {
-        let typeA = Number(a.type) || 0;
-        let typeB = Number(b.type) || 0;
-        if (typeA !== typeB) return typeA - typeB;
-        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
-        return 0;
+        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+        
+        if (typeA !== typeB) {
+          return typeA.localeCompare(typeB);
+        }
+        if (a.isCrafted !== b.isCrafted) {
+          return a.isCrafted ? 1 : -1;
+        }
+        return a.name.localeCompare(b.name, 'zh-Hant');
       });
 
       const allowedJobs = ["王族", "妖精", "騎士", "法師"];
-      let lastType = -1;
-      let lastCraftedStatus = null;
+      let lastType = null;
+
+      // 部位英文代碼對應中文名稱（可依您的 JSON 內容自行增減調整）
+      const typeNames = {
+        "helm": "頭盔",
+        "armor": "盔甲",
+        "shield": "盾牌",
+        "T": "T恤",
+        "cloak": "斗篷",
+        "glove": "手套",
+        "boots": "靴子",
+        "ring": "戒指",
+        "amulet": "項鍊",
+        "pants": "脛甲",
+        "belt": "腰帶"
+      };
 
       armors.forEach(a => {
-        if (lastType !== -1 && (a.type !== lastType || a.isCrafted !== lastCraftedStatus)) {
+        let currentType = a.type !== undefined && a.type !== null ? String(a.type) : "unknown";
+        
+        // 當部位改變時，插入分隔線與置中、醒目顏色的部位一覽標題方塊
+        if (lastType !== null && currentType !== lastType) {
           html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
         }
-        lastType = a.type;
-        lastCraftedStatus = a.isCrafted;
+        
+        if (lastType !== currentType) {
+          let typeDisplayName = typeNames[currentType] || currentType;
+          html += `
+          <div style="margin:20px 0 10px 0;">
+            <table style="width:100%; table-layout:fixed;">
+              <tr>
+                <td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">
+                  全${typeDisplayName}一覽
+                </td>
+              </tr>
+            </table>
+          </div>`;
+        }
+        
+        lastType = currentType;
 
         let filteredJobs = a.jobs.length ? a.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
-        let jobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+        let jobs = a.isCrafted ? `${baseJobs}、『製作或活動取得』` : baseJobs;
         let effects = a.effects.length ? a.effects.join(" / ") : "-";
 
         html += `
@@ -1646,11 +1742,11 @@
           <table style="width:100%; table-layout:fixed;">
             <tr>
               <td style="width:30%; color:var(--accent-cyan); font-weight:bold;">${a.name}</td>
-              <td style="width:75%;">${jobs}</td>
+              <td style="width:70%;">${jobs}</td>
             </tr>
             <tr>
               <td style="width:30%;">AC ${a.ac}</td>
-              <td style="width:75%; color:#00e5ff; font-weight:bold;">${effects}</td>
+              <td style="width:70%; color:#00e5ff; font-weight:bold;">${effects}</td>
             </tr>
           </table>
         </div>`;
