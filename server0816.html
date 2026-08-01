@@ -1569,42 +1569,31 @@
         let typeB = Number(b.type) || 0;
         if (typeA !== typeB) return typeA - typeB;
         if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
-        return 0;
+        return a.name.localeCompare(b.name, 'zh-Hant');
       });
 
       let lastType = null;
-      let lastCraftedStatus = null;
 
       weapons.forEach(w => {
-        let currentType = w.type ? String(w.type) : "unknown";
-        if (lastType !== null && (currentType !== lastType || w.isCrafted !== lastCraftedStatus)) {
+        let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
+        if (lastType !== null && currentType !== lastType) {
           html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
         }
         lastType = currentType;
-        lastCraftedStatus = w.isCrafted;
 
         let jobs = (w.jobs && w.jobs.length) ? w.jobs.join(" / ") : "全職業";
-        let effects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "無";
-        let dropColor = w.isCrafted ? "#ffd700" : "#fff";
+        let effects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
 
         html += `
         <div class="bullet" style="margin-bottom:10px;">
-          <table>
+          <table style="width:100%; table-layout:fixed;">
             <tr>
-              <td style="width:90px;">武器名稱</td>
-              <td style="color:var(--accent-cyan); font-weight:bold;">${w.name}</td>
-              <td style="width:80px;">可用職業</td>
-              <td colspan="3">${jobs}</td>
+              <td style="width:30%; color:var(--accent-cyan); font-weight:bold;">${w.name}</td>
+              <td style="width:70%;">${jobs}</td>
             </tr>
             <tr>
-              <td>傷害</td>
-              <td style="width:100px;">${w.small} / ${w.large}</td>
-              <td style="width:80px;">額外效果</td>
-              <td colspan="3">${effects}</td>
-            </tr>
-            <tr>
-              <td>掉落怪物</td>
-              <td colspan="5" style="color:${dropColor};">${w.calculatedDropInfo}</td>
+              <td style="width:30%;">傷害 ${w.small} / ${w.large}</td>
+              <td style="width:70%; color:#00e5ff; font-weight:bold;">${effects}</td>
             </tr>
           </table>
         </div>`;
@@ -1613,6 +1602,7 @@
       if (wc) wc.innerHTML = html;
     });
   </script>
+
 
   <!-- JS: 防具載入 -->
   <script>
@@ -1628,17 +1618,6 @@
         const mobList = drops[id].drops.map(d => d.mob).join("、");
         dropMap.set(dropName, mobList);
       }
-
-      armors.forEach(a => {
-        const armorName = a.name.trim();
-        if (dropMap.has(armorName)) {
-          a.calculatedDropInfo = dropMap.get(armorName);
-          a.isCrafted = false;
-        } else {
-          a.calculatedDropInfo = "『無 或 製作方式獲得』";
-          a.isCrafted = true;
-        }
-      });
 
       armors.sort((a, b) => {
         let typeA = Number(a.type) || 0;
@@ -1662,28 +1641,17 @@
         let filteredJobs = a.jobs.length ? a.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
         let jobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
         let effects = a.effects.length ? a.effects.join(" / ") : "-";
-        let dropColor = a.isCrafted ? "#ffd700" : "#fff";
 
         html += `
         <div class="bullet" style="margin-bottom:10px;">
-          <table>
+          <table style="width:100%; table-layout:fixed;">
             <tr>
-              <td style="width:90px;">防具名稱</td>
-              <td style="color:var(--accent-cyan); font-weight:bold;">${a.name}</td>
-              <td style="width:80px;">可用職業</td>
-              <td colspan="3">${jobs}</td>
+              <td style="width:30%; color:var(--accent-cyan); font-weight:bold;">${a.name}</td>
+              <td style="width:75%;">${jobs}</td>
             </tr>
             <tr>
-              <td>AC</td>
-              <td>${a.ac}</td>
-              <td>安定</td>
-              <td>+${a.safe}</td>
-              <td style="width:80px;">特效</td>
-              <td>${effects}</td>
-            </tr>
-            <tr>
-              <td>掉落怪物</td>
-              <td colspan="5" style="color:${dropColor};">${a.calculatedDropInfo}</td>
+              <td style="width:30%;">AC ${a.ac}</td>
+              <td style="width:75%; color:#00e5ff; font-weight:bold;">${effects}</td>
             </tr>
           </table>
         </div>`;
