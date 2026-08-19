@@ -1657,7 +1657,7 @@
       if (!weapons.length) return;
       let html = "";
       weapons.forEach(w => {
-        let dropInfo = "『製作或活動取得』";
+        let dropInfo = "【製作】";
         for (let id in drops) {
           let dropName = drops[id].name.trim();
           let weaponName = w.name.trim();
@@ -1670,7 +1670,7 @@
           }
         }
         w.calculatedDropInfo = dropInfo;
-        w.isCrafted = (dropInfo === "『製作或活動取得』");
+        w.isCrafted = (dropInfo === "【製作】");
       });
 
       // 修正排序：改用字串比對 type，確保不同武器類型正確分開
@@ -1734,7 +1734,7 @@
         lastType = currentType;
 
         let baseJobs = (w.jobs && w.jobs.length) ? w.jobs.join(" / ") : "全職業";
-        let jobs = w.isCrafted ? `${baseJobs}、『製作或活動取得』` : baseJobs;
+        let jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
         let effects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
 
         html += `
@@ -1778,7 +1778,7 @@
           a.calculatedDropInfo = dropMap.get(armorName);
           a.isCrafted = false;
         } else {
-          a.calculatedDropInfo = "『製作或活動取得』";
+          a.calculatedDropInfo = "【製作】";
           a.isCrafted = true;
         }
       });
@@ -1829,7 +1829,7 @@
             <table style="width:100%; table-layout:fixed;">
               <tr>
                 <td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">
-                  全${typeDisplayName}一覽
+                  ${typeDisplayName} 一覽
                 </td>
               </tr>
             </table>
@@ -1840,7 +1840,7 @@
 
         let filteredJobs = a.jobs.length ? a.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
         let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
-        let jobs = a.isCrafted ? `${baseJobs}、『製作或活動取得』` : baseJobs;
+        let jobs = a.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
         let effects = a.effects.length ? a.effects.join(" / ") : "-";
 
         html += `
