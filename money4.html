@@ -330,8 +330,9 @@
           </div>
           <div class="reward-row" id="firstChargeDiv" style="font-size: 13px; color: #555; margin-top: 5px;">
             溫馨提示：<br>
-            ※ 帳號首次充值：開通高寵系統(永久)、稀有變身卡(自選)x1、稀有娃娃卡(自選)x1、新兵克特寵物蛋x1<br>
-            ※ 新兵克特寵物蛋：初始等級5級 HP:3000、MP:200 魅力需求值:10<br>
+            ※ 首次充值：稀有變身卡(自選)x1、稀有娃娃卡(自選)x1、進化果實x3、勝利果實x3<br>
+            ※ 進化果實：寵物1階進化使用(寵物等級需30級)<br>
+            ※ 勝利果實：寵物2階進化使用(寵物等級需30級)<br>
             ※ 爆擊升級卡：附加在1級爆擊卡上，卡片主體需由商城購買。(此卡並非主體)<br>
             ※ 爆擊升級卡：時效為時間以1級爆擊卡為準，時間並不會疊加，請合理安排使用<br>
           </div>
@@ -513,7 +514,7 @@
               } else if (amt >= 2000) {
         bonusGroup.style.display = 'block';
         bonusSelect.required = true;
-        let options = ['英雄變身卡(自選)x1','英雄娃娃卡(自選)x1', '贊助幣x500'];
+        let options = ['英雄變身卡(自選)x1','英雄娃娃卡(自選)x1', '贊助幣x800'];
         options.forEach(opt => {
           let optionElement = document.createElement('option');
           optionElement.value = opt;
@@ -535,21 +536,27 @@
       let currentAmt = parseInt(document.getElementById('amountInput').value) || 0;
       let bonusSelect = document.getElementById('bonusOptionInput');
 
-      // 更新名字與隱藏的提交欄位
+// 更新名字與隱藏的提交欄位
       let charName = document.getElementById('charNameInput').value;
       let finalCharName = charName;
-      if (currentAmt >= 5000 && bonusSelect.selectedIndex > 0) {
+      
+      // 修正1：滿額好禮門檻改為 2000
+      if (currentAmt >= 2000 && bonusSelect.selectedIndex > 0) {
         let selectedVal = bonusSelect.value;
-        let shortName = "滿額好禮";
-        if (selectedVal === '英雄變身卡x2、英雄娃娃卡(自選)x2') shortName = "變身2娃娃2";
-        else if (selectedVal === '英雄變身卡(自選)x4') shortName = "變身4";
-        else if (selectedVal === '英雄娃娃卡(自選)x4') shortName = "娃娃4";
-        else if (selectedVal === '英雄變身卡(自選)x1、英雄娃娃卡(自選)x1') shortName = "變身1娃娃1";
-        else if (selectedVal === '英雄變身卡(自選)x2') shortName = "變身2";
-        else if (selectedVal === '英雄娃娃卡(自選)x2') shortName = "娃娃2";
-        else if (selectedVal === '英雄變身卡(自選)x1') shortName = "變身1";
-        else if (selectedVal === '英雄娃娃卡(自選)x1') shortName = "娃娃1";
+        let shortName = "滿額好禮"; // 預設值
         
+        // 修正2：依照你 calculateRewards() 裡實際產生的選單字串來做縮寫對應
+        if (selectedVal === '傳說變身卡(自選)x1、傳說娃娃卡(自選)x1') shortName = "傳變1傳娃1";
+        else if (selectedVal === '贊助幣x15000') shortName = "幣15000";
+        else if (selectedVal === '傳說變身卡(自選)x1') shortName = "傳變1";
+        else if (selectedVal === '傳說娃娃卡(自選)x1') shortName = "傳娃1";
+        else if (selectedVal === '贊助幣x5000') shortName = "幣5000";
+        else if (selectedVal === '英雄變身卡(自選)x1、英雄娃娃卡(自選)x1') shortName = "英變1英娃1";
+        else if (selectedVal === '贊助幣x2000') shortName = "幣2000";
+        else if (selectedVal === '英雄變身卡(自選)x1') shortName = "英變1";
+        else if (selectedVal === '英雄娃娃卡(自選)x1') shortName = "英娃1";
+        else if (selectedVal === '贊助幣x800') shortName = "幣800";
+
         finalCharName += "(" + shortName + ")";
       }
       document.getElementById('hiddenPurName').value = finalCharName;
