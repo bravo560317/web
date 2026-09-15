@@ -1820,6 +1820,7 @@
       });
 
       let lastType = null;
+      const allowedJobs = ["王族", "妖精", "騎士", "法師"];
 
       // 武器類型代碼對應中文名稱（可依您的資料庫實際 type 內容自行增減調整）
       const weaponTypeNames = {
@@ -1838,10 +1839,13 @@
         "singlebow": "單手弓",
         "tohandstaff": "雙手法杖",
         "chainsword": "鎖鏈劍"
-        // 如果您的 type 是數字（例如 "1", "2"...），也可以直接對應修改寫成：
-        // "1": "短劍",
-        // "2": "長劍"
       };
+
+      // 建立一個處理關鍵字上色的小函式（包含您之前要求的 '特殊:' 上色）
+      function highlightKeyword(text) {
+        if (!text) return "";
+        return text.replace(/特殊:/g, '<span style="color: #ff4081; font-weight: bold;">特殊:</span>');
+      }
 
       weapons.forEach(w => {
         let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
@@ -1867,9 +1871,13 @@
         
         lastType = currentType;
 
-        let baseJobs = (w.jobs && w.jobs.length) ? w.jobs.join(" / ") : "全職業";
+        // 套用與防具相同的職業過濾邏輯
+        let filteredJobs = (w.jobs && w.jobs.length) ? w.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
+        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
         let jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
-        let effects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
+        
+        let rawEffects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
+        let effects = highlightKeyword(rawEffects);
 
         html += `
         <div class="bullet" style="margin-bottom:10px;">
