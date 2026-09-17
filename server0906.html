@@ -1776,6 +1776,7 @@
     }
   </script>
 
+
 <!-- JS: 武器載入 -->
   <script>
     Promise.all([
@@ -1801,7 +1802,6 @@
         w.isCrafted = (dropInfo === "【製作】");
       });
 
-      // 修正排序：改用字串比對 type，確保不同武器類型正確分開
       weapons.sort((a, b) => {
         let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
         let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
@@ -1818,7 +1818,6 @@
       let lastType = null;
       const allowedJobs = ["王族", "妖精", "騎士", "法師"];
 
-      // 武器類型代碼對應中文名稱（可依您的資料庫實際 type 內容自行增減調整）
       const weaponTypeNames = {
         "sword": "長劍",
         "dagger": "匕首",
@@ -1837,7 +1836,6 @@
         "chainsword": "鎖鏈劍"
       };
 
-      // 建立一個處理關鍵字上色的小函式（包含您之前要求的 '特殊:' 上色）
       function highlightKeyword(text) {
         if (!text) return "";
         return text.replace(/特殊:/g, '<span style="color: #ff4081; font-weight: bold;">特殊:</span>');
@@ -1846,7 +1844,6 @@
       weapons.forEach(w => {
         let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
         
-        // 當類型改變時，插入分隔線與置中、醒目顏色的武器一覽標題方塊
         if (lastType !== null && currentType !== lastType) {
           html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
         }
@@ -1867,7 +1864,6 @@
         
         lastType = currentType;
 
-        // 套用與防具相同的職業過濾邏輯
         let filteredJobs = (w.jobs && w.jobs.length) ? w.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
         let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
         let jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
@@ -1875,16 +1871,27 @@
         let rawEffects = (w.effects && w.effects.length) ? w.effects.join(" / ") : "-";
         let effects = highlightKeyword(rawEffects);
 
+        // 安定值處理（-1 顯示為不可強化）
+        let safeVal = w.safenchant !== undefined ? w.safenchant : (w.SAFENCHANT !== undefined ? w.SAFENCHANT : "");
+        let safeText = "";
+        if (safeVal !== "" && safeVal !== null) {
+          if (Number(safeVal) === -1) {
+            safeText = ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>`;
+          } else {
+            safeText = ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+          }
+        }
+
         html += `
         <div class="bullet" style="margin-bottom:10px;">
           <table style="width:100%; table-layout:fixed;">
             <tr>
-              <td style="width:30%; color:var(--accent-cyan); font-weight:bold;">${w.name}</td>
-              <td style="width:70%;">${jobs}</td>
+              <td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${w.name}${safeText}</td>
+              <td style="width:60%;">${jobs}</td>
             </tr>
             <tr>
-              <td style="width:30%;">傷害 ${w.small} / ${w.large}</td>
-              <td style="width:70%; color:#00e5ff; font-weight:bold;">${effects}</td>
+              <td style="width:40%;">傷害 ${w.small} / ${w.large}</td>
+              <td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td>
             </tr>
           </table>
         </div>`;
@@ -1895,7 +1902,7 @@
   </script>
 
 
-<!-- JS: 防具載入 -->
+  <!-- JS: 防具載入 -->
   <script>
     Promise.all([
       fetch('armor.json').then(r => r.json()).catch(() => []),
@@ -1937,7 +1944,6 @@
       const allowedJobs = ["王族", "妖精", "騎士", "法師"];
       let lastType = null;
 
-      // 部位英文代碼對應中文名稱（可依您的 JSON 內容自行增減調整）
       const typeNames = {
         "helm": "頭盔",
         "armor": "盔甲",
@@ -1949,13 +1955,14 @@
         "ring": "戒指",
         "amulet": "項鍊",
         "pants": "脛甲",
+        "guarder": "臂甲",
+        "earring": "耳環",
         "belt": "腰帶"
       };
 
       armors.forEach(a => {
         let currentType = a.type !== undefined && a.type !== null ? String(a.type) : "unknown";
         
-        // 當部位改變時，插入分隔線與置中、醒目顏色的部位一覽標題方塊
         if (lastType !== null && currentType !== lastType) {
           html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
         }
@@ -1981,16 +1988,27 @@
         let jobs = a.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
         let effects = a.effects.length ? a.effects.join(" / ") : "-";
 
+        // 安定值處理（-1 顯示為不可強化）
+        let safeVal = a.safenchant !== undefined ? a.safenchant : (a.SAFENCHANT !== undefined ? a.SAFENCHANT : "");
+        let safeText = "";
+        if (safeVal !== "" && safeVal !== null) {
+          if (Number(safeVal) === -1) {
+            safeText = ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>`;
+          } else {
+            safeText = ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+          }
+        }
+
         html += `
         <div class="bullet" style="margin-bottom:10px;">
           <table style="width:100%; table-layout:fixed;">
             <tr>
-              <td style="width:30%; color:var(--accent-cyan); font-weight:bold;">${a.name}</td>
-              <td style="width:70%;">${jobs}</td>
+              <td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${a.name}${safeText}</td>
+              <td style="width:60%;">${jobs}</td>
             </tr>
             <tr>
-              <td style="width:30%;">AC ${a.ac}</td>
-              <td style="width:70%; color:#00e5ff; font-weight:bold;">${effects}</td>
+              <td style="width:40%;">AC ${a.ac}</td>
+              <td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td>
             </tr>
           </table>
         </div>`;
@@ -1999,6 +2017,7 @@
       if (ac) ac.innerHTML = html;
     });
   </script>
+  
 
       <!-- ===================== tab7: 首頁 (更新公告) ===================== -->
     <div id="tab7" class="tab-content active">
@@ -2008,6 +2027,22 @@
 
       <div class="section-title">★ 遊戲最新更新公告 ★</div>
       <div class="update-list">
+
+                                   <details class="update-item" open>
+  <summary>09月18日18:00遊戲更新內容</summary>
+  <div class="update-body">
+  <p><span style="color:#00FF7F;">「調整」</span>武防卷軸掉落頻率。</p>
+  <p><span style="color:#00FF7F;">「新增」</span>紅利點數兌換商品(新增31,總計商品62項)。</p>
+  <p><span style="color:#00FF7F;">「新增」</span>贊助商城商品(新增武器寶石、防具寶石系列)。</p>
+  <p><span style="color:#00FF7F;">「調整」</span>部分贊助商品移置紅利點數。</p>
+  <p><span style="color:#00FF7F;">「調整」</span>寶石將區分『武器寶石』與『防具寶石』。</p>
+  <p><span style="color:#00FF7F;">「調整」</span>[遺忘之島]卡司特、卡司特王讀為一般毒。</p>
+  <p><span style="color:#00FF7F;">「修正」</span>解除詛咒卷軸可販售商店。</p>
+  <p><span style="color:#00FF7F;">「更新」</span>累積滿禮包贈送物品(已經達成累積條件的玩家可於領獎勵領取)。</p>
+  <p><span style="color:#00FF7F;">「網站」</span>怪物掉落物品查詢更新。</p>
+  <p><span style="color:#00FF7F;">「網站」</span>武器防具顯示安定值。</p>
+  </div>
+</details>
 
                            <details class="update-item" open>
   <summary>09月17日18:00遊戲更新內容</summary>

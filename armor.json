@@ -11,11 +11,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "妖魔戰士護身符",
@@ -29,11 +29,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "HP +20"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "體質項鏈",
@@ -47,11 +47,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "體質 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "智力項鏈",
@@ -65,11 +65,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "智力 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "精神項鏈",
@@ -83,11 +83,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "精神 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "力量項鏈",
@@ -101,11 +101,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "力量 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "敏捷項鏈",
@@ -119,11 +119,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "敏捷 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "魅力項鏈",
@@ -137,11 +137,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "amulet",
         "effects":  [
                         "魅力 +1"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "古老的金屬盔甲",
@@ -149,12 +149,12 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
                         "回血 +12",
                         "回魔 +2"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "古老的鱗甲",
@@ -163,12 +163,12 @@
                      "王族",
                      "龍騎"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
                         "回血 +6",
                         "回魔 +6"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "古老的皮盔甲",
@@ -179,12 +179,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
                         "回血 +4",
                         "回魔 +8"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "古老的長袍",
@@ -193,12 +193,12 @@
                      "法師",
                      "幻術"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
                         "回血 +1",
                         "回魔 +12"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "古代風龍鱗盔甲",
@@ -212,13 +212,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "回血 +5",
                         "回魔 +5",
                         "風屬性 +50"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "古代地龍鱗盔甲",
@@ -232,13 +232,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "回血 +5",
                         "回魔 +5",
                         "地屬性 +50"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "古代水龍鱗盔甲",
@@ -252,13 +252,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "回血 +5",
                         "回魔 +5",
                         "水屬性 +50"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "古代火龍鱗盔甲",
@@ -272,13 +272,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "回血 +5",
                         "回魔 +5",
                         "火屬性 +50"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "水晶盔甲",
@@ -289,13 +289,13 @@
                      "妖精",
                      "黑妖"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "HP +50",
                         "MP +5",
                         "回血 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "金屬盔甲",
@@ -304,11 +304,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼鐵金屬盔甲",
@@ -316,11 +316,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "象牙塔皮盔甲",
@@ -334,11 +334,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "青銅盔甲",
@@ -347,11 +347,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈金屬盔甲",
@@ -361,11 +361,11 @@
                      "妖精",
                      "黑妖"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "籐甲",
@@ -374,11 +374,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "抗魔法鏈甲(刻印)",
@@ -392,11 +392,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈鏈甲",
@@ -408,11 +408,11 @@
                      "黑妖",
                      "龍騎"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "鏈甲",
@@ -425,11 +425,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "骷髏盔甲",
@@ -443,11 +443,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "抗魔法鏈甲",
@@ -461,11 +461,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈護胸金屬板",
@@ -476,11 +476,11 @@
                      "妖精",
                      "黑妖"
                  ],
+        "safenchant":  6,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "歐西斯鏈甲",
@@ -491,11 +491,11 @@
                      "妖精",
                      "黑妖"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鱗甲",
@@ -508,11 +508,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "硬皮背心",
@@ -526,11 +526,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "銀釘皮甲",
@@ -544,11 +544,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "環甲",
@@ -562,11 +562,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "木甲",
@@ -580,11 +580,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "法師長袍",
@@ -592,11 +592,11 @@
         "jobs":  [
                      "法師"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "銀釘皮背心",
@@ -610,11 +610,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "歐西斯環甲",
@@ -628,11 +628,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "綿質長袍",
@@ -646,11 +646,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "小籐甲",
@@ -664,11 +664,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "受封印 被遺忘的金屬盔甲",
@@ -676,11 +676,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "受封印 被遺忘的鱗甲",
@@ -689,11 +689,11 @@
                      "王族",
                      "龍騎"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "受封印 被遺忘的長袍",
@@ -702,11 +702,11 @@
                      "法師",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "受封印 被遺忘的皮盔甲",
@@ -717,11 +717,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "皮背心",
@@ -735,11 +735,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "armor",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "勇敢皮帶",
@@ -747,11 +747,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "光明身體腰帶",
@@ -765,13 +765,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +100",
                         "回血 +2",
                         "魔防 +5"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "光明靈魂腰帶",
@@ -785,6 +785,7 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +50",
@@ -792,8 +793,7 @@
                         "回血 +1",
                         "回魔 +1",
                         "魔防 +5"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "光明精神腰帶",
@@ -807,13 +807,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "MP +100",
                         "回魔 +2",
                         "魔防 +5"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "多羅皮帶",
@@ -825,11 +825,11 @@
                      "黑妖",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "負重減輕 20%"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "歐吉皮帶",
@@ -843,11 +843,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "負重減輕 40%"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "精神腰帶",
@@ -861,11 +861,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "MP +50"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "靈魂腰帶",
@@ -879,12 +879,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +25",
                         "MP +25"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "身體腰帶",
@@ -898,11 +898,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +50"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "小型精神腰帶",
@@ -916,11 +916,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "MP +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "小型靈魂腰帶",
@@ -934,12 +934,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +15",
                         "MP +15"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "小型身體腰帶",
@@ -953,11 +953,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "belt",
         "effects":  [
                         "HP +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "象牙塔皮涼鞋",
@@ -971,11 +971,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "鋼鐵長靴(刻印)",
@@ -989,11 +989,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼鐵長靴",
@@ -1007,11 +1007,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "皮長靴",
@@ -1025,11 +1025,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "長靴",
@@ -1043,11 +1043,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "短統靴",
@@ -1061,11 +1061,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "皮涼鞋",
@@ -1079,11 +1079,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "boots",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "地屬性 斗篷",
@@ -1097,12 +1097,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "回魔 +2",
                         "地屬性 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "水屬性 斗篷",
@@ -1116,12 +1116,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "回魔 +2",
                         "水屬性 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "火屬性 斗篷",
@@ -1135,12 +1135,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "回魔 +2",
                         "火屬性 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "風屬性 斗篷",
@@ -1154,12 +1154,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "回魔 +2",
                         "風屬性 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "保護者斗篷",
@@ -1173,11 +1173,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "君主的威嚴",
@@ -1185,6 +1185,7 @@
         "jobs":  [
                      "王族"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "力量 +1",
@@ -1194,8 +1195,7 @@
                         "體質 +1",
                         "魅力 +1",
                         "回血 +3"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "瑪那斗篷",
@@ -1203,11 +1203,11 @@
         "jobs":  [
                      "法師"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "回魔 +5"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "隱身斗篷",
@@ -1221,11 +1221,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "抗魔法斗篷(刻印)",
@@ -1239,11 +1239,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "魔防 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈斗篷",
@@ -1257,11 +1257,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  6,
         "type":  "cloak",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "抗魔法斗篷",
@@ -1275,11 +1275,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
                         "魔防 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "歐西斯斗篷",
@@ -1293,11 +1293,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "侏儒斗篷",
@@ -1311,11 +1311,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "cloak",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鬥劍士耳環",
@@ -1329,12 +1329,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "earring",
         "effects":  [
                         "命中 +1",
                         "額外攻擊 +3"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "射擊手耳環",
@@ -1348,12 +1348,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "earring",
         "effects":  [
                         "遠程命中 +1",
                         "遠程攻擊 +3"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "大法師耳環",
@@ -1367,11 +1367,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "earring",
         "effects":  [
                         "魔攻 +2"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "水晶手套",
@@ -1380,11 +1380,11 @@
                      "騎士",
                      "龍騎"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "地靈手套",
@@ -1398,13 +1398,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "力量 +1",
                         "回魔 +1",
                         "地屬性 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "火靈手套",
@@ -1418,13 +1418,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "力量 +1",
                         "回魔 +1",
                         "火屬性 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "風靈手套",
@@ -1438,13 +1438,13 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "力量 +1",
                         "回魔 +1",
                         "風屬性 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "水靈手套",
@@ -1458,12 +1458,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "力量 +1",
                         "回魔 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "象牙塔皮手套",
@@ -1477,11 +1477,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "雪人手套",
@@ -1495,12 +1495,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "HP +5",
                         "寒冰耐性 +8"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼鐵手套(刻印)",
@@ -1514,11 +1514,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼鐵手套",
@@ -1532,11 +1532,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "力量手套",
@@ -1550,14 +1550,14 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "力量 +2",
                         "HP +50",
                         "MP +5",
                         "回血 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "腕甲",
@@ -1569,11 +1569,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "遠程命中 +2"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "手套",
@@ -1587,11 +1587,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "保護者手套",
@@ -1599,12 +1599,12 @@
         "jobs":  [
                      "妖精"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
                         "HP +20",
                         "MP +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "皮手套",
@@ -1618,11 +1618,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "glove",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "水晶臂甲",
@@ -1632,11 +1632,11 @@
                      "騎士",
                      "龍騎"
                  ],
+        "safenchant":  4,
         "type":  "guarder",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "古代神射臂甲",
@@ -1650,12 +1650,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "guarder",
         "effects":  [
                         "遠程命中 +1",
                         "遠程攻擊 +2"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "古代鬥士臂甲",
@@ -1669,12 +1669,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "guarder",
         "effects":  [
                         "命中 +1",
                         "額外攻擊 +2"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "龍鱗臂甲",
@@ -1688,6 +1688,7 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  0,
         "type":  "guarder",
         "effects":  [
                         "魔攻 +1",
@@ -1695,8 +1696,7 @@
                         "額外攻擊 +2",
                         "遠程命中 +1",
                         "遠程攻擊 +1"
-                    ],
-        "safe":  0
+                    ]
     },
     {
         "name":  "王冠",
@@ -1704,6 +1704,7 @@
         "jobs":  [
                      "王族"
                  ],
+        "safenchant":  -1,
         "type":  "helm",
         "effects":  [
                         "力量 +3",
@@ -1719,8 +1720,7 @@
                         "遠程攻擊 +10",
                         "PVP傷害 +30",
                         "PVP減免 +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "象牙塔皮頭盔",
@@ -1734,11 +1734,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "骷髏頭盔",
@@ -1752,11 +1752,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "鋼鐵頭盔",
@@ -1764,11 +1764,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "騎士面甲",
@@ -1776,11 +1776,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "銀釘皮帽",
@@ -1794,11 +1794,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "抗魔法頭盔(刻印)",
@@ -1812,11 +1812,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "紅騎士頭巾",
@@ -1824,11 +1824,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  6,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "抗魔法頭盔",
@@ -1842,11 +1842,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "法師之帽",
@@ -1854,11 +1854,11 @@
         "jobs":  [
                      "法師"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "侏儒鐵盔",
@@ -1872,11 +1872,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "艾爾穆的祝福",
@@ -1884,14 +1884,14 @@
         "jobs":  [
                      "妖精"
                  ],
+        "safenchant":  6,
         "type":  "helm",
         "effects":  [
                         "敏捷 +1",
                         "HP +50",
                         "MP +5",
                         "回血 +1"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "皮頭盔",
@@ -1905,11 +1905,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼盔",
@@ -1923,11 +1923,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈體質頭盔",
@@ -1935,11 +1935,11 @@
         "jobs":  [
                      "妖精"
                  ],
+        "safenchant":  6,
         "type":  "helm",
         "effects":  [
                         "體質 +1"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "精靈皮盔",
@@ -1951,11 +1951,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  6,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "歐西斯頭盔",
@@ -1969,11 +1969,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈敏捷頭盔",
@@ -1981,11 +1981,11 @@
         "jobs":  [
                      "妖精"
                  ],
+        "safenchant":  6,
         "type":  "helm",
         "effects":  [
                         "敏捷 +1"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "力量魔法頭盔",
@@ -1994,11 +1994,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "治癒魔法頭盔",
@@ -2007,11 +2007,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "敏捷魔法頭盔",
@@ -2020,11 +2020,11 @@
                      "王族",
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "騎士頭巾",
@@ -2032,11 +2032,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  -1,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "皮帽子",
@@ -2050,11 +2050,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "helm",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "鋼鐵脛甲",
@@ -2068,11 +2068,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "力量脛甲",
@@ -2086,12 +2086,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
                         "力量 +1",
                         "魔防 +5"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "敏捷脛甲",
@@ -2105,12 +2105,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
                         "敏捷 +1",
                         "魔防 +5"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "智力脛甲",
@@ -2124,12 +2124,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
                         "智力 +1",
                         "魔防 +5"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精神脛甲",
@@ -2143,12 +2143,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
                         "精神 +1",
                         "魔防 +5"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "抗魔法脛甲",
@@ -2162,11 +2162,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "pants",
         "effects":  [
                         "魔防 +2"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "水靈戒指",
@@ -2180,11 +2180,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "水屬性 +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "風靈戒指",
@@ -2198,11 +2198,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "風屬性 +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "滅魔戒指",
@@ -2216,11 +2216,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "魔防 +10"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "火靈戒指",
@@ -2234,11 +2234,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "火屬性 +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "地靈戒指",
@@ -2252,11 +2252,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "地屬性 +30"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "象牙塔戒指",
@@ -2270,11 +2270,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "深淵戒指",
@@ -2288,12 +2288,12 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  0,
         "type":  "ring",
         "effects":  [
                         "回魔 +1",
                         "睡眠耐性 +8"
-                    ],
-        "safe":  0
+                    ]
     },
     {
         "name":  "變形控制戒指",
@@ -2307,11 +2307,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "抗魔戒指",
@@ -2325,11 +2325,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "ring",
         "effects":  [
                         "魔防 +5"
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "信念之盾",
@@ -2337,11 +2337,11 @@
         "jobs":  [
                      "王族"
                  ],
+        "safenchant":  6,
         "type":  "shield",
         "effects":  [
                         "魅力 +2"
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "伊娃之盾",
@@ -2355,14 +2355,14 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
                         "HP +200",
                         "傷害減免 +3",
                         "負重減輕 10%",
                         "PVP減免 +10"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "象牙塔皮盾牌",
@@ -2376,11 +2376,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "塔盾",
@@ -2388,11 +2388,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "骷髏盾牌",
@@ -2406,11 +2406,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "鋼鐵盾牌",
@@ -2418,11 +2418,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "瑪那水晶球",
@@ -2430,12 +2430,12 @@
         "jobs":  [
                      "法師"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
                         "智力 +1",
                         "MP +100"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "反射之盾",
@@ -2447,14 +2447,14 @@
                      "黑妖",
                      "龍騎"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
                         "HP +100",
                         "MP +5",
                         "回血 +1",
                         "石化耐性 +20"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "大盾牌",
@@ -2466,11 +2466,11 @@
                      "黑妖",
                      "龍騎"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "銀釘皮盾",
@@ -2484,11 +2484,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "銀騎士之盾",
@@ -2496,11 +2496,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
                         "魔防 +4"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈盾牌",
@@ -2513,11 +2513,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  6,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "紅騎士盾牌",
@@ -2525,11 +2525,11 @@
         "jobs":  [
                      "騎士"
                  ],
+        "safenchant":  6,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     },
     {
         "name":  "魔法能量之書",
@@ -2537,11 +2537,11 @@
         "jobs":  [
                      "法師"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
                         "智力 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "侏儒圓盾",
@@ -2553,11 +2553,11 @@
                      "黑妖",
                      "龍騎"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "皮盾牌",
@@ -2571,11 +2571,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "小盾牌",
@@ -2589,11 +2589,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "阿克海盾牌",
@@ -2607,11 +2607,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "木盾",
@@ -2625,11 +2625,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "shield",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "魅力內衣",
@@ -2643,11 +2643,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "魅力 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "體質內衣",
@@ -2661,11 +2661,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "體質 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "智力內衣",
@@ -2679,11 +2679,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "智力 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精神內衣",
@@ -2697,11 +2697,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "精神 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "力量內衣",
@@ -2715,11 +2715,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "力量 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "敏捷內衣",
@@ -2733,11 +2733,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
                         "敏捷 +1"
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "象牙塔T恤",
@@ -2751,11 +2751,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  -1,
         "type":  "T",
         "effects":  [
 
-                    ],
-        "safe":  -1
+                    ]
     },
     {
         "name":  "T恤(刻印)",
@@ -2769,11 +2769,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "T恤",
@@ -2787,11 +2787,11 @@
                      "龍騎",
                      "幻術"
                  ],
+        "safenchant":  4,
         "type":  "T",
         "effects":  [
 
-                    ],
-        "safe":  4
+                    ]
     },
     {
         "name":  "精靈T恤",
@@ -2799,10 +2799,10 @@
         "jobs":  [
                      "妖精"
                  ],
+        "safenchant":  6,
         "type":  "T",
         "effects":  [
 
-                    ],
-        "safe":  6
+                    ]
     }
 ]
