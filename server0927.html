@@ -1751,16 +1751,15 @@
   </details>
 
   </div>
-    <!-- ===================== tab6: 掉落查詢 ===================== -->
-    <div id="tab6" class="tab-content">
-      <div style="text-align:center; margin-bottom:30px;">
-        <h2 style="color:var(--accent-cyan);">★ 掉落查詢系統 ★</h2>
-        <br>
-        <input id="keyword" placeholder="輸入道具名稱 / 怪物名稱" onkeyup="search()" style="width:360px; padding:10px; font-size:16px;">
-        <button onclick="search()" style="padding:10px 16px; font-size:16px; margin-left:8px;">查詢</button>
-      </div>
-      <div id="result"></div>
-    </div>
+<!-- ===================== 綜合掉落與怪物索引查詢 ===================== -->
+<div id="tab6" class="tab-content">
+  <div style="text-align:center; margin-bottom:30px;">
+    <h2 style="color:var(--accent-cyan);">★ 綜合掉落查詢 ★</h2>
+    <br>
+    <input type="text" id="keyword" placeholder="輸入道具名稱 / 怪物名稱 / 地圖名稱" onkeyup="searchAll()" style="width:400px; padding:10px; font-size:16px;">
+  </div>
+  <div id="result"></div>
+</div>
 
     <!-- ===================== tab3: 武器介紹 ===================== -->
     <div id="tab3" class="tab-content">
@@ -1780,11 +1779,11 @@
       <div id="armor-container"></div>
     </div>
 
-
-  <!-- JS: 掉落查詢系統 -->
+<!-- JS: 綜合查詢系統 (掉落物改為水平橫向排列) -->
   <script>
-    let DROPS = {};
-    let MOB_MAP = {};
+    let DROPS = {};          
+    let MONSTER_MAP = {};    
+    let MONSTER_INFO = {};   
 
     function formatRate(chance) {
       const rate = chance / 10000;
@@ -1800,69 +1799,109 @@
       return "rate-low";
     }
 
-    fetch('droplist_new.json')
-      .then(r => r.json())
-      .then(data => {
-        DROPS = data;
-        for (const id in DROPS) {
-          const item = DROPS[id];
-          item.drops.forEach(d => {
-            if (!MOB_MAP[d.mob]) { MOB_MAP[d.mob] = []; }
-            MOB_MAP[d.mob].push({ name: item.name, chance: d.chance });
-          });
-        }
-      }).catch(e => console.log("droplist load optional"));
+    Promise.all([
+      fetch('droplist_new.json').then(r => r.json()).catch(() => ({})),
+      fetch('monsters_index.json').then(r => r.json()).catch(() => [])
+    ]).then(([dropData, monsterData]) => {
+      DROPS = dropData;
 
-    function search() {
+      for (const id in DROPS) {
+        const item = DROPS[id];
+        item.drops.forEach(d => {
+          if (!MONSTER_MAP[d.mob]) { MONSTER_MAP[d.mob] = []; }
+          MONSTER_MAP[d.mob].push({ name: item.name, chance: d.chance });
+        });
+      }
+
+      const mList = Array.isArray(monsterData) ? monsterData : Object.values(monsterData);
+      mList.forEach(m => {
+        if (m && m.name) {
+          MONSTER_INFO[m.name] = m;
+        }
+      });
+    });
+
+    function searchAll() {
       const kw = document.getElementById("keyword").value.trim().toLowerCase();
       const result = document.getElementById("result");
       result.innerHTML = "";
       if (!kw) return;
 
-      let mobMatchCount = 0;
-      let itemMatchCount = 0;
-
-      for (const mob in MOB_MAP) { if (mob.toLowerCase().includes(kw)) mobMatchCount++; }
-      for (const id in DROPS) { if (DROPS[id].name.toLowerCase().includes(kw)) itemMatchCount++; }
-
-      if (mobMatchCount > itemMatchCount) { searchMob(kw); } else { searchItem(kw); }
-    }
-
-    function searchMob(kw) {
-      const result = document.getElementById("result");
       let found = false;
-      for (const mob in MOB_MAP) {
-        if (!mob.toLowerCase().includes(kw)) continue;
+      const matchedMobs = new Set();
+      
+      for (const mob in MONSTER_MAP) {
+        if (mob.toLowerCase().includes(kw)) {
+          matchedMobs.add(mob);
+        }
+      }
+      
+      const mList = Object.values(MONSTER_INFO);
+      mList.forEach(m => {
+        const matchName = m.name && m.name.toLowerCase().includes(kw);
+        const matchMap = Array.isArray(m.maps) && m.maps.some(map => String(map).toLowerCase().includes(kw));
+        if (matchName || matchMap) {
+          matchedMobs.add(m.name);
+        }
+      });
+
+      // 渲染怪物卡片（掉落物改為橫向 / 分隔）
+      matchedMobs.forEach(mob => {
         found = true;
         const box = document.createElement("div");
         box.className = "box";
-        let html = `<div class="title mob-title">【怪物】${mob}</div>`;
-        MOB_MAP[mob].sort((a,b) => b.chance - a.chance).forEach(item => {
-          html += `<div class="line ${rateClass(item.chance)}">- ${item.name} (${formatRate(item.chance)})</div>`;
-        });
+
+        let info = MONSTER_INFO[mob] || {};
+        let lvlText = info.lvl !== undefined ? `Lv. ${info.lvl}` : '未知等級';
+        let hpText = info.hp !== undefined ? `HP. ${Number(info.hp).toLocaleString()}` : '未知血量';
+        let mapTags = Array.isArray(info.maps) && info.maps.length > 0 
+          ? info.maps.map(mp => `<span class="tag" style="background:#3a2e2b; color:#ffa8a8;">${mp}</span>`).join(" / ") 
+          : '無';
+
+        let drops = MONSTER_MAP[mob];
+        let dropTags = '無';
+        if (drops && drops.length > 0) {
+          drops.sort((a,b) => b.chance - a.chance);
+          dropTags = drops.map(item => `<span class="${rateClass(item.chance)}">${item.name} (${formatRate(item.chance)})</span>`).join(" / ");
+        }
+
+        let html = `
+          <div class="title mob-title">【怪物】${mob}</div>
+          <table style="width:100%; margin: 6px 0; font-size: 14px;">
+            <tr>
+              <td style="width:50%; border:none; padding:2px 0; background:transparent;">等級：<span style="color:#00f3ff; font-weight:bold;">${lvlText}</span></td>
+              <td style="width:50%; border:none; padding:2px 0; background:transparent;">血量：<span style="color:#ffd700; font-weight:bold;">${hpText}</span></td>
+            </tr>
+          </table>
+          <div class="line" style="font-size: 14px; margin-bottom: 4px;">出沒地圖：${mapTags}</div>
+          <div class="line" style="font-size: 14px;">掉落物：${dropTags}</div>
+        `;
+
         box.innerHTML = html;
         result.appendChild(box);
-      }
-      if (!found) result.innerHTML = `<div style="color:#aaa;text-align:center;">查無結果</div>`;
-    }
+      });
 
-    function searchItem(kw) {
-      const result = document.getElementById("result");
-      let found = false;
+      // 道具搜尋維持原本樣式
       for (const id in DROPS) {
         const item = DROPS[id];
         if (!item.name.toLowerCase().includes(kw)) continue;
+        
         found = true;
         const box = document.createElement("div");
         box.className = "box";
         let html = `<div class="title item-title">【道具】${item.name}</div>`;
+        
         item.drops.sort((a,b) => b.chance - a.chance).forEach(d => {
           html += `<div class="line ${rateClass(d.chance)}">- ${d.mob} (${formatRate(d.chance)})</div>`;
         });
+        
         box.innerHTML = html;
         result.appendChild(box);
       }
-      if (!found) result.innerHTML = `<div style="color:#aaa;text-align:center;">查無結果</div>`;
+
+      if (!found) {
+        result.innerHTML = `<div style="color:#aaa;text-align:center; padding: 20px;">查無相關結果</div>`;
+      }
     }
   </script>
 
@@ -2116,6 +2155,13 @@
 
       <div class="section-title">★ 遊戲最新更新公告 ★</div>
       <div class="update-list">
+
+                                                                                                   <details class="update-item" open>
+  <summary>10月15日04:50遊戲更新內容</summary>
+  <div class="update-body">
+  <p><span style="color:#00FF7F;">「掉落查詢」</span>優化:追加顯示怪物位置、等級、血量。</p>
+  </div>
+</details>
 
                                                                                            <details class="update-item" open>
   <summary>10月14日18:00遊戲更新內容</summary>
