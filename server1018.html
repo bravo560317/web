@@ -498,7 +498,7 @@
 
       <div class="section-title">★遊戲基本內容介紹 ★</div>
 
-      <details class="collapse-box">
+      <details class="collapse-box" open>
         <summary>★ 基本設定 ★</summary>
         <div class="collapse-body">
           <table border="1" cellspacing="0" cellpadding="6">
@@ -516,7 +516,7 @@
               <tr><td>同 IP 多開：4個帳號</td><td>每日重啟：18:00</td></tr>
               <tr><td>力量：每3點+1額外攻擊</td><td>敏捷：每3點+1額外攻擊</td></tr>
               <tr><td>智力：每3點+1魔法攻擊</td><td>體質：每5點+1物理減傷</td></tr>
-              <tr><td>自動練功經驗倍率：除以五</td><td>自動練功掉寶倍率：除以五</td></tr>
+              <tr><td>使用自動練功經驗倍率：20%</td><td>使用自動練功掉寶倍率：20%</td></tr>
               <tr><td>帳號未登入(無贊助)：保留天數14天</td><td>帳號未登入(有贊助)：保留天數90天</td></tr>
             </tbody>
           </table>
@@ -831,6 +831,7 @@
                 <td>
                   <b>能力加成：</b>玩家可透過 <span style="color:var(--accent-cyan); font-weight:bold;">說話卷軸</span> 選項中 <span style="color:#FF4500; font-weight:bold;">商店→展示商店</span> 查看適合自己的娃娃與變身。<br>
                   <b>變身造型：</b>玩家可透過 <span style="color:var(--accent-cyan); font-weight:bold;">說話卷軸</span> 選項中 <span style="color:#FF4500; font-weight:bold;">商店→藥水商店</span> 購買60秒試用變身藥水。<br>
+                  <b>變身速度：</b>請注意!! <span style="color:var(--accent-cyan); font-weight:bold;">相同類型的變身</span> 速度並非完全相同 <span style="color:#FF4500; font-weight:bold;">請務必</span> 購買變身藥水試用看看再做選擇。<br>
                 </td>
               </tr>
             </tbody>
@@ -908,11 +909,13 @@
               <tr><td>181 ~ 210 天</td><td>物理額外攻擊倍率 +70%</td></tr>
               <tr><td>211 ~ 240 天</td><td>物理額外攻擊倍率 +80%</td></tr>
               <tr><td>241 ~ 270 天</td><td>物理額外攻擊倍率 +90%</td></tr>
-              <tr><td>271 ~ 300 天</td><td>物理額外攻擊倍率 +100%（最高 100%）</td></tr>
+              <tr><td>271 ~ 300 天</td><td>物理額外攻擊倍率 +100%</td></tr>
+              <tr><td>300天▲</td><td>每增加30天，物理額外攻擊倍率+2%(最高220%)</td></tr>
             </tbody>
           </table>
         </div>
       </details>
+
 
       <details class="collapse-box">
         <summary>★ 說話卷軸介紹 ★</summary>
@@ -1106,8 +1109,8 @@
 
       <div class="section-title">★遊戲特色內容介紹 ★</div>
 
-      <details class="collapse-box">
-        <summary>★ 暗黑詞條系統 ★</summary>
+      <details class="collapse-box" open>
+        <summary>★ 附加詞條系統 ★</summary>
         <div class="collapse-body">
           <div style="text-align:center; margin-bottom:15px;">
             <img src="aaa/暗黑系統.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
@@ -1123,7 +1126,9 @@
               <tr>
                 <td>詞條介紹</td>
                 <td>
-                  取得方式：<span style="color:#FFD700; font-weight:bold;">打怪獲得(製作或購買的不會出現詞條)</span> <br>
+                  詞條說明：<span style="color:#00FF7F; font-weight:bold;">此為仿照暗黑破壞神系統，武器裝備會有隨機附加屬性共(300多種變化)。</span> <br>
+                  取得方式(一)：<span style="color:#FFD700; font-weight:bold;">打怪/寶箱 機率附加獲得(製作或購買的不會出現詞條)。</span> <br>
+                  取得方式(二)：<span style="color:#00FF7F; font-weight:bold;">玩家也可以透過武防屬性附加石，給予武器裝備增添詞條。</span> <br>
                   詞條效果：<span style="color:#FF69B4; font-weight:bold;">隨機增加傷害、減免、回血、回魔、魔攻等特殊加成</span> <br>
                   詞條種類：<span style="color:#00FF7F; font-weight:bold;">高級(1)→稀有(2)→英雄(3)→傳說(4)→神神話(5)→帝王(6)。</span> <br>
                 </td>
@@ -1428,7 +1433,7 @@
           <div class="item-icon"><div class="icon-box"><img src="aaa/自動練功的葉子.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">自動練功的葉子</td><td>自動練功狀態下，可獲得與手動同樣的效果(經驗/掉寶倍率:5.0倍)</td></tr>
+              <tr><td style="color:#FFD700; width:80px;">自動練功的葉子</td><td>使自動練功狀態下，可獲得與手動同樣經驗/掉寶倍率的效果</td></tr>
               <tr><td style="color:#AAA;">取得方式</td><td>BOSS、龍副本、每日任務</td></tr>
             </table>
           </div>
@@ -1441,7 +1446,7 @@
           <div class="item-table">
             <table border="1" cellpadding="6">
               <tr><td style="color:#FFD700; width:80px;">抽卡包</td><td>開啟後可獲得卡片進行登錄使用</td></tr>
-              <tr><td style="color:#AAA;">取得方式</td><td>每日金幣購買/主線任務/循環任務</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>每日金幣購買、遊戲活動、兌換碼獎勵。</td></tr>
             </table>
           </div>
         </div>
@@ -1452,7 +1457,7 @@
           <div class="item-icon"><div class="icon-box"><img src="aaa/928.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">防具祝福卷軸</td><td>使用後可將武器防具轉化為祝福</td></tr>
+              <tr><td style="color:#FFD700; width:80px;">武防祝福卷軸</td><td>使用後可將武器防具轉化為祝福</td></tr>
               <tr><td style="color:#AAA;">使用效果</td><td style="color:#00FF7F;">[武器]傷害+2、[防具]HP+30、[飾品]MP+10</td></tr>
             </table>
           </div>
@@ -1464,7 +1469,7 @@
           <div class="item-icon"><div class="icon-box"><img src="aaa/929.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">名人的對武器施法的卷軸</td><td>有機會強化過1，俗稱:防爆卷。(+0~+8可用)</td></tr>
+              <tr><td style="color:#FFD700; width:80px;">強化保護卷軸</td><td>加持武器防具所使用的保護卷(武器最高+19、防具最高+19</td></tr>
             </table>
           </div>
         </div>
@@ -1475,7 +1480,7 @@
           <div class="item-icon"><div class="icon-box"><img src="aaa/11414.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">紋樣系統</td><td>角色被動能力系統</td></tr>
+              <tr><td style="color:#FFD700; width:80px;">紋樣點數</td><td>角色被動能力系統</td></tr>
               <tr><td style="color:#AAA;">取得方式</td><td><span style="color:#00FF7F;">金幣製作</span> 紋樣點數升級</td></tr>
             </table>
           </div>
@@ -1528,54 +1533,25 @@
         </div>
       </div>
 
-                        <div class="bullet">
+                  <div class="bullet">
         <div class="item-row">
           <div class="item-icon"><div class="icon-box"><img src="aaa/13048.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
               <tr><td style="color:#FFD700; width:80px;">贊助幣</td><td>購買贊助商城使用代幣</td></tr>
-              <tr><td style="color:#AAA;">取得方式</td><td>活動、在線抽獎、怪物掉落、掛賣攤販、贊助等方式。</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>遊戲活動、在線抽獎、掛賣攤販、贊助等方式。</td></tr>
             </table>
           </div>
         </div>
       </div>
-介紹
+
                   <div class="bullet">
         <div class="item-row">
           <div class="item-icon"><div class="icon-box"><img src="aaa/16019.png"></div></div>
           <div class="item-table">
             <table border="1" cellpadding="6">
               <tr><td style="color:#FFD700; width:80px;">紅利點數</td><td>購買紅利商城使用代幣</td></tr>
-              <tr><td style="color:#AAA;">取得方式</td><td>用贊助幣購買贊助商城道具，1:1返紅利點數。</td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-      <div class="bullet">
-        <div class="item-row">
-          <div class="item-icon"><div class="icon-box"><img src="aaa/16031.png"></div></div>
-          <div class="item-table">
-            <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">爆擊卡</td><td>贊助商城購買</td></tr>
-              <tr><td style="color:#AAA;">注意事項</td><td>使用時效30天(購買後開始計時)，一人僅可配戴一個。</td></tr>
-              <tr><td style="color:#AAA;">1級能力</td><td>物理減傷+5、魔法減傷+10、物理傷害+10%<br>
-              <tr><td style="color:#AAA;">2級能力</td><td>物理減傷+10、魔法減傷+20、物理傷害+30%<br>
-              <tr><td style="color:#AAA;">3級能力</td><td>物理減傷+15、魔法減傷+30、物理傷害+50%<br>
-              <tr><td style="color:#AAA;">4級能力</td><td>物理減傷+20、魔法減傷+40、物理傷害+100%<br>
-              </td></tr>
-            </table>
-          </div>
-        </div>
-      </div>
-
-            <div class="bullet">
-        <div class="item-row">
-          <div class="item-icon"><div class="icon-box"><img src="aaa/16030.png"></div></div>
-          <div class="item-table">
-            <table border="1" cellpadding="6">
-              <tr><td style="color:#FFD700; width:80px;">爆擊卡(升級)</td><td>紅利點數購買</td></tr>
-              <tr><td style="color:#AAA;">注意事項</td><td>可升級最高等級四、時間不疊加(1級爆級卡時間為準)</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>遊戲活動、簽到、在線抽獎、答題活動、贊助紅利。</td></tr>
             </table>
           </div>
         </div>
