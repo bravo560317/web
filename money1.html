@@ -9,11 +9,11 @@
       margin: 0;
       background-color: #fdf6e3;
       font-family: "微軟正黑體", sans-serif;
-      font-size: 16px; /* 基礎字體加大 */
+      font-size: 16px;
       padding: 10px;
     }
     .container {
-      width: 95%; /* 手機版寬度 */
+      width: 95%;
       max-width: 500px;
       margin: 20px auto;
       padding: 20px;
@@ -27,8 +27,8 @@
       font-size: 22px;
       text-align: center;
       margin: 10px 0 20px;
-      color:#C60000;
-      text-shadow:1px 1px 2px #FFAAAA;
+      color: #C60000;
+      text-shadow: 1px 1px 2px #FFAAAA;
     }
     .section {
       margin-bottom: 15px;
@@ -54,8 +54,8 @@
       background: #eef5ff;
       padding: 2px 5px;
       border-radius: 4px;
+      word-break: break-word;
     }
-    /* 綠色 Line 客服按鈕 */
     .line-button {
       display: block;
       width: 100%;
@@ -88,8 +88,11 @@
       角色名稱：<span class="copy-text" id="dispCharName"></span><br>
       充值金額：<span class="copy-text" id="dispAmount" style="color: red; font-weight: bold;"></span> TWD
       <span id="coinsWrapper" style="display: none;"><br>💎 獲得贊助幣 (含回饋)：<span class="copy-text" id="dispCoins" style="color: #b3885a; font-weight: bold;"></span></span>
-      <span id="crystalsWrapper" style="display: none;"><br>🎁 額外贈送：<span class="copy-text" id="dispCrystals" style="color: #d9534f; font-weight: bold;"></span></span>
-      <span id="bonusWrapper" style="display: none;"><br>滿額好禮：<span class="copy-text" id="dispBonus" style="color: #d9534f; font-weight: bold;"></span></span>
+      <span id="goldIngotsWrapper" style="display: none;"><br>🎁 額外贈送（每 500 元贈送 100 金元寶）：<span class="copy-text" id="dispGoldIngots" style="color: #d9534f; font-weight: bold;"></span></span>
+      <div id="bonusWrapper" style="display: none; margin-top: 6px;">
+        滿額好禮：<br>
+        <div class="copy-text" id="dispBonus" style="color: #d9534f; font-weight: bold; display: inline-block; margin-top: 2px;"></div>
+      </div>
     </div>
   </div>
 
@@ -114,7 +117,7 @@
     <div class="section-title">Mycard 點數卡：</div>
     <div class="section-content">
       請聯繫客服提供：<span class="copy-text">卡號及密碼</span><br>
-      為求公平性，Mycard 收購幣值為 <span style="color: red; font-weight: bold;">1 : 0.8</span>
+      因代儲紅利折扣緣故，Mycard 收購幣值為 <span style="color: red; font-weight: bold;">1 : 0.8</span>
     </div>
   </div>
 
@@ -140,13 +143,15 @@
     const amount = params.get('amount');
     const bonus = params.get('bonus');
     const coins = params.get('coins');
-    const crystals = params.get('crystals');
+    const goldIngots = params.get('goldIngots');
+    const legacyCrystals = params.get('crystals');
 
     if (account || charName || amount) {
       document.getElementById('orderInfo').style.display = 'block';
       document.getElementById('dispAccount').innerText = account || '未提供';
       document.getElementById('dispCharName').innerText = charName || '未提供';
-      document.getElementById('dispAmount').innerText = amount || '0';
+      const numAmt = parseInt(amount, 10);
+      document.getElementById('dispAmount').innerText = !Number.isNaN(numAmt) ? numAmt.toLocaleString() : (amount || '0');
     }
 
     if (coins) {
@@ -154,14 +159,17 @@
       document.getElementById('dispCoins').innerText = coins;
     }
 
-    if (crystals) {
-      document.getElementById('crystalsWrapper').style.display = 'inline';
-      document.getElementById('dispCrystals').innerText = "爆擊升級卡(30天) x " + crystals;
+    // 優先讀取 goldIngots；若帶入舊參數 crystals 則依每 500 元 100 金元寶換算
+    const resolvedGoldIngots = goldIngots || (legacyCrystals ? (Number(legacyCrystals) * 100).toLocaleString() : '');
+    if (resolvedGoldIngots) {
+      document.getElementById('goldIngotsWrapper').style.display = 'inline';
+      document.getElementById('dispGoldIngots').innerText = "金元寶 x " + resolvedGoldIngots;
     }
 
     if (bonus) {
-      document.getElementById('bonusWrapper').style.display = 'inline';
-      document.getElementById('dispBonus').innerText = bonus;
+      document.getElementById('bonusWrapper').style.display = 'block';
+      const bonusLines = bonus.split(" / ").map(item => item.trim()).filter(Boolean);
+      document.getElementById('dispBonus').innerHTML = bonusLines.join("<br>");
     }
   });
 </script>
