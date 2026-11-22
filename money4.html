@@ -648,8 +648,8 @@
       const bonusCoins = Math.floor(baseCoins * extraRate);
       const totalCoins = baseCoins + bonusCoins;
 
-      // 計算金元寶數量（每 500 元贈送 100 金元寶）
-      const goldIngots = Math.floor(amt / 500) * 100;
+      // 計算金元寶數量（每 500 元贈送 200 金元寶）
+      const goldIngots = Math.floor(amt / 500) * 200;
 
       document.getElementById('displayCoins').innerText = totalCoins.toLocaleString();
       document.getElementById('displayGoldIngots').innerText = goldIngots.toLocaleString();
