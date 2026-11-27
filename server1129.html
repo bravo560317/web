@@ -1,0 +1,3125 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>聖戰天堂</title>
+  <style>
+    :root {
+      --bg-color: #0c0d14;
+      --card-bg: rgba(20, 22, 35, 0.85);
+      --card-border: rgba(0, 243, 255, 0.2);
+      --accent-cyan: #00f3ff;
+      --accent-gold: #ffd700;
+      --accent-pink: #ff007f;
+      --text-main: #e0e6ed;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 243, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(255, 0, 127, 0.05) 0%, transparent 40%),
+        url('aaa/1560.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      font-family: "微軟正黑體", sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* 浮動側邊欄廣告 */
+    .float-ad {
+      position: fixed;
+      top: 35%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      text-decoration: none;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .float-ad:hover {
+      transform: translateY(-50%) scale(1.05);
+      filter: drop-shadow(0 0 10px var(--accent-cyan));
+    }
+    .float-ad.left { left: 15px; }
+    .float-ad.right { right: 15px; }
+    .float-ad img {
+      width: 140px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+    }
+
+    /* 主容器與Header */
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding-bottom: 50px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-top: 10px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: var(--accent-gold);
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* 導覽列 Tabs */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .tab-btn {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+      padding: 12px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: bold;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    .tab-btn:hover {
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+      color: #000;
+      border-color: #fff;
+      box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+    }
+
+    /* 內容面板 */
+    .tab-content {
+      display: none;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(12px);
+      text-align: left;
+      line-height: 1.8;
+      font-size: 15px;
+      animation: fadeIn 0.4s ease-out forwards;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .intro-tabs,
+    .sub-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
+
+    .intro-tab-btn,
+    .sub-tab-btn {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .intro-tab-btn:hover,
+    .intro-tab-btn.active,
+    .sub-tab-btn:hover,
+    .sub-tab-btn.active {
+      background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+      color: #000;
+      border-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 243, 255, 0.35);
+    }
+
+    .intro-option,
+    .sub-option {
+      display: none;
+    }
+
+    .intro-option.active,
+    .sub-option.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 標題與裝飾 */
+    .section-title {
+      font-size: 22px;
+      color: var(--accent-pink);
+      font-weight: bold;
+      margin: 25px 0 15px 0;
+      text-align: center;
+      text-shadow: 0 0 10px rgba(255, 0, 127, 0.4);
+      border-bottom: 2px solid rgba(255, 0, 127, 0.3);
+      padding-bottom: 8px;
+    }
+
+    .bullet {
+      margin-left: 20px;
+    }
+
+    /* 摺疊面板 (details) */
+    details.collapse-box {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.6);
+      color: #fff;
+      overflow: hidden;
+      margin-bottom: 16px;
+      transition: border-color 0.3s ease;
+    }
+    details.collapse-box:hover {
+      border-color: var(--accent-cyan);
+    }
+
+    details.collapse-box > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      font-weight: bold;
+      color: var(--accent-gold);
+      background: linear-gradient(90deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+      position: relative;
+      user-select: none;
+      display: flex;
+      align-items: center;
+    }
+    details.collapse-box > summary::-webkit-details-marker { display: none; }
+    details.collapse-box > summary::after {
+      content: "▼";
+      color: var(--accent-gold);
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+    details.collapse-box[open] > summary::after {
+      transform: rotate(180deg);
+    }
+
+    details.collapse-box .collapse-body {
+      padding: 20px;
+      background: rgba(10, 15, 30, 0.7);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+    }
+
+    /* 更新公告專用框 */
+    .update-list {
+      width: 100%;
+      margin: 15px auto;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      color: #fff;
+    }
+    .update-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .update-item:last-child { border-bottom: 0; }
+    .update-item > summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      font-weight: bold;
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      background: rgba(25, 35, 55, 0.8);
+      user-select: none;
+    }
+    .update-item > summary::-webkit-details-marker { display: none; }
+    .update-item > summary::after {
+      content: "▼";
+      color: var(--accent-gold);
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+    .update-item[open] > summary::after {
+      transform: rotate(180deg);
+    }
+    .update-body {
+      padding: 18px 20px;
+      background: rgba(10, 15, 30, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      line-height: 1.8;
+    }
+    .update-body p { margin: 8px 0; }
+
+    /* 表格樣式優化 */
+    table {
+      width: 100%;
+      color: #fff;
+      background-color: rgba(15, 23, 42, 0.8) !important;
+      border-collapse: collapse !important;
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 10px 0;
+      border: 1px solid rgba(255,255,255,0.1) !important;
+    }
+    th, td {
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      padding: 10px 12px !important;
+      text-align: left;
+    }
+    th {
+      background-color: rgba(30, 41, 59, 0.9) !important;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+    tr:nth-child(even) {
+      background-color: rgba(255,255,255,0.02);
+    }
+
+    /* 道具排版用 row / icon-box */
+    .item-row {
+      display: flex;
+      gap: 15px;
+      align-items: stretch;
+      margin-bottom: 20px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 12px;
+      border-radius: 10px;
+    }
+    .item-icon {
+      flex: 0 0 80px;
+    }
+    .icon-box {
+      border: 1px solid var(--accent-cyan);
+      padding: 6px;
+      border-radius: 8px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.4);
+    }
+    .icon-box img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .item-table {
+      flex: 1;
+    }
+
+    #tab4.active {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    #tab4 > div:first-child,
+    #tab4 > .section-title,
+    #tab4 > div:last-child {
+      grid-column: 1 / -1;
+    }
+
+    #tab4 > .bullet {
+      min-width: 0;
+      margin-left: 0;
+    }
+
+    #tab4 .item-row {
+      height: 100%;
+      margin-bottom: 0;
+    }
+
+    .item-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 20px 0;
+    }
+
+    /* 星號閃爍效果 */
+    .star-blink {
+      animation: starBlink 1.2s infinite;
+      color: #FFD700;
+      text-shadow: 0 0 8px #FFD700;
+    }
+    @keyframes starBlink {
+      0% { opacity: 1; text-shadow: 0 0 6px #FFD700; }
+      50% { opacity: 0.3; text-shadow: 0 0 14px #FF0000; }
+      100% { opacity: 1; text-shadow: 0 0 6px #FFD700; }
+    }
+
+    /* 掉落查詢專用區塊 */
+    .box {
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    .title { font-size: 18px; margin-bottom: 8px; font-weight: bold; }
+    .mob-title { color: var(--accent-cyan); }
+    .item-title { color: var(--accent-gold); }
+    .line { padding: 4px 0; }
+    .rate-high { color: #00ffaa; font-weight: bold; }
+    .rate-mid { color: var(--accent-cyan); }
+    .rate-low { color: #94a3b8; }
+
+    /* 搜尋輸入框與按鈕 */
+    input#keyword {
+      background: rgba(10, 15, 30, 0.9);
+      border: 1px solid var(--accent-cyan);
+      color: #fff;
+      border-radius: 6px;
+      outline: none;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.2);
+    }
+    button {
+      background: linear-gradient(135deg, #00f3ff 0%, #0066ff 100%);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+      transition: filter 0.2s;
+    }
+    button:hover { filter: brightness(1.2); }
+
+    /* 手機版響應式調整 */
+    @media (max-width: 768px) {
+      body { padding: 10px; background-attachment: scroll; }
+      .float-ad.left { left: 5px; top: 22%; }
+      .float-ad.right { right: 5px; top: 22%; }
+      .float-ad img { width: 75px; opacity: 0.85; }
+      .tab-content { padding: 15px; font-size: 13.5px; }
+      .tab-btn { padding: 8px 12px; font-size: 13.5px; }
+      h1 { font-size: 22px; }
+      .item-row { flex-direction: column; }
+      .item-icon { width: 60px; }
+    }
+
+    /* 浮動側邊欄廣告外框容器 */
+    .float-ad {
+      position: fixed;
+      top: 35%;
+      transform: translateY(-50%);
+      z-index: 9999;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .float-ad.left { left: 15px; }
+    .float-ad.right { right: 15px; }
+    
+    .float-ad img {
+      width: 140px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px);
+      display: block;
+    }
+
+    /* 關閉按鈕樣式 */
+    .float-ad .close-btn {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 24px;
+      height: 24px;
+      background: #ff007f;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 10000;
+      padding: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+    
+    .float-ad .close-btn:hover {
+      transform: scale(1.15);
+      background: #ff4500;
+    }
+
+    /* 手機版適應縮小 */
+    @media (max-width: 768px) {
+      .float-ad.left { left: 5px; top: 22%; }
+      .float-ad.right { right: 5px; top: 22%; }
+      .float-ad img { width: 75px; opacity: 0.9; }
+      .float-ad .close-btn {
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: -6px;
+        right: -6px;
+      }
+    }
+  </style>
+
+  <script>
+    function showTab(tabId, btn) {
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(el => el.classList.remove('active'));
+
+      const target = document.getElementById(tabId);
+      if (target) target.classList.add('active');
+
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showIntroTab(optionId, btn) {
+      const options = document.querySelectorAll('.intro-option');
+      options.forEach(option => {
+        option.classList.remove('active');
+        option.removeAttribute('open');
+      });
+
+      const target = document.getElementById(optionId);
+      if (target) {
+        target.classList.add('active');
+        target.setAttribute('open', '');
+      }
+
+      const buttons = document.querySelectorAll('.intro-tab-btn');
+      buttons.forEach(button => button.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+    }
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      document.querySelectorAll("body *").forEach(el=>{
+        if(el.children.length === 0 && el.innerHTML.includes("★")){
+          el.innerHTML = el.innerHTML.replace(/★/g, '<span class="star-blink">★</span>');
+        }
+      });
+
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        if (tab.querySelector(':scope > .intro-tabs')) return;
+
+        let options = Array.from(tab.children).filter(el => el.matches('details.collapse-box'));
+        const updateList = tab.querySelector(':scope > .update-list');
+
+        if (options.length < 2 && updateList) {
+          options = Array.from(updateList.children).filter(el => el.matches('details.update-item'));
+        }
+
+        if (options.length < 2) return;
+
+        const nav = document.createElement('div');
+        nav.className = 'sub-tabs';
+        nav.setAttribute('aria-label', '內容選項');
+
+        options.forEach((option, index) => {
+          const summary = option.querySelector(':scope > summary');
+          const label = summary ? summary.textContent.replace(/★/g, '').trim() : `選項 ${index + 1}`;
+          const optionId = `${tab.id}-option-${index + 1}`;
+          option.id = optionId;
+          option.classList.add('sub-option');
+
+          if (index === 0) {
+            option.classList.add('active');
+            option.setAttribute('open', '');
+          } else {
+            option.classList.remove('active');
+            option.removeAttribute('open');
+          }
+
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'sub-tab-btn';
+          button.textContent = label;
+          if (index === 0) button.classList.add('active');
+
+          button.addEventListener('click', () => {
+            options.forEach(item => {
+              item.classList.remove('active');
+              item.removeAttribute('open');
+            });
+            nav.querySelectorAll('.sub-tab-btn').forEach(item => item.classList.remove('active'));
+
+            option.classList.add('active');
+            option.setAttribute('open', '');
+            button.classList.add('active');
+          });
+
+          nav.appendChild(button);
+        });
+
+        if (updateList && options[0].parentElement === updateList) {
+          tab.insertBefore(nav, updateList);
+        } else {
+          tab.insertBefore(nav, options[0]);
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+<!-- 左邊漂浮客服廣告 -->
+  <div id="left-ad" class="float-ad left">
+    <button class="close-btn" onclick="document.getElementById('left-ad').style.display='none';">×</button>
+    <a href="https://line.me/ti/p/@482evvkr" target="_blank">
+      <img src="aaa/557.png" alt="左邊客服">
+    </a>
+  </div>
+
+  <!-- 右邊漂浮贊助廣告 -->
+  <div id="right-ad" class="float-ad right">
+    <button class="close-btn" onclick="document.getElementById('right-ad').style.display='none';">×</button>
+    <a href="https://bravo560317.github.io/web/money4.html" target="_blank">
+      <img src="aaa/555.png" alt="右邊贊助">
+    </a>
+  </div>
+
+  <div class="wrapper">
+
+<div class="tabs">
+      <div class="tab-btn active" onclick="showTab('tab7', this)">首頁</div>
+      <div class="tab-btn" onclick="showTab('tab1', this)">遊戲介紹</div>
+      <div class="tab-btn" onclick="showTab('tab4', this)">道具介紹</div>
+      <div class="tab-btn" onclick="showTab('tab3', this)">武器介紹</div>
+      <div class="tab-btn" onclick="showTab('tab8', this)">防具介紹</div>
+      <div class="tab-btn" onclick="showTab('tab6', this)">掉落查詢</div>
+      <div class="tab-btn" onclick="showTab('tab5', this)">檔案下載</div>
+    </div>
+
+    <!-- ===================== tab1: 遊戲介紹 ===================== -->
+    <div id="tab1" class="tab-content">
+      <div class="section-title">★遊戲內容介紹 ★</div>
+
+<details class="collapse-box" open>
+  <summary>★ 基本設定 ★</summary>
+  <div class="collapse-body" style="display: flex; flex-direction: column; gap: 16px; padding-top: 10px;">
+
+    <!-- 1. 伺服器倍率、上限與規則 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00BFFF; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #00BFFF; font-weight: bold; font-size: 1.05em; margin-bottom: 10px;">⚙️ 伺服器倍率與核心限制</div>
+
+      <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.9em;">
+        <thead>
+          <tr style="background: rgba(0, 191, 255, 0.12); color: #87CEFA;">
+            <th>經驗倍率</th>
+            <th>掉寶 / 金幣</th>
+            <th>等級上限</th>
+            <th>升級能力上限</th>
+            <th>萬能藥限制</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">600 倍</strong></td>
+            <td><strong>1 倍</strong> / <strong>1 倍</strong></td>
+            <td><strong>2 轉 99 級</strong></td>
+            <td><strong>35</strong></td>
+            <td>無上限<br><span style="font-size: 0.82em; color: #AAA;">(達能力 35 上限為止)</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; text-align: left; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.88em;">
+        <tbody>
+          <tr>
+            <td style="width: 50%; background: rgba(255,255,255,0.02);"><strong style="color: #FFD700;">同 IP 多開：</strong>最多 <strong>4 個帳號</strong></td>
+            <td style="width: 50%; background: rgba(255,255,255,0.02);"><strong style="color: #FFD700;">每日重啟：</strong>每天 <strong>18:00</strong></td>
+          </tr>
+          <tr>
+            <td><strong style="color: #FFD700;">帳號保留（無贊助）：</strong>未登入 <strong>14 天</strong></td>
+            <td><strong style="color: #FFD700;">帳號保留（有贊助）：</strong>未登入 <strong>90 天</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(255, 69, 0, 0.14); border: 1px solid rgba(255, 69, 0, 0.35); color: #FF8866; font-size: 0.88em; padding: 7px 10px; border-radius: 4px;">
+        ⚠️ <strong>升級點數上限：25 點</strong> —— 單項能力點若超過 <strong>25</strong>，升級時該項點數將無法再手動加點！
+      </div>
+    </div>
+
+    <!-- 2. 屬性加成換算 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #FFD700; font-weight: bold; font-size: 1.05em; margin-bottom: 10px;">📊 屬性點數加成換算</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; font-size: 0.9em; text-align: center;">
+        <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
+          <div style="color: #FF7F50; font-weight: bold;">力量 (STR)</div>
+          <div style="margin-top: 3px;">每 <strong>2 點</strong> +1 額外攻擊</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
+          <div style="color: #7CFC00; font-weight: bold;">敏捷 (DEX)</div>
+          <div style="margin-top: 3px;">每 <strong>2 點</strong> +1 額外攻擊</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
+          <div style="color: #87CEFA; font-weight: bold;">智力 (INT)</div>
+          <div style="margin-top: 3px;">每 <strong>3 點</strong> +1 魔法攻擊</div>
+        </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
+          <div style="color: #87CEFA; font-weight: bold;">抗魔 (MR)</div>
+          <div style="margin-top: 3px;">每 <strong>2 點</strong> +1 魔法傷害減免</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 8px; border-radius: 5px;">
+          <div style="color: #DDA0DD; font-weight: bold;">體質 (CON)</div>
+          <div style="margin-top: 3px;">每 <strong>3 點</strong> +1 物理傷害減免</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 四大職業設定（僅開放四職業） -->
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="color: #00FF7F; font-weight: bold; font-size: 1.08em; padding-left: 4px;">
+        ⚔️ 職業平衡與試煉獎勵 <span style="font-size: 0.85em; color: #AAA; font-weight: normal;">（本服僅開放以下 4 種職業）</span>
+      </div>
+
+      <!-- 王族 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; margin-bottom: 10px; gap: 6px;">
+          <span style="color: #FFD700; font-weight: bold; font-size: 1.05em;">👑 王族</span>
+          <span style="background: rgba(255, 215, 0, 0.15); color: #FFE4B5; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">基礎 HP 1800 ／ MP 800</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 0.9em; line-height: 1.6;">
+          <div>
+            <div style="color: #00BFFF; font-weight: bold; margin-bottom: 4px;">【平衡調整】</div>
+            <div>• 對怪物傷害提高 <strong>1.5 倍</strong></div>
+            <div>• 王者加護調整為：<strong>減少自身傷害 25%</strong></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 8px 10px; border-radius: 5px;">
+            <div style="color: #FFD700; font-weight: bold; margin-bottom: 4px;">【職業試煉獎勵】</div>
+            <div>• <strong>15 級試煉：</strong>+4 紅色斗篷（刻印）</div>
+            <div>• <strong>30 級試煉：</strong>+4 君主的威嚴（刻印）</div>
+            <div>• <strong>45 級試煉：</strong>守護者的戒指（刻印）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 法師 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #BA55D3; border-radius: 6px; padding: 12px 15px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; margin-bottom: 10px; gap: 6px;">
+          <span style="color: #DDA0DD; font-weight: bold; font-size: 1.05em;">🔮 法師</span>
+          <span style="background: rgba(186, 85, 211, 0.15); color: #E6E6FA; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">基礎 HP 1000 ／ MP 1800</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 0.9em; line-height: 1.6;">
+          <div>
+            <div style="color: #00BFFF; font-weight: bold; margin-bottom: 4px;">【平衡調整】</div>
+            <div>• 範圍魔法傷害調整為 <strong>1/4</strong></div>
+            <div>• 聖結界效果調整為 <strong>25%</strong></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 8px 10px; border-radius: 5px;">
+            <div style="color: #FFD700; font-weight: bold; margin-bottom: 4px;">【職業試煉獎勵】</div>
+            <div>• <strong>15 級試煉：</strong>+4 魔法能量之書（刻印）</div>
+            <div>• <strong>30 級試煉：</strong>+4 瑪那斗篷（刻印）</div>
+            <div>• <strong>45 級試煉：</strong>+4 瑪那水晶球（刻印）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 騎士 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FF4500; border-radius: 6px; padding: 12px 15px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; margin-bottom: 10px; gap: 6px;">
+          <span style="color: #FF6347; font-weight: bold; font-size: 1.05em;">🛡️ 騎士</span>
+          <span style="background: rgba(255, 69, 0, 0.15); color: #FFA07A; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">基礎 HP 6000 ／ MP 600</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 0.9em; line-height: 1.6;">
+          <div>
+            <div style="color: #00BFFF; font-weight: bold; margin-bottom: 4px;">【平衡調整】</div>
+            <div>• 升級血量倍率為 <strong>x2.0</strong></div>
+            <div>• PVP 傷害提高至 <strong>1.5 倍</strong></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 8px 10px; border-radius: 5px;">
+            <div style="color: #FFD700; font-weight: bold; margin-bottom: 4px;">【職業試煉獎勵】</div>
+            <div>• <strong>15 級試煉：</strong>+4 紅騎士頭巾（刻印）</div>
+            <div>• <strong>30 級試煉：</strong>+4 紅騎士盾牌（刻印）</div>
+            <div>• <strong>45 級試煉：</strong>勇敢皮帶（刻印）</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 妖精 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #32CD32; border-radius: 6px; padding: 12px 15px;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 6px; margin-bottom: 10px; gap: 6px;">
+          <span style="color: #7CFC00; font-weight: bold; font-size: 1.05em;">🏹 妖精</span>
+          <span style="background: rgba(50, 205, 50, 0.15); color: #98FB98; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">基礎 HP 1400 ／ MP 1200</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; font-size: 0.9em; line-height: 1.6;">
+          <div>
+            <div style="color: #00BFFF; font-weight: bold; margin-bottom: 4px;">【平衡調整】</div>
+            <div>• 對怪物傷害係數為 <strong>0.8 倍</strong></div>
+            <div>• <strong>四大屬性皆可共存學習</strong></div>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 8px 10px; border-radius: 5px;">
+            <div style="color: #FFD700; font-weight: bold; margin-bottom: 4px;">【職業試煉獎勵】</div>
+            <div>• <strong>15 級試煉：</strong>+6 精靈敏捷頭盔（刻印）</div>
+            <div>• <strong>30 級試煉：</strong>+6 精靈T恤（刻印）</div>
+            <div>• <strong>45 級試煉：</strong>+4 保護者手套（刻印）</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</details>
+
+<details class="collapse-box">
+  <summary>★ 離線收益 ★</summary>
+
+  <div class="collapse-body" style="display: flex; flex-direction: column; gap: 16px; padding-top: 10px;">
+
+    <div style="text-align:center; margin-bottom:15px;">
+      <img src="aaa/離線收益.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+    </div>
+
+    <!-- 1. 系統核心機制與領取方式 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00F3FF; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #00F3FF; font-weight: bold; font-size: 1.05em; margin-bottom: 8px;">🌙 離線掛機自動累積．上線一鍵入庫</div>
+      
+      <div style="background: rgba(0, 243, 255, 0.12); border: 1px solid rgba(0, 243, 255, 0.4); color: #E0FFFF; padding: 8px 12px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; font-size: 0.95em;">
+        ✨ 角色等級達 <span style="color: #FFD700;">45 級（含）以上</span>，離線或斷線即自動計算離線時間，重新登入瞬間結算！
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; font-size: 0.9em; line-height: 1.55;">
+        <div style="background: rgba(255,255,255,0.04); padding: 9px 12px; border-radius: 5px;">
+          <div style="color: #FFD700; font-weight: bold; margin-bottom: 3px;">【經驗值發放規則】</div>
+          <div>• 重新登入時<strong>直接發放</strong>至角色身上，並於聊天視窗顯示獲得明細</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); padding: 9px 12px; border-radius: 5px;">
+          <div style="color: #FF7F50; font-weight: bold; margin-bottom: 3px;">【道具自動入庫】</div>
+          <div>• 避免多開新帳號分身刷，除天幣外獲得的道具皆為綁定</div>
+          <div>• 獲得道具將自動存入<strong>「個人倉庫」</strong>，免擔心背包滿格或負重</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 8px; font-size: 0.85em; color: #00FF7F;">
+        💡 提醒：目前該系統較為簡易，會再陸續強化該系統及經驗獲取基準!<br>
+      </div>
+    </div>
+
+    <!-- 2. 一般玩家 vs VIP 玩家收益對照表 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #FFD700; font-weight: bold; font-size: 1.05em; margin-bottom: 10px;">👑 一般玩家與 VIP 離線收益比較</div>
+
+      <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 215, 0, 0.12); color: #FFD700;">
+            <th>身分資格</th>
+            <th>啟動等級</th>
+            <th>結算週期</th>
+            <th>最大累計時間</th>
+            <th>上限最多結算次數</th>
+            <th>單次經驗收益</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>一般玩家</strong></td>
+            <td><strong>45 級</strong></td>
+            <td>每 <strong>5 分鐘</strong> 1 次</td>
+            <td><strong>720 分鐘</strong> <span style="font-size: 0.85em; color: #AAA;">(12 小時)</span></td>
+            <td><strong>144 次</strong></td>
+            <td>升級經驗 <strong>5%</strong></td>
+          </tr>
+          <tr style="background: rgba(255, 105, 180, 0.08);">
+            <td><strong style="color: #FF69B4;">★ VIP 尊榮會員</strong></td>
+            <td><strong>45 級</strong></td>
+            <td><strong style="color: #00FF7F;">每 4 分鐘</strong> 1 次</td>
+            <td><strong style="color: #FFD700;">1440 分鐘</strong> <span style="font-size: 0.85em; color: #CCC;">(24 小時)</span></td>
+            <td><strong style="color: #00F3FF;">360 次</strong> <span style="font-size: 0.85em; color: #00FF7F;">(2.5 倍總量)</span></td>
+            <td>升級經驗 <strong>5%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(255, 255, 255, 0.05); color: #DDD; font-size: 0.86em; padding: 8px 10px; border-radius: 4px; line-height: 1.6;">
+        <div>• <strong>VIP 雙重優勢：</strong>不僅結算速度從 5 分鐘縮短為 <strong>4 分鐘</strong>，累計上限更直接翻倍至 <strong>24 小時</strong>，睡覺上班一整天收益不中斷！</div>
+        <div>• <strong>領取方式：</strong>登入後請前往各大村莊找「倉庫管理員」開啟<strong>個人倉庫</strong>即可查看並取出道具。<br>
+        💡 計算公式：經驗收益5% ÷ 等級倍數 = 實際獲得經驗值。
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 離線收益道具與機率一覽 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FF69B4; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #FF69B4; font-weight: bold; font-size: 1.05em; margin-bottom: 4px;">🎁 離線收益獲得道具與機率一覽</div>
+      <div style="font-size: 0.85em; color: #AAA; margin-bottom: 10px;">每次結算週期皆依下列機率獨立判定，中獎道具自動存入個人倉庫：</div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+        <!-- 左欄：基礎消耗與養成道具 -->
+        <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.86em;">
+          <thead>
+            <tr style="background: rgba(255, 105, 180, 0.15); color: #FFB6C1; text-align: center;">
+              <th>道具名稱</th>
+              <th style="width: 85px;">獲得機率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong style="color: #FFD700;">金幣</strong></td>
+              <td style="text-align: center; color: #00FF7F; font-weight: bold;">100%</td>
+            </tr>
+            <tr>
+              <td>輕量 巧克力蛋</td>
+              <td style="text-align: center;">3%</td>
+            </tr>
+            <tr>
+              <td>輕量 名譽貨幣</td>
+              <td style="text-align: center;">5%</td>
+            </tr>
+            <tr>
+              <td>輕量 治癒藥水</td>
+              <td style="text-align: center;">50%</td>
+            </tr>
+            <tr>
+              <td>輕量 藍色藥水</td>
+              <td style="text-align: center;">5%</td>
+            </tr>
+            <tr>
+              <td>輕量 變形卷軸</td>
+              <td style="text-align: center;">5%</td>
+            </tr>
+            <tr>
+              <td>輕量 瞬間移動</td>
+              <td style="text-align: center;">10%</td>
+            </tr>
+            <tr>
+              <td>練功葉子</td>
+              <td style="text-align: center;">30%</td>
+            </tr>
+            <tr>
+              <td>金元寶</td>
+              <td style="text-align: center;">4%</td>
+            </tr>
+            <tr>
+              <td>紋樣點數</td>
+              <td style="text-align: center;">4%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- 右欄：萬能藥、抽卡包與天賦道具 -->
+        <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.86em;">
+          <thead>
+            <tr style="background: rgba(255, 105, 180, 0.15); color: #FFB6C1; text-align: center;">
+              <th>道具名稱</th>
+              <th style="width: 85px;">獲得機率</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>萬能藥(力量)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>萬能藥(體質)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>萬能藥(敏捷)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>萬能藥(智慧)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>萬能藥(精神)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>萬能藥(魅力)</td>
+              <td style="text-align: center; color: #FF7F50;">0.05%</td>
+            </tr>
+            <tr>
+              <td>變身抽卡包</td>
+              <td style="text-align: center; color: #00F3FF;">0.5%</td>
+            </tr>
+            <tr>
+              <td>娃娃抽卡包</td>
+              <td style="text-align: center; color: #00F3FF;">0.5%</td>
+            </tr>
+            <tr>
+              <td>天賦點+1</td>
+              <td style="text-align: center; color: #00F3FF;">0.5%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</details>
+
+  
+<details class="collapse-box">
+        <summary>★ 武防強化 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/武防加成.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6" style="width:100%; margin-bottom:20px;">
+            <thead>
+              <tr>
+                <th style="width:20%;">項目</th>
+                <th>內容說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>武防加成</td>
+                <td>
+                  <b>武器加成：</b>武器強化等級達到 +7以上時，可獲得額外攻擊力加成。<br>
+                  <b>防具加成：</b>防具達到安全強化值以上（過1至過10）時，可依序獲得數值加成。<br>
+                  <b>加成說明：</b>武防的加成值穿上脫下會顯示於對話欄內，道具上不會顯示。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><b>【武器加成對照表】</b></p>
+          <table border="1" cellspacing="0" cellpadding="6" style="width:100%; margin-bottom:20px; text-align:center;">
+            <thead>
+              <tr>
+                <th style="width:50%;">武器加成</th>
+                <th>額外攻擊力</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>+7</td><td>3</td></tr>
+              <tr><td>+8</td><td>8</td></tr>
+              <tr><td>+9</td><td>15</td></tr>
+              <tr><td>+10</td><td>24</td></tr>
+              <tr><td>+11</td><td>35</td></tr>
+              <tr><td>+12</td><td>48</td></tr>
+              <tr><td>+13</td><td>63</td></tr>
+              <tr><td>+14</td><td>80</td></tr>
+              <tr><td>+15</td><td>99</td></tr>
+              <tr><td>+16</td><td>120</td></tr>
+            </tbody>
+          </table>
+
+          <p><b>【防具加成對照表】</b></p>
+          <table border="1" cellspacing="0" cellpadding="6" style="width:100%; text-align:center;">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>傷害減免</th>
+                <th>魔法防禦</th>
+                <th>HP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>安定過1</td><td>0</td><td>3</td><td>20</td></tr>
+              <tr><td>安定過2</td><td>0</td><td>6</td><td>80</td></tr>
+              <tr><td>安定過3</td><td>1</td><td>9</td><td>180</td></tr>
+              <tr><td>安定過4</td><td>2</td><td>12</td><td>320</td></tr>
+              <tr><td>安定過5</td><td>3</td><td>15</td><td>500</td></tr>
+              <tr><td>安定過6</td><td>4</td><td>18</td><td>720</td></tr>
+              <tr><td>安定過7</td><td>4</td><td>21</td><td>980</td></tr>
+              <tr><td>安定過8</td><td>4</td><td>24</td><td>1280</td></tr>
+              <tr><td>安定過9</td><td>4</td><td>27</td><td>1620</td></tr>
+              <tr><td>安定過10</td><td>4</td><td>30</td><td>2000</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+<details class="collapse-box">
+  <summary>★ 寵物介紹 ★</summary>
+  <div class="collapse-body" style="display: flex; flex-direction: column; gap: 16px; padding-top: 10px;">
+
+    <!-- 頂部展示圖 -->
+    <div style="text-align: center;">
+      <img src="aaa/114.jpg" alt="寵物系統說明圖" style="max-width: 100%; height: auto; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15);">
+    </div>
+
+    <!-- 1. 捕捉流程與機制 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00F3FF; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #00F3FF; font-weight: bold; font-size: 1.05em; margin-bottom: 8px;">🕸️ 野生怪物捕捉指南</div>
+      
+      <div style="background: rgba(0, 243, 255, 0.12); border: 1px solid rgba(0, 243, 255, 0.4); color: #E0FFFF; padding: 8px 12px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; font-size: 0.95em;">
+        ✨ 遊戲中所有可見怪物皆可捕捉（自創怪與 BOSS 除外）
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; font-size: 0.9em; line-height: 1.5;">
+        <div style="background: rgba(255,255,255,0.04); padding: 9px 12px; border-radius: 5px;">
+          <div style="color: #FFD700; font-weight: bold; margin-bottom: 3px;">【捕捉條件與道具】</div>
+          <div>• 使用道具：<strong>「漂浮之眼肉」</strong></div>
+          <div>• 怪物血量需 <strong>低於 50%</strong> 才可捕捉</div>
+          <div>• 血量壓得越低，捕捉成功率越高</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.04); padding: 9px 12px; border-radius: 5px;">
+          <div style="color: #FF7F50; font-weight: bold; margin-bottom: 3px;">【機率與等級難度】</div>
+          <div>• 成功率範圍：<strong>0.01% ~ 30%</strong>（依血量動態計算）</div>
+          <div>• 20 級以下：正常機率</div>
+          <div>• 20 級以上：<strong>每提升 5 級，成功率減半</strong></div>
+        </div>
+      </div>
+
+      <div style="margin-top: 8px; font-size: 0.85em; color: #00FF7F;">
+        💡 提醒：「漂浮之眼肉」使用後無論成功與否皆會消耗，並於系統訊息顯示當下成功率。
+      </div>
+    </div>
+
+    <!-- 2. 基本養成與魅力設定 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #FFD700; font-weight: bold; font-size: 1.05em; margin-bottom: 10px;">⚙️ 寵物基本設定與魅力需求</div>
+
+      <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 215, 0, 0.12); color: #FFD700;">
+            <th>攜帶上限</th>
+            <th>經驗倍率</th>
+            <th>進化等級</th>
+            <th>等級上限</th>
+            <th>裝備安定值</th>
+            <th>裝備強化率</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>6 隻</strong></td>
+            <td><strong>1 倍</strong></td>
+            <td><strong>30 級</strong></td>
+            <td><strong>60 級</strong></td>
+            <td><strong style="color: #FF6347;">0</strong> <span style="font-size: 0.85em; color: #AAA;">(失敗消失)</span></td>
+            <td><strong>20%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 魅力需求表 -->
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.86em;">
+        <thead>
+          <tr style="background: rgba(255, 255, 255, 0.08); color: #87CEFA;">
+            <th>單隻魅力需求</th>
+            <th>一階寵物</th>
+            <th>二階寵物</th>
+            <th>三階 ~ 六階</th>
+            <th>七階 ~ 十階</th>
+            <th>職業隱藏魅力加成</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">所需魅力值</td>
+            <td><strong>6</strong></td>
+            <td><strong>10</strong></td>
+            <td><strong>12</strong></td>
+            <td><strong>16</strong></td>
+            <td>妖精 <strong style="color: #7CFC00;">+12</strong> ／ 其餘職業 <strong style="color: #FFD700;">+6</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div style="background: rgba(255, 255, 255, 0.05); color: #DDD; font-size: 0.86em; padding: 8px 10px; border-radius: 4px; line-height: 1.6;">
+        <div>• <strong>進化繼承：</strong>寵物進化後將<strong>完整保留</strong>原本的血量（HP）與魔力（MP）。</div>
+        <div>• <strong>稀有種加成：</strong><span style="color: #FF69B4; font-weight: bold;">稀有種</span> 升級時的 HP 與 MP 成長為一般種的 <strong>1.5 倍</strong>（進化後是否為稀有種採隨機判定）。</div>
+        <div>• <strong>自動加速：</strong>將「綠色藥水」放入寵物背包，當寵物沒有加速狀態時會自動飲用補充。</div>
+      </div>
+    </div>
+
+    <!-- 3. 1~10階 寵物進化與成長總表 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FF69B4; border-radius: 6px; padding: 12px 15px;">
+      <div style="color: #FF69B4; font-weight: bold; font-size: 1.05em; margin-bottom: 4px;">🧬 寵物進化路線與成長總覽（1 階 ~ 10 階）</div>
+      <div style="font-size: 0.85em; color: #AAA; margin-bottom: 10px;">達 30 級後使用對應「果實」即可隨機進化為下一階寵物：</div>
+
+      <div style="overflow-x: auto;">
+        <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.86em; line-height: 1.5;">
+          <thead>
+            <tr style="background: rgba(255, 105, 180, 0.15); color: #FFB6C1; text-align: center;">
+              <th style="min-width: 65px;">階級</th>
+              <th style="min-width: 105px;">升級成長</th>
+              <th style="min-width: 90px;">升階道具</th>
+              <th>收錄寵物名單（隨機進化）與 <span style="color: #00FF7F;">稀有種</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FFD700;">1 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">(123種)</span></td>
+              <td style="text-align: center;">HP: 3~8<br>MP: 1~3</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>進化果實</strong><br>進 2 階</td>
+              <td>野外捕捉之一般怪物（共 123 種）</td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FF69B4;">2 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">(20種)</span></td>
+              <td style="text-align: center;">HP: 5~16<br>MP: 3~6</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>勝利果實</strong><br>進 3 階</td>
+              <td>
+                鐵門騎士、獵人戴爾、海盜獵人雷歐、巨蟻女皇士兵、沙蟲士兵、海洋哈維、布雷哲、黑長者、賞金獵人、達伊諾思投手、達伊諾思打者、墮落的賽尼斯、德雷克、奧爾汀、黑騎士、優卡、侏儒、波若斯妖魔鬥士、波若斯妖魔魔法師、波若斯妖魔弓箭手<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：新兵克特（極道落雷）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FF4500;">3 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">黑暗系列</span></td>
+              <td style="text-align: center;">HP: 8~16<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>高級果實</strong><br>進 4 階</td>
+              <td>
+                黑暗龍騎士、黑暗火槍手、黑暗刺客、黑暗巡守、黑暗法師(極道落雷)、黑暗騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：闇黑死亡騎士（吸血鬼之吻）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #C0C0C0;">4 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">銀光系列</span></td>
+              <td style="text-align: center;">HP: 8~20<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>稀有果實</strong><br>進 5 階</td>
+              <td>
+                銀光龍騎士、銀光火槍手、銀光刺客、銀光巡守、銀光法師(冰錐)、銀光騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：焚焰死亡騎士（吸血鬼之吻）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #E5E4E2;">5 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">白金系列</span></td>
+              <td style="text-align: center;">HP: 8~24<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>英雄果實</strong><br>進 6 階</td>
+              <td>
+                白金龍騎士、白金火槍手、白金巡守、白金刺客、白金法師(地裂術)、白金騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：雷霆死亡騎士（吸血鬼之吻）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FFD700;">6 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">黃金系列</span></td>
+              <td style="text-align: center;">HP: 8~28<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>傳說果實</strong><br>進 7 階</td>
+              <td>
+                黃金龍騎士、黃金火槍手、黃金刺客、黃金巡守、黃金法師(烈炎術)、黃金騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：黃金死亡騎士（吸血鬼之吻）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FF4500;">7 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">極．黑暗</span></td>
+              <td style="text-align: center;">HP: 12~32<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>神話果實</strong><br>進 8 階</td>
+              <td>
+                極．黑暗龍騎士、極．黑暗火槍手、極．黑暗刺客、極．黑暗巡守、極．黑暗法師(極道落雷)、極．黑暗騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：極．闇黑死亡騎士（緩速術）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #C0C0C0;">8 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">極．銀光</span></td>
+              <td style="text-align: center;">HP: 12~36<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>帝王果實</strong><br>進 9 階</td>
+              <td>
+                極．銀光龍騎士、極．銀光火槍手、極．銀光刺客、極．銀光巡守、極．銀光法師(冰錐)、極．銀光騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：極．焚焰死亡騎士（緩速術）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #E5E4E2;">9 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">極．白金</span></td>
+              <td style="text-align: center;">HP: 12~40<br>MP: 3~5</td>
+              <td style="text-align: center; color: #87CEFA;">使用<br><strong>古老果實</strong><br>進 10 階</td>
+              <td>
+                極．白金龍騎士、極．白金火槍手、極．白金巡守、極．白金刺客、極．白金法師(地裂術)、極．白金騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：極．雷霆死亡騎士（緩速術）</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="text-align: center; font-weight: bold; color: #FFD700;">10 階<br><span style="font-weight: normal; font-size: 0.85em; color: #AAA;">極．黃金</span></td>
+              <td style="text-align: center;">HP: 12~44<br>MP: 3~5</td>
+              <td style="text-align: center; color: #FFD700;"><strong>最高階級</strong></td>
+              <td>
+                極．黃金龍騎士、極．黃金火槍手、極．黃金刺客、極．黃金巡守、極．黃金法師(烈炎術)、極．黃金騎士<br>
+                <span style="color: #00FF7F; font-weight: bold;">★ 稀有種：極．黃金死亡騎士（緩速術）</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+      </div>
+</details>
+
+<details class="collapse-box">
+  <summary>★ 寵物裝備 ★</summary>
+  <div class="collapse-body" style="display: flex; flex-direction: column; gap: 16px; padding-top: 10px;">
+
+    <!-- 4. 寵物專屬裝備一覽 -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+      
+      <!-- 寵物武器 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-top: 3px solid #FFD700; border-radius: 6px; padding: 10px 12px;">
+        <div style="color: #FFD700; font-weight: bold; margin-bottom: 8px; font-size: 1em;">🦷 寵物武器系列（Lv.1 ~ Lv.10）</div>
+        <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.85em;">
+          <thead>
+            <tr style="background: rgba(255, 215, 0, 0.12); color: #FFE4B5;">
+              <th>裝備名稱</th>
+              <th>攻擊 / 命中</th>
+              <th>魔攻</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>獵犬之牙 (Lv.1)</td><td>命中+1 / 傷害+10</td><td>SP+1</td></tr>
+            <tr><td>破滅之牙 (Lv.2)</td><td>命中+2 / 傷害+20</td><td>SP+2</td></tr>
+            <tr><td>斗犬之牙 (Lv.3)</td><td>命中+3 / 傷害+30</td><td>SP+3</td></tr>
+            <tr><td>鋼鐵之牙 (Lv.4)</td><td>命中+4 / 傷害+40</td><td>SP+4</td></tr>
+            <tr><td>黃金之牙 (Lv.5)</td><td>命中+5 / 傷害+50</td><td>SP+5</td></tr>
+            <tr><td>勝利之牙 (Lv.6)</td><td>命中+6 / 傷害+60</td><td>SP+6</td></tr>
+            <tr><td>黑暗之牙 (Lv.7)</td><td>命中+7 / 傷害+70</td><td>SP+7</td></tr>
+            <tr><td>不滅之牙 (Lv.8)</td><td>命中+8 / 傷害+80</td><td>SP+8</td></tr>
+            <tr><td>龍之牙 (Lv.9)</td><td>命中+9 / 傷害+90</td><td>SP+9</td></tr>
+            <tr><td><strong>神之牙 (Lv.10)</strong></td><td><strong>命中+10 / 傷害+100</strong></td><td><strong>SP+10</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 寵物盔甲 -->
+      <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-top: 3px solid #00FF7F; border-radius: 6px; padding: 10px 12px;">
+        <div style="color: #00FF7F; font-weight: bold; margin-bottom: 8px; font-size: 1em;">🛡️ 寵物盔甲系列（Lv.1 ~ Lv.8）</div>
+        <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.85em;">
+          <thead>
+            <tr style="background: rgba(0, 255, 127, 0.12); color: #98FB98;">
+              <th>裝備名稱</th>
+              <th>防禦</th>
+              <th>附加能力</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>寵物皮盔甲 (Lv.1)</td><td>AC -4</td><td>HP+200 / MP+10 / MR+10</td></tr>
+            <tr><td>寵物鏈甲 (Lv.2)</td><td>AC -8</td><td>HP+400 / MP+20 / MR+20</td></tr>
+            <tr><td>寵物骷髏盔甲 (Lv.3)</td><td>AC -12</td><td>HP+700 / MP+35 / MR+30</td></tr>
+            <tr><td>寵物鋼鐵盔甲 (Lv.4)</td><td>AC -16</td><td>HP+1000 / MP+50 / MR+40</td></tr>
+            <tr><td>寵物米索莉盔甲 (Lv.5)</td><td>AC -20</td><td>HP+1400 / MP+70 / MR+50</td></tr>
+            <tr><td>寵物十字盔甲 (Lv.6)</td><td>AC -24</td><td>HP+1800 / MP+90 / MR+60</td></tr>
+            <tr><td>寵物光明盔甲 (Lv.7)</td><td>AC -28</td><td>HP+2400 / MP+120 / MR+70</td></tr>
+            <tr><td><strong>寵物祝福盔甲 (Lv.8)</strong></td><td><strong>AC -32</strong></td><td><strong>HP+3600 / MP+180 / MR+80</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</details>
+
+            <details class="collapse-box">
+        <summary>★ 卡片介紹 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/展示商店.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:20%;">項目</th>
+                <th>內容說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>使用方式</td>
+                <td>
+                  <b>能力加成：</b>玩家可透過 <span style="color:var(--accent-cyan); font-weight:bold;">說話卷軸</span> 選項中 <span style="color:#FF4500; font-weight:bold;">商店→展示商店</span> 查看適合自己的娃娃與變身。<br>
+                  <b>變身造型：</b>玩家可透過 <span style="color:var(--accent-cyan); font-weight:bold;">說話卷軸</span> 選項中 <span style="color:#FF4500; font-weight:bold;">商店→藥水商店</span> 購買60秒試用變身藥水。<br>
+                  <b>變身速度：</b>請注意!! <span style="color:var(--accent-cyan); font-weight:bold;">相同類型的變身</span> 速度並非完全相同 <span style="color:#FF4500; font-weight:bold;">請務必</span> 購買變身藥水試用看看再做選擇。<br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 兌換碼 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/a17.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:20%;">項目</th>
+                <th>內容說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>兌換邀請碼</td>
+                <td>
+                  <b>取得方式：</b>玩家可透過 <span style="color:var(--accent-cyan); font-weight:bold;">擊殺 BOSS</span> 取得邀請碼，當 <span style="color:#FF4500; font-weight:bold;">BOSS 死亡</span> 時，會視窗中公告該邀請碼。<br>
+                  <b>使用方式：</b>取得邀請碼後，可直接由「聊天視窗」輸入兌換碼獲得獎勵。<br>
+                  <b>注意事項：</b>每組邀請碼僅限使用一次，玩家在遊戲中可互相分享兌換碼。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+
+            <details class="collapse-box">
+        <summary>★ 月卡介紹 ★</summary>
+        <div style="text-align:center; margin-bottom:15px;">
+          <img src="aaa/月卡.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+        </div>
+        <div class="collapse-body">
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:35%;">項目</th>
+                <th>功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>月卡(30天)</td><td>時間可持續疊加。</td></tr>
+              <tr><td>被動加成</td><td>300天↘每增加30天，+10%傷害倍率。<br>300天↗每增加30天，+2%傷害倍率。</td></tr>
+              <tr><td>高級簽到</td><td>普通簽到與高級簽到同時皆可領取。</td></tr>
+              <tr><td>一鍵出售</td><td>點擊後會自動出售身上武器裝備(不包含道具)。</td></tr>
+              <tr><td>定時出售</td><td>可設定30分鐘、60分鐘、180分鐘循環出售。</td></tr>
+              <tr><td>高寵系統</td><td>可與其他帳號角色進行連線。(瞬移會跟隨)</td></tr>
+              <tr><td>遠程倉庫</td><td>任何地點皆可開啟:個人倉庫、帳號倉庫、血盟倉庫。</td></tr>
+              <tr><td>掛機保護</td><td>掛機時不會被其他玩家攻擊。</td></tr>
+              <tr><td>離線收益</td><td>可獲得更長的時間與更高的收益。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+
+      <details class="collapse-box">
+        <summary>★ 說話卷軸 ★</summary>
+        <div style="text-align:center; margin-bottom:15px;">
+          <img src="aaa/說話卷軸.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+        </div>
+        <div class="collapse-body">
+          <p>多功能卷軸，可處理絕大多數的功能需求。</p>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:35%;">項目</th>
+                <th>功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>商店</td><td>開啟各式商店</td></tr>
+              <tr><td>回收</td><td>快速回收不需要的道具與裝備</td></tr>
+              <tr><td>領獎勵</td><td>領取各項活動獎勵與LINE獎勵</td></tr>
+              <tr><td>贊助</td><td>查看贊助資訊與儲值相關管道</td></tr>
+              <tr><td>內掛</td><td>設定與開啟遊戲內掛系統</td></tr>
+              <tr><td>排行榜</td><td>查看伺服器等級、能力等即時排行</td></tr>
+              <tr><td>經驗</td><td>查詢目前經驗藥水加成狀態</td></tr>
+              <tr><td>成就</td><td>查看成就進度與領取成就獎勵</td></tr>
+              <tr><td>天賦點</td><td>分配與重置角色天賦點數</td></tr>
+              <tr><td>任務</td><td>查詢主線與日常任務狀態</td></tr>
+              <tr><td>功能</td><td>其他綜合輔助設定與功能選項</td></tr>
+              <tr><td>紋樣點</td><td>開啟紋樣點數強化介面</td></tr>
+              <tr><td>整理</td><td>一鍵自動整理背包道具</td></tr>
+              <tr><td>攻城</td><td>查詢攻城戰時間、城主與相關資訊</td></tr>
+              <tr><td>變身卡</td><td>開啟變身卡片收集與切換介面</td></tr>
+              <tr><td>BOSS</td><td>查詢世界王（BOSS）重新整理時間與狀態</td></tr>
+              <tr><td>製作</td><td>隨身開啟裝備與道具製作選單</td></tr>
+              <tr><td>娃娃卡</td><td>開啟魔法娃娃卡片收集與裝備介面</td></tr>
+              <tr><td>倉庫</td><td>隨身開啟個人倉庫/血盟倉庫存取道具</td></tr>
+              <tr><td>高寵</td><td>設定與管理高等寵物/助手跟隨</td></tr>
+              <tr><td>交易所</td><td>隨身瀏覽與使用玩家交易所買賣物品</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 主線任務 ★</summary>
+        <div style="text-align:center; margin-bottom:15px;">
+          <img src="aaa/主線任務.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+        </div>
+        <div class="collapse-body">
+          <p>主線任務是遊戲的重要進度，帶領玩家探索城鎮、地牢與世界秘境。完成主線任務可以獲得大量經驗、金幣、專屬道具與變身卡，並解鎖更多遊戲內容。</p>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:35%;">任務</th>
+                <th>獎勵</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>哥布林 任務.1(1/30)</td><td>金幣(5000)、<span style="color:#00FF00;">普通變身卡[任選]</span></td></tr>
+              <tr><td>妖魔 任務.2(1/30)</td><td>金幣(10000)</td></tr>
+              <tr><td>地靈 任務.3(1/35)</td><td>金幣(15000)</td></tr>
+              <tr><td>妖魔弓箭手 任務.4(1/35)</td><td>金幣(20000)</td></tr>
+              <tr><td>侏儒 任務.5(1/40)</td><td>金幣(25000)、<span style="color:#00FF00;">對盔甲施法卷軸</span></td></tr>
+              <tr><td>人形殭屍 任務.6(1/40)</td><td>金幣(30000)</td></tr>
+              <tr><td>妖魔鬥士 任務.7(1/45)</td><td>金幣(35000)</td></tr>
+              <tr><td>冰原狼人 任務.8(1/45)</td><td>金幣(40000)、<span style="color:#00FF00;">普通娃娃卡[任選]</span></td></tr>
+              <tr><td>奇岩 安普 任務.9(1/50)</td><td>金幣(45000)</td></tr>
+              <tr><td>侏儒戰士 任務.10(1/50)</td><td>金幣(50000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>羅孚妖魔 任務.11(1/55)</td><td>金幣(55000)</td></tr>
+              <tr><td>甘地妖魔 任務.12(1/55)</td><td>金幣(60000)</td></tr>
+              <tr><td>骷髏 任務.13(1/60)</td><td>金幣(65000)</td></tr>
+              <tr><td>骷髏弓箭手 任務.14(1/60)</td><td>金幣(70000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>妖魔法師 任務.15(1/65)</td><td>金幣(75000)</td></tr>
+              <tr><td>蘑菇 任務.16(1/65)</td><td>金幣(80000)、<span style="color:#00FF00;">高級變身卡[任選]</span></td></tr>
+              <tr><td>骷髏斧手 任務.17(1/70)</td><td>金幣(85000)</td></tr>
+              <tr><td>骷髏槍兵 任務.18(1/70)</td><td>金幣(90000)</td></tr>
+              <tr><td>巨蟻 任務.19(1/75)</td><td>金幣(95000)</td></tr>
+              <tr><td>哈柏哥布林 任務.20(1/75)</td><td>金幣(100000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>蜥蜴人 任務.21(1/80)</td><td>金幣(105000)</td></tr>
+              <tr><td>都達瑪拉妖魔 任務.22(1/80)</td><td>金幣(110000)、<span style="color:#00FF00;">高級娃娃卡[任選]</span></td></tr>
+              <tr><td>妖魔殭屍 任務.23(1/85)</td><td>金幣(115000)</td></tr>
+              <tr><td>狼人 任務.24(1/85)</td><td>金幣(120000)</td></tr>
+              <tr><td>夏洛伯 任務.25(1/90)</td><td>金幣(125000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>黑騎士 任務.26(1/90)</td><td>金幣(130000)</td></tr>
+              <tr><td>食屍鬼 任務.27(1/95)</td><td>金幣(135000)、<span style="color:#00FF00;">稀有變身卡[任選]</span></td></tr>
+              <tr><td>阿吐巴妖魔 任務.28(1/95)</td><td>金幣(140000)</td></tr>
+              <tr><td>史巴托 任務.29(1/100)</td><td>金幣(145000)</td></tr>
+              <tr><td>萊肯 任務.30(1/100)</td><td>金幣(150000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>地獄犬 任務.31(1/105)</td><td>金幣(155000)</td></tr>
+              <tr><td>那魯加妖魔 任務.32(1/105)</td><td>金幣(160000)</td></tr>
+              <tr><td>巨大兵蟻 任務.33(1/110)</td><td>金幣(165000)</td></tr>
+              <tr><td>高侖石頭怪 任務.34(1/110)</td><td>金幣(170000)</td></tr>
+              <tr><td>楊果里恩 任務.35(1/115)</td><td>金幣(175000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>卡司特 任務.36(1/115)</td><td>金幣(180000)</td></tr>
+              <tr><td>哈維 任務.37(1/120)</td><td>金幣(185000)、<span style="color:#00FF00;">稀有娃娃卡[任選]</span></td></tr>
+              <tr><td>歐熊 任務.38(1/120)</td><td>金幣(190000)</td></tr>
+              <tr><td>食人妖精 任務.39(1/125)</td><td>金幣(195000)</td></tr>
+              <tr><td>長者 任務.40(1/125)</td><td>金幣(200000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>多羅 任務.41(1/130)</td><td>金幣(205000)</td></tr>
+              <tr><td>強盜(劍) 任務.42(1/130)</td><td>金幣(210000)</td></tr>
+              <tr><td>卡司特王 任務.43(1/135)</td><td>金幣(215000)</td></tr>
+              <tr><td>強盜(槌) 任務.44(1/135)</td><td>金幣(220000)</td></tr>
+              <tr><td>強盜頭目 任務.45(1/140)</td><td>金幣(225000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>莫妮亞 任務.46(1/140)</td><td>金幣(230000)</td></tr>
+              <tr><td>黑暗精靈 任務.47(1/145)</td><td>金幣(235000)</td></tr>
+              <tr><td>思克巴 任務.48(1/145)</td><td>金幣(240000)</td></tr>
+              <tr><td>食人妖精王 任務.49(1/150)</td><td>金幣(245000)</td></tr>
+              <tr><td>阿魯巴 任務.50(1/150)</td><td>金幣(250000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>亞力安 任務.51(1/155)</td><td>金幣(255000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>歐吉 任務.52(1/155)</td><td>金幣(260000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>思克巴女皇 任務.53(1/160)</td><td>金幣(265000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>骷髏警衛 任務.54(1/160)</td><td>金幣(270000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>骷髏神射手 任務.55(1/165)</td><td>金幣(275000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>骷髏鬥士 任務.56(1/165)</td><td>金幣(280000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>邪惡蜥蜴 任務.57(1/170)</td><td>金幣(285000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>獨眼巨人 任務.58(1/170)</td><td>金幣(290000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>飛龍 任務.59(1/3)</td><td>金幣(295000)、<span style="color:#00FF00;">對武器施法卷軸(祝福)、對盔甲施法卷軸(祝福)</span></td></tr>
+              <tr><td>黑長者 任務.60(1/1)</td><td>金幣(300000)、<span style="color:#00FF00;">對武器施法卷軸(祝福)、對盔甲施法卷軸(祝福)</span></td></tr>
+              <tr><td>變形怪 任務.61(1/180)</td><td>金幣(305000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>鯊魚 任務.62(1/180)</td><td>金幣(310000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>龍龜 任務.63(1/180)</td><td>金幣(315000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>伊萊克頓 任務.64(1/185)</td><td>金幣(320000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>奎斯坦修 任務.65(1/185)</td><td>金幣(325000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>希爾黛斯 任務.66(1/185)</td><td>金幣(330000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>火炎蛋 任務.67(1/190)</td><td>金幣(335000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>爆彈花 任務.68(1/190)</td><td>金幣(340000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>火蜥蜴 任務.69(1/190)</td><td>金幣(345000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>龍蠅 任務.70(1/195)</td><td>金幣(350000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>火焰戰士 任務.71(1/195)</td><td>金幣(355000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>火焰弓箭手 任務.72(1/195)</td><td>金幣(360000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>烈炎獸 任務.73(1/200)</td><td>金幣(365000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>阿西塔基奧 任務.74(1/200)</td><td>金幣(370000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>熔岩高崙 任務.75(1/200)</td><td>金幣(375000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>影魔 任務.76(1/205)</td><td>金幣(380000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>密密 任務.77(1/205)</td><td>金幣(385000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>艾爾摩法師 任務.78(1/205)</td><td>金幣(390000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>死神 任務.79(1/210)</td><td>金幣(395000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>艾爾摩士兵 任務.80(1/210)</td><td>金幣(400000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>艾爾摩將軍 任務.81(1/210)</td><td>金幣(405000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>活鎧甲 任務.82(1/215)</td><td>金幣(410000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>雪人 任務.83(1/215)</td><td>金幣(415000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>雪怪 任務.84(1/215)</td><td>金幣(420000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>冰原老虎 任務.85(1/220)</td><td>金幣(425000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>鋼鐵高崙 任務.86(1/220)</td><td>金幣(430000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>冰石高崙 任務.87(1/220)</td><td>金幣(435000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>冰人 任務.88(1/225)</td><td>金幣(440000)、<span style="color:#00FF00;">對武器施法卷軸、對盔甲施法卷軸</span></td></tr>
+              <tr><td>死亡騎士 任務.89(1/1)</td><td>金幣(445000)、<span style="color:#00FF00;">英雄娃娃卡[任選]</span></td></tr>
+              <tr><td>不死鳥 任務.90(1/1)</td><td>金幣(450000)、<span style="color:#00FF00;">英雄變身卡[任選]</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+                        <details class="collapse-box">
+        <summary>★ 關卡任務 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/關卡任務.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+            <img src="aaa/關卡任務2.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>規則說明</td><td>按照圖上操作即可前往關卡地圖。<br>
+              達成任務後即可獲得獎勵，進去地圖需有對應憑證，因此無法跳曾獲協助他人。<br>
+              怪物強度是1.5倍層層往上增加的，即便最頂裝也未必能打到頂層，純屬挑戰極限的設計。<br> 
+              </td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ BOSS介紹 ★</summary>
+        <div style="text-align:center; margin-bottom:15px;">
+          <img src="aaa/boss.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+        </div>
+        <div class="collapse-body">
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:20%;">項目</th>
+                <th>內容說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>BOSS介紹</td>
+                <td>
+                  <b>重生時間：</b><br>
+                  BOSS(小)重生時間為 <span style="color:#FF4500; font-weight:bold;">30~60分鐘</span>。<br>
+                  BOSS(大)重生時間為 <span style="color:#FF4500; font-weight:bold;">120~300分鐘</span>。<br>
+                  <b>重生強化：</b><br>
+                  BOSS死亡後下次重生各項屬性會強化:<span style="color:#FF4500; font-weight:bold;">10-20%</span>，重啟後將會重置。<br>
+                  <b>兌換碼：</b><br>
+                  每種BOSS死亡會喊兌換碼，<span style="color:#FF4500; font-weight:bold;">「對話框」</span>輸入兌換碼即可獲得獎勵。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box" open>
+        <summary>★ 附加詞條 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/暗黑系統.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:25%;">類別</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>詞條介紹</td>
+                <td>
+                  詞條說明：<span style="color:#00FF7F; font-weight:bold;">此為仿照暗黑破壞神系統，武器裝備會有隨機附加屬性共(300多種變化)。</span> <br>
+                  取得方式(一)：<span style="color:#FFD700; font-weight:bold;">打怪/寶箱 機率附加獲得(製作或購買的不會出現詞條)。</span> <br>
+                  取得方式(二)：<span style="color:#00FF7F; font-weight:bold;">玩家也可以透過武防屬性附加石，給予武器裝備增添詞條。</span> <br>
+                  詞條效果：<span style="color:#FF69B4; font-weight:bold;">隨機增加傷害、減免、回血、回魔、魔攻等特殊加成</span> <br>
+                  詞條種類：<span style="color:#00FF7F; font-weight:bold;">高級(1)→稀有(2)→英雄(3)→傳說(4)→神神話(5)→帝王(6)。</span> <br>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 陣營積分 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/陣營積分.jpg" alt="陣營積分說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:25%;">類別</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>積分來源</td>
+                <td>陣營積分主要由 <span style="color:#FFD700; font-weight:bold;">寶區狩獵獲得</span>,擊殺怪物即可持續累積。</td>
+              </tr>
+              <tr>
+                <td>積分用途</td>
+                <td>提升陣營等級後,可獲得 <span style="color:#00FF7F; font-weight:bold;">永久能力加成</span>,屬於後期相當重要的養成系統。</td>
+              </tr>
+              <tr>
+                <td>陣營效果</td>
+                <td>
+                  <span style="color:#FF4500; font-weight:bold;">火屬：</span>近距離攻擊、命中提升<br>
+                  <span style="color:#00BFFF; font-weight:bold;">風屬：</span>遠距離攻擊、命中提升<br>
+                  <span style="color:#ADFF2F; font-weight:bold;">地屬：</span>傷害減免、防禦提升<br>
+                  <span style="color:#1E90FF; font-weight:bold;">水屬：</span>魔法攻擊、回魔量提升<br>
+                </td>
+              </tr>
+              <tr>
+                <td>積分需求</td>
+                <td>
+                  Lv1：0 | Lv2：1,000 | Lv3：5,000 | Lv4：25,000 | Lv5：125,000<br>
+                  Lv6：625,000 | Lv7：3,125,000 | Lv8：15,625,000 | Lv9：78,125,000 | Lv10：390,625,000
+                </td>
+              </tr>
+              <tr>
+                <td>注意事項</td>
+                <td>陣營等級越高,能力加成越強。死亡時會損失部分積分,建議於寶區穩定累積。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 紋樣系統 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/紋樣系統.jpg" alt="紋樣介紹圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:25%;">紋樣種類</th>
+                <th>能力介紹 (Lv.1 ➔ Lv.30 滿級)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">1. 殷海薩紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> HP +5、各項狀態耐性 +1<br><span style="color:#FF69B4;">Lv.30：</span> HP +150、昏迷耐性 +10、石化/睡眠/冰凍/支撐耐性 +20</td>
+              </tr>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">2. 伊娃紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> HP +10、藥水回復 +1%、藥水回復量 +2<br><span style="color:#FF69B4;">Lv.30：</span> HP +300、藥水回復 +20%、藥水回復量 +20</td>
+              </tr>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">3. 帕格里紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> 近/遠攻擊 +1、近/遠命中 +1、魔攻 +1、狩獵經驗 +1%<br><span style="color:#FF69B4;">Lv.30：</span> 近/遠攻擊 +10、近/遠命中 +10、魔攻 +8、狩獵經驗 +10%</td>
+              </tr>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">4. 馬普勒紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> 防禦 +1、HP +10、魔防 +1、傷害減免 +1<br><span style="color:#FF69B4;">Lv.30：</span> 防禦 +10、HP +300、魔防 +25、傷害減免 +7</td>
+              </tr>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">5. 格蘭肯紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> HP +8、MP +3、傷害減免 +1<br><span style="color:#FF69B4;">Lv.30：</span> HP +240、MP +90、傷害減免 +10</td>
+              </tr>
+              <tr>
+                <td style="color:#FFD700; font-weight:bold; text-align:center;">6. 沙哈紋樣</td>
+                <td><span style="color:#00FF7F;">Lv.1：</span> 閃避(ER) +1、PVP傷害 +1、PVP減免 +1<br><span style="color:#FF69B4;">Lv.30：</span> 閃避(ER) +8、PVP傷害 +10、PVP減免 +8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 殺王系統 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/殺王排行.jpg" alt="殺王數說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:25%;">類別</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>取得方式</td>
+                <td>殺王數透過 <span style="color:#FFD700; font-weight:bold;">擊殺頭目(BOSS)</span> 獲得,每擊殺一次即累積1點。</td>
+              </tr>
+              <tr>
+                <td>系統用途</td>
+                <td>累積殺王數可提升 <span style="color:#00FF7F; font-weight:bold;">威望階級</span>,並獲得對應能力加成。</td>
+              </tr>
+              <tr>
+                <td>階級需求</td>
+                <td>
+                  二兵(1~30) | 一兵(31~60) | 上兵(61~100) | 下士(101~200) | 中士(201~400)<br>
+                  上士(401~600) | 少尉(601~1000) | 中尉(1001~1300) | 上尉(1301~1600) | 少校(1601~2100)<br>
+                  中校(2101~2500) | 上校(2501~2900) | 少將(2901~3500) | 中將(3501~4000) | 上將(4001以上)
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 寶區介紹 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/寶區.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr>
+                <th style="width:25%;">類別</th>
+                <th>說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>前往方式</td>
+                <td>透過 <span style="color:#FFD700; font-weight:bold;">說話卷軸傳送</span>。寶區1~7樓都打通的,可以爬樓梯上樓~*</td>
+              </tr>
+              <tr>
+                <td>掉落物品</td>
+                <td><span style="color:#00FF7F; font-weight:bold;">寶區裝備</span>,屬性卷軸、祝福卷軸、祝武防卷、武器及防具金幣等等。</td>
+              </tr>
+              <tr>
+                <td>寶區裝備介紹</td>
+                <td>
+                  寶區裝備類型為「護身符」,穿著身上獲額外加成。<br>
+                  寶區強化卷軸安定值0且會爆。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 假人淘寶 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/假人售賣.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>功能說明</td><td>提供玩家搜刮寶物與道具。<span style="color:#00FF7F;">(金幣購買)</span>包裝武器、裝備、魔法書、商城道具！</td></tr>
+              <tr><td>注意事項</td><td>約4~6小時或伺服器重啟更換商品。各大村莊皆有假人售賣。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 寵物圖鑑 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/寵物圖鑑.png" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>功能說明</td><td>擊殺指定怪物機率可獲得圖鑑，雙擊直接登入成就以增加被動效果。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 高寵系統 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/119.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>功能說明</td><td>高寵會自動瞬移跟隨主人，直到手動關閉。同時僅能連線一位角色。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="collapse-box">
+        <summary>★ 寶石凹槽 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/夢幻之島.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>功能說明</td><td>武器防具可進行打洞、並塞入寶石(夢幻之島掉落)。武器上限3顆、防具上限1顆。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+                  <details class="collapse-box">
+        <summary>★ 在線抽獎 ★</summary>
+        <div class="collapse-body">
+          <div style="text-align:center; margin-bottom:15px;">
+            <img src="aaa/在線抽獎.jpg" alt="說明圖" style="max-width:100%; height:auto; border-radius:10px;">
+          </div>
+          <table border="1" cellspacing="0" cellpadding="6">
+            <thead>
+              <tr><th style="width:30%;">項目</th><th>內容說明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>規則說明</td><td>1.每個整點的三十分進行抽取一名幸運玩家。<br>
+              2.在線人數須超過10人並等級須超過50級。<br>
+              3.每個時段獎勵略有不同，也會持續更新去調換。<br> 
+              </td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+<details class="collapse-box">
+  <summary>★ 屬性卷軸 ★</summary>
+  <div class="collapse-body">
+    <div style="margin-bottom: 12px; line-height: 1.6;">
+      <p style="margin: 0 0 6px 0;"><strong>【機制說明】</strong></p>
+      <ul style="margin: 0; padding-left: 20px;">
+        <li><strong>地屬性（吸血）：</strong>攻擊發動時，回復對應數值的 HP。</li>
+        <li><strong>水屬性（吸魔）：</strong>攻擊發動時，回復對應數值的 MP。</li>
+        <li><strong>風屬性（範傷）：</strong>攻擊發動時，造成額外的範圍傷害。</li>
+        <li><strong>火屬性（爆擊）：</strong>攻擊發動時，額外增加對應百分比的爆擊傷害。</li>
+        <li><strong>強化規則：</strong>屬性最高可強化至 <strong>10 級</strong>（強化失敗通常不倒退，依伺服器設定為主）。</li>
+      </ul>
+    </div>
+
+    <div style="overflow-x: auto;">
+      <table border="1" cellspacing="0" cellpadding="6" style="width: 100%; text-align: center; border-collapse: collapse;">
+        <thead>
+          <tr style="background-color: rgba(255,255,255,0.1);">
+            <th style="min-width: 90px;">屬性 / 項目</th>
+            <th>1級</th>
+            <th>2級</th>
+            <th>3級</th>
+            <th>4級</th>
+            <th>5級</th>
+            <th>6級</th>
+            <th>7級</th>
+            <th>8級</th>
+            <th>9級</th>
+            <th>10級</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>地屬性 (吸血)</strong></td>
+            <td>10</td><td>20</td><td>30</td><td>40</td><td>50</td>
+            <td>60</td><td>70</td><td>80</td><td>90</td><td>100</td>
+          </tr>
+          <tr>
+            <td><strong>水屬性 (吸魔)</strong></td>
+            <td>5</td><td>10</td><td>15</td><td>18</td><td>20</td>
+            <td>22</td><td>24</td><td>26</td><td>28</td><td>30</td>
+          </tr>
+          <tr>
+            <td><strong>風屬性 (範傷)</strong></td>
+            <td>15</td><td>30</td><td>45</td><td>60</td><td>75</td>
+            <td>90</td><td>105</td><td>120</td><td>135</td><td>150</td>
+          </tr>
+          <tr>
+            <td><strong>火屬性 (爆擊)</strong></td>
+            <td>10%</td><td>20%</td><td>30%</td><td>40%</td><td>50%</td>
+            <td>60%</td><td>70%</td><td>80%</td><td>90%</td><td>100%</td>
+          </tr>
+          <tr style="color: #AAA;">
+            <td>強化成功率</td>
+            <td>10%</td><td>5%</td><td>1%</td><td>0.8%</td><td>0.6%</td>
+            <td>0.4%</td><td>0.3%</td><td>0.2%</td><td>0.1%</td><td>0.1%</td>
+          </tr>
+          <tr style="color: #AAA;">
+            <td>攻擊發動率</td>
+            <td>1%</td><td>2%</td><td>3%</td><td>3%</td><td>4%</td>
+            <td>4%</td><td>5%</td><td>5%</td><td>6%</td><td>6%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</details>
+
+    
+  <details class="collapse-box">
+    <summary>★ 合併介紹 ★</summary>
+    <div class="collapse-body">
+
+      <div style="color:#fff; background-color:#222; padding:10px; line-height:1.6; border-radius:8px;">
+        <p><b style="color:#FFD700;">注意事項:</b><br>
+          1、本人講求效率、不喜歡不拖泥帶水，提前預告反而容易誤點或逾時，因此覺得時機適合、剛好有空，就會進行合併。<br>
+          2、觸發的因素與條件: 1.伺服器人數嚴重不足。 2.玩家等級裝備上差異不大 3.儲值的金額與伺服器記憶體損耗。 <br>
+          3、合併用的是『資料庫參數(指令)』出錯率極低，若有任何遺失狀況請在七日之內提出，避免備份資料遺失。<br>
+          4、本服是沒有關服的習慣，除非長達一個禮拜無一人登入才會考慮是否關閉，否則多以用合併的方式，保障玩家消費權益。<br>
+        </p>
+<br>
+<br>
+        <p><b style="color:#00BFFF;">玩家常見問題:</b><br>
+          1、血盟解散了，血盟倉庫的物品不見了?。<br>
+         <b style="color:#FF6666;">答:血盟倉庫的物品，會轉移至『創建血盟的王族個人倉庫內』。</b><br>
+<br>
+          2、我去王族血盟倉庫看了，有部分東西找不到!。<br>
+         <b style="color:#FF6666;">答:若部分東西找不到，可能是東西太多導致頁面無法顯示，請取出一些即可。</b><br>
+        </p>
+
+    </div>
+  </details>
+
+      </div>
+
+
+    <!-- ===================== tab4: 道具介紹 ===================== -->
+    <div id="tab4" class="tab-content">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+      </div>
+      <div class="section-title">★ 遊戲道具介紹 ★</div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/寵物治癒藥水.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">寵物治癒藥水</td><td>玩家使用可對所有寵物補血，放入寵物背包80%自動補血(治癒量:200)</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>商店購買</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/自動練功的葉子.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">練功葉子</td><td>使自動練功狀態下，可獲得與手動同樣經驗/掉寶倍率的效果</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>BOSS、龍副本、每日任務</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/10929.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">抽卡包</td><td>開啟後可獲得卡片進行登錄使用</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>每日金幣購買、遊戲活動、兌換碼獎勵。</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/928.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">武防祝福卷軸</td><td>使用後可將武器防具轉化為祝福</td></tr>
+              <tr><td style="color:#AAA;">使用效果</td><td style="color:#00FF7F;">[武器]傷害+2、[防具]HP+30、[飾品]MP+10</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+            <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/929.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">強化保護卷軸</td><td>加持武器防具所使用的保護卷(武器最高+19、防具最高+19</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/11414.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">紋樣系統</td><td>角色被動能力系統</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td><span style="color:#00FF7F;">金幣製作</span> 紋樣點數升級</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/6270.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">炫色卷軸</td><td>武器提升攻擊力／裝備提升 HP 上限</td></tr>
+              <tr><td style="color:#AAA;">武器效果</td><td>白(+1) → 綠(+2) → 藍(+3) → 紅(+4) → 紫(+5) → 金(+6)</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/19141.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">寶石鑲嵌</td><td>鑲嵌於裝備,提升武器或防具能力。武器/防具最多1洞</td></tr>
+              <tr><td style="color:#AAA;">升級方式</td><td>10 顆合成 1 顆,最高提升 2 級</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+                  <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/13048.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">贊助幣</td><td>購買贊助商城使用代幣</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>遊戲活動、在線抽獎、掛賣攤販、贊助等方式。</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+                  <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/16019.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">金元寶</td><td>購買元寶商店使用代幣</td></tr>
+              <tr><td style="color:#AAA;">取得方式</td><td>遊戲活動、簽到、在線抽獎、答題活動、贊助紅利。</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+            <div class="bullet">
+        <div class="item-row">
+          <div class="item-icon"><div class="icon-box"><img src="aaa/7696.png"></div></div>
+          <div class="item-table">
+            <table border="1" cellpadding="6">
+              <tr><td style="color:#FFD700; width:80px;">轉職藥水</td><td>商店購買使用</td></tr>
+              <tr><td style="color:#AAA;">注意事項</td><td>使用後原職業魔法消失,需自行重新取得</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; text-align:center;">
+        <a href="http://gamex123.com/" target="_blank">
+          <img src="http://imgur.com/08CqRqx.gif" style="width:80px; border-radius:10px;">
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== tab5: 檔案下載 ===================== -->
+    <div id="tab5" class="tab-content">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+      </div>
+      <div class="section-title">★ 遊戲懶人包下載說明 ★</div>
+
+
+        <!-- 1) 懶人包下載 -->
+  <details class="collapse-box" open>
+    <summary>★ 懶人包下載 ★</summary>
+    <div class="collapse-body">
+
+      <p style="color:#FF6666; font-weight:bold;">
+        此為遊戲懶人包壓縮檔,下載後解壓縮即可點擊資料夾內的「Login.exe」進行遊戲,無需額外申請遊戲帳號(首次輸入則為創建新帳號)。
+      </p>
+
+      <div style="text-align:center; margin:20px 0;">
+        <a href="https://drive.google.com/file/d/1ShOGJyAx8sWRgZpmewarJ1PwlOeVsGu7/view?usp=sharing" target="_blank" style="text-decoration:none;">
+          <img src="aaa/999.jpg" style="width:300px; border:2px solid #cc6600; border-radius:10px;">
+          <div style="color:#FFD700; margin-top:10px;">
+            戰天堂 V1.26 懶人包下載(Google 雲端)
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </details>
+
+      <!-- 2) 禮包碼 -->
+      <details class="collapse-box" open>
+        <summary>★ 遊戲禮包碼 ★</summary>
+        <div class="collapse-body">
+          <p class="event-time"><u style="color:#00BFFF;">■ 活動說明：</u><br>
+            遊戲中輸入：<span style="color:#00BFFF;">VIP888</span> 及 <span style="color:#FFD700;">VIP666</span>,即可領取 <span style="color:#FFD700;">開服獎勵</span>。
+          </p>
+
+          <p class="sub-title"><u style="color:#00BFFF;">■ 獎勵內容：</u></p>
+          <ul class="reward">
+            <li><span style="color:#00BFFF;">VIP888：</span> <span style="color:#FFD700;">＋2抗魔法斗篷(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP888：</span> <span style="color:#FFD700;">＋2抗魔法鏈甲(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP888：</span> <span style="color:#FFD700;">＋2抗魔法頭盔(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP888：</span> <span style="color:#FFD700;">＋0抗魔戒指(刻印)</span></li>
+            <br>
+            <li><span style="color:#00BFFF;">VIP666：</span>王族: <span style="color:#FFD700;">+3武士刀(刻印)、+3銀長劍(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP666：</span>騎士: <span style="color:#FFD700;">+3武士刀(刻印)、+3銀長劍(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP666：</span>妖精: <span style="color:#FFD700;">+3獵人之弓(刻印)、+3銀長劍(刻印)</span></li>
+            <li><span style="color:#00BFFF;">VIP666：</span>法師: <span style="color:#FFD700;">+3巫術魔法杖(刻印)、+3力量魔法杖(刻印)</span></li>
+          </ul>
+
+          <p class="sub-title"><u style="color:#00BFFF;">■ 注意事項：</u></p>
+          <ul class="bullet">
+            <li><span style="color:#FF6666;">每個遊戲角色僅可領取一次,無法重複領取獎勵。</span></li>
+            <li><span style="color:#FF6666;">抗魔系列裝備為全職業可使用。</span></li>
+            <li><span style="color:#FF6666;">武器裝備全部皆無法轉移或存放倉庫。</span></li>
+          </ul>
+        </div>
+      </details>
+
+            <!-- 3) LINE好禮 -->
+      <details class="collapse-box" open>
+        <summary>★ 加Line送好禮 ★</summary>
+        <div class="collapse-body">
+          <p class="event-time"><u style="color:#00BFFF;">■ 活動說明：</u><br>
+            加入官方LINE帳號：<span style="color:#00BFFF;">@482evvkr</span>,即可領取 <span style="color:#FFD700;">加LINE禮包</span>。
+          </p>
+
+          <p class="sub-title"><u style="color:#00BFFF;">■ 獎勵內容：</u></p>
+          <ul class="reward">
+            <li><span style="color:#00BFFF;">輕量 治癒藥水</span> <span style="color:#FFD700;">(20,000)</span></li>
+            <li><span style="color:#00BFFF;">名譽貨幣(刻印)</span> <span style="color:#FFD700;">(50)</span></li>
+            <li><span style="color:#00BFFF;">巧克力蛋糕(刻印)</span> <span style="color:#FFD700;">(30)</span></li>
+          </ul>
+
+          <p class="sub-title"><u style="color:#00BFFF;">■ 注意事項：</u></p>
+          <ul class="bullet">
+            <li><span style="color:#FF6666;">每一個LINE帳號，僅可以申請一個LINE獎勵。</span></li>
+            <li><span style="color:#FF6666;">若需要兩個LINE獎勵，則需要兩LINE帳號。(以此類推)</span></li>
+            <li><span style="color:#FF6666;">為節省您寶貴的時間，請加入LINE後直接提供遊戲帳號與角色ID，收到就可以直接發送囉！</span></li>
+          </ul>
+        </div>
+      </details>
+
+
+
+  <!-- 2) 無法下載 -->
+  <details class="collapse-box">
+    <summary>★ 無法下載懶人包(瀏覽器阻擋)★</summary>
+    <div class="collapse-body">
+      <p>請依照圖片指示操作：</p>
+      <img src="aaa/016.png" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="aaa/017.png" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
+  <!-- 3) Win10 相容問題 -->
+  <details class="collapse-box">
+    <summary>★ Win10 &Win11 無法遊玩天堂 ★</summary>
+    <div class="collapse-body">
+
+      <p><b style="color:#FFD700;">步驟一：</b><br>
+      右鍵 → 內容 → 相容性 → Windows 7<br>
+      勾選「高 DPI 設定替代」<br>
+      建議勾選「系統管理員身分執行」</p>
+
+      <p><b style="color:#FFD700;">步驟二：</b><br>
+      螢幕解析度調整為 1280×720 或 1024×768</p>
+
+      <p><b style="color:#FFD700;">步驟三：</b><br>
+      將 Login.dll、Login.exe 等檔案設為完全控制</p>
+
+    </div>
+  </details>
+
+  <!-- 4) 防毒誤判 -->
+  <details class="collapse-box">
+    <summary>★ 防毒軟體誤判處理 ★</summary>
+    <div class="collapse-body">
+      <img src="aaa/013.jpg" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="aaa/014.jpg" style="max-width:100%; border-radius:6px;">
+      <br><br>
+      <img src="aaa/015.jpg" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
+  <!-- 5) 閃退問題 -->
+  <details class="collapse-box">
+    <summary>★ 無法啟動 / 閃退解決方法(win7 或 顯示卡超過8年) ★</summary>
+    <div class="collapse-body">
+      <p>請移除以下檔案：</p>
+      <p style="color:#FF6666;">
+        dgVoodoo、D3D8.dll、D3D9.dll、D3DImm.dll、DDraw.dll<br>
+        或者直接雙擊  Windows7閃退請雙擊.bat
+      </p>
+      <img src="aaa/win7.jpg" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
+  <!-- 6) CreateSurface 錯誤 -->
+  <details class="collapse-box">
+    <summary>★ CreateSurface Failed 88760234 解決方法 ★</summary>
+    <div class="collapse-body">
+      <p>顯示卡未正確強制縮放導致 DPI 問題。</p>
+      <img src="aaa/007.jpg" style="max-width:100%; border-radius:6px;">
+    </div>
+  </details>
+
+  </div>
+
+
+
+<!-- ===================== 綜合掉落與怪物索引查詢 ===================== -->
+<div id="tab6" class="tab-content">
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+  </div>
+  <div style="text-align:center; margin-bottom:30px;">
+    <h2 style="color:var(--accent-cyan);">★ 綜合掉落查詢 ★</h2>
+    <br>
+    <input type="text" id="keyword" placeholder="輸入道具名稱 / 怪物名稱 / 地圖名稱" onkeyup="searchAll()" style="width:400px; padding:10px; font-size:16px;">
+  </div>
+  <div id="result"></div>
+</div>
+
+    <!-- ===================== tab3: 武器介紹 ===================== -->
+    <div id="tab3" class="tab-content">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+      </div>
+      <div class="section-title">★ 武器介紹 ★</div>
+      <div id="weapon-container"></div>
+    </div>
+
+    <!-- ===================== tab8: 防具介紹 ===================== -->
+    <div id="tab8" class="tab-content">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+      </div>
+      <div class="section-title">★ 防具介紹 ★</div>
+      <div id="armor-container"></div>
+    </div>
+
+<!-- JS: 綜合查詢系統 (改用 mobId 獨立區分同名怪物) -->
+  <script>
+    let DROPS = {};          
+    let MONSTER_MAP = {};    // Key 改用 mobId
+    let MONSTER_INFO = {};   // Key 改用 mobId
+
+    function formatRate(chance) {
+      const rate = chance / 10000;
+      if (rate < 0.01) return "<0.01%";
+      if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+      return rate.toFixed(2) + "%";
+    }
+
+    function rateClass(chance) {
+      const rate = chance / 10000;
+      if (rate >= 10) return "rate-high";
+      if (rate >= 1) return "rate-mid";
+      return "rate-low";
+    }
+
+    Promise.all([
+      fetch('droplist_new.json').then(r => r.json()).catch(() => ({})),
+      fetch('monsters_index.json').then(r => r.json()).catch(() => [])
+    ]).then(([dropData, monsterData]) => {
+      DROPS = dropData;
+
+      const mList = Array.isArray(monsterData) ? monsterData : Object.values(monsterData);
+      
+      // 1. 建立 MONSTER_INFO 索引（以 id 為主，同時支援用 name 快速查找）
+      mList.forEach(m => {
+        if (m && m.id !== undefined) {
+          MONSTER_INFO[m.id] = m;
+        }
+      });
+
+      // 2. 建立 MONSTER_MAP 索引（以 mobId 為主，解決同名怪掉落混淆）
+      for (const id in DROPS) {
+        const item = DROPS[id];
+        if (item.drops) {
+          item.drops.forEach(d => {
+            let mId = d.mobId;
+            // 備用防護：若舊資料沒有 mobId，嘗試透過名字從 MONSTER_INFO 反查 ID
+            if (!mId && d.mob) {
+              const matched = mList.find(m => m.name === d.mob);
+              if (matched) mId = matched.id;
+            }
+            if (!mId) mId = d.mob; // 若真的找不到 ID 則退回用名字
+
+            if (!MONSTER_MAP[mId]) { 
+              MONSTER_MAP[mId] = { mobName: d.mob, drops: [] }; 
+            }
+            MONSTER_MAP[mId].drops.push({ name: item.name, chance: d.chance });
+          });
+        }
+      }
+    });
+
+    function searchAll() {
+      const kw = document.getElementById("keyword").value.trim().toLowerCase();
+      const result = document.getElementById("result");
+      result.innerHTML = "";
+      if (!kw) return;
+
+      let found = false;
+      const matchedMobIds = new Set();
+      
+      // 搜尋符合的怪物 (透過 MONSTER_MAP 裡的 mobName 或 MONSTER_INFO 裡的資料)
+      for (const mId in MONSTER_MAP) {
+        const data = MONSTER_MAP[mId];
+        const info = MONSTER_INFO[mId] || {};
+        
+        const matchName = data.mobName && data.mobName.toLowerCase().includes(kw);
+        const matchMap = Array.isArray(info.maps) && info.maps.some(map => String(map).toLowerCase().includes(kw));
+        
+        if (matchName || matchMap) {
+          matchedMobIds.add(mId);
+        }
+      }
+
+      // 渲染怪物卡片（每個不重複的 mobId 獨立一張卡片）
+      matchedMobIds.forEach(mId => {
+        found = true;
+        const box = document.createElement("div");
+        box.className = "box";
+
+        let info = MONSTER_INFO[mId] || {};
+        let mobName = info.name || (MONSTER_MAP[mId] ? MONSTER_MAP[mId].mobName : mId);
+        let lvlText = info.lvl !== undefined ? `Lv. ${info.lvl}` : '未知等級';
+        let hpText = info.hp !== undefined ? `HP. ${Number(info.hp).toLocaleString()}` : '未知血量';
+        let mapTags = Array.isArray(info.maps) && info.maps.length > 0 
+          ? info.maps.map(mp => `<span class="tag" style="background:#3a2e2b; color:#ffa8a8;">${mp}</span>`).join(" / ") 
+          : '無';
+
+        let dropObj = MONSTER_MAP[mId];
+        let dropTags = '無';
+        if (dropObj && dropObj.drops && dropObj.drops.length > 0) {
+          dropObj.drops.sort((a,b) => b.chance - a.chance);
+          dropTags = dropObj.drops.map(item => `<span class="${rateClass(item.chance)}">${item.name} (${formatRate(item.chance)})</span>`).join(" / ");
+        }
+
+        let html = `
+          <div class="title mob-title">【怪物】${mobName}</div>
+          <table style="width:100%; margin: 6px 0; font-size: 14px;">
+            <tr>
+              <td style="width:50%; border:none; padding:2px 0; background:transparent;">等級：<span style="color:#00f3ff; font-weight:bold;">${lvlText}</span></td>
+              <td style="width:50%; border:none; padding:2px 0; background:transparent;">血量：<span style="color:#ffd700; font-weight:bold;">${hpText}</span></td>
+            </tr>
+          </table>
+          <div class="line" style="font-size: 14px; margin-bottom: 4px;">出沒地圖：${mapTags}</div>
+          <div class="line" style="font-size: 14px;">掉落物：${dropTags}</div>
+        `;
+
+        box.innerHTML = html;
+        result.appendChild(box);
+      });
+
+      // 道具搜尋維持原本樣式
+      for (const id in DROPS) {
+        const item = DROPS[id];
+        if (!item.name.toLowerCase().includes(kw)) continue;
+        
+        found = true;
+        const box = document.createElement("div");
+        box.className = "box";
+        let html = `<div class="title item-title">【道具】${item.name}</div>`;
+        
+        item.drops.sort((a,b) => b.chance - a.chance).forEach(d => {
+          let mobDisplayName = d.mob || `ID:${d.mobId}`;
+          html += `<div class="line ${rateClass(d.chance)}">- ${mobDisplayName} (${formatRate(d.chance)})</div>`;
+        });
+        
+        box.innerHTML = html;
+        result.appendChild(box);
+      }
+
+      if (!found) {
+        result.innerHTML = `<div style="color:#aaa;text-align:center; padding: 20px;">查無相關結果</div>`;
+      }
+    }
+  </script>
+
+<!-- JS: 武器載入 (修正同名怪掉落對應) -->
+  <script>
+    Promise.all([
+      fetch('weapon.json').then(r => r.json()).catch(() => []),
+      fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
+    ]).then(([weapons, drops]) => {
+      if (!weapons.length) return;
+      let html = "";
+      weapons.forEach(w => {
+        let dropInfo = "【製作】";
+        for (let id in drops) {
+          let dropName = drops[id].name.trim();
+          let weaponName = w.name.trim();
+          if (dropName === weaponName) {
+            let mobList = drops[id].drops.map(d => d.mob).filter(Boolean).join("、");
+            if (mobList) {
+              dropInfo = mobList;
+            }
+            break;
+          }
+        }
+        w.calculatedDropInfo = dropInfo;
+        w.isCrafted = (dropInfo === "【製作】");
+      });
+
+      weapons.sort((a, b) => {
+        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+        if (typeA !== typeB) return typeA.localeCompare(typeB);
+        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
+        return a.name.localeCompare(b.name, 'zh-Hant');
+      });
+
+      let lastType = null;
+      const allowedJobs = ["王族", "妖精", "騎士", "法師"];
+      const weaponTypeNames = {
+        "sword": "長劍", "dagger": "匕首", "tohandsword": "雙手劍", "bow": "弓",
+        "spear": "矛", "blunt": "鈍器", "staff": "魔杖", "edoryu": "雙刀",
+        "claw": "爪", "kiringku": "奇古獸", "singlespear": "單手矛",
+        "tohandblunt": "雙手鈍器", "singlebow": "單手弓", "tohandstaff": "雙手法杖", "chainsword": "鎖鏈劍"
+      };
+
+      function highlightKeyword(text) {
+        if (!text) return "";
+        return text.replace(/特殊:/g, '<span style="color: #ff4081; font-weight: bold;">特殊:</span>');
+      }
+
+      weapons.forEach(w => {
+        let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
+        if (lastType !== null && currentType !== lastType) {
+          html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
+        }
+        if (lastType !== currentType) {
+          let typeDisplayName = weaponTypeNames[currentType] || `類型 ${currentType}`;
+          html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName}一覽</td></tr></table></div>`;
+        }
+        lastType = currentType;
+
+        let filteredJobs = (w.jobs && w.jobs.length) ? w.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
+        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+        let jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
+        let effects = highlightKeyword((w.effects && w.effects.length) ? w.effects.join(" / ") : "-");
+
+        let safeVal = w.safenchant !== undefined ? w.safenchant : (w.SAFENCHANT !== undefined ? w.SAFENCHANT : "");
+        let safeText = "";
+        if (safeVal !== "" && safeVal !== null) {
+          safeText = Number(safeVal) === -1 ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>` : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+        }
+
+        html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${w.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">傷害 ${w.small} / ${w.large}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
+      });
+      const wc = document.getElementById("weapon-container");
+      if (wc) wc.innerHTML = html;
+    });
+  </script>
+
+<!-- JS: 防具載入 (修正同名怪掉落對應) -->
+  <script>
+    Promise.all([
+      fetch('armor.json').then(r => r.json()).catch(() => []),
+      fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
+    ]).then(([armors, drops]) => {
+      if (!armors.length) return;
+      let html = "";
+      const dropMap = new Map();
+      for (let id in drops) {
+        const dropName = drops[id].name.trim();
+        const mobList = drops[id].drops.map(d => d.mob).filter(Boolean).join("、");
+        dropMap.set(dropName, mobList);
+      }
+
+      armors.forEach(a => {
+        const armorName = a.name.trim();
+        if (dropMap.has(armorName)) {
+          a.calculatedDropInfo = dropMap.get(armorName);
+          a.isCrafted = false;
+        } else {
+          a.calculatedDropInfo = "【製作】";
+          a.isCrafted = true;
+        }
+      });
+
+      armors.sort((a, b) => {
+        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+        if (typeA !== typeB) return typeA.localeCompare(typeB);
+        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
+        return a.name.localeCompare(b.name, 'zh-Hant');
+      });
+
+      const allowedJobs = ["王族", "妖精", "騎士", "法師"];
+      let lastType = null;
+      const typeNames = {
+        "helm": "頭盔", "armor": "盔甲", "shield": "盾牌", "T": "T恤",
+        "cloak": "斗篷", "glove": "手套", "boots": "靴子", "ring": "戒指",
+        "amulet": "項鍊", "pants": "脛甲", "guarder": "臂甲", "earring": "耳環", "belt": "腰帶"
+      };
+
+      armors.forEach(a => {
+        let currentType = a.type !== undefined && a.type !== null ? String(a.type) : "unknown";
+        if (lastType !== null && currentType !== lastType) {
+          html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
+        }
+        if (lastType !== currentType) {
+          let typeDisplayName = typeNames[currentType] || currentType;
+          html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName} 一覽</td></tr></table></div>`;
+        }
+        lastType = currentType;
+
+        let filteredJobs = a.jobs.length ? a.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
+        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+        let jobs = a.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
+        let effects = a.effects.length ? a.effects.join(" / ") : "-";
+
+        let safeVal = a.safenchant !== undefined ? a.safenchant : (a.SAFENCHANT !== undefined ? a.SAFENCHANT : "");
+        let safeText = "";
+        if (safeVal !== "" && safeVal !== null) {
+          safeText = Number(safeVal) === -1 ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>` : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+        }
+
+        html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${a.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">AC ${a.ac}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
+      });
+      const ac = document.getElementById("armor-container");
+      if (ac) ac.innerHTML = html;
+    });
+  </script>
+
+
+  
+
+      <!-- ===================== tab7: 首頁 (更新公告) ===================== -->
+    <div id="tab7" class="tab-content active">
+      <div style="text-align:center; margin-bottom:20px;">
+        <img src="aaa/聖戰天堂.jpg" alt="聖戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+      </div>
+      <div class="section-title">★ 遊戲最新更新公告 ★</div>
+      <div class="update-list">
+
+           <details class="update-item" open>
+  <summary>11月份遊戲更新內容</summary>
+  <div class="update-body">
+            <img src="aaa/遊戲更新.jpg" style="max-width:100%; border-radius:6px;">
+        <p><span style="color:#b7ff0e;">近期籌備項目:</span></p>
+        <p><span style="color:#00FF7F;">「職業」</span>開放黑暗妖精。</p>
+        <p><span style="color:#00FF7F;">「新增」</span>拉斯塔巴德系列地圖。</p>
+        <hr>
+  </div>
+</details>
+
+
+        <details class="update-item" open>
+  <summary>★ 每週活動介紹 ★</summary>
+  <div class="update-body" style="display: flex; flex-direction: column; gap: 14px; padding-top: 10px;">
+          <img src="aaa/每週活動.jpg" style="max-width:100%; border-radius:6px;">
+
+    <!-- 活動 1：週末加倍 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00FF00; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #00FF00; font-weight: bold; font-size: 1.05em;">★ 週末加倍活動 ★</span>
+        <span style="background: rgba(0, 255, 0, 0.15); color: #98FB98; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 每週五 18:00 ~ 週日 18:00 (共48H)</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 0.95em;">
+        <div><span style="color: #FFD700;">經驗加倍：</span><strong>x2</strong></div>
+        <div><span style="color: #FFD700;">金幣加倍：</span><strong>x2</strong></div>
+        <div><span style="color: #FFD700;">掉寶加倍：</span><strong>x2</strong></div>
+      </div>
+    </div>
+
+    <!-- 活動 2：週三衝裝 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00BFFF; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #00BFFF; font-weight: bold; font-size: 1.05em;">★ 週三歡樂衝裝 ★</span>
+        <span style="background: rgba(0, 191, 255, 0.15); color: #87CEFA; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 每週三 18:00 ~ 週四 18:00 (共24H)</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.95em;">
+        <div><span style="color: #FFD700;">武器強化機率：</span><strong>+10%</strong></div>
+        <div><span style="color: #FFD700;">防具強化機率：</span><strong>+10%</strong></div>
+      </div>
+    </div>
+
+    <!-- 活動 3：每日夜間 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #BA55D3; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #DDA0DD; font-weight: bold; font-size: 1.05em;">★ 每日夜間活動 ★</span>
+        <span style="background: rgba(186, 85, 211, 0.15); color: #E6E6FA; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 每日 00:00 ~ 06:00</span>
+      </div>
+      <div style="font-size: 0.95em;">
+        活動期間內，<span style="color: #FFD700;">擊殺怪物後</span>可獲得<strong>金幣額外加成</strong>！
+      </div>
+    </div>
+
+    <!-- 活動 4：消費返還 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFA500; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #FFA500; font-weight: bold; font-size: 1.05em;">★ 消費返還活動 ★</span>
+        <span style="background: rgba(255, 165, 0, 0.15); color: #FFD700; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🔥 限時開放中</span>
+      </div>
+      <div style="font-size: 0.95em; margin-bottom: 8px;">
+        凡使用 <span style="color: #FFD700; font-weight: bold;">贊助幣</span> 購買商城道具，每消費1元即可獲得<span style="color: #9d96a5; font-weight: bold;"><strong>金元寶x1</strong></span>。
+      </div>
+      <div style="background: rgba(255, 80, 80, 0.12); color: #FF9999; font-size: 0.85em; padding: 6px 10px; border-radius: 4px;">
+        ⚠️ 注意：該活動隨時可能結束，請把握機會！
+      </div>
+    </div>
+
+    <!-- 活動 5：儲值排行 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #FFD700; font-weight: bold; font-size: 1.05em;">★ 每週儲值排行 ★</span>
+        <span style="background: rgba(255, 215, 0, 0.15); color: #FFE4B5; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 每週日 18:00 結算</span>
+      </div>
+      
+      <!-- 排名表格 -->
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 10px; font-size: 0.9em;">
+        <thead>
+          <tr style="background: rgba(255, 215, 0, 0.12); color: #FFD700;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>贊助幣 x5000</strong></td>
+            <td><strong>贊助幣 x3000</strong></td>
+            <td><strong>贊助幣 x2000</strong></td>
+            <td>贊助幣 x1000</td>
+            <td>贊助幣 x500</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 注意事項 -->
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 8px 10px; border-radius: 4px; line-height: 1.5;">
+        <div style="color: #FFD700; font-weight: bold; margin-bottom: 2px;">【結算規則與注意事項】</div>
+        <div>1. 若贊助金額相同，系統將依「贊助時間先後順序」進行排名。</div>
+        <div>2. <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">贊助金額需大於獎勵金額</span>，獎勵才會正式發送！</div>
+      </div>
+    </div>
+
+  </div>
+</details>
+
+<!-- ==================== 區塊一：開服即時獎勵 ==================== -->
+<details class="update-item" open>
+  <summary>★ 先鋒獎勵介紹 ★</summary>
+  <div class="update-body" style="display: flex; flex-direction: column; gap: 12px; padding-top: 10px;">
+          <img src="aaa/先鋒活動.jpg" style="max-width:100%; border-radius:6px;">
+
+    <!-- 共通活動時間與規則提示框 -->
+    <div style="background: rgba(0, 255, 127, 0.1); border: 1px solid rgba(0, 255, 127, 0.3); border-radius: 6px; padding: 10px 14px; font-size: 0.9em; line-height: 1.5;">
+      <div style="color: #00FF7F; font-weight: bold; margin-bottom: 4px;">🕒 活動期間：開服起 ~ 下下週日 18:00 結束（共 14 天）</div>
+      <div style="color: #E0E0E0;">⚠️ <strong>領獎規則：</strong>以下 5 項皆為系統「即時發放」獎勵，<strong>名額有限、送完為止</strong>，請把握開服黃金時間！</div>
+    </div>
+
+    <!-- 活動 1：衝等活動 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00FF7F; border-radius: 6px; padding: 10px 14px;">
+      <div style="color: #00FF7F; font-weight: bold; margin-bottom: 8px; font-size: 1.02em;">⚡ 衝等達成獎勵</div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(0, 255, 127, 0.12); color: #98FB98;">
+            <th>達成條件</th>
+            <th>Lv.55</th>
+            <th>Lv.60</th>
+            <th>Lv.65</th>
+            <th>Lv.70</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">獎勵內容</td>
+            <td><strong style="color: #FFD700;">金元寶 x100</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 30 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 20 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 10 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x500</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 5 名)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 活動 2：娃娃卡片 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00BFFF; border-radius: 6px; padding: 10px 14px;">
+      <div style="color: #00BFFF; font-weight: bold; margin-bottom: 8px; font-size: 1.02em;">🧸 娃娃卡片登錄獎勵</div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(0, 191, 255, 0.12); color: #87CEFA;">
+            <th>登錄數量</th>
+            <th>5 張</th>
+            <th>10 張</th>
+            <th>20 張</th>
+            <th>30 張</th>
+            <th>40 張</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">獎勵內容</td>
+            <td><strong style="color: #FFD700;">金元寶 x50</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 40 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x100</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 30 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x150</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 20 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 10 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 5 名)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 活動 3：變身卡片 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #BA55D3; border-radius: 6px; padding: 10px 14px;">
+      <div style="color: #DDA0DD; font-weight: bold; margin-bottom: 8px; font-size: 1.02em;">🎭 變身卡片登錄獎勵</div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(186, 85, 211, 0.12); color: #E6E6FA;">
+            <th>登錄數量</th>
+            <th>10 張</th>
+            <th>20 張</th>
+            <th>30 張</th>
+            <th>40 張</th>
+            <th>50 張</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">獎勵內容</td>
+            <td><strong style="color: #FFD700;">金元寶 x50</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 40 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x100</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 30 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x150</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 20 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 10 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 5 名)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 活動 4：主線達成 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFA500; border-radius: 6px; padding: 10px 14px;">
+      <div style="color: #FFA500; font-weight: bold; margin-bottom: 8px; font-size: 1.02em;">📜 主線任務達成獎勵</div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 165, 0, 0.12); color: #FFD700;">
+            <th>主線進度</th>
+            <th>1 / 90</th>
+            <th>10 / 90</th>
+            <th>20 / 90</th>
+            <th>30 / 90</th>
+            <th>40 / 90</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">獎勵內容</td>
+            <td><strong style="color: #FFD700;">金元寶 x50</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 50 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x100</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 40 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x150</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 30 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 20 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 10 名)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 活動 5：關卡達成 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FF6347; border-radius: 6px; padding: 10px 14px;">
+      <div style="color: #FF7F50; font-weight: bold; margin-bottom: 8px; font-size: 1.02em;">🏰 關卡任務達成獎勵</div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 99, 71, 0.12); color: #FFA07A;">
+            <th>關卡進度</th>
+            <th>1 / 30</th>
+            <th>10 / 30</th>
+            <th>15 / 30</th>
+            <th>20 / 30</th>
+            <th>25 / 30</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color: #CCC;">獎勵內容</td>
+            <td><strong style="color: #FFD700;">金元寶 x50</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 50 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x100</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 40 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x150</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 30 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 20 名)</span></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong><br><span style="font-size: 0.85em; color: #AAA;">(限 10 名)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</details>
+
+
+<!-- ==================== 區塊二：開服排行榜活動 ==================== -->
+<details class="update-item" open>
+  <summary>★ 排行活動介紹 ★</summary>
+  <div class="update-body" style="display: flex; flex-direction: column; gap: 14px; padding-top: 10px;">
+          <img src="aaa/開服活動.jpg" style="max-width:100%; border-radius:6px;">
+
+    <!-- 排行 1：變身排行榜 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #BA55D3; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #DDA0DD; font-weight: bold; font-size: 1.05em;">★ 變身排行榜 ★</span>
+        <span style="background: rgba(186, 85, 211, 0.15); color: #E6E6FA; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(186, 85, 211, 0.12); color: #E6E6FA;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">英雄變身卡<br>[任選] x1</strong></td>
+            <td><strong style="color: #00BFFF;">稀有變身卡<br>[任選] x2</strong></td>
+            <td><strong style="color: #00BFFF;">稀有變身卡<br>[任選] x1</strong></td>
+            <td>高級變身卡<br>[任選] x2</td>
+            <td>高級變身卡<br>[任選] x1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>入榜門檻：</strong>卡片數量若低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">10 張</span>，將不列入排行獎勵資格。</div>
+        <div>• <strong>同分規則：</strong>若數量相同，系統由 SQL 指令自動採「隨機」排名（非人為安排）。</div>
+      </div>
+    </div>
+
+    <!-- 排行 2：娃娃排行榜 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #00BFFF; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #00BFFF; font-weight: bold; font-size: 1.05em;">★ 娃娃排行榜 ★</span>
+        <span style="background: rgba(0, 191, 255, 0.15); color: #87CEFA; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(0, 191, 255, 0.12); color: #87CEFA;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">英雄娃娃卡<br>[任選] x1</strong></td>
+            <td><strong style="color: #00BFFF;">稀有娃娃卡<br>[任選] x2</strong></td>
+            <td><strong style="color: #00BFFF;">稀有娃娃卡<br>[任選] x1</strong></td>
+            <td>高級娃娃卡<br>[任選] x2</td>
+            <td>高級娃娃卡<br>[任選] x1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>入榜門檻：</strong>卡片數量若低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">10 張</span>，將不列入排行獎勵資格。</div>
+        <div>• <strong>同分規則：</strong>若數量相同，系統由 SQL 指令自動採「隨機」排名（非人為安排）。</div>
+      </div>
+    </div>
+
+    <!-- 排行 3：陣營排行榜 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FF4500; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #FF6347; font-weight: bold; font-size: 1.05em;">★ 陣營排行榜 ★</span>
+        <span style="background: rgba(255, 69, 0, 0.15); color: #FFA07A; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 69, 0, 0.12); color: #FFA07A;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">金元寶 x500</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong></td>
+            <td>金元寶 x100</td>
+            <td>金元寶 x50</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>積分來源：</strong>於寶區擊殺怪物獲得（進入地圖後請先選擇陣營）。</div>
+        <div>• <strong>入榜門檻：</strong>陣營積分低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">100 分</span>，將不列入排行獎勵資格。</div>
+      </div>
+    </div>
+
+    <!-- 排行 4：殺王排行榜 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #DC143C; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #FF6B81; font-weight: bold; font-size: 1.05em;">★ 殺王排行榜 ★</span>
+        <span style="background: rgba(220, 20, 60, 0.15); color: #FFB6C1; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(220, 20, 60, 0.12); color: #FFB6C1;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">金元寶 x500</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong></td>
+            <td>金元寶 x100</td>
+            <td>金元寶 x50</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>積分來源：</strong>擊殺 BOSS 即可累積殺王積分。</div>
+        <div>• <strong>入榜門檻：</strong>殺王積分低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">10 分</span>，將不列入排行獎勵資格。</div>
+      </div>
+    </div>
+
+    <!-- 排行 5：武器排行 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #FFD700; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #FFD700; font-weight: bold; font-size: 1.05em;">★ 武器強化排行 ★</span>
+        <span style="background: rgba(255, 215, 0, 0.15); color: #FFE4B5; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(255, 215, 0, 0.12); color: #FFD700;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">武防保護卷 x3</strong></td>
+            <td><strong style="color: #00BFFF;">武防保護卷 x2</strong></td>
+            <td><strong style="color: #00BFFF;">武防保護卷 x1</strong></td>
+            <td>祝福 對武器<br>施法卷軸 x3</td>
+            <td>對武器<br>施法卷軸 x10</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>入榜門檻：</strong>武器強化值若低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">+7</span>，將不列入排行獎勵資格。</div>
+        <div>• <strong>同分規則：</strong>若強化值相同，系統由 SQL 指令自動採「隨機」排名（非人為安排）。</div>
+      </div>
+    </div>
+
+    <!-- 排行 6：寵物排行 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #32CD32; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #7CFC00; font-weight: bold; font-size: 1.05em;">★ 寵物血量排行 ★</span>
+        <span style="background: rgba(50, 205, 50, 0.15); color: #98FB98; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(50, 205, 50, 0.12); color: #98FB98;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">鋼鐵之牙<br>(Lv.4) x1</strong></td>
+            <td><strong style="color: #00BFFF;">斗犬之牙<br>(Lv.3) x1</strong></td>
+            <td><strong style="color: #00BFFF;">破滅之牙<br>(Lv.2) x1</strong></td>
+            <td>獵犬之牙<br>(Lv.1) x1</td>
+            <td>寵物皮盔甲<br>(Lv.1) x1</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>評比標準：</strong>依照寵物 <span style="color: #FFD700; font-weight: bold;">HP 最大值</span> 進行排名。</div>
+        <div>• <strong>入榜門檻：</strong>寵物血量低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">HP 1000</span>，將不列入排行獎勵資格。</div>
+        <div>• <strong>重要提醒：</strong>結算時若將 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">寵物存放在倉庫</span>，系統將無法讀取，視同放棄資格！</div>
+      </div>
+    </div>
+
+    <!-- 排行 7：關卡排行 -->
+    <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.12); border-left: 4px solid #20B2AA; border-radius: 6px; padding: 12px 15px;">
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin-bottom: 10px; gap: 6px;">
+        <span style="color: #48D1CC; font-weight: bold; font-size: 1.05em;">★ 關卡進度排行 ★</span>
+        <span style="background: rgba(32, 178, 170, 0.15); color: #AFEEEE; font-size: 0.85em; padding: 2px 8px; border-radius: 4px;">🕒 開服起 ~ 下週日 18:00 結算</span>
+      </div>
+      <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; text-align: center; border-collapse: collapse; border-color: rgba(255,255,255,0.15); margin-bottom: 8px; font-size: 0.88em;">
+        <thead>
+          <tr style="background: rgba(32, 178, 170, 0.12); color: #AFEEEE;">
+            <th>第 1 名</th>
+            <th>第 2 名</th>
+            <th>第 3 名</th>
+            <th>第 4 - 6 名</th>
+            <th>第 7 - 10 名</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: #FFD700;">金元寶 x500</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x300</strong></td>
+            <td><strong style="color: #FFD700;">金元寶 x200</strong></td>
+            <td>金元寶 x100</td>
+            <td>金元寶 x50</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="background: rgba(255, 255, 255, 0.05); color: #CCC; font-size: 0.85em; padding: 7px 10px; border-radius: 4px; line-height: 1.5;">
+        <div>• <strong>入榜門檻：</strong>關卡進度若低於 <span style="color: #FF8888; font-weight: bold; text-decoration: underline;">1 級</span>，將不列入排行獎勵資格。</div>
+        <div>• <strong>同分規則：</strong>若關卡進度相同，系統由 SQL 指令自動採「隨機」排名（非人為安排）。</div>
+      </div>
+    </div>
+
+  </div>
+</details>
+
+
+            
+    <!-- 友站連結 -->
+    <div style="margin-top: 60px; text-align:center;">
+      <a href="http://gamex123.com/" target="_blank">
+        <img src="http://imgur.com/08CqRqx.gif" alt="友站連結" style="width:80px; border-radius:10px; box-shadow: 0 0 8px rgba(0,0,0,0.3);">
+      </a>
+    </div>
+</body>
+</html>
