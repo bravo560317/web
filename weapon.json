@@ -1,504 +1,1192 @@
 ﻿[
     {
-        "name":  "流星錘",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "妖精"
                  ],
-        "large":  10,
-        "type":  "blunt",
+        "id":  146,
         "effects":  [
 
                     ],
+        "name":  "流星錘",
+        "type":  "blunt",
+        "large":  10,
+        "safenchant":  6,
         "small":  9
     },
     {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  140,
+        "effects":  [
+
+                    ],
         "name":  "釘錘",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
+        "type":  "blunt",
         "large":  8,
-        "type":  "blunt",
-        "effects":  [
-
-                    ],
+        "safenchant":  6,
         "small":  6
     },
     {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  139,
+        "effects":  [
+
+                    ],
         "name":  "弗萊爾",
+        "type":  "blunt",
+        "large":  4,
         "safenchant":  6,
+        "small":  6
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  4,
-        "type":  "blunt",
+        "id":  138,
         "effects":  [
 
                     ],
-        "small":  6
-    },
-    {
         "name":  "木棒",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  3,
         "type":  "blunt",
-        "effects":  [
-
-                    ],
+        "large":  3,
+        "safenchant":  6,
         "small":  6
     },
     {
-        "name":  "亞連",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "妖精"
                  ],
-        "large":  4,
-        "type":  "blunt",
+        "id":  137,
         "effects":  [
 
                     ],
+        "name":  "亞連",
+        "type":  "blunt",
+        "large":  4,
+        "safenchant":  6,
         "small":  4
     },
     {
-        "name":  "斧",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  5,
-        "type":  "blunt",
+        "id":  136,
         "effects":  [
 
                     ],
+        "name":  "斧",
+        "type":  "blunt",
+        "large":  5,
+        "safenchant":  6,
         "small":  3
     },
     {
-        "name":  "製．赤焰之弓",
-        "safenchant":  6,
         "jobs":  [
                      "妖精"
                  ],
-        "large":  5,
-        "type":  "bow",
+        "id":  184,
         "effects":  [
                         "命中 +2",
                         "額外攻擊 +4",
-                        "敏捷 +2",
-                        "特殊:+9會發動魔法箭"
+                        "敏捷 +2"
                     ],
+        "name":  "製．赤焰之弓",
+        "type":  "bow",
+        "large":  5,
+        "safenchant":  6,
         "small":  5
     },
     {
-        "name":  "尤米弓",
-        "safenchant":  6,
         "jobs":  [
-                     "妖精"
+                     "妖精",
+                     "黑妖",
+                     "幻術"
                  ],
-        "large":  3,
-        "type":  "bow",
+        "id":  189,
         "effects":  [
-                        "額外攻擊 +3"
+                        "命中 +4",
+                        "額外攻擊 +6"
                     ],
-        "small":  3
+        "name":  "暗黑十字弓",
+        "type":  "bow",
+        "large":  5,
+        "safenchant":  6,
+        "small":  5
     },
     {
-        "name":  "十字弓",
-        "safenchant":  6,
         "jobs":  [
                      "騎士",
                      "妖精"
                  ],
-        "large":  2,
-        "type":  "bow",
+        "id":  180,
         "effects":  [
                         "命中 +3",
                         "額外攻擊 +2"
                     ],
+        "name":  "十字弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
         "small":  3
     },
     {
-        "name":  "精靈弓",
-        "safenchant":  6,
         "jobs":  [
                      "妖精"
                  ],
-        "large":  2,
+        "id":  181,
+        "effects":  [
+                        "額外攻擊 +3"
+                    ],
+        "name":  "尤米弓",
         "type":  "bow",
-        "effects":  [
-                        "額外攻擊 +1"
-                    ],
-        "small":  2
-    },
-    {
-        "name":  "獵人之弓",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  2,
-        "type":  "bow",
-        "effects":  [
-                        "命中 +5",
-                        "額外攻擊 +1"
-                    ],
-        "small":  2
-    },
-    {
-        "name":  "短弓",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  2,
-        "type":  "bow",
-        "effects":  [
-                        "額外攻擊 +-1"
-                    ],
-        "small":  2
-    },
-    {
-        "name":  "弓",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  1,
-        "type":  "bow",
-        "effects":  [
-
-                    ],
-        "small":  1
-    },
-    {
-        "name":  "受封印 被遺忘的弩槍",
-        "safenchant":  -1,
-        "jobs":  [
-                     "妖精",
-                     "幻術"
-                 ],
-        "large":  1,
-        "type":  "bow",
-        "effects":  [
-
-                    ],
-        "small":  1
-    },
-    {
-        "name":  "奧裡哈魯根短劍",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精",
-                     "黑妖"
-                 ],
-        "large":  7,
-        "type":  "dagger",
-        "effects":  [
-                        "額外攻擊 +2"
-                    ],
-        "small":  7
-    },
-    {
-        "name":  "歐西斯匕首",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精",
-                     "黑妖"
-                 ],
         "large":  3,
-        "type":  "dagger",
-        "effects":  [
-                        "命中 +2"
-                    ],
-        "small":  2
+        "safenchant":  6,
+        "small":  3
     },
     {
-        "name":  "古老的弩槍",
-        "safenchant":  6,
         "jobs":  [
                      "妖精",
                      "黑妖",
                      "幻術"
                  ],
-        "large":  3,
-        "type":  "singlebow",
+        "id":  177,
         "effects":  [
                         "命中 +5",
-                        "額外攻擊 +5",
-                        "特殊:+9會發動魔法箭"
+                        "額外攻擊 +2"
                     ],
+        "name":  "幽暗十字弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
         "small":  3
     },
     {
-        "name":  "矛",
+        "jobs":  [
+                     "妖精",
+                     "黑妖",
+                     "幻術"
+                 ],
+        "id":  186,
+        "effects":  [
+                        "命中 +2",
+                        "額外攻擊 +1",
+                        "敏捷 +1"
+                    ],
+        "name":  "狄亞得十字弓",
+        "type":  "bow",
+        "large":  3,
         "safenchant":  6,
+        "small":  3
+    },
+    {
+        "jobs":  [
+                     "妖精",
+                     "黑妖"
+                 ],
+        "id":  187,
+        "effects":  [
+                        "命中 +2",
+                        "額外攻擊 +2"
+                    ],
+        "name":  "拉斯塔巴德十字弓",
+        "type":  "bow",
+        "large":  3,
+        "safenchant":  6,
+        "small":  3
+    },
+    {
+        "jobs":  [
+                     "妖精",
+                     "幻術"
+                 ],
+        "id":  188,
+        "effects":  [
+                        "命中 +2",
+                        "額外攻擊 +3"
+                    ],
+        "name":  "拉斯塔巴德重十字弓",
+        "type":  "bow",
+        "large":  3,
+        "safenchant":  6,
+        "small":  3
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  8,
-        "type":  "singlespear",
+        "id":  173,
         "effects":  [
-
+                        "額外攻擊 +-1"
                     ],
-        "small":  6
+        "name":  "短弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
     },
     {
-        "name":  "帕提森",
+        "jobs":  [
+                     "妖精"
+                 ],
+        "id":  170,
+        "effects":  [
+                        "額外攻擊 +1"
+                    ],
+        "name":  "精靈弓",
+        "type":  "bow",
+        "large":  2,
         "safenchant":  6,
+        "small":  2
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
+                     "法師",
                      "妖精"
                  ],
-        "large":  6,
-        "type":  "singlespear",
+        "id":  169,
         "effects":  [
-
+                        "命中 +5",
+                        "額外攻擊 +1"
                     ],
-        "small":  6
+        "name":  "獵人之弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
     },
     {
-        "name":  "三叉戟",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
-                     "妖精"
+                     "妖精",
+                     "幻術"
                  ],
-        "large":  5,
-        "type":  "singlespear",
+        "id":  176,
         "effects":  [
-
+                        "命中 +2",
+                        "額外攻擊 +2"
                     ],
-        "small":  4
+        "name":  "拉斯塔巴德弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
     },
     {
-        "name":  "貝卡合金",
-        "safenchant":  6,
         "jobs":  [
-                     "騎士"
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "幻術"
                  ],
-        "large":  17,
-        "type":  "spear",
+        "id":  215,
+        "effects":  [
+                        "額外攻擊 +1",
+                        "敏捷 +1"
+                    ],
+        "name":  "敏捷精靈弓",
+        "type":  "bow",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  172,
         "effects":  [
 
                     ],
+        "name":  "弓",
+        "type":  "bow",
+        "large":  1,
+        "safenchant":  6,
+        "small":  1
+    },
+    {
+        "jobs":  [
+                     "妖精",
+                     "幻術"
+                 ],
+        "id":  167,
+        "effects":  [
+
+                    ],
+        "name":  "受封印 被遺忘的弩槍",
+        "type":  "bow",
+        "large":  1,
+        "safenchant":  -1,
+        "small":  1
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  164,
+        "effects":  [
+                        "命中 +4",
+                        "額外攻擊 +5",
+                        "發動率 +33%"
+                    ],
+        "name":  "暗黑鋼爪",
+        "type":  "claw",
+        "large":  18,
+        "safenchant":  6,
+        "small":  22
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  13,
+        "effects":  [
+                        "命中 +3",
+                        "額外攻擊 +2"
+                    ],
+        "name":  "死亡之指",
+        "type":  "claw",
+        "large":  15,
+        "safenchant":  6,
         "small":  17
     },
     {
-        "name":  "戟",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
-                     "騎士"
+                     "黑妖"
                  ],
-        "large":  12,
-        "type":  "spear",
+        "id":  161,
         "effects":  [
-
+                        "發動率 +33%"
                     ],
-        "small":  16
+        "name":  "大馬士革鋼爪",
+        "type":  "claw",
+        "large":  13,
+        "safenchant":  6,
+        "small":  17
     },
     {
-        "name":  "露西錘",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
-                     "騎士"
+                     "黑妖"
                  ],
-        "large":  17,
-        "type":  "spear",
+        "id":  162,
         "effects":  [
-                        "命中 +3"
+                        "額外攻擊 +3",
+                        "發動率 +33%"
                     ],
-        "small":  15
+        "name":  "幽暗鋼爪",
+        "type":  "claw",
+        "large":  15,
+        "safenchant":  6,
+        "small":  17
     },
     {
-        "name":  "法丘",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
-                     "騎士",
-                     "妖精"
+                     "黑妖"
                  ],
-        "large":  14,
-        "type":  "spear",
+        "id":  158,
         "effects":  [
-                        "命中 +3"
+                        "額外攻擊 +2",
+                        "發動率 +33%"
                     ],
+        "name":  "黑暗鋼爪",
+        "type":  "claw",
+        "large":  11,
+        "safenchant":  6,
         "small":  14
     },
     {
-        "name":  "闊矛",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
-                     "騎士",
-                     "妖精"
+                     "黑妖"
                  ],
-        "large":  16,
-        "type":  "spear",
+        "id":  159,
         "effects":  [
-
+                        "命中 +2",
+                        "發動率 +33%"
                     ],
+        "name":  "短鋼爪",
+        "type":  "claw",
+        "large":  12,
+        "safenchant":  6,
+        "small":  14
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  157,
+        "effects":  [
+                        "額外攻擊 +2",
+                        "發動率 +33%"
+                    ],
+        "name":  "銀光鋼爪",
+        "type":  "claw",
+        "large":  10,
+        "safenchant":  6,
+        "small":  13
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  154,
+        "effects":  [
+                        "命中 +1",
+                        "發動率 +33%"
+                    ],
+        "name":  "暗影鋼爪",
+        "type":  "claw",
+        "large":  10,
+        "safenchant":  6,
         "small":  12
     },
     {
-        "name":  "吉薩",
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  153,
+        "effects":  [
+                        "命中 +1",
+                        "發動率 +33%"
+                    ],
+        "name":  "鋼鐵鋼爪",
+        "type":  "claw",
+        "large":  8,
         "safenchant":  6,
+        "small":  10
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  152,
+        "effects":  [
+                        "命中 +2",
+                        "發動率 +33%"
+                    ],
+        "name":  "青銅鋼爪",
+        "type":  "claw",
+        "large":  7,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
-                     "妖精"
+                     "法師",
+                     "妖精",
+                     "黑妖"
                  ],
+        "id":  11,
+        "effects":  [
+                        "額外攻擊 +1"
+                    ],
+        "name":  "水晶短劍",
+        "type":  "dagger",
+        "large":  4,
+        "safenchant":  6,
+        "small":  10
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖"
+                 ],
+        "id":  10,
+        "effects":  [
+                        "命中 +1"
+                    ],
+        "name":  "小武士刀",
+        "type":  "dagger",
+        "large":  8,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖"
+                 ],
+        "id":  9,
+        "effects":  [
+                        "額外攻擊 +2"
+                    ],
+        "name":  "奧裡哈魯根短劍",
+        "type":  "dagger",
+        "large":  7,
+        "safenchant":  6,
+        "small":  7
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖"
+                 ],
+        "id":  1,
+        "effects":  [
+                        "命中 +2"
+                    ],
+        "name":  "歐西斯匕首",
+        "type":  "dagger",
+        "large":  3,
+        "safenchant":  6,
+        "small":  2
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  76,
+        "effects":  [
+                        "命中 +7",
+                        "額外攻擊 +2",
+                        "發動率 +25%"
+                    ],
+        "name":  "倫得雙刀",
+        "type":  "edoryu",
+        "large":  8,
+        "safenchant":  6,
+        "small":  18
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  84,
+        "effects":  [
+                        "命中 +4",
+                        "額外攻擊 +3",
+                        "發動率 +25%"
+                    ],
+        "name":  "暗黑雙刀",
+        "type":  "edoryu",
         "large":  14,
-        "type":  "spear",
+        "safenchant":  6,
+        "small":  18
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  80,
         "effects":  [
-
+                        "發動率 +25%"
                     ],
+        "name":  "大馬士革雙刀",
+        "type":  "edoryu",
+        "large":  9,
+        "safenchant":  6,
+        "small":  15
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  81,
+        "effects":  [
+                        "命中 +3",
+                        "額外攻擊 +1",
+                        "發動率 +25%"
+                    ],
+        "name":  "幽暗雙刀",
+        "type":  "edoryu",
+        "large":  10,
+        "safenchant":  6,
+        "small":  15
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  82,
+        "effects":  [
+                        "發動率 +25%"
+                    ],
+        "name":  "拉斯塔巴德雙刀",
+        "type":  "edoryu",
+        "large":  10,
+        "safenchant":  6,
+        "small":  15
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  83,
+        "effects":  [
+                        "發動率 +25%"
+                    ],
+        "name":  "狄亞得雙刀",
+        "type":  "edoryu",
+        "large":  11,
+        "safenchant":  6,
+        "small":  15
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  77,
+        "effects":  [
+                        "命中 +2",
+                        "發動率 +25%"
+                    ],
+        "name":  "短雙刀",
+        "type":  "edoryu",
+        "large":  8,
+        "safenchant":  6,
+        "small":  13
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  75,
+        "effects":  [
+                        "命中 +3",
+                        "發動率 +25%"
+                    ],
+        "name":  "黑暗雙刀",
+        "type":  "edoryu",
+        "large":  8,
+        "safenchant":  6,
         "small":  12
     },
     {
-        "name":  "鋼鐵瑪那魔杖",
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  72,
+        "effects":  [
+                        "命中 +1",
+                        "發動率 +25%"
+                    ],
+        "name":  "暗影雙刀",
+        "type":  "edoryu",
+        "large":  7,
         "safenchant":  6,
+        "small":  11
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  74,
+        "effects":  [
+                        "命中 +3",
+                        "發動率 +25%"
+                    ],
+        "name":  "銀光雙刀",
+        "type":  "edoryu",
+        "large":  8,
+        "safenchant":  6,
+        "small":  11
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  71,
+        "effects":  [
+                        "命中 +1",
+                        "發動率 +25%"
+                    ],
+        "name":  "鋼鐵雙刀",
+        "type":  "edoryu",
+        "large":  7,
+        "safenchant":  6,
+        "small":  10
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  69,
+        "effects":  [
+                        "命中 +2",
+                        "發動率 +25%"
+                    ],
+        "name":  "青銅雙刀",
+        "type":  "edoryu",
+        "large":  6,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "黑妖"
+                 ],
+        "id":  70,
+        "effects":  [
+                        "額外攻擊 +3",
+                        "發動率 +25%"
+                    ],
+        "name":  "尖刺雙刀",
+        "type":  "edoryu",
+        "large":  8,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "id":  193,
+        "effects":  [
+                        "命中 +1"
+                    ],
+        "name":  "鐵手甲",
+        "type":  "gauntlet",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
+    },
+    {
+        "jobs":  [
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "id":  194,
+        "effects":  [
+                        "命中 +3",
+                        "額外攻擊 +1"
+                    ],
+        "name":  "真鐵手甲",
+        "type":  "gauntlet",
+        "large":  2,
+        "safenchant":  6,
+        "small":  2
+    },
+    {
+        "jobs":  [
+                     "妖精",
+                     "黑妖",
+                     "幻術"
+                 ],
+        "id":  182,
+        "effects":  [
+                        "命中 +5",
+                        "額外攻擊 +5"
+                    ],
+        "name":  "古老的弩槍",
+        "type":  "singlebow",
+        "large":  3,
+        "safenchant":  6,
+        "small":  3
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  101,
+        "effects":  [
+
+                    ],
+        "name":  "拉斯塔巴德矛",
+        "type":  "singlespear",
+        "large":  8,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  96,
+        "effects":  [
+
+                    ],
+        "name":  "矛",
+        "type":  "singlespear",
+        "large":  8,
+        "safenchant":  6,
+        "small":  6
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  94,
+        "effects":  [
+
+                    ],
+        "name":  "帕提森",
+        "type":  "singlespear",
+        "large":  6,
+        "safenchant":  6,
+        "small":  6
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  95,
+        "effects":  [
+
+                    ],
+        "name":  "矛",
+        "type":  "singlespear",
+        "large":  8,
+        "safenchant":  6,
+        "small":  6
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  93,
+        "effects":  [
+
+                    ],
+        "name":  "三叉戟",
+        "type":  "singlespear",
+        "large":  5,
+        "safenchant":  6,
+        "small":  4
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  91,
+        "effects":  [
+
+                    ],
+        "name":  "歐西斯之矛",
+        "type":  "singlespear",
+        "large":  6,
+        "safenchant":  6,
+        "small":  4
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  107,
+        "effects":  [
+                        "命中 +4",
+                        "HP +50"
+                    ],
+        "name":  "深紅長矛",
+        "type":  "spear",
+        "large":  19,
+        "safenchant":  6,
+        "small":  19
+    },
+    {
+        "jobs":  [
+                     "騎士"
+                 ],
+        "id":  106,
+        "effects":  [
+
+                    ],
+        "name":  "貝卡合金",
+        "type":  "spear",
+        "large":  17,
+        "safenchant":  6,
+        "small":  17
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  103,
+        "effects":  [
+
+                    ],
+        "name":  "戟",
+        "type":  "spear",
+        "large":  12,
+        "safenchant":  6,
+        "small":  16
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  102,
+        "effects":  [
+                        "命中 +3"
+                    ],
+        "name":  "露西錘",
+        "type":  "spear",
+        "large":  17,
+        "safenchant":  6,
+        "small":  15
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  104,
+        "effects":  [
+                        "命中 +3"
+                    ],
+        "name":  "法丘",
+        "type":  "spear",
+        "large":  14,
+        "safenchant":  6,
+        "small":  14
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  98,
+        "effects":  [
+
+                    ],
+        "name":  "闊矛",
+        "type":  "spear",
+        "large":  16,
+        "safenchant":  6,
+        "small":  12
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  97,
+        "effects":  [
+
+                    ],
+        "name":  "吉薩",
+        "type":  "spear",
+        "large":  14,
+        "safenchant":  6,
+        "small":  12
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  90,
+        "effects":  [
+
+                    ],
+        "name":  "巴迪須",
+        "type":  "spear",
+        "large":  12,
+        "safenchant":  6,
+        "small":  10
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  92,
+        "effects":  [
+
+                    ],
+        "name":  "柴刀",
+        "type":  "spear",
+        "large":  17,
+        "safenchant":  6,
+        "small":  10
+    },
+    {
         "jobs":  [
                      "法師",
                      "幻術"
                  ],
-        "large":  13,
-        "type":  "staff",
+        "id":  127,
         "effects":  [
                         "命中 +2",
                         "額外攻擊 +3",
                         "力量 +2",
-                        "特殊:最大吸魔值+4"
+                        "魔攻 +1"
                     ],
+        "name":  "鋼鐵瑪那魔杖",
+        "type":  "staff",
+        "large":  13,
+        "safenchant":  6,
         "small":  13
     },
     {
-        "name":  "力量魔法杖",
-        "safenchant":  6,
         "jobs":  [
                      "法師"
                  ],
-        "large":  9,
-        "type":  "staff",
+        "id":  131,
         "effects":  [
-                        "額外攻擊 +3"
+                        "額外攻擊 +3",
+                        "魔攻 +-2"
                     ],
+        "name":  "力量魔法杖",
+        "type":  "staff",
+        "large":  9,
+        "safenchant":  6,
         "small":  9
     },
     {
-        "name":  "瑪那魔杖",
-        "safenchant":  6,
         "jobs":  [
                      "法師"
                  ],
-        "large":  7,
-        "type":  "staff",
+        "id":  126,
         "effects":  [
                         "命中 +-2",
-                        "特殊:最大吸魔值+2"
+                        "魔攻 +1"
                     ],
+        "name":  "瑪那魔杖",
+        "type":  "staff",
+        "large":  7,
+        "safenchant":  6,
         "small":  7
     },
     {
-        "name":  "美基魔法杖",
-        "safenchant":  6,
         "jobs":  [
                      "法師"
                  ],
-        "large":  5,
-        "type":  "staff",
+        "id":  129,
         "effects":  [
-
+                        "魔攻 +3",
+                        "魔法傷害 +3"
                     ],
+        "name":  "美基魔法杖",
+        "type":  "staff",
+        "large":  5,
+        "safenchant":  6,
         "small":  4
     },
     {
-        "name":  "橡木魔法杖",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  4,
-        "type":  "staff",
+        "id":  128,
         "effects":  [
-
+                        "魔攻 +1",
+                        "魔法傷害 +1"
                     ],
+        "name":  "橡木魔法杖",
+        "type":  "staff",
+        "large":  4,
+        "safenchant":  6,
         "small":  3
     },
     {
-        "name":  "巫術魔法杖",
-        "safenchant":  6,
         "jobs":  [
                      "法師"
                  ],
-        "large":  3,
-        "type":  "staff",
+        "id":  125,
         "effects":  [
-
+                        "魔攻 +1"
                     ],
+        "name":  "巫術魔法杖",
+        "type":  "staff",
+        "large":  3,
+        "safenchant":  6,
         "small":  2
     },
     {
-        "name":  "受封印 被遺忘的法杖",
-        "safenchant":  -1,
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "id":  122,
+        "effects":  [
+                        "魔攻 +1"
+                    ],
+        "name":  "拉斯塔巴德魔杖",
+        "type":  "staff",
+        "large":  3,
+        "safenchant":  6,
+        "small":  2
+    },
+    {
         "jobs":  [
                      "妖精",
                      "幻術"
                  ],
-        "large":  1,
-        "type":  "staff",
+        "id":  276,
         "effects":  [
 
                     ],
+        "name":  "受封印 被遺忘的法杖",
+        "type":  "staff",
+        "large":  1,
+        "safenchant":  -1,
         "small":  1
     },
     {
-        "name":  "古老的劍",
+        "jobs":  [
+                     "法師"
+                 ],
+        "id":  115,
+        "effects":  [
+
+                    ],
+        "name":  "水晶魔杖",
+        "type":  "staff",
+        "large":  1,
         "safenchant":  6,
+        "small":  1
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
@@ -506,240 +1194,355 @@
                      "黑妖",
                      "龍騎"
                  ],
-        "large":  20,
-        "type":  "sword",
+        "id":  68,
         "effects":  [
                         "命中 +5",
-                        "額外攻擊 +8",
-                        "特殊:發動“光裂術”"
+                        "額外攻擊 +8"
                     ],
+        "name":  "古老的劍",
+        "type":  "sword",
+        "large":  20,
+        "safenchant":  6,
         "small":  35
     },
     {
-        "name":  "製．黑燄之劍",
-        "safenchant":  6,
         "jobs":  [
                      "騎士"
                  ],
-        "large":  13,
-        "type":  "sword",
+        "id":  56,
         "effects":  [
                         "命中 +2",
                         "額外攻擊 +8",
-                        "力量 +2",
-                        "特殊:發動“烈焰術”"
+                        "力量 +2"
                     ],
+        "name":  "製．黑燄之劍",
+        "type":  "sword",
+        "large":  13,
+        "safenchant":  6,
         "small":  19
     },
     {
-        "name":  "製．赤焰之劍",
-        "safenchant":  6,
         "jobs":  [
                      "妖精"
                  ],
-        "large":  9,
-        "type":  "sword",
+        "id":  50,
         "effects":  [
                         "命中 +4",
                         "額外攻擊 +5",
-                        "力量 +2",
-                        "特殊:發動“烈焰術”"
+                        "力量 +2"
                     ],
+        "name":  "製．赤焰之劍",
+        "type":  "sword",
+        "large":  9,
+        "safenchant":  6,
         "small":  17
     },
     {
-        "name":  "細劍",
+        "jobs":  [
+                     "騎士",
+                     "龍騎"
+                 ],
+        "id":  57,
+        "effects":  [
+                        "命中 +2"
+                    ],
+        "name":  "瑟魯基之劍",
+        "type":  "sword",
+        "large":  10,
         "safenchant":  6,
+        "small":  16
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精",
+                     "龍騎"
+                 ],
+        "id":  49,
+        "effects":  [
+                        "命中 +1",
+                        "額外攻擊 +2"
+                    ],
+        "name":  "武官之刃",
+        "type":  "sword",
+        "large":  10,
+        "safenchant":  6,
+        "small":  13
+    },
+    {
+        "jobs":  [
+                     "妖精"
+                 ],
+        "id":  44,
+        "effects":  [
+                        "命中 +3",
+                        "額外攻擊 +1",
+                        "敏捷 +1",
+                        "HP +50"
+                    ],
+        "name":  "古代黑暗妖精之劍",
+        "type":  "sword",
+        "large":  12,
+        "safenchant":  6,
+        "small":  12
+    },
+    {
         "jobs":  [
                      "騎士",
                      "妖精",
                      "黑妖",
                      "龍騎"
                  ],
-        "large":  6,
-        "type":  "sword",
+        "id":  42,
         "effects":  [
 
                     ],
+        "name":  "細劍",
+        "type":  "sword",
+        "large":  6,
+        "safenchant":  6,
         "small":  11
     },
     {
-        "name":  "武士刀",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
                      "騎士",
-                     "妖精"
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
                  ],
-        "large":  12,
-        "type":  "sword",
+        "id":  43,
         "effects":  [
                         "命中 +1"
                     ],
-        "small":  10
+        "name":  "海賊彎刀",
+        "type":  "sword",
+        "large":  6,
+        "safenchant":  6,
+        "small":  11
     },
     {
-        "name":  "大馬士革刀",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "妖精"
                  ],
-        "large":  11,
-        "type":  "sword",
+        "id":  41,
         "effects":  [
-
+                        "命中 +1"
                     ],
+        "name":  "武士刀",
+        "type":  "sword",
+        "large":  12,
+        "safenchant":  6,
         "small":  10
     },
     {
-        "name":  "侵略者之劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "妖精"
+                 ],
+        "id":  37,
+        "effects":  [
+
+                    ],
+        "name":  "大馬士革刀",
+        "type":  "sword",
+        "large":  11,
         "safenchant":  6,
+        "small":  10
+    },
+    {
+        "jobs":  [
+                     "騎士",
+                     "妖精",
+                     "黑妖",
+                     "龍騎"
+                 ],
+        "id":  38,
+        "effects":  [
+                        "命中 +1"
+                    ],
+        "name":  "拉斯塔巴德長劍",
+        "type":  "sword",
+        "large":  12,
+        "safenchant":  6,
+        "small":  10
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  11,
-        "type":  "sword",
+        "id":  32,
         "effects":  [
 
                     ],
+        "name":  "侵略者之劍",
+        "type":  "sword",
+        "large":  11,
+        "safenchant":  6,
         "small":  9
     },
     {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  31,
+        "effects":  [
+
+                    ],
         "name":  "長劍",
+        "type":  "sword",
+        "large":  12,
         "safenchant":  6,
+        "small":  8
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  12,
-        "type":  "sword",
+        "id":  30,
         "effects":  [
 
                     ],
-        "small":  8
-    },
-    {
         "name":  "紅騎士之劍",
+        "type":  "sword",
+        "large":  12,
         "safenchant":  6,
+        "small":  8
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
                      "妖精"
                  ],
-        "large":  12,
-        "type":  "sword",
+        "id":  29,
         "effects":  [
 
                     ],
-        "small":  8
-    },
-    {
         "name":  "銀長劍",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
+        "type":  "sword",
         "large":  12,
-        "type":  "sword",
-        "effects":  [
-
-                    ],
+        "safenchant":  6,
         "small":  8
     },
     {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  27,
+        "effects":  [
+
+                    ],
         "name":  "彎刀",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  8,
         "type":  "sword",
-        "effects":  [
-
-                    ],
+        "large":  8,
+        "safenchant":  6,
         "small":  8
     },
     {
-        "name":  "小侏儒短劍",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
                      "法師",
-                     "妖精"
+                     "妖精",
+                     "黑妖"
                  ],
+        "id":  112,
+        "effects":  [
+
+                    ],
+        "name":  "精靈短劍",
+        "type":  "sword",
         "large":  8,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精",
+                     "黑妖"
+                 ],
+        "id":  113,
+        "effects":  [
+                        "力量 +-1",
+                        "敏捷 +1",
+                        "精神 +-1",
+                        "HP +-15"
+                    ],
+        "name":  "敏捷精靈短劍",
         "type":  "sword",
+        "large":  8,
+        "safenchant":  6,
+        "small":  8
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  26,
         "effects":  [
 
                     ],
+        "name":  "小侏儒短劍",
+        "type":  "sword",
+        "large":  8,
+        "safenchant":  6,
         "small":  7
     },
     {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  25,
+        "effects":  [
+
+                    ],
         "name":  "銀劍",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  7,
         "type":  "sword",
-        "effects":  [
-
-                    ],
+        "large":  7,
+        "safenchant":  6,
         "small":  7
     },
     {
-        "name":  "鎖子甲破壞者",
-        "safenchant":  6,
         "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
+                     "黑妖"
                  ],
-        "large":  5,
-        "type":  "sword",
-        "effects":  [
-                        "命中 +10"
-                    ],
-        "small":  4
-    },
-    {
-        "name":  "闊劍",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士",
-                     "法師",
-                     "妖精"
-                 ],
-        "large":  6,
-        "type":  "sword",
+        "id":  206,
         "effects":  [
 
                     ],
-        "small":  4
+        "name":  "黑暗精靈之劍",
+        "type":  "sword",
+        "large":  8,
+        "safenchant":  0,
+        "small":  7
     },
     {
-        "name":  "歐西斯短劍",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
@@ -748,88 +1551,143 @@
                      "黑妖",
                      "龍騎"
                  ],
-        "large":  4,
-        "type":  "sword",
+        "id":  21,
         "effects":  [
 
                     ],
+        "name":  "歐西斯短劍",
+        "type":  "sword",
+        "large":  4,
+        "safenchant":  6,
         "small":  4
     },
     {
-        "name":  "受封印 被遺忘的劍",
-        "safenchant":  -1,
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  23,
+        "effects":  [
+
+                    ],
+        "name":  "闊劍",
+        "type":  "sword",
+        "large":  6,
+        "safenchant":  6,
+        "small":  4
+    },
+    {
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "法師",
+                     "妖精"
+                 ],
+        "id":  22,
+        "effects":  [
+                        "命中 +10"
+                    ],
+        "name":  "鎖子甲破壞者",
+        "type":  "sword",
+        "large":  5,
+        "safenchant":  6,
+        "small":  4
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "妖精",
                      "黑妖"
                  ],
-        "large":  2,
-        "type":  "sword",
+        "id":  18,
         "effects":  [
                         "命中 +5"
                     ],
+        "name":  "受封印 被遺忘的劍",
+        "type":  "sword",
+        "large":  2,
+        "safenchant":  -1,
         "small":  3
     },
     {
-        "name":  "巨斧",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士"
                  ],
-        "large":  26,
-        "type":  "tohandblunt",
+        "id":  148,
         "effects":  [
 
                     ],
+        "name":  "巨斧",
+        "type":  "tohandblunt",
+        "large":  26,
+        "safenchant":  6,
         "small":  20
     },
     {
-        "name":  "狂戰士斧",
-        "safenchant":  6,
         "jobs":  [
                      "騎士"
                  ],
-        "large":  19,
-        "type":  "tohandblunt",
+        "id":  145,
         "effects":  [
 
                     ],
+        "name":  "狂戰士斧",
+        "type":  "tohandblunt",
+        "large":  19,
+        "safenchant":  6,
         "small":  19
     },
     {
-        "name":  "戰斧",
+        "jobs":  [
+                     "王族",
+                     "騎士"
+                 ],
+        "id":  144,
+        "effects":  [
+
+                    ],
+        "name":  "侏儒鐵斧",
+        "type":  "tohandblunt",
+        "large":  24,
         "safenchant":  6,
+        "small":  18
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "妖精"
                  ],
-        "large":  18,
-        "type":  "tohandblunt",
+        "id":  143,
         "effects":  [
 
                     ],
+        "name":  "戰斧",
+        "type":  "tohandblunt",
+        "large":  18,
+        "safenchant":  6,
         "small":  18
     },
     {
-        "name":  "侏儒鐵斧",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士"
                  ],
-        "large":  24,
-        "type":  "tohandblunt",
+        "id":  142,
         "effects":  [
 
                     ],
-        "small":  18
+        "name":  "銀斧",
+        "type":  "tohandblunt",
+        "large":  24,
+        "safenchant":  6,
+        "small":  17
     },
     {
-        "name":  "戰錘",
-        "safenchant":  6,
         "jobs":  [
                      "王族",
                      "騎士",
@@ -837,87 +1695,145 @@
                      "龍騎",
                      "幻術"
                  ],
+        "id":  141,
+        "effects":  [
+
+                    ],
+        "name":  "戰錘",
+        "type":  "tohandblunt",
         "large":  19,
-        "type":  "tohandblunt",
-        "effects":  [
-
-                    ],
+        "safenchant":  6,
         "small":  17
     },
     {
-        "name":  "銀斧",
-        "safenchant":  6,
-        "jobs":  [
-                     "王族",
-                     "騎士"
-                 ],
-        "large":  24,
-        "type":  "tohandblunt",
-        "effects":  [
-
-                    ],
-        "small":  17
-    },
-    {
-        "name":  "古老的法杖",
-        "safenchant":  6,
         "jobs":  [
                      "法師",
                      "幻術"
                  ],
-        "large":  15,
-        "type":  "tohandstaff",
+        "id":  277,
         "effects":  [
-            "特殊:發動“光裂術”"
-
+                        "智力 +2",
+                        "精神 +2",
+                        "魔攻 +10"
                     ],
+        "name":  "古老的法杖",
+        "type":  "tohandstaff",
+        "large":  15,
+        "safenchant":  6,
         "small":  15
     },
     {
-        "name":  "古老的巨劍",
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "id":  132,
+        "effects":  [
+
+                    ],
+        "name":  "神官魔杖",
+        "type":  "tohandstaff",
+        "large":  9,
         "safenchant":  6,
+        "small":  9
+    },
+    {
+        "jobs":  [
+                     "法師",
+                     "幻術"
+                 ],
+        "id":  134,
+        "effects":  [
+                        "命中 +15",
+                        "額外攻擊 +10",
+                        "智力 +2",
+                        "魔攻 +10"
+                    ],
+        "name":  "聖晶魔杖",
+        "type":  "tohandstaff",
+        "large":  5,
+        "safenchant":  0,
+        "small":  5
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士",
                      "龍騎"
                  ],
-        "large":  45,
-        "type":  "tohandsword",
+        "id":  67,
         "effects":  [
                         "命中 +3",
-                        "額外攻擊 +15",
-                        "特殊:發動“光裂術”"
+                        "額外攻擊 +15"
                     ],
+        "name":  "古老的巨劍",
+        "type":  "tohandsword",
+        "large":  45,
+        "safenchant":  6,
         "small":  27
     },
     {
-        "name":  "雙手劍",
+        "jobs":  [
+                     "王族",
+                     "騎士",
+                     "龍騎"
+                 ],
+        "id":  64,
+        "effects":  [
+                        "額外攻擊 +3"
+                    ],
+        "name":  "巨劍",
+        "type":  "tohandsword",
+        "large":  17,
         "safenchant":  6,
+        "small":  20
+    },
+    {
+        "jobs":  [
+                     "騎士",
+                     "龍騎"
+                 ],
+        "id":  62,
+        "effects":  [
+                        "命中 +1",
+                        "額外攻擊 +5"
+                    ],
+        "name":  "武官雙手劍",
+        "type":  "tohandsword",
+        "large":  23,
+        "safenchant":  6,
+        "small":  19
+    },
+    {
         "jobs":  [
                      "王族",
                      "騎士"
                  ],
-        "large":  21,
-        "type":  "tohandsword",
+        "id":  52,
         "effects":  [
                         "額外攻擊 +3"
                     ],
+        "name":  "雙手劍",
+        "type":  "tohandsword",
+        "large":  21,
+        "safenchant":  6,
         "small":  17
     },
     {
-        "name":  "受封印 被遺忘的巨劍",
-        "safenchant":  -1,
         "jobs":  [
                      "王族",
                      "騎士",
                      "龍騎"
                  ],
-        "large":  6,
-        "type":  "tohandsword",
+        "id":  17,
         "effects":  [
                         "命中 +3",
                         "額外攻擊 +3"
                     ],
+        "name":  "受封印 被遺忘的巨劍",
+        "type":  "tohandsword",
+        "large":  6,
+        "safenchant":  -1,
         "small":  5
     }
 ]

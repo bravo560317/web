@@ -2296,7 +2296,7 @@
 <!-- ===================== 綜合掉落與怪物索引查詢 ===================== -->
 <div id="tab6" class="tab-content">
   <div style="text-align:center; margin-bottom:20px;">
-    <img src="aaa/爵戰天堂.jpg" alt="爵戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+    <img src="aaa/翼戰天堂.jpg" alt="翼戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
   </div>
   <div style="text-align:center; margin-bottom:30px;">
     <h2 style="color:var(--accent-cyan);">★ 綜合掉落查詢 ★</h2>
@@ -2306,311 +2306,360 @@
   <div id="result"></div>
 </div>
 
-    <!-- ===================== tab3: 武器介紹 ===================== -->
-    <div id="tab3" class="tab-content">
-      <div style="text-align:center; margin-bottom:20px;">
-        <img src="aaa/爵戰天堂.jpg" alt="爵戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
-      </div>
-      <div class="section-title">★ 武器介紹 ★</div>
-      <div id="weapon-container"></div>
-    </div>
+<!-- ===================== tab3: 武器介紹 ===================== -->
+<div id="tab3" class="tab-content">
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="aaa/翼戰天堂.jpg" alt="翼戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+  </div>
+  <div class="section-title">★ 武器介紹 ★</div>
+  <div id="weapon-container"></div>
+</div>
 
-    <!-- ===================== tab8: 防具介紹 ===================== -->
-    <div id="tab8" class="tab-content">
-      <div style="text-align:center; margin-bottom:20px;">
-        <img src="aaa/爵戰天堂.jpg" alt="爵戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
-      </div>
-      <div class="section-title">★ 防具介紹 ★</div>
-      <div id="armor-container"></div>
-    </div>
+<!-- ===================== tab8: 防具介紹 ===================== -->
+<div id="tab8" class="tab-content">
+  <div style="text-align:center; margin-bottom:20px;">
+    <img src="aaa/翼戰天堂.jpg" alt="翼戰天堂" style="width:800px; max-width:100%; border-radius:50px; display:block; margin:0 auto; border: 2px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.3);">
+  </div>
+  <div class="section-title">★ 防具介紹 ★</div>
+  <div id="armor-container"></div>
+</div>
 
 <!-- JS: 綜合查詢系統 (改用 mobId 獨立區分同名怪物) -->
-  <script>
-    let DROPS = {};          
-    let MONSTER_MAP = {};    // Key 改用 mobId
-    let MONSTER_INFO = {};   // Key 改用 mobId
+<script>
+  let DROPS = {};
+  let MONSTER_MAP = {};
+  let MONSTER_INFO = {};
 
-    function formatRate(chance) {
-      const rate = chance / 10000;
-      if (rate < 0.01) return "<0.01%";
-      if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
-      return rate.toFixed(2) + "%";
-    }
+  function formatRate(chance) {
+    const rate = Number(chance) / 10000;
+    if (!Number.isFinite(rate)) return "0%";
+    if (rate < 0.01) return "<0.01%";
+    if (rate >= 1) return Number.isInteger(rate) ? rate + "%" : rate.toFixed(1) + "%";
+    return rate.toFixed(2) + "%";
+  }
 
-    function rateClass(chance) {
-      const rate = chance / 10000;
-      if (rate >= 10) return "rate-high";
-      if (rate >= 1) return "rate-mid";
-      return "rate-low";
-    }
+  function rateClass(chance) {
+    const rate = Number(chance) / 10000;
+    if (rate >= 10) return "rate-high";
+    if (rate >= 1) return "rate-mid";
+    return "rate-low";
+  }
 
-    Promise.all([
-      fetch('droplist_new.json').then(r => r.json()).catch(() => ({})),
-      fetch('monsters_index.json').then(r => r.json()).catch(() => [])
-    ]).then(([dropData, monsterData]) => {
-      DROPS = dropData;
+  Promise.all([
+    fetch('droplist_new.json').then(r => r.json()).catch(() => ({})),
+    fetch('monsters_index.json').then(r => r.json()).catch(() => [])
+  ]).then(([dropData, monsterData]) => {
+    DROPS = dropData || {};
+    const mList = Array.isArray(monsterData) ? monsterData : Object.values(monsterData || {});
 
-      const mList = Array.isArray(monsterData) ? monsterData : Object.values(monsterData);
-      
-      // 1. 建立 MONSTER_INFO 索引（以 id 為主，同時支援用 name 快速查找）
-      mList.forEach(m => {
-        if (m && m.id !== undefined) {
-          MONSTER_INFO[m.id] = m;
-        }
-      });
-
-      // 2. 建立 MONSTER_MAP 索引（以 mobId 為主，解決同名怪掉落混淆）
-      for (const id in DROPS) {
-        const item = DROPS[id];
-        if (item.drops) {
-          item.drops.forEach(d => {
-            let mId = d.mobId;
-            // 備用防護：若舊資料沒有 mobId，嘗試透過名字從 MONSTER_INFO 反查 ID
-            if (!mId && d.mob) {
-              const matched = mList.find(m => m.name === d.mob);
-              if (matched) mId = matched.id;
-            }
-            if (!mId) mId = d.mob; // 若真的找不到 ID 則退回用名字
-
-            if (!MONSTER_MAP[mId]) { 
-              MONSTER_MAP[mId] = { mobName: d.mob, drops: [] }; 
-            }
-            MONSTER_MAP[mId].drops.push({ name: item.name, chance: d.chance });
-          });
-        }
+    // 1. 建立 MONSTER_INFO 索引（以 id 為主）
+    mList.forEach(m => {
+      if (m && m.id !== undefined && m.id !== null) {
+        MONSTER_INFO[String(m.id)] = m;
       }
     });
 
-    function searchAll() {
-      const kw = document.getElementById("keyword").value.trim().toLowerCase();
-      const result = document.getElementById("result");
-      result.innerHTML = "";
-      if (!kw) return;
+    // 2. 建立 MONSTER_MAP 索引（以 mobId 為主，避免同名怪物混淆）
+    for (const id in DROPS) {
+      const item = DROPS[id];
+      if (!item || !Array.isArray(item.drops)) continue;
 
-      let found = false;
-      const matchedMobIds = new Set();
-      
-      // 搜尋符合的怪物 (透過 MONSTER_MAP 裡的 mobName 或 MONSTER_INFO 裡的資料)
-      for (const mId in MONSTER_MAP) {
-        const data = MONSTER_MAP[mId];
-        const info = MONSTER_INFO[mId] || {};
-        
-        const matchName = data.mobName && data.mobName.toLowerCase().includes(kw);
-        const matchMap = Array.isArray(info.maps) && info.maps.some(map => String(map).toLowerCase().includes(kw));
-        
-        if (matchName || matchMap) {
-          matchedMobIds.add(mId);
+      item.drops.forEach(d => {
+        if (!d) return;
+        let mId = d.mobId;
+        if ((mId === undefined || mId === null || mId === "") && d.mob) {
+          const matched = mList.find(m => m && m.name === d.mob);
+          if (matched) mId = matched.id;
         }
-      }
+        if (mId === undefined || mId === null || mId === "") {
+          mId = d.mob;
+        }
+        const key = String(mId);
 
-      // 渲染怪物卡片（每個不重複的 mobId 獨立一張卡片）
-      matchedMobIds.forEach(mId => {
-        found = true;
-        const box = document.createElement("div");
-        box.className = "box";
-
-        let info = MONSTER_INFO[mId] || {};
-        let mobName = info.name || (MONSTER_MAP[mId] ? MONSTER_MAP[mId].mobName : mId);
-        let lvlText = info.lvl !== undefined ? `Lv. ${info.lvl}` : '未知等級';
-        let hpText = info.hp !== undefined ? `HP. ${Number(info.hp).toLocaleString()}` : '未知血量';
-        let mapTags = Array.isArray(info.maps) && info.maps.length > 0 
-          ? info.maps.map(mp => `<span class="tag" style="background:#3a2e2b; color:#ffa8a8;">${mp}</span>`).join(" / ") 
-          : '無';
-
-        let dropObj = MONSTER_MAP[mId];
-        let dropTags = '無';
-        if (dropObj && dropObj.drops && dropObj.drops.length > 0) {
-          dropObj.drops.sort((a,b) => b.chance - a.chance);
-          dropTags = dropObj.drops.map(item => `<span class="${rateClass(item.chance)}">${item.name} (${formatRate(item.chance)})</span>`).join(" / ");
+        if (!MONSTER_MAP[key]) {
+          MONSTER_MAP[key] = { mobName: d.mob || key, drops: [] };
         }
 
-        let html = `
-          <div class="title mob-title">【怪物】${mobName}</div>
-          <table style="width:100%; margin: 6px 0; font-size: 14px;">
-            <tr>
-              <td style="width:50%; border:none; padding:2px 0; background:transparent;">等級：<span style="color:#00f3ff; font-weight:bold;">${lvlText}</span></td>
-              <td style="width:50%; border:none; padding:2px 0; background:transparent;">血量：<span style="color:#ffd700; font-weight:bold;">${hpText}</span></td>
-            </tr>
-          </table>
-          <div class="line" style="font-size: 14px; margin-bottom: 4px;">出沒地圖：${mapTags}</div>
-          <div class="line" style="font-size: 14px;">掉落物：${dropTags}</div>
-        `;
-
-        box.innerHTML = html;
-        result.appendChild(box);
-      });
-
-      // 道具搜尋維持原本樣式
-      for (const id in DROPS) {
-        const item = DROPS[id];
-        if (!item.name.toLowerCase().includes(kw)) continue;
-        
-        found = true;
-        const box = document.createElement("div");
-        box.className = "box";
-        let html = `<div class="title item-title">【道具】${item.name}</div>`;
-        
-        item.drops.sort((a,b) => b.chance - a.chance).forEach(d => {
-          let mobDisplayName = d.mob || `ID:${d.mobId}`;
-          html += `<div class="line ${rateClass(d.chance)}">- ${mobDisplayName} (${formatRate(d.chance)})</div>`;
-        });
-        
-        box.innerHTML = html;
-        result.appendChild(box);
-      }
-
-      if (!found) {
-        result.innerHTML = `<div style="color:#aaa;text-align:center; padding: 20px;">查無相關結果</div>`;
-      }
-    }
-  </script>
-
-<!-- JS: 武器載入 (修正同名怪掉落對應) -->
-  <script>
-    Promise.all([
-      fetch('weapon.json').then(r => r.json()).catch(() => []),
-      fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
-    ]).then(([weapons, drops]) => {
-      if (!weapons.length) return;
-      let html = "";
-      weapons.forEach(w => {
-        let dropInfo = "【製作】";
-        for (let id in drops) {
-          let dropName = drops[id].name.trim();
-          let weaponName = w.name.trim();
-          if (dropName === weaponName) {
-            let mobList = drops[id].drops.map(d => d.mob).filter(Boolean).join("、");
-            if (mobList) {
-              dropInfo = mobList;
-            }
-            break;
+        // 若同一怪物對同一道具已有紀錄，保留較高機率
+        const existing = MONSTER_MAP[key].drops.find(x => x.name === item.name);
+        if (existing) {
+          if (Number(d.chance) > Number(existing.chance)) {
+            existing.chance = d.chance;
           }
-        }
-        w.calculatedDropInfo = dropInfo;
-        w.isCrafted = (dropInfo === "【製作】");
-      });
-
-      weapons.sort((a, b) => {
-        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
-        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
-        if (typeA !== typeB) return typeA.localeCompare(typeB);
-        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
-        return a.name.localeCompare(b.name, 'zh-Hant');
-      });
-
-      let lastType = null;
-      const allowedJobs = ["王族", "妖精", "騎士", "法師"];
-      const weaponTypeNames = {
-        "sword": "長劍", "dagger": "匕首", "tohandsword": "雙手劍", "bow": "弓",
-        "spear": "矛", "blunt": "鈍器", "staff": "魔杖", "edoryu": "雙刀",
-        "claw": "爪", "kiringku": "奇古獸", "singlespear": "單手矛",
-        "tohandblunt": "雙手鈍器", "singlebow": "單手弓", "tohandstaff": "雙手法杖", "chainsword": "鎖鏈劍"
-      };
-
-      function highlightKeyword(text) {
-        if (!text) return "";
-        return text.replace(/特殊:/g, '<span style="color: #ff4081; font-weight: bold;">特殊:</span>');
-      }
-
-      weapons.forEach(w => {
-        let currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
-        if (lastType !== null && currentType !== lastType) {
-          html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
-        }
-        if (lastType !== currentType) {
-          let typeDisplayName = weaponTypeNames[currentType] || `類型 ${currentType}`;
-          html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName}一覽</td></tr></table></div>`;
-        }
-        lastType = currentType;
-
-        let filteredJobs = (w.jobs && w.jobs.length) ? w.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
-        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
-        let jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
-        let effects = highlightKeyword((w.effects && w.effects.length) ? w.effects.join(" / ") : "-");
-
-        let safeVal = w.safenchant !== undefined ? w.safenchant : (w.SAFENCHANT !== undefined ? w.SAFENCHANT : "");
-        let safeText = "";
-        if (safeVal !== "" && safeVal !== null) {
-          safeText = Number(safeVal) === -1 ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>` : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
-        }
-
-        html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${w.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">傷害 ${w.small} / ${w.large}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
-      });
-      const wc = document.getElementById("weapon-container");
-      if (wc) wc.innerHTML = html;
-    });
-  </script>
-
-<!-- JS: 防具載入 (修正同名怪掉落對應) -->
-  <script>
-    Promise.all([
-      fetch('armor.json').then(r => r.json()).catch(() => []),
-      fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
-    ]).then(([armors, drops]) => {
-      if (!armors.length) return;
-      let html = "";
-      const dropMap = new Map();
-      for (let id in drops) {
-        const dropName = drops[id].name.trim();
-        const mobList = drops[id].drops.map(d => d.mob).filter(Boolean).join("、");
-        dropMap.set(dropName, mobList);
-      }
-
-      armors.forEach(a => {
-        const armorName = a.name.trim();
-        if (dropMap.has(armorName)) {
-          a.calculatedDropInfo = dropMap.get(armorName);
-          a.isCrafted = false;
         } else {
-          a.calculatedDropInfo = "【製作】";
-          a.isCrafted = true;
+          MONSTER_MAP[key].drops.push({ name: item.name, chance: d.chance });
         }
       });
+    }
+  });
 
-      armors.sort((a, b) => {
-        let typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
-        let typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
-        if (typeA !== typeB) return typeA.localeCompare(typeB);
-        if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
-        return a.name.localeCompare(b.name, 'zh-Hant');
-      });
+  function searchAll() {
+    const kw = document.getElementById("keyword").value.trim().toLowerCase();
+    const result = document.getElementById("result");
+    result.innerHTML = "";
+    if (!kw) return;
 
-      const allowedJobs = ["王族", "妖精", "騎士", "法師"];
-      let lastType = null;
-      const typeNames = {
-        "helm": "頭盔", "armor": "盔甲", "shield": "盾牌", "T": "T恤",
-        "cloak": "斗篷", "glove": "手套", "boots": "靴子", "ring": "戒指",
-        "amulet": "項鍊", "pants": "脛甲", "guarder": "臂甲", "earring": "耳環", "belt": "腰帶"
-      };
+    let found = false;
+    const matchedMobIds = new Set();
 
-      armors.forEach(a => {
-        let currentType = a.type !== undefined && a.type !== null ? String(a.type) : "unknown";
-        if (lastType !== null && currentType !== lastType) {
-          html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
-        }
-        if (lastType !== currentType) {
-          let typeDisplayName = typeNames[currentType] || currentType;
-          html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName} 一覽</td></tr></table></div>`;
-        }
-        lastType = currentType;
+    // 搜尋符合的怪物（比對怪物名稱或出沒地圖）
+    for (const mId in MONSTER_MAP) {
+      const data = MONSTER_MAP[mId];
+      const info = MONSTER_INFO[mId] || {};
 
-        let filteredJobs = a.jobs.length ? a.jobs.filter(job => allowedJobs.includes(job.trim())) : allowedJobs;
-        let baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
-        let jobs = a.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
-        let effects = a.effects.length ? a.effects.join(" / ") : "-";
+      const matchName = data.mobName && String(data.mobName).toLowerCase().includes(kw);
+      const matchMap = Array.isArray(info.maps) && info.maps.some(map => String(map).toLowerCase().includes(kw));
 
-        let safeVal = a.safenchant !== undefined ? a.safenchant : (a.SAFENCHANT !== undefined ? a.SAFENCHANT : "");
-        let safeText = "";
-        if (safeVal !== "" && safeVal !== null) {
-          safeText = Number(safeVal) === -1 ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>` : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
-        }
+      if (matchName || matchMap) {
+        matchedMobIds.add(mId);
+      }
+    }
 
-        html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${a.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">AC ${a.ac}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
-      });
-      const ac = document.getElementById("armor-container");
-      if (ac) ac.innerHTML = html;
+    // 渲染怪物卡片
+    matchedMobIds.forEach(mId => {
+      found = true;
+      const box = document.createElement("div");
+      box.className = "box";
+
+      const info = MONSTER_INFO[mId] || {};
+      const mobName = info.name || (MONSTER_MAP[mId] ? MONSTER_MAP[mId].mobName : mId);
+      const lvlText = info.lvl !== undefined ? `Lv. ${info.lvl}` : "未知等級";
+      const hpText = info.hp !== undefined ? `HP. ${Number(info.hp).toLocaleString()}` : "未知血量";
+      const mapTags = Array.isArray(info.maps) && info.maps.length > 0
+        ? info.maps.map(mp => `<span class="tag" style="background:#3a2e2b; color:#ffa8a8;">${mp}</span>`).join(" / ")
+        : "無";
+
+      const dropObj = MONSTER_MAP[mId];
+      let dropTags = "無";
+      if (dropObj && Array.isArray(dropObj.drops) && dropObj.drops.length > 0) {
+        dropObj.drops.sort((a, b) => Number(b.chance) - Number(a.chance));
+        dropTags = dropObj.drops
+          .map(item => `<span class="${rateClass(item.chance)}">${item.name} (${formatRate(item.chance)})</span>`)
+          .join(" / ");
+      }
+
+      box.innerHTML = `
+        <div class="title mob-title">【怪物】${mobName}</div>
+        <table style="width:100%; margin: 6px 0; font-size: 14px;">
+          <tr>
+            <td style="width:50%; border:none; padding:2px 0; background:transparent;">等級：<span style="color:#00f3ff; font-weight:bold;">${lvlText}</span></td>
+            <td style="width:50%; border:none; padding:2px 0; background:transparent;">血量：<span style="color:#ffd700; font-weight:bold;">${hpText}</span></td>
+          </tr>
+        </table>
+        <div class="line" style="font-size: 14px; margin-bottom: 4px;">出沒地圖：${mapTags}</div>
+        <div class="line" style="font-size: 14px;">掉落物：${dropTags}</div>
+      `;
+
+      result.appendChild(box);
     });
-  </script>
+
+    // 道具搜尋
+    for (const id in DROPS) {
+      const item = DROPS[id];
+      if (!item || !item.name || !String(item.name).toLowerCase().includes(kw)) continue;
+
+      found = true;
+      const box = document.createElement("div");
+      box.className = "box";
+      let html = `<div class="title item-title">【道具】${item.name}</div>`;
+
+      const sortedDrops = Array.isArray(item.drops) ? [...item.drops] : [];
+      sortedDrops.sort((a, b) => Number(b.chance) - Number(a.chance));
+      sortedDrops.forEach(d => {
+        if (!d) return;
+        const mobDisplayName = d.mob || `ID:${d.mobId}`;
+        html += `<div class="line ${rateClass(d.chance)}">- ${mobDisplayName} (${formatRate(d.chance)})</div>`;
+      });
+
+      box.innerHTML = html;
+      result.appendChild(box);
+    }
+
+    if (!found) {
+      result.innerHTML = `<div style="color:#aaa;text-align:center; padding: 20px;">查無相關結果</div>`;
+    }
+  }
+</script>
+
+<!-- JS: 武器載入 (支援黑妖與精準掉落對應) -->
+<script>
+  Promise.all([
+    fetch('weapon.json').then(r => r.json()).catch(() => []),
+    fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
+  ]).then(([weapons, drops]) => {
+    if (!Array.isArray(weapons) || !weapons.length) return;
+
+    const dropSetsByName = new Map();
+    for (const id in drops) {
+      const entry = drops[id];
+      if (!entry || !entry.name) continue;
+      const itemName = String(entry.name).trim();
+      if (!dropSetsByName.has(itemName)) {
+        dropSetsByName.set(itemName, new Set());
+      }
+      if (Array.isArray(entry.drops)) {
+        entry.drops.forEach(d => {
+          if (d && d.mob) dropSetsByName.get(itemName).add(String(d.mob).trim());
+        });
+      }
+    }
+
+    weapons.forEach(w => {
+      const weaponName = String(w.name || "").trim();
+      const mobSet = dropSetsByName.get(weaponName);
+      if (mobSet && mobSet.size > 0) {
+        w.calculatedDropInfo = [...mobSet].join("、");
+        w.isCrafted = false;
+      } else {
+        w.calculatedDropInfo = "【製作】";
+        w.isCrafted = true;
+      }
+    });
+
+    weapons.sort((a, b) => {
+      const typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+      const typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+      if (typeA !== typeB) return typeA.localeCompare(typeB);
+      if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
+      return String(a.name || "").localeCompare(String(b.name || ""), "zh-Hant");
+    });
+
+    let html = "";
+    let lastType = null;
+    const allowedJobs = ["王族", "妖精", "騎士", "法師", "黑妖"];
+    const weaponTypeNames = {
+      "sword": "長劍", "dagger": "匕首", "tohandsword": "雙手劍", "bow": "弓",
+      "spear": "矛", "blunt": "鈍器", "staff": "魔杖", "edoryu": "雙刀",
+      "claw": "爪", "kiringku": "奇古獸", "singlespear": "單手矛",
+      "tohandblunt": "雙手鈍器", "singlebow": "單手弓", "tohandstaff": "雙手法杖", "chainsword": "鎖鏈劍"
+    };
+
+    function highlightKeyword(text) {
+      if (!text) return "";
+      return text.replace(/特殊:/g, '<span style="color: #ff4081; font-weight: bold;">特殊:</span>');
+    }
+
+    weapons.forEach(w => {
+      const currentType = w.type !== undefined && w.type !== null ? String(w.type) : "unknown";
+      if (lastType !== null && currentType !== lastType) {
+        html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
+      }
+      if (lastType !== currentType) {
+        const typeDisplayName = weaponTypeNames[currentType] || `類型 ${currentType}`;
+        html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName}一覽</td></tr></table></div>`;
+      }
+      lastType = currentType;
+
+      const rawJobs = Array.isArray(w.jobs) ? w.jobs : [];
+      const filteredJobs = rawJobs.length
+        ? rawJobs.filter(job => allowedJobs.includes(String(job).trim()))
+        : allowedJobs;
+      const baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+      const jobs = w.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
+      const effects = highlightKeyword((Array.isArray(w.effects) && w.effects.length) ? w.effects.join(" / ") : "-");
+
+      const safeVal = w.safenchant !== undefined ? w.safenchant : (w.SAFENCHANT !== undefined ? w.SAFENCHANT : "");
+      let safeText = "";
+      if (safeVal !== "" && safeVal !== null) {
+        safeText = Number(safeVal) === -1
+          ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>`
+          : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+      }
+
+      html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${w.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">傷害 ${w.small} / ${w.large}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
+    });
+
+    const wc = document.getElementById("weapon-container");
+    if (wc) wc.innerHTML = html;
+  });
+</script>
+
+<!-- JS: 防具載入 (支援黑妖與精準掉落對應) -->
+<script>
+  Promise.all([
+    fetch('armor.json').then(r => r.json()).catch(() => []),
+    fetch('droplist_new.json').then(r => r.json()).catch(() => ({}))
+  ]).then(([armors, drops]) => {
+    if (!Array.isArray(armors) || !armors.length) return;
+
+    const dropSetsByName = new Map();
+    for (const id in drops) {
+      const entry = drops[id];
+      if (!entry || !entry.name) continue;
+      const itemName = String(entry.name).trim();
+      if (!dropSetsByName.has(itemName)) {
+        dropSetsByName.set(itemName, new Set());
+      }
+      if (Array.isArray(entry.drops)) {
+        entry.drops.forEach(d => {
+          if (d && d.mob) dropSetsByName.get(itemName).add(String(d.mob).trim());
+        });
+      }
+    }
+
+    armors.forEach(a => {
+      const armorName = String(a.name || "").trim();
+      const mobSet = dropSetsByName.get(armorName);
+      if (mobSet && mobSet.size > 0) {
+        a.calculatedDropInfo = [...mobSet].join("、");
+        a.isCrafted = false;
+      } else {
+        a.calculatedDropInfo = "【製作】";
+        a.isCrafted = true;
+      }
+    });
+
+    armors.sort((a, b) => {
+      const typeA = a.type !== undefined && a.type !== null ? String(a.type) : "";
+      const typeB = b.type !== undefined && b.type !== null ? String(b.type) : "";
+      if (typeA !== typeB) return typeA.localeCompare(typeB);
+      if (a.isCrafted !== b.isCrafted) return a.isCrafted ? 1 : -1;
+      return String(a.name || "").localeCompare(String(b.name || ""), "zh-Hant");
+    });
+
+    let html = "";
+    const allowedJobs = ["王族", "妖精", "騎士", "法師", "黑妖"];
+    let lastType = null;
+    const typeNames = {
+      "helm": "頭盔", "armor": "盔甲", "shield": "盾牌", "T": "T恤",
+      "cloak": "斗篷", "glove": "手套", "boots": "靴子", "ring": "戒指",
+      "amulet": "項鍊", "pants": "脛甲", "guarder": "臂甲", "earring": "耳環", "belt": "腰帶"
+    };
+
+    armors.forEach(a => {
+      const currentType = a.type !== undefined && a.type !== null ? String(a.type) : "unknown";
+      if (lastType !== null && currentType !== lastType) {
+        html += `<div style="margin:25px 0; border-top:1px solid rgba(255,255,255,0.2);"></div>`;
+      }
+      if (lastType !== currentType) {
+        const typeDisplayName = typeNames[currentType] || currentType;
+        html += `<div style="margin:20px 0 10px 0;"><table style="width:100%; table-layout:fixed;"><tr><td style="text-align:center; padding:8px; background:rgba(0,229,255,0.15); border:1px solid #00e5ff; color:#ffeb3b; font-size:18px; font-weight:bold; letter-spacing:2px; text-shadow: 0 0 8px rgba(255,235,59,0.5);">${typeDisplayName} 一覽</td></tr></table></div>`;
+      }
+      lastType = currentType;
+
+      const rawJobs = Array.isArray(a.jobs) ? a.jobs : [];
+      const filteredJobs = rawJobs.length
+        ? rawJobs.filter(job => allowedJobs.includes(String(job).trim()))
+        : allowedJobs;
+      const baseJobs = filteredJobs.length ? filteredJobs.join(" / ") : "無可用職業";
+      const jobs = a.isCrafted ? `${baseJobs}、【製作】` : baseJobs;
+      const effects = (Array.isArray(a.effects) && a.effects.length) ? a.effects.join(" / ") : "-";
+
+      const safeVal = a.safenchant !== undefined ? a.safenchant : (a.SAFENCHANT !== undefined ? a.SAFENCHANT : "");
+      let safeText = "";
+      if (safeVal !== "" && safeVal !== null) {
+        safeText = Number(safeVal) === -1
+          ? ` <span style="font-size:12px; color:#ff5252;">(不可強化)</span>`
+          : ` <span style="font-size:12px; color:#aaa;">(安定:${safeVal})</span>`;
+      }
+
+      html += `<div class="bullet" style="margin-bottom:10px;"><table style="width:100%; table-layout:fixed;"><tr><td style="width:40%; color:var(--accent-cyan); font-weight:bold;">${a.name}${safeText}</td><td style="width:60%;">${jobs}</td></tr><tr><td style="width:40%;">AC ${a.ac}</td><td style="width:60%; color:#00e5ff; font-weight:bold;">${effects}</td></tr></table></div>`;
+    });
+
+    const ac = document.getElementById("armor-container");
+    if (ac) ac.innerHTML = html;
+  });
+</script>
 
 
   
